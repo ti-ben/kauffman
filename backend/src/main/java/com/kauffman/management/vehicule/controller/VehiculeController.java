@@ -1,11 +1,11 @@
 package com.kauffman.management.vehicule.controller;
 
-import com.kfm.management.common.entity.ApiResponse;
-import com.kfm.management.modules.vehicule.entity.builder.VehiculeBuilder;
-import com.kfm.management.modules.vehicule.entity.dto.Vehicule;
-import com.kfm.management.modules.vehicule.entity.payload.VehiculeCreatePayload;
-import com.kfm.management.modules.vehicule.entity.payload.VehiculeUpdatePayload;
-import com.kfm.management.modules.vehicule.repository.VehiculeRepository;
+import com.kauffman.management.common.entity.ApiResponse;
+import com.kauffman.management.vehicule.entity.builder.VehiculeBuilder;
+import com.kauffman.management.vehicule.entity.dto.Vehicule;
+import com.kauffman.management.vehicule.entity.payload.VehiculeCreatePayload;
+import com.kauffman.management.vehicule.entity.payload.VehiculeUpdatePayload;
+import com.kauffman.management.vehicule.repository.VehiculeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

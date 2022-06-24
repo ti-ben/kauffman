@@ -1,6 +1,6 @@
 package com.kauffman.management.provider.entity.payload;
 
-import com.kfm.management.modules.address.entity.dto.Address;
+import com.kauffman.management.address.entity.dto.Address;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

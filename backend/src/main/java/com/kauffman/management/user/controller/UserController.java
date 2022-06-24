@@ -1,11 +1,11 @@
 package com.kauffman.management.user.controller;
 
-import com.kfm.management.common.entity.ApiResponse;
-import com.kfm.management.modules.user.entity.builder.UserBuilder;
-import com.kfm.management.modules.user.entity.dto.User;
-import com.kfm.management.modules.user.entity.payload.UserCreatePayload;
-import com.kfm.management.modules.user.entity.payload.UserUpdatePayload;
-import com.kfm.management.modules.user.repository.UserRepository;
+import com.kauffman.management.common.entity.ApiResponse;
+import com.kauffman.management.user.entity.builder.UserBuilder;
+import com.kauffman.management.user.entity.dto.User;
+import com.kauffman.management.user.entity.payload.UserCreatePayload;
+import com.kauffman.management.user.entity.payload.UserUpdatePayload;
+import com.kauffman.management.user.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -27,6 +27,7 @@ public class UserController {
                 .setAvatar(payload.getAvatar())
                 .setDob(payload.getDob())
                 .setEmail(payload.getEmail())
+                .setPassword(payload.getPassword())
                 .setPhonePro(payload.getPhone_pro())
                 .setPhonePerso(payload.getPhone_perso())
                 .setNationality(payload.getNationality())
@@ -71,6 +72,7 @@ public class UserController {
         fromDb.setAvatar(payload.getAvatar());
         fromDb.setDob(payload.getDob());
         fromDb.setEmail(payload.getEmail());
+        fromDb.setPassword(payload.getPassword());
         fromDb.setPhone_pro(payload.getPhone_pro());
         fromDb.setPhone_perso(payload.getPhone_perso());
         fromDb.setNationality(payload.getNationality());

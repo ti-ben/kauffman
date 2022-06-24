@@ -1,7 +1,7 @@
 package com.kauffman.management.user.entity.payload;
 
-import com.kfm.management.modules.site.entity.dto.Site;
-import com.kfm.management.modules.status.entity.dto.Status;
+import com.kauffman.management.site.entity.dto.Site;
+import com.kauffman.management.status.entity.dto.Status;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -21,6 +21,7 @@ public class UserUpdatePayload {
     private String avatar;
     private Date dob;
     private String email;
+    private String password;
     private String phone_pro;
     private String phone_perso;
     private String nationality;

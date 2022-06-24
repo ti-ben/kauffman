@@ -1,8 +1,8 @@
 package com.kauffman.management.period.entity.builder;
 
-import com.kfm.management.modules.period.entity.dto.Period;
-import com.kfm.management.modules.user.entity.dto.User;
-import com.kfm.management.modules.vehicule.entity.dto.Vehicule;
+import com.kauffman.management.period.entity.dto.Period;
+import com.kauffman.management.user.entity.dto.User;
+import com.kauffman.management.vehicule.entity.dto.Vehicule;
 
 import java.util.Date;
 import java.util.UUID;

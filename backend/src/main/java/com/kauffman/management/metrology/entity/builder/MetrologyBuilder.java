@@ -1,7 +1,7 @@
 package com.kauffman.management.metrology.entity.builder;
 
-import com.kfm.management.modules.metrology.entity.dto.Metrology;
-import com.kfm.management.modules.vehicule.entity.dto.Vehicule;
+import com.kauffman.management.metrology.entity.dto.Metrology;
+import com.kauffman.management.vehicule.entity.dto.Vehicule;
 
 import java.util.Date;
 import java.util.UUID;

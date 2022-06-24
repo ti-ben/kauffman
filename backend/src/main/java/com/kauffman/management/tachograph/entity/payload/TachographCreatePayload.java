@@ -1,6 +1,6 @@
 package com.kauffman.management.tachograph.entity.payload;
 
-import com.kfm.management.modules.user.entity.dto.User;
+import com.kauffman.management.user.entity.dto.User;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

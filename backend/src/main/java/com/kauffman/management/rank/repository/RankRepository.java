@@ -1,6 +1,6 @@
 package com.kauffman.management.rank.repository;
 
-import com.kfm.management.modules.rank.entity.dto.Rank;
+import com.kauffman.management.rank.entity.dto.Rank;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.UUID;

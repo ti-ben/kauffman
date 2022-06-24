@@ -1,6 +1,6 @@
 package com.kauffman.management.selectmed.entity.dto;
 
-import com.kfm.management.modules.period.entity.dto.Period;
+import com.kauffman.management.period.entity.dto.Period;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

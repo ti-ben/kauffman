@@ -1,11 +1,11 @@
 package com.kauffman.management.numberplate.controller;
 
-import com.kfm.management.common.entity.ApiResponse;
-import com.kfm.management.modules.numberplate.entity.builder.NumberplateBuilder;
-import com.kfm.management.modules.numberplate.entity.dto.Numberplate;
-import com.kfm.management.modules.numberplate.entity.payload.NumberplateCreatePayload;
-import com.kfm.management.modules.numberplate.entity.payload.NumberplateUpdatePayload;
-import com.kfm.management.modules.numberplate.repository.NumberplateRepository;
+import com.kauffman.management.common.entity.ApiResponse;
+import com.kauffman.management.numberplate.entity.builder.NumberplateBuilder;
+import com.kauffman.management.numberplate.entity.dto.Numberplate;
+import com.kauffman.management.numberplate.entity.payload.NumberplateCreatePayload;
+import com.kauffman.management.numberplate.entity.payload.NumberplateUpdatePayload;
+import com.kauffman.management.numberplate.repository.NumberplateRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -73,7 +73,7 @@ public class NumberplateController {
     }
 
     @PutMapping("/delete/{id}")
-    public ApiResponse delete(@PathVariable("id") UUID id)  {
+    public ApiResponse delete(@PathVariable("id") UUID id) {
         Numberplate fromDb = numberplateRepository.findById(id).orElse(null);
         if (fromDb == null) {
             return new ApiResponse(false, null, "api.numberplate.delete.not-found");

@@ -1,7 +1,7 @@
 package com.kauffman.management.provider.entity.builder;
 
-import com.kfm.management.modules.address.entity.dto.Address;
-import com.kfm.management.modules.provider.entity.dto.Provider;
+import com.kauffman.management.address.entity.dto.Address;
+import com.kauffman.management.provider.entity.dto.Provider;
 
 import java.util.UUID;
 
@@ -51,6 +51,6 @@ public class ProviderBuilder {
     }
 
     public Provider build() {
-        return new Provider(provider_id, name, phone, email, service,active, address);
+        return new Provider(provider_id, name, phone, email, service, active, address);
     }
 }

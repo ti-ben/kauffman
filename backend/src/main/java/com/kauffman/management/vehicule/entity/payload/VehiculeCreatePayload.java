@@ -1,7 +1,7 @@
 package com.kauffman.management.vehicule.entity.payload;
 
-import com.kfm.management.modules.numberplate.entity.dto.Numberplate;
-import com.kfm.management.modules.site.entity.dto.Site;
+import com.kauffman.management.numberplate.entity.dto.Numberplate;
+import com.kauffman.management.site.entity.dto.Site;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

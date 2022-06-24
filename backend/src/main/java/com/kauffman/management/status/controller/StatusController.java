@@ -1,11 +1,11 @@
 package com.kauffman.management.status.controller;
 
-import com.kfm.management.common.entity.ApiResponse;
-import com.kfm.management.modules.status.entity.builder.StatusBuilder;
-import com.kfm.management.modules.status.entity.dto.Status;
-import com.kfm.management.modules.status.entity.payload.StatusCreatePayload;
-import com.kfm.management.modules.status.entity.payload.StatusUpdatePayload;
-import com.kfm.management.modules.status.repository.StatusRepository;
+import com.kauffman.management.common.entity.ApiResponse;
+import com.kauffman.management.status.entity.builder.StatusBuilder;
+import com.kauffman.management.status.entity.dto.Status;
+import com.kauffman.management.status.entity.payload.StatusCreatePayload;
+import com.kauffman.management.status.entity.payload.StatusUpdatePayload;
+import com.kauffman.management.status.repository.StatusRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -69,7 +69,7 @@ public class StatusController {
     }
 
     @PutMapping("/delete/{id}")
-    public ApiResponse delete(@PathVariable("id") UUID id)  {
+    public ApiResponse delete(@PathVariable("id") UUID id) {
         Status fromDb = statusRepository.findById(id).orElse(null);
         if (fromDb == null) {
             return new ApiResponse(false, null, "api.status.delete.not-found");

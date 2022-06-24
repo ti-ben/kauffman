@@ -1,8 +1,8 @@
 package com.kauffman.management.vehicule.entity.builder;
 
-import com.kfm.management.modules.numberplate.entity.dto.Numberplate;
-import com.kfm.management.modules.site.entity.dto.Site;
-import com.kfm.management.modules.vehicule.entity.dto.Vehicule;
+import com.kauffman.management.numberplate.entity.dto.Numberplate;
+import com.kauffman.management.site.entity.dto.Site;
+import com.kauffman.management.vehicule.entity.dto.Vehicule;
 
 import java.util.Date;
 import java.util.UUID;
@@ -150,7 +150,7 @@ public class VehiculeBuilder {
 
     public Vehicule build() {
         return new Vehicule(vehicule_id, created_on, updated_on, date_of_purchase,
-                            price, num_chassis, brand, cde_carrosserie, genre, mom, mma, mmat, classe_enviro,
-                            nbr_km, metrology, avatar, avatar, fuel, type, active, bought_by, numberplate, site);
+                price, num_chassis, brand, cde_carrosserie, genre, mom, mma, mmat, classe_enviro,
+                nbr_km, metrology, avatar, avatar, fuel, type, active, bought_by, numberplate, site);
     }
 }

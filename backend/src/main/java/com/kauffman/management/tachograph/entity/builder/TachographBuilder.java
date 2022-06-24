@@ -1,7 +1,7 @@
 package com.kauffman.management.tachograph.entity.builder;
 
-import com.kfm.management.modules.tachograph.entity.dto.Tachograph;
-import com.kfm.management.modules.user.entity.dto.User;
+import com.kauffman.management.tachograph.entity.dto.Tachograph;
+import com.kauffman.management.user.entity.dto.User;
 
 import java.util.Date;
 import java.util.UUID;

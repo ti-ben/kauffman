@@ -1,11 +1,11 @@
 package com.kauffman.management.site.controller;
 
-import com.kfm.management.common.entity.ApiResponse;
-import com.kfm.management.modules.site.entity.builder.SiteBuilder;
-import com.kfm.management.modules.site.entity.dto.Site;
-import com.kfm.management.modules.site.entity.payload.SiteCreatePayload;
-import com.kfm.management.modules.site.entity.payload.SiteUpdatePayload;
-import com.kfm.management.modules.site.repository.SiteRepository;
+import com.kauffman.management.common.entity.ApiResponse;
+import com.kauffman.management.site.entity.builder.SiteBuilder;
+import com.kauffman.management.site.entity.dto.Site;
+import com.kauffman.management.site.entity.payload.SiteCreatePayload;
+import com.kauffman.management.site.entity.payload.SiteUpdatePayload;
+import com.kauffman.management.site.repository.SiteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -73,7 +73,7 @@ public class SiteController {
     }
 
     @PutMapping("/delete/{id}")
-    public ApiResponse delete(@PathVariable("id") UUID id)  {
+    public ApiResponse delete(@PathVariable("id") UUID id) {
         Site fromDb = siteRepository.findById(id).orElse(null);
         if (fromDb == null) {
             return new ApiResponse(false, null, "api.site.delete.not-found");

@@ -1,7 +1,7 @@
 package com.kauffman.management.intervtech.entity.builder;
 
-import com.kfm.management.modules.intervtech.entity.dto.Intervtech;
-import com.kfm.management.modules.vehicule.entity.dto.Vehicule;
+import com.kauffman.management.intervtech.entity.dto.Intervtech;
+import com.kauffman.management.vehicule.entity.dto.Vehicule;
 
 import java.util.Date;
 import java.util.UUID;

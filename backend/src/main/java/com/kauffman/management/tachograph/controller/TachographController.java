@@ -1,11 +1,11 @@
 package com.kauffman.management.tachograph.controller;
 
-import com.kfm.management.common.entity.ApiResponse;
-import com.kfm.management.modules.tachograph.entity.builder.TachographBuilder;
-import com.kfm.management.modules.tachograph.entity.dto.Tachograph;
-import com.kfm.management.modules.tachograph.entity.payload.TachographCreatePayload;
-import com.kfm.management.modules.tachograph.entity.payload.TachographUpdatePayload;
-import com.kfm.management.modules.tachograph.repository.TachographRepository;
+import com.kauffman.management.common.entity.ApiResponse;
+import com.kauffman.management.tachograph.entity.builder.TachographBuilder;
+import com.kauffman.management.tachograph.entity.dto.Tachograph;
+import com.kauffman.management.tachograph.entity.payload.TachographCreatePayload;
+import com.kauffman.management.tachograph.entity.payload.TachographUpdatePayload;
+import com.kauffman.management.tachograph.repository.TachographRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -63,7 +63,7 @@ public class TachographController {
     }
 
     @PutMapping("/delete/{id}")
-    public ApiResponse delete(@PathVariable("id") UUID id)  {
+    public ApiResponse delete(@PathVariable("id") UUID id) {
         Tachograph fromDb = tachographRepository.findById(id).orElse(null);
         if (fromDb == null) {
             return new ApiResponse(false, null, "api.tachograph.delete.not-found");

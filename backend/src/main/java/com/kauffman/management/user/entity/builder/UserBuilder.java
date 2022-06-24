@@ -1,9 +1,9 @@
 package com.kauffman.management.user.entity.builder;
 
-import com.kfm.management.modules.address.entity.dto.Address;
-import com.kfm.management.modules.site.entity.dto.Site;
-import com.kfm.management.modules.status.entity.dto.Status;
-import com.kfm.management.modules.user.entity.dto.User;
+import com.kauffman.management.address.entity.dto.Address;
+import com.kauffman.management.site.entity.dto.Site;
+import com.kauffman.management.status.entity.dto.Status;
+import com.kauffman.management.user.entity.dto.User;
 
 import java.util.Date;
 import java.util.UUID;
@@ -17,6 +17,7 @@ public class UserBuilder {
     private String avatar;
     private Date dob;
     private String email;
+    private String password;
     private String phone_pro;
     private String phone_perso;
     private String nationality;
@@ -63,6 +64,11 @@ public class UserBuilder {
 
     public UserBuilder setEmail(String email) {
         this.email = email;
+        return this;
+    }
+
+    public UserBuilder setPassword(String password) {
+        this.password = password;
         return this;
     }
 
@@ -127,7 +133,7 @@ public class UserBuilder {
     }
 
     public User build() {
-        return new User(user_id, firstname, lastname, gender, avatar, dob, email, phone_pro, phone_perso, nationality, numirn, driver_license, updated_on, created_on, pob, active, site, address, status);
+        return new User(user_id, firstname, lastname, gender, avatar, dob, email, password, phone_pro, phone_perso, nationality, numirn, driver_license, updated_on, created_on, pob, active, site, address, status);
     }
 
 }

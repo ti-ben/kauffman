@@ -1,7 +1,7 @@
 package com.kauffman.management.site.entity.builder;
 
-import com.kfm.management.modules.address.entity.dto.Address;
-import com.kfm.management.modules.site.entity.dto.Site;
+import com.kauffman.management.address.entity.dto.Address;
+import com.kauffman.management.site.entity.dto.Site;
 
 import java.util.Date;
 import java.util.UUID;

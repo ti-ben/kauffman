@@ -1,11 +1,11 @@
 package com.kauffman.management.metrology.controller;
 
-import com.kfm.management.common.entity.ApiResponse;
-import com.kfm.management.modules.metrology.entity.builder.MetrologyBuilder;
-import com.kfm.management.modules.metrology.entity.dto.Metrology;
-import com.kfm.management.modules.metrology.entity.payload.MetrologyCreatePayload;
-import com.kfm.management.modules.metrology.entity.payload.MetrologyUpdatePayload;
-import com.kfm.management.modules.metrology.repository.MetrologyRepository;
+import com.kauffman.management.common.entity.ApiResponse;
+import com.kauffman.management.metrology.entity.builder.MetrologyBuilder;
+import com.kauffman.management.metrology.entity.dto.Metrology;
+import com.kauffman.management.metrology.entity.payload.MetrologyCreatePayload;
+import com.kauffman.management.metrology.entity.payload.MetrologyUpdatePayload;
+import com.kauffman.management.metrology.repository.MetrologyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

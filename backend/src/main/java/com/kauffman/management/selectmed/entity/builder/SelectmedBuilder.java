@@ -1,7 +1,7 @@
 package com.kauffman.management.selectmed.entity.builder;
 
-import com.kfm.management.modules.period.entity.dto.Period;
-import com.kfm.management.modules.selectmed.entity.dto.Selectmed;
+import com.kauffman.management.period.entity.dto.Period;
+import com.kauffman.management.selectmed.entity.dto.Selectmed;
 
 import java.util.Date;
 import java.util.UUID;

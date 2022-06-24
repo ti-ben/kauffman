@@ -1,11 +1,11 @@
 package com.kauffman.management.rank.controller;
 
-import com.kfm.management.common.entity.ApiResponse;
-import com.kfm.management.modules.rank.entity.builder.RankBuilder;
-import com.kfm.management.modules.rank.entity.dto.Rank;
-import com.kfm.management.modules.rank.entity.payload.RankCreatePayload;
-import com.kfm.management.modules.rank.entity.payload.RankUpdatePayload;
-import com.kfm.management.modules.rank.repository.RankRepository;
+import com.kauffman.management.common.entity.ApiResponse;
+import com.kauffman.management.rank.entity.builder.RankBuilder;
+import com.kauffman.management.rank.entity.dto.Rank;
+import com.kauffman.management.rank.entity.payload.RankCreatePayload;
+import com.kauffman.management.rank.entity.payload.RankUpdatePayload;
+import com.kauffman.management.rank.repository.RankRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -71,7 +71,7 @@ public class RankController {
     }
 
     @PutMapping("/delete/{id}")
-    public ApiResponse delete(@PathVariable("id") UUID id)  {
+    public ApiResponse delete(@PathVariable("id") UUID id) {
         Rank fromDb = rankRepository.findById(id).orElse(null);
         if (fromDb == null) {
             return new ApiResponse(false, null, "api.rank.delete.not-found");

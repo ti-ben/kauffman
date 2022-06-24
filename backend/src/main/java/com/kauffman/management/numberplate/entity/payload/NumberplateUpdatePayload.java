@@ -1,6 +1,6 @@
 package com.kauffman.management.numberplate.entity.payload;
 
-import com.kfm.management.modules.site.entity.dto.Site;
+import com.kauffman.management.site.entity.dto.Site;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

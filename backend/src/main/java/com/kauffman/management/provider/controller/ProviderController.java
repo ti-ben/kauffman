@@ -1,11 +1,11 @@
 package com.kauffman.management.provider.controller;
 
-import com.kfm.management.common.entity.ApiResponse;
-import com.kfm.management.modules.provider.entity.builder.ProviderBuilder;
-import com.kfm.management.modules.provider.entity.dto.Provider;
-import com.kfm.management.modules.provider.entity.payload.ProviderCreatePayload;
-import com.kfm.management.modules.provider.entity.payload.ProviderUpdatePayload;
-import com.kfm.management.modules.provider.repository.ProviderRepository;
+import com.kauffman.management.common.entity.ApiResponse;
+import com.kauffman.management.provider.entity.builder.ProviderBuilder;
+import com.kauffman.management.provider.entity.dto.Provider;
+import com.kauffman.management.provider.entity.payload.ProviderCreatePayload;
+import com.kauffman.management.provider.entity.payload.ProviderUpdatePayload;
+import com.kauffman.management.provider.repository.ProviderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

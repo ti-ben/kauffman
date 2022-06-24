@@ -1,6 +1,6 @@
 package com.kauffman.management.rank.entity.builder;
 
-import com.kfm.management.modules.rank.entity.dto.Rank;
+import com.kauffman.management.rank.entity.dto.Rank;
 
 import java.util.UUID;
 

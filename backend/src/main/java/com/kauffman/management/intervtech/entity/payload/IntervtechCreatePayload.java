@@ -1,6 +1,6 @@
 package com.kauffman.management.intervtech.entity.payload;
 
-import com.kfm.management.modules.vehicule.entity.dto.Vehicule;
+import com.kauffman.management.vehicule.entity.dto.Vehicule;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

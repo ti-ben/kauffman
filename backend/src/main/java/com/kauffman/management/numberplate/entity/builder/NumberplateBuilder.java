@@ -1,7 +1,7 @@
 package com.kauffman.management.numberplate.entity.builder;
 
-import com.kfm.management.modules.numberplate.entity.dto.Numberplate;
-import com.kfm.management.modules.site.entity.dto.Site;
+import com.kauffman.management.numberplate.entity.dto.Numberplate;
+import com.kauffman.management.site.entity.dto.Site;
 
 import java.util.Date;
 import java.util.UUID;

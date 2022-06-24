@@ -1,11 +1,11 @@
 package com.kauffman.management.period.controller;
 
-import com.kfm.management.common.entity.ApiResponse;
-import com.kfm.management.modules.period.entity.builder.PeriodBuilder;
-import com.kfm.management.modules.period.entity.dto.Period;
-import com.kfm.management.modules.period.entity.payload.PeriodCreatePayload;
-import com.kfm.management.modules.period.entity.payload.PeriodUpdatePayload;
-import com.kfm.management.modules.period.repository.PeriodRepository;
+import com.kauffman.management.common.entity.ApiResponse;
+import com.kauffman.management.period.entity.builder.PeriodBuilder;
+import com.kauffman.management.period.entity.dto.Period;
+import com.kauffman.management.period.entity.payload.PeriodCreatePayload;
+import com.kauffman.management.period.entity.payload.PeriodUpdatePayload;
+import com.kauffman.management.period.repository.PeriodRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

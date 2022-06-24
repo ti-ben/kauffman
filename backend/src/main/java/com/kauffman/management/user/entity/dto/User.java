@@ -34,7 +34,10 @@ public class User {
 
     @DateTimeFormat(pattern = "dd/MM/yyyy")
     private Date dob;
+
+    @Column(unique = true)
     private String email;
+    private String password;
     private String phone_pro;
     private String phone_perso;
     private String nationality;
