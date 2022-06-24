@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ApiService} from "../../shared/services/api.service";
 
 @Component({
   selector: 'app-site',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SiteComponent implements OnInit {
 
-  constructor() { }
+  readData: any;
+
+  constructor(private apiService:ApiService) { }
 
   ngOnInit(): void {
+    this.apiService.getAllSite().subscribe((res)=> {
+      console.log("res :", res);
+      this.readData = res.data;
+    })
   }
 
 }
