@@ -8,15 +8,12 @@ import {ApiService} from "../../shared/services/api.service";
 })
 export class SiteComponent implements OnInit {
 
-  readData: any;
 
-  constructor(private apiService:ApiService) { }
+
+  constructor() { }
 
   ngOnInit(): void {
-    this.apiService.getAllSite().subscribe((res)=> {
-      console.log("res :", res);
-      this.readData = res.data;
-    })
+
   }
 
 }

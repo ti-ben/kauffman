@@ -72,7 +72,7 @@ public class SiteController {
         return new ApiResponse(true, siteRepository.save(fromDb), "api.site.archive.success");
     }
 
-    @PutMapping("/delete/{id}")
+    @DeleteMapping("/delete/{id}")
     public ApiResponse delete(@PathVariable("id") UUID id) {
         Site fromDb = siteRepository.findById(id).orElse(null);
         if (fromDb == null) {

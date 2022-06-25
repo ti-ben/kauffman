@@ -20,5 +20,17 @@ export class ApiService {
     return this.http.post(`${this.baseUrl}/site/create`, data);
   }
 
+  getSingleSite(id:any):Observable<any>{
+    return this.http.get(`${this.baseUrl}/site/detail/${id}`)
+  }
+
+  updateSite(data:any, id:any):Observable<any>{
+    return this.http.put(`${this.baseUrl}/site/update/${id}`, data)
+  }
+
+  deleteSite(id:any):Observable<any>
+  {
+    return this.http.delete(`${this.baseUrl}/site/delete/${id}`);
+  }
 
 }
