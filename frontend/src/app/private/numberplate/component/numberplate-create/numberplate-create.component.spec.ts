@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NumberplateComponent } from './numberplate.component';
+import { NumberplateCreateComponent } from './numberplate-create.component';
 
-describe('NumberplateComponent', () => {
-  let component: NumberplateComponent;
-  let fixture: ComponentFixture<NumberplateComponent>;
+describe('NumberplateCreateComponent', () => {
+  let component: NumberplateCreateComponent;
+  let fixture: ComponentFixture<NumberplateCreateComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ NumberplateComponent ]
+      declarations: [ NumberplateCreateComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(NumberplateComponent);
+    fixture = TestBed.createComponent(NumberplateCreateComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

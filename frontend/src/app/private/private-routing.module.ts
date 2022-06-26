@@ -7,7 +7,10 @@ import {NumberplateComponent} from "./numberplate/numberplate.component";
 import {UserComponent} from "./user/user.component";
 import {SiteCreateComponent} from "./site/component/site-create/site-create.component";
 import {SiteListComponent} from "./site/component/site-list/site-list.component";
-import {SiteDetailsComponent} from "./site/component/site-details/site-details.component";
+import {NumberplateListComponent} from "./numberplate/component/numberplate-list/numberplate-list.component";
+import {NumberplateCreateComponent} from "./numberplate/component/numberplate-create/numberplate-create.component";
+import {UserCreateComponent} from "./user/component/user-create/user-create.component";
+import {UserListComponent} from "./user/component/user-list/user-list.component";
 
 const routes: Routes = [
   {
@@ -21,8 +24,21 @@ const routes: Routes = [
           {path: 'create/:id', component: SiteCreateComponent, data: {crumbTitle: 'Mise à jour'}},
         ]
       },
-      {path: 'user', component: UserComponent, data: {crumbTitle: 'User'}},
-      {path: 'numberplate', component: NumberplateComponent, data: {crumbTitle: 'Immatriculation'}}
+      {path: 'user', component: UserComponent, data: {crumbTitle: 'User'},
+        children: [
+          {path: '', component: UserListComponent, data: {crumbTitle: 'Liste des utilisateurs'}},
+          {path: 'create', component: UserCreateComponent, data: {crumbTitle: 'Ajouter un nouvel utilisateur'}},
+          {path: 'create/:id', component: UserCreateComponent, data: {crumbTitle: 'Mise à jour'}},
+        ]
+      },
+      {
+        path: 'numberplate', component: NumberplateComponent, data: {crumbTitle: 'Immatriculation'},
+        children: [
+          {path: '', component: NumberplateListComponent, data: {crumbTitle: 'Liste des immatriculations'}},
+          {path: 'create', component: NumberplateCreateComponent, data: {crumbTitle: 'Ajouter une nouvelle immatriculation'}},
+          {path: 'create/:id', component: NumberplateCreateComponent, data: {crumbTitle: 'Mise à jour'}},
+        ]
+      }
     ]
   }
 ];

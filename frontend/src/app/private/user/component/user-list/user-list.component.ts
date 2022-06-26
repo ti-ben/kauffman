@@ -2,14 +2,15 @@ import { Component, OnInit } from '@angular/core';
 import {ApiService} from "../../../../shared/services/api.service";
 
 @Component({
-  selector: 'app-site-list',
-  templateUrl: './site-list.component.html',
-  styleUrls: ['./site-list.component.scss']
+  selector: 'app-user-list',
+  templateUrl: './user-list.component.html',
+  styleUrls: ['./user-list.component.scss']
 })
-export class SiteListComponent implements OnInit {
+export class UserListComponent implements OnInit {
 
   readData: any;
   successMsg:any;
+  errorMsg: any;
 
   constructor(private apiService:ApiService) { }
 
@@ -19,8 +20,7 @@ export class SiteListComponent implements OnInit {
 
   delete(id:any)
   {
-    console.log('to delete :', id);
-    this.apiService.deleteSite(id).subscribe((res)=> {
+    this.apiService.deleteUser(id).subscribe((res)=> {
       console.log('to delete :', res.code);
       this.successMsg = res.code;
       this.getAllData();
@@ -29,7 +29,7 @@ export class SiteListComponent implements OnInit {
 
   getAllData()
   {
-    this.apiService.getAllSite().subscribe((res)=> {
+    this.apiService.getAllUser().subscribe((res)=> {
       console.log("res :", res);
       this.readData = res.data;
     })

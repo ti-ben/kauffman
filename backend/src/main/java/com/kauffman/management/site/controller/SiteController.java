@@ -11,7 +11,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.UUID;
 
-@CrossOrigin(origins = "*", maxAge = 3600)
+//@CrossOrigin(origins = "*", maxAge = 3600)
+@CrossOrigin(origins= {"*"}, maxAge = 4800, allowCredentials = "false" )
 @RestController
 @RequestMapping("/site")
 
@@ -34,7 +35,7 @@ public class SiteController {
     // Read all records
     @GetMapping("/list")
     public ApiResponse get() {
-        return new ApiResponse(true, siteRepository.findAll(), null);
+        return new ApiResponse(true, siteRepository.findAll(), "api.site.list.success");
     }
 
     // Read record detail

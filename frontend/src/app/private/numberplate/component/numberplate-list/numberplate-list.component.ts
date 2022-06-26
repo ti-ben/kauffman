@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import {ApiService} from "../../../../shared/services/api.service";
 
 @Component({
-  selector: 'app-site-list',
-  templateUrl: './site-list.component.html',
-  styleUrls: ['./site-list.component.scss']
+  selector: 'app-numberplate-list',
+  templateUrl: './numberplate-list.component.html',
+  styleUrls: ['./numberplate-list.component.scss']
 })
-export class SiteListComponent implements OnInit {
+export class NumberplateListComponent implements OnInit {
 
   readData: any;
   successMsg:any;
@@ -20,7 +20,7 @@ export class SiteListComponent implements OnInit {
   delete(id:any)
   {
     console.log('to delete :', id);
-    this.apiService.deleteSite(id).subscribe((res)=> {
+    this.apiService.deleteNumberplate(id).subscribe((res)=> {
       console.log('to delete :', res.code);
       this.successMsg = res.code;
       this.getAllData();
@@ -29,7 +29,7 @@ export class SiteListComponent implements OnInit {
 
   getAllData()
   {
-    this.apiService.getAllSite().subscribe((res)=> {
+    this.apiService.getAllNumberplate().subscribe((res)=> {
       console.log("res :", res);
       this.readData = res.data;
     })

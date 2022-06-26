@@ -25,6 +25,7 @@ export class SiteCreateComponent implements OnInit {
       this.apiService.getSingleSite(this.getParamId).subscribe((res) => {
         console.log('res :', res);
         this.siteFormCreate.patchValue({
+          'site_id': res.data.site_id,
           'name': res.data.name,
           'created_on': res.data.created_on,
           'description': res.data.description,
@@ -35,6 +36,7 @@ export class SiteCreateComponent implements OnInit {
   }
 
   siteFormCreate = new FormGroup({
+    'site_id': new FormControl(),
     'name': new FormControl('', Validators.required),
     'created_on': new FormControl('', Validators.required),
     'description': new FormControl(),

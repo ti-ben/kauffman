@@ -1,0 +1,128 @@
+<div class="container mt-5">
+
+  <form [formGroup]="userFormCreate">
+    <div class="card-body">
+      <!--
+            <div class="alert alert-info alert-dismissible">
+              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+              <h5><i class="icon fas fa-info"></i> Alert!</h5>
+              Info alert preview. This alert is dismissable.
+            </div>
+      -->
+      <div *ngIf="errorMsg" class="alert alert-warning alert-dismissible">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <h5><i class="icon fas fa-exclamation-triangle"></i> Alert!</h5>
+        {{errorMsg}}
+      </div>
+
+      <div *ngIf="successMsg" class="alert alert-success alert-dismissible">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <h5><i class="icon fas fa-check"></i> Alert!</h5>
+        {{successMsg}}
+      </div>
+
+      <div class="form-group">
+        <label>user_id</label>
+        <input type="text" class="form-control" formControlName="user_id">
+      </div>
+
+      <div class="form-group">
+        <label>firstname</label>
+        <input type="text" class="form-control" formControlName="firstname">
+      </div>
+
+      <div class="form-group">
+        <label>lastname</label>
+        <input type="text" class="form-control" formControlName="lastname">
+      </div>
+
+      <div class="form-group">
+        <label>gender</label>
+        <input type="text" class="form-control" formControlName="gender">
+      </div>
+
+      <div class="form-group">
+        <label>avatar</label>
+        <input type="text" class="form-control" formControlName="avatar">
+      </div>
+
+      <div class="form-group">
+        <label>dob</label>
+        <input type="date" class="form-control" formControlName="dob">
+      </div>
+
+      <div class="form-group">
+        <label>email</label>
+        <input type="text" class="form-control" formControlName="email">
+      </div>
+
+      <div class="form-group">
+        <label>password</label>
+        <input type="text" class="form-control" formControlName="password">
+      </div>
+
+      <div class="form-group">
+        <label>phone_pro</label>
+        <input type="text" class="form-control" formControlName="phone_pro">
+      </div>
+
+      <div class="form-group">
+        <label>phone_perso</label>
+        <input type="text" class="form-control" formControlName="phone_perso">
+      </div>
+
+      <div class="form-group">
+        <label>nationality</label>
+        <input type="text" class="form-control" formControlName="nationality">
+      </div>
+
+      <div class="form-group">
+        <label>numirn</label>
+        <input type="text" class="form-control" formControlName="numirn">
+      </div>
+
+      <div class="form-group">
+        <label>driver_license</label>
+        <input type="text" class="form-control" formControlName="driver_license">
+      </div>
+
+      <div class="form-group">
+        <label>created_on</label>
+        <input type="date" class="form-control" formControlName="created_on">
+      </div>
+
+      <div class="form-group">
+        <label>updated_on</label>
+        <input type="date" class="form-control" formControlName="updated_on">
+      </div>
+
+      <div class="form-group">
+        <label>pob</label>
+        <input type="text" class="form-control" formControlName="pob">
+      </div>
+
+      <div class="form-group">
+        <label>active</label>
+        <input type="text" class="form-control" formControlName="active">
+      </div>
+
+      <div class="form-group">
+        <label>site_id</label>
+        <input type="text" class="form-control" formControlName="site_id">
+      </div>
+
+      <div class="form-group">
+        <label>address_id</label>
+        <input type="text" class="form-control" formControlName="address_id">
+      </div>
+
+      <div class="form-group">
+        <label>status_id</label>
+        <input type="text" class="form-control" formControlName="status_id">
+      </div>
+
+      <button type="submit" class="btn btn-primary" *ngIf="!getParamId" (click)="userCreate()">Save</button>
+      <button type="submit" class="btn btn-primary" *ngIf="getParamId" (click)="updateUser()">update</button>
+    </div>
+  </form>
+</div>

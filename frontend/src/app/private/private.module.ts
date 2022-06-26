@@ -8,9 +8,12 @@ import { SiteComponent } from './site/site.component';
 import { UserComponent } from './user/user.component';
 import { NumberplateComponent } from './numberplate/numberplate.component';
 import { SiteCreateComponent } from './site/component/site-create/site-create.component';
-import { SiteDetailsComponent } from './site/component/site-details/site-details.component';
 import {SiteListComponent} from "./site/component/site-list/site-list.component";
 import {ReactiveFormsModule} from "@angular/forms";
+import { NumberplateCreateComponent } from './numberplate/component/numberplate-create/numberplate-create.component';
+import { NumberplateListComponent } from './numberplate/component/numberplate-list/numberplate-list.component';
+import { UserListComponent } from './user/component/user-list/user-list.component';
+import { UserCreateComponent } from './user/component/user-create/user-create.component';
 
 
 
@@ -21,8 +24,11 @@ import {ReactiveFormsModule} from "@angular/forms";
     UserComponent,
     NumberplateComponent,
     SiteCreateComponent,
-    SiteDetailsComponent,
-    SiteListComponent
+    SiteListComponent,
+    NumberplateCreateComponent,
+    NumberplateListComponent,
+    UserListComponent,
+    UserCreateComponent
   ],
   imports: [
     CommonModule,

@@ -40,13 +40,13 @@ public class UserController {
                 .setSite(payload.getSite())
                 .setStatus(payload.getStatus())
                 .build();
-        return new ApiResponse(true, userRepository.save(user), null);
+        return new ApiResponse(true, userRepository.save(user), "api.user.create.success");
     }
 
     // Read all records
     @GetMapping("/list")
     public ApiResponse get() {
-        return new ApiResponse(true, userRepository.findAll(), null);
+        return new ApiResponse(true, userRepository.findAll(), "api.user.list.success");
     }
 
     // Read record detail
@@ -56,7 +56,7 @@ public class UserController {
         if (fromDb == null) {
             return new ApiResponse(false, null, "api.user.detail.not-found");
         }
-        return new ApiResponse(true, fromDb, null);
+        return new ApiResponse(true, fromDb, "api.user.detail.success");
     }
 
     // Update record
@@ -84,7 +84,7 @@ public class UserController {
         fromDb.setActive(payload.getActive());
         fromDb.setSite(payload.getSite());
         fromDb.setStatus(payload.getStatus());
-        return new ApiResponse(true, userRepository.save(fromDb), null);
+        return new ApiResponse(true, userRepository.save(fromDb), "api.update.update.success");
     }
 
     // Archive record
@@ -95,7 +95,7 @@ public class UserController {
             return new ApiResponse(false, null, "api.user.archive.not-found");
         }
         fromDb.setActive(payload.getActive());
-        return new ApiResponse(true, userRepository.save(fromDb), null);
+        return new ApiResponse(true, userRepository.save(fromDb), "api.user.archive.success");
     }
 
     @PutMapping("/delete/{id}")
@@ -105,6 +105,6 @@ public class UserController {
             return new ApiResponse(false, null, "api.user.delete.not-found");
         }
         userRepository.deleteById(fromDb.getUser_id());
-        return new ApiResponse(true, null, null);
+        return new ApiResponse(true, null, "api.user.delete.success");
     }
 }
