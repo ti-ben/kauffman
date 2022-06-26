@@ -21,108 +21,158 @@
         {{successMsg}}
       </div>
 
-      <div class="form-group">
-        <label>user_id</label>
-        <input type="text" class="form-control" formControlName="user_id">
+      <div class="form-row">
+        <div class="col-md-12 mb-3">
+          <label>user_id</label>
+          <input type="text" class="form-control" formControlName="user_id">
+        </div>
       </div>
 
-      <div class="form-group">
-        <label>firstname</label>
-        <input type="text" class="form-control" formControlName="firstname">
+      <!-- -->
+
+      <div class="form-row">
+        <div class="col-md-4 mb-3">
+          <label>firstname</label>
+          <input type="text" class="form-control" formControlName="firstname">
+        </div>
+
+
+        <div class="col-md-4 mb-3">
+          <label>lastname</label>
+          <input type="text" class="form-control" formControlName="lastname">
+        </div>
+        <div class="col-md-4 mb-3">
+          <label>email</label>
+          <input type="text" class="form-control" formControlName="email">
+        </div>
       </div>
 
-      <div class="form-group">
-        <label>lastname</label>
-        <input type="text" class="form-control" formControlName="lastname">
+      <!-- -->
+
+      <div class="form-row">
+        <div class="col-md-4 mb-3">
+          <label>gender</label>
+          <input type="text" class="form-control" formControlName="gender">
+        </div>
+
+        <div class="col-md-4 mb-3">
+          <label>avatar</label>
+          <input type="text" class="form-control" formControlName="avatar">
+        </div>
+
+        <div class="col-md-4 mb-3">
+          <label>dob</label>
+          <input type="date" class="form-control" formControlName="dob">
+        </div>
       </div>
 
-      <div class="form-group">
-        <label>gender</label>
-        <input type="text" class="form-control" formControlName="gender">
+      <!-- -->
+
+      <div class="form-row">
+        <div class="col-md-4 mb-3">
+          <label>password</label>
+          <input type="text" class="form-control" formControlName="password">
+        </div>
+
+        <div class="col-md-4 mb-3">
+          <label>phone_pro</label>
+          <input type="text" class="form-control" formControlName="phone_pro">
+        </div>
       </div>
 
-      <div class="form-group">
-        <label>avatar</label>
-        <input type="text" class="form-control" formControlName="avatar">
+      <!-- -->
+
+      <div class="form-row">
+        <div class="col-md-4 mb-3">
+          <label>phone_perso</label>
+          <input type="text" class="form-control" formControlName="phone_perso">
+        </div>
+
+        <div class="col-md-4 mb-3">
+          <label>nationality</label>
+          <input type="text" class="form-control" formControlName="nationality">
+        </div>
+
+        <div class="col-md-4 mb-3">
+          <label>numirn</label>
+          <input type="text" class="form-control" formControlName="numirn">
+        </div>
       </div>
 
-      <div class="form-group">
-        <label>dob</label>
-        <input type="date" class="form-control" formControlName="dob">
+      <!-- -->
+
+      <div class="form-row">
+        <div class="col-md-4 mb-3">
+          <label>driver_license</label>
+          <input type="text" class="form-control" formControlName="driver_license">
+        </div>
+
+        <div class="col-md-4 mb-3">
+          <label>created_on</label>
+          <input type="date" class="form-control" formControlName="created_on">
+        </div>
+
+        <div class="col-md-4 mb-3">
+          <label>updated_on</label>
+          <input type="date" class="form-control" formControlName="updated_on">
+        </div>
       </div>
 
-      <div class="form-group">
-        <label>email</label>
-        <input type="text" class="form-control" formControlName="email">
+      <!-- -->
+
+      <div class="form-row">
+        <div class="col-md-4 mb-3">
+          <label>pob</label>
+          <input type="text" class="form-control" formControlName="pob">
+        </div>
+
+        <div class="col-md-4 mb-3">
+          <label>active</label>
+          <input type="text" class="form-control" formControlName="active">
+          <select class="custom-select" formControlName="active">
+            <option value="true">Actif</option>
+            <option value="false">Inactif</option>
+          </select>
+        </div>
+
       </div>
 
-      <div class="form-group">
-        <label>password</label>
-        <input type="text" class="form-control" formControlName="password">
+      <!-- -->
+
+      <div class="form-row">
+        <div class="col-md-4 mb-3">
+          <label>site_id</label>
+          <input type="text" class="form-control" formControlName="site_id">
+          <select class="custom-select" formControlName="site_id">
+            <option>Value 1</option>
+            <option>Value 2</option>
+            <option>Value 3</option>
+          </select>
+        </div>
+
+        <div class="col-md-4 mb-3">
+          <label>address_id</label>
+          <input type="text" class="form-control" formControlName="address_id">
+          <select class="custom-select" formControlName="address_id">
+            <option>Value 1</option>
+            <option>Value 2</option>
+            <option>Value 3</option>
+          </select>
+        </div>
+
+        <div class="col-md-4 mb-3">
+          <label>status_id</label>
+          <input type="text" class="form-control" formControlName="status_id">
+          <select class="custom-select" formControlName="status_id">
+            <option>Value 1</option>
+            <option>Value 2</option>
+            <option>Value 3</option>
+          </select>
+        </div>
       </div>
 
-      <div class="form-group">
-        <label>phone_pro</label>
-        <input type="text" class="form-control" formControlName="phone_pro">
-      </div>
-
-      <div class="form-group">
-        <label>phone_perso</label>
-        <input type="text" class="form-control" formControlName="phone_perso">
-      </div>
-
-      <div class="form-group">
-        <label>nationality</label>
-        <input type="text" class="form-control" formControlName="nationality">
-      </div>
-
-      <div class="form-group">
-        <label>numirn</label>
-        <input type="text" class="form-control" formControlName="numirn">
-      </div>
-
-      <div class="form-group">
-        <label>driver_license</label>
-        <input type="text" class="form-control" formControlName="driver_license">
-      </div>
-
-      <div class="form-group">
-        <label>created_on</label>
-        <input type="date" class="form-control" formControlName="created_on">
-      </div>
-
-      <div class="form-group">
-        <label>updated_on</label>
-        <input type="date" class="form-control" formControlName="updated_on">
-      </div>
-
-      <div class="form-group">
-        <label>pob</label>
-        <input type="text" class="form-control" formControlName="pob">
-      </div>
-
-      <div class="form-group">
-        <label>active</label>
-        <input type="text" class="form-control" formControlName="active">
-      </div>
-
-      <div class="form-group">
-        <label>site_id</label>
-        <input type="text" class="form-control" formControlName="site_id">
-      </div>
-
-      <div class="form-group">
-        <label>address_id</label>
-        <input type="text" class="form-control" formControlName="address_id">
-      </div>
-
-      <div class="form-group">
-        <label>status_id</label>
-        <input type="text" class="form-control" formControlName="status_id">
-      </div>
-
-      <button type="submit" class="btn btn-primary" *ngIf="!getParamId" (click)="userCreate()">Save</button>
-      <button type="submit" class="btn btn-primary" *ngIf="getParamId" (click)="updateUser()">update</button>
+      <button type="submit" class="btn btn-primary" *ngIf="!getParamId" (click)="userCreate()">Enregistrer</button>
+      <button type="submit" class="btn btn-primary" *ngIf="getParamId" (click)="updateUser()">Mettre à jour</button>
     </div>
   </form>
 </div>
