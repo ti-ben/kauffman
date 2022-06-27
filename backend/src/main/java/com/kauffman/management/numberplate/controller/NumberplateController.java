@@ -34,7 +34,7 @@ public class NumberplateController {
     // Read all records
     @GetMapping("/list")
     public ApiResponse get() {
-        return new ApiResponse(true, numberplateRepository.findAll(), null);
+        return new ApiResponse(true, numberplateRepository.findAll(), "api.numberplate.list.success");
     }
 
     // Read record detail
