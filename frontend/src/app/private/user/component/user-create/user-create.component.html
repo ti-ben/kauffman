@@ -128,10 +128,9 @@
 
         <div class="col-md-4 mb-3">
           <label>active</label>
-          <input type="text" class="form-control" formControlName="active">
           <select class="custom-select" formControlName="active">
-            <option value="true">Actif</option>
-            <option value="false">Inactif</option>
+            <option [value]="true">Actif</option>
+            <option [value]="false">Inactif</option>
           </select>
         </div>
 
@@ -142,17 +141,13 @@
       <div class="form-row">
         <div class="col-md-4 mb-3">
           <label>site_id</label>
-          <input type="text" class="form-control" formControlName="site_id">
           <select class="custom-select" formControlName="site_id">
-            <option>Value 1</option>
-            <option>Value 2</option>
-            <option>Value 3</option>
+
           </select>
         </div>
 
         <div class="col-md-4 mb-3">
           <label>address_id</label>
-          <input type="text" class="form-control" formControlName="address_id">
           <select class="custom-select" formControlName="address_id">
             <option>Value 1</option>
             <option>Value 2</option>
@@ -162,7 +157,6 @@
 
         <div class="col-md-4 mb-3">
           <label>status_id</label>
-          <input type="text" class="form-control" formControlName="status_id">
           <select class="custom-select" formControlName="status_id">
             <option>Value 1</option>
             <option>Value 2</option>

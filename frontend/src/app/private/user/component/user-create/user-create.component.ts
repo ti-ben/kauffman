@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {ApiService} from "../../../../shared/services/api.service";
 import {ActivatedRoute} from "@angular/router";
+import {Site} from "../../../site/model/site";
 
 @Component({
   selector: 'app-user-create',
@@ -9,14 +10,18 @@ import {ActivatedRoute} from "@angular/router";
   styleUrls: ['./user-create.component.scss']
 })
 export class UserCreateComponent implements OnInit {
+
+  readData: any;
   errorMsg: any;
   successMsg: any;
   getParamId: any;
+  allSites: Site[] = [];
+
 
   constructor(private apiService: ApiService, private activatedRoute: ActivatedRoute) { }
-
   ngOnInit(): void {
-    this.getParamId = this.activatedRoute.snapshot.paramMap.get('id')
+    this.getParamId = this.activatedRoute.snapshot.paramMap.get('id');
+    //this.allSites = this.apiService.getAllSite();
 
     if(this.getParamId)
     {
@@ -97,7 +102,5 @@ export class UserCreateComponent implements OnInit {
       this.errorMsg = 'All fields are required';
     }
   }
-
-
 
 }

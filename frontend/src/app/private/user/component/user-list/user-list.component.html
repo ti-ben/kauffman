@@ -33,6 +33,7 @@
         <th style="width: 10%" class="text-center">Nom</th>
         <th style="width: 5%" class="text-center">Email</th>
         <th style="width: 5%" class="text-center">Status</th>
+        <th style="width: 5%" class="text-center">Site</th>
         <th style="width: 5%" class="text-center">Actif?</th>
         <th style="width: 10%" class="text-center">Options</th>
       </tr>
@@ -49,9 +50,13 @@
           <span *ngIf="user.status !== null; else elseBlock1">{{user.status.name}}</span>
           <ng-template #elseBlock1>Pas de status</ng-template>
         </td>
+        <td>
+          <span *ngIf="user.site !== null; else elseBlock2">{{user.site.name}}</span>
+          <ng-template #elseBlock2>Pas de site</ng-template>
+        </td>
         <td class="project-state">
-          <span class="badge badge-success" *ngIf="user.active === true; else elseBlock">Actif</span>
-          <ng-template #elseBlock><span class="badge badge-danger">Inactif</span></ng-template>
+          <span class="badge badge-success" *ngIf="user.active === true; else elseBlock3">Actif</span>
+          <ng-template #elseBlock3><span class="badge badge-danger">Inactif</span></ng-template>
         </td>
         <td class="project-actions text-center">
           <a class="btn btn-info btn-sm" [routerLink]="['create', user.user_id]"><i class="fas fa-pencil-alt"></i> Edit</a>
