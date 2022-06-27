@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.*;
 import java.util.UUID;
 
 //@CrossOrigin(origins = "*", maxAge = 3600)
-@CrossOrigin(origins= {"*"}, maxAge = 4800, allowCredentials = "false" )
 @RestController
 @RequestMapping("/site")
 

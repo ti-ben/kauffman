@@ -15,18 +15,17 @@ export class UserCreateComponent implements OnInit {
   errorMsg: any;
   successMsg: any;
   getParamId: any;
-  allSites: Site[] = [];
+  lstSite: any;
 
 
   constructor(private apiService: ApiService, private activatedRoute: ActivatedRoute) { }
   ngOnInit(): void {
     this.getParamId = this.activatedRoute.snapshot.paramMap.get('id');
-    //this.allSites = this.apiService.getAllSite();
+    this.lstSite = this.getAllData();
 
     if(this.getParamId)
     {
       this.apiService.getSingleUser(this.getParamId).subscribe((res) => {
-        console.log('res :', res);
         this.userFormCreate.patchValue({
           'user_id': res.data.user_id,
           'firstname': res.data.firstname,
@@ -79,7 +78,6 @@ export class UserCreateComponent implements OnInit {
   userCreate() {
     if (this.userFormCreate.valid) {
       this.apiService.createUser(this.userFormCreate.value).subscribe((res) => {
-        console.log('res :', res);
         this.userFormCreate.reset();
         this.successMsg = res.code;
       })
@@ -101,6 +99,14 @@ export class UserCreateComponent implements OnInit {
     {
       this.errorMsg = 'All fields are required';
     }
+  }
+
+  getAllData(): void
+  {
+    this.apiService.getAllSite().subscribe((res)=> {
+      this.readData = res.data;
+      console.log("getAllSite res :", this.readData);
+    })
   }
 
 }

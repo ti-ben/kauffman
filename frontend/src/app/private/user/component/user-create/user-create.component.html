@@ -142,7 +142,7 @@
         <div class="col-md-4 mb-3">
           <label>site_id</label>
           <select class="custom-select" formControlName="site_id">
-
+            <option [value]="item.site_id" *ngFor="let item of lstSite">{{item.name}}</option>
           </select>
         </div>
 
