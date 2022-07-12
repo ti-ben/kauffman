@@ -62,7 +62,7 @@ public class User {
     @JoinColumn(name = "address_id")
     private Address address;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "status_id")
     private Status status;
 }

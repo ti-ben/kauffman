@@ -31,7 +31,7 @@ export class UserSelectmedComponent implements OnInit {
   periodCreate() {
 
     if (this.periodFormCreate.valid) {
-      console.log('Form content: ', this.periodFormCreate.value)
+      //console.log('Form content: ', this.periodFormCreate.value)
       this.apiService.createPeriod(this.periodFormCreate.value).subscribe((res) => {
         this.periodFormCreate.reset();
         this.successMsg = res.code;
@@ -45,11 +45,11 @@ export class UserSelectmedComponent implements OnInit {
   allPeriodList() {
     this.apiService.getAllPeriodByUserId().subscribe((res) => {
       this.periodList = res.data;
-      console.log('Period ', this.periodList)
+      //console.log('Period ', this.periodList)
       if (this.periodList == null) {
-        console.log('period list instance is null or undefined');
+        //console.log('period list instance is null or undefined');
       } else {
-        console.log('period list instance is not null or undefined'); // ok now
+        //console.log('period list instance is not null or undefined'); // ok now
       }
     })
   }

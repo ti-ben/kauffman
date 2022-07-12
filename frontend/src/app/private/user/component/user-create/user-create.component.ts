@@ -64,10 +64,10 @@ export class UserCreateComponent implements OnInit {
     this.apiService.getAllSite().subscribe((res) => {
       this.sitesList = res.data;
       if (this.sitesList == null) {
-        console.log('Instance is null or undefined');
+        //console.log('Instance is null or undefined');
       } else {
-        console.log('Instance is not null or undefined'); // ok now
-        console.log('Site list :', this.sitesList);
+        //console.log('Instance is not null or undefined'); // ok now
+        //console.log('Site list :', this.sitesList);
       }
     })
   }
