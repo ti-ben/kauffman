@@ -11,6 +11,7 @@ import {NumberplateListComponent} from "./numberplate/component/numberplate-list
 import {NumberplateCreateComponent} from "./numberplate/component/numberplate-create/numberplate-create.component";
 import {UserCreateComponent} from "./user/component/user-create/user-create.component";
 import {UserListComponent} from "./user/component/user-list/user-list.component";
+import {UserDetailsComponent} from "./user/component/user-details/user-details.component";
 
 const routes: Routes = [
   {
@@ -28,7 +29,7 @@ const routes: Routes = [
         children: [
           {path: '', component: UserListComponent, data: {crumbTitle: 'Liste des utilisateurs'}},
           {path: 'create', component: UserCreateComponent, data: {crumbTitle: 'Ajouter un nouvel utilisateur'}},
-          {path: 'create/:id', component: UserCreateComponent, data: {crumbTitle: 'Mise à jour'}},
+          {path: 'details/:id', component: UserDetailsComponent, data: {crumbTitle: 'Détails'}},
         ]
       },
       {

@@ -14,6 +14,14 @@ import { NumberplateCreateComponent } from './numberplate/component/numberplate-
 import { NumberplateListComponent } from './numberplate/component/numberplate-list/numberplate-list.component';
 import { UserListComponent } from './user/component/user-list/user-list.component';
 import { UserCreateComponent } from './user/component/user-create/user-create.component';
+import { UserDetailsComponent } from './user/component/user-details/user-details.component';
+import { UserIdentityComponent } from './user/component/user-identity/user-identity.component';
+import { UserAddressComponent } from './user/component/user-address/user-address.component';
+import { UserAdrComponent } from './user/component/user-adr/user-adr.component';
+import { UserCapComponent } from './user/component/user-cap/user-cap.component';
+import { UserSelectmedComponent } from './user/component/user-selectmed/user-selectmed.component';
+import { UserTachographComponent } from './user/component/user-tachograph/user-tachograph.component';
+import { UserCredentialComponent } from './user/component/user-credential/user-credential.component';
 
 
 
@@ -28,7 +36,15 @@ import { UserCreateComponent } from './user/component/user-create/user-create.co
     NumberplateCreateComponent,
     NumberplateListComponent,
     UserListComponent,
-    UserCreateComponent
+    UserCreateComponent,
+    UserDetailsComponent,
+    UserIdentityComponent,
+    UserAddressComponent,
+    UserAdrComponent,
+    UserCapComponent,
+    UserSelectmedComponent,
+    UserTachographComponent,
+    UserCredentialComponent
   ],
   imports: [
     CommonModule,

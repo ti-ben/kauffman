@@ -1,1 +1,73 @@
-<p>user-details works!</p>
+<div class="col-12 col-sm-6 d-flex align-items-stretch flex-column" *ngIf="uDetails">
+  <div class="card bg-light d-flex flex-fill">
+    <div class="card-header text-muted border-bottom-0">
+      Junior Dev
+    </div>
+    <div class="card-body pt-0">
+      <div class="row">
+        <div class="col-7">
+          <h2 class="lead"><b>{{uDetails.lastname}} {{uDetails.firstname}}</b></h2>
+          <p class="text-muted text-sm"><b>Travail à: </b> {{uDetails.site.name}}</p>
+          <ul class="ml-4 mb-0 fa-ul text-muted">
+            <li class="small"><span class="fa-li"><i class="fas fa-lg fa-building"></i></span> Address: Demo Street 123, Demo City 04312, NJ</li>
+            <li class="small"><span class="fa-li"><i class="fas fa-lg fa-mobile-screen"></i></span> Phone #1: {{uDetails.phone_pro}}</li>
+            <li class="small"><span class="fa-li"><i class="fas fa-lg fa-phone"></i></span> Phone #2: {{uDetails.phone_perso}}</li>
+            <li class="small"><span class="fa-li"><i class="fas fa-lg fa-envelope"></i></span> Email : {{uDetails.email}}</li>
+          </ul>
+        </div>
+        <div class="col-5 text-right">
+          <img src="./assets/dist/img/avatar.png" alt="user-avatar" style="width: 128px; height: 128px;">
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="card card-primary card-outline card-outline-tabs">
+    <div class="card-header p-0 border-bottom-0">
+      <ul class="nav nav-tabs" id="custom-tabs-four-tab" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link active" id="custom-tabs-id-tab" data-toggle="pill" href="#custom-tabs-id" role="tab" aria-controls="custom-tabs-id" aria-selected="true">Carte d'identité</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="custom-tabs-selectmed-tab" data-toggle="pill" href="#custom-tabs-selectmed" role="tab" aria-controls="custom-tabs-selectmed" aria-selected="false">Séléction médicale</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="custom-tabs-cap-tab" data-toggle="pill" href="#custom-tabs-cap" role="tab" aria-controls="custom-tabs-cap" aria-selected="false">CAP</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="custom-tabs-adr-tab" data-toggle="pill" href="#custom-tabs-adr" role="tab" aria-controls="custom-tabs-adr" aria-selected="false">ADR</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="custom-tabs-tachygraphe-tab" data-toggle="pill" href="#custom-tabs-tachygraphe" role="tab" aria-controls="custom-tabs-tachygraphe" aria-selected="false">Tachygraphe</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="custom-tabs-credential-tab" data-toggle="pill" href="#custom-tabs-credential" role="tab" aria-controls="custom-tabs-credential" aria-selected="false">Crédential</a>
+        </li>
+      </ul>
+    </div>
+    <div class="card-body">
+      <div class="tab-content" id="custom-tabs-four-tabContent">
+        <div class="tab-pane fade show active" id="custom-tabs-id" role="tabpanel" aria-labelledby="custom-tabs-id-tab">
+          <app-user-identity></app-user-identity>
+        </div>
+        <div class="tab-pane fade" id="custom-tabs-selectmed" role="tabpanel" aria-labelledby="custom-tabs-selectmed-tab">
+          <app-user-selectmed></app-user-selectmed>
+        </div>
+        <div class="tab-pane fade" id="custom-tabs-cap" role="tabpanel" aria-labelledby="custom-tabs-cap-tab">
+          <app-user-cap></app-user-cap>
+        </div>
+        <div class="tab-pane fade" id="custom-tabs-adr" role="tabpanel" aria-labelledby="custom-tabs-adr-tab">
+          <app-user-adr></app-user-adr>
+        </div>
+        <div class="tab-pane fade" id="custom-tabs-tachygraphe" role="tabpanel" aria-labelledby="custom-tabs-tachygraphe-tab">
+          <app-user-tachograph></app-user-tachograph>
+        </div>
+        <div class="tab-pane fade" id="custom-tabs-credential" role="tabpanel" aria-labelledby="custom-tabs-credential-tab">
+          <app-user-credential></app-user-credential>
+        </div>
+      </div>
+    </div>
+    <!-- /.card -->
+  </div>
+</div>

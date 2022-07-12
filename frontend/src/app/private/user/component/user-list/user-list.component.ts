@@ -21,7 +21,7 @@ export class UserListComponent implements OnInit {
   delete(id:any)
   {
     this.apiService.deleteUser(id).subscribe((res)=> {
-      console.log('to delete :', res.code);
+      //console.log('to delete :', res.code);
       this.successMsg = res.code;
       this.getAllData();
     })
@@ -30,7 +30,7 @@ export class UserListComponent implements OnInit {
   getAllData()
   {
     this.apiService.getAllUser().subscribe((res)=> {
-      console.log("res :", res);
+      //console.log("res :", res);
       this.readData = res.data;
     })
   }

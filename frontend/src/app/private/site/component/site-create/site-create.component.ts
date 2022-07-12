@@ -27,7 +27,7 @@ export class SiteCreateComponent implements OnInit {
         this.siteFormCreate.patchValue({
           'site_id': res.data.site_id,
           'name': res.data.name,
-          'created_on': res.data.created_on,
+          'created_on': res.data.created_on.toString().slice(0,10),
           'description': res.data.description,
           'active': res.data.active
         });

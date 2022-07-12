@@ -20,13 +20,12 @@ public class BackendApplication {
             @Override
             public void addCorsMappings(CorsRegistry reg){
                 reg.addMapping("/**")
-                        .allowedMethods("GET", "POST", "PUT", "DELETE")
-                        .allowedOrigins("*")
-                        .allowedHeaders("*")
-                        .exposedHeaders("Authorization");
-
+                        .allowedOrigins("*");
+                        //.allowedMethods("GET", "POST", "PUT", "DELETE")
+                        //.allowedHeaders("*")
+                        //.exposedHeaders("Authorization");
             }
         };
-    }*/
-
+    }
+*/
 }
