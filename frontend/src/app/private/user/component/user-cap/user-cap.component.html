@@ -1,1 +1,61 @@
-<p>user-cap works!</p>
+<form [formGroup]="periodCapFormCreate">
+  <p>Ajouter une période</p>
+  <div class="form-row">
+    <div class="col-md-4 mb-3">
+      <input type="date" class="form-control" formControlName="start_date" value="">
+    </div>
+
+    <div class="col-md-4 mb-3">
+      <input type="date" class="form-control" formControlName="end_date" value="">
+    </div>
+
+    <div class="col-md-4 mb-3">
+      <input type="text" class="form-control" formControlName="user_id" value="{{getParamId}}" placeholder="usr_id">
+    </div>
+
+    <div class="col-md-4 mb-3">
+      <button type="submit" class="btn btn-success col-md-12" (click)="periodCreate()">Ajouter</button>
+    </div>
+  </div>
+</form>
+
+<div class="card card-primary" *ngFor="let period of periodList">
+  <div class="card-header">
+    <p class="card-title">Période du {{period.start_date | date:'shortDate'}} au {{period.end_date | date:'shortDate'}}</p>
+
+    <div class="card-tools">
+      <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+        <i class="fas fa-minus"></i>
+      </button>
+    </div>
+  </div>
+
+  <div class="card-body">
+    <div class="form-row">
+
+      <div class="col-md-4 mb-3">
+        <input type="date" class="form-control" placeholder="Date rdv">
+      </div>
+
+      <div class="col-md-4 mb-3">
+        <input type="text" class="form-control" placeholder="Prestataire">
+      </div>
+
+      <div class="col-md-4 mb-3">
+        <input type="text" class="form-control" placeholder="Prix">
+      </div>
+
+      <div class="col-md-12 mb-3">
+        <input type="text" class="form-control" placeholder="Commentaire">
+      </div>
+
+    </div>
+
+    <hr>
+
+    <p>Liste des rdv</p>
+
+
+  </div>
+</div>
+

@@ -148,4 +148,15 @@ export class ApiService {
   }
   /*****************************************************************************************/
 
+  /* ************************************* TACHOGRAPH ************************************ */
+
+  createTacho(data: any): Observable<ApiResponse> {
+    return this.http.post(`${this.baseUrl}/tachograph/create`, data)
+      .pipe(
+        map(response => response as ApiResponse)
+      );
+  }
+
+  /*****************************************************************************************/
+
 }

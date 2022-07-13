@@ -54,15 +54,15 @@ public class User {
     private String pob;
     private Boolean active;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST})
     @JoinColumn(name = "site_id")
     private Site site;
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST})
     @JoinColumn(name = "address_id")
     private Address address;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST})
     @JoinColumn(name = "status_id")
     private Status status;
 }

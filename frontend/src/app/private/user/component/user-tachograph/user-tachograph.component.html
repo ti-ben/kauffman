@@ -1,1 +1,28 @@
-<p>user-tachograph works!</p>
+<form [formGroup]="tachographFormCreate">
+  <div class="card-body">
+    <div class="form-row">
+
+      <div class="col-md-4 mb-3">
+        <input type="date" class="form-control" placeholder="date début" formControlName="start_date">
+      </div>
+
+      <div class="col-md-4 mb-3">
+        <input type="date" class="form-control" placeholder="Date fin" formControlName="end_date">
+      </div>
+
+      <div class="col-md-4 mb-3">
+        <input type="text" class="form-control" placeholder="N° de carte" formControlName="num_carte">
+      </div>
+
+      <div class="col-md-12 mb-3">
+        <input type="text" class="form-control" placeholder="Commentaire" formControlName="description">
+      </div>
+
+    </div>
+    <button class="btn btn-success" (click)="tachographCreate()">Ajouter</button>
+    <hr>
+
+    <p>Liste des cartes tachygraphe</p>
+
+  </div>
+</form>

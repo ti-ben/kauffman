@@ -130,7 +130,7 @@
         <div class="col-md-4 mb-3">
           <label>Employe actif?</label>
           <select class="custom-select" formControlName="active">
-            <option [ngValue]="null" disabled>Select activity</option>
+            <option [value]="null" disabled>Select activity</option>
             <option [value]="true">Oui</option>
             <option [value]="false">Non</option>
           </select>
@@ -146,7 +146,7 @@
           <label>Travail à</label>
           <select class="custom-select" formControlName="site_id">
             <option [value]="null" disabled>Select a site</option>
-            <option value="{{site.site_id}}" *ngFor="let site of sitesList">{{site.name}}</option>
+            <option *ngFor="let site of sitesList" [value]="site.site_id">{{site.name}}</option>
           </select>
         </div>
 

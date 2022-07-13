@@ -76,11 +76,8 @@ export class UserIdentityComponent implements OnInit {
   });
 
   updateUser() {
-    //console.log('Form update content :', this.userFormUpdate.value)
     if (this.userFormUpdate.valid) {
-
       this.apiService.updateUser(this.userFormUpdate.value, this.getParamId).subscribe((res) => {
-        //console.log('updated :', res);
         this.successMsg = res.code;
       })
 

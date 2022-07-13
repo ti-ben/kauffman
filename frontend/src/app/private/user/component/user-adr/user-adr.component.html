@@ -1,1 +1,33 @@
-<p>user-adr works!</p>
+<form [formGroup]="adrFormCreate">
+  <div class="card-body">
+    <div class="form-row">
+
+      <div class="col-md-4 mb-3">
+        <input type="date" class="form-control" placeholder="date début">
+      </div>
+
+      <div class="col-md-4 mb-3">
+        <input type="date" class="form-control" placeholder="Date fin">
+      </div>
+
+      <div class="col-md-4 mb-3">
+        <select class="custom-select" formControlName="type">
+          <option [value]="null" disabled>Select a type</option>
+          <option [value]="null">Colis</option>
+          <option [value]="null">Citerne</option>
+          <option [value]="null">Colis & Citerne</option>
+        </select>
+      </div>
+
+      <div class="col-md-12 mb-3">
+        <input type="text" class="form-control" placeholder="Commentaire">
+      </div>
+
+    </div>
+<button class="btn btn-success">Ajouter</button>
+    <hr>
+
+    <p>Liste des rdv ADR</p>
+
+  </div>
+</form>

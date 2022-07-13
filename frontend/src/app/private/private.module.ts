@@ -22,6 +22,7 @@ import { UserCapComponent } from './user/component/user-cap/user-cap.component';
 import { UserSelectmedComponent } from './user/component/user-selectmed/user-selectmed.component';
 import { UserTachographComponent } from './user/component/user-tachograph/user-tachograph.component';
 import { UserCredentialComponent } from './user/component/user-credential/user-credential.component';
+import { StatusComponent } from './status/status.component';
 
 
 
@@ -44,7 +45,8 @@ import { UserCredentialComponent } from './user/component/user-credential/user-c
     UserCapComponent,
     UserSelectmedComponent,
     UserTachographComponent,
-    UserCredentialComponent
+    UserCredentialComponent,
+    StatusComponent
   ],
   imports: [
     CommonModule,

@@ -1,4 +1,5 @@
 import {Site} from "../../site/model/site";
+import {Status} from "../../status/model/status";
 
 export interface User {
    user_id: String,
@@ -18,7 +19,7 @@ export interface User {
    updated_on:Date,
    pob:String,
    active: Boolean,
-   site: Site,
+   site_id: Site,
    //address: Address,
-   //status: Status
+   status_id: Status
 }

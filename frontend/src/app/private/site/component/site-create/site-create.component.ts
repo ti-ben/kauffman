@@ -23,7 +23,7 @@ export class SiteCreateComponent implements OnInit {
     if(this.getParamId)
     {
       this.apiService.getSingleSite(this.getParamId).subscribe((res) => {
-        console.log('res :', res);
+        //console.log('res :', res);
         this.siteFormCreate.patchValue({
           'site_id': res.data.site_id,
           'name': res.data.name,
@@ -46,7 +46,7 @@ export class SiteCreateComponent implements OnInit {
   siteCreate() {
     if (this.siteFormCreate.valid) {
       this.apiService.createSite(this.siteFormCreate.value).subscribe((res) => {
-        console.log('res :', res);
+        //console.log('res :', res);
         this.siteFormCreate.reset();
         this.successMsg = res.code;
       })
@@ -60,7 +60,7 @@ export class SiteCreateComponent implements OnInit {
     if(this.siteFormCreate.valid)
     {
       this.apiService.updateSite(this.siteFormCreate.value, this.getParamId).subscribe((res)=>{
-        console.log('updated :', res);
+        //console.log('updated :', res);
         this.successMsg = res.code;
       })
     }
