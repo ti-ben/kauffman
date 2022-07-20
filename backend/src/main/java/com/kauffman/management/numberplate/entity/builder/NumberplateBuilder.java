@@ -11,7 +11,6 @@ public class NumberplateBuilder {
     private String num_plate;
     private Date dop;
     private Boolean active;
-
     private Site site;
 
     public NumberplateBuilder setNumberplate_id(UUID numberplate_id) {

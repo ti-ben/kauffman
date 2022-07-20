@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {ApiService} from "../../../../shared/services/api.service";
 import {ActivatedRoute} from "@angular/router";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {ApiResponse} from "../../../../shared/model";
+import {NumberplateCreatePayload} from "../../model/numberplate-create.payload";
 
 @Component({
   selector: 'app-numberplate-create',
@@ -44,25 +46,30 @@ export class NumberplateCreateComponent implements OnInit {
     'active': new FormControl(true)
   });
 
-  numberplateCreate() {
+  numberplateCreate(): void {
     if (this.numberplateFormCreate.valid) {
-      //console.log('Form value :', this.numberplateFormCreate.value);
-      this.apiService.createNumberplate(this.numberplateFormCreate.value).subscribe((res) => {
-        console.log('Resultat :', res);
-        this.numberplateFormCreate.reset();
-        this.successMsg = res.code;
+      const payload: NumberplateCreatePayload = this.numberplateFormCreate.value;
+
+      //console.log('Payload = ', payload);
+
+      this.apiService.createNumberplate(payload).subscribe((response: ApiResponse) => {
+        if (response.result) {
+          this.numberplateFormCreate.reset();
+          this.successMsg = response.code;
+        }
       })
+
+
     } else {
       this.errorMsg = 'All fields are required';
+
     }
   }
 
   updateNumberplate() {
-    //console.log('Form update content :', this.numberplateFormCreate.value)
     if(this.numberplateFormCreate.valid)
     {
       this.apiService.updateSite(this.numberplateFormCreate.value, this.getParamId).subscribe((res)=>{
-        //console.log('updated :', res);
         this.successMsg = res.code;
       })
     }

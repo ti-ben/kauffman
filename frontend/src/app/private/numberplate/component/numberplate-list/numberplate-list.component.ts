@@ -19,9 +19,7 @@ export class NumberplateListComponent implements OnInit {
 
   delete(id:any)
   {
-    console.log('to delete :', id);
     this.apiService.deleteNumberplate(id).subscribe((res)=> {
-      console.log('to delete :', res.code);
       this.successMsg = res.code;
       this.getAllData();
     })
@@ -30,7 +28,6 @@ export class NumberplateListComponent implements OnInit {
   getAllData()
   {
     this.apiService.getAllNumberplate().subscribe((res)=> {
-      console.log("res :", res);
       this.readData = res.data;
     })
   }

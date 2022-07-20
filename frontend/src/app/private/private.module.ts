@@ -22,9 +22,9 @@ import { UserCapComponent } from './user/component/user-cap/user-cap.component';
 import { UserSelectmedComponent } from './user/component/user-selectmed/user-selectmed.component';
 import { UserTachographComponent } from './user/component/user-tachograph/user-tachograph.component';
 import { UserCredentialComponent } from './user/component/user-credential/user-credential.component';
+import { VehiculeComponent } from './vehicule/vehicule.component';
 import { StatusComponent } from './status/status.component';
-
-
+import { ProviderComponent } from './provider/provider.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +46,9 @@ import { StatusComponent } from './status/status.component';
     UserSelectmedComponent,
     UserTachographComponent,
     UserCredentialComponent,
-    StatusComponent
+    VehiculeComponent,
+    StatusComponent,
+    ProviderComponent
   ],
   imports: [
     CommonModule,

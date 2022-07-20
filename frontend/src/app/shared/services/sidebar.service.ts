@@ -13,9 +13,12 @@ export class SidebarService {
         menuTitle:'Dashboard',
         menuIcon: 'nav-icon fas fa-tachometer-alt',
         submenu:[
-          { menuTitle:'Site', url:'site', menuIcon: 'fa fa-cubes' },
-          { menuTitle:'User', url:'user', menuIcon: 'fa fa-users' },
-          { menuTitle:'Immatriculation', url:'numberplate', menuIcon: 'fa fa-cubes' }
+          { menuTitle:'Sites', url:'site', menuIcon: 'fa fa-cubes' },
+          { menuTitle:'Employés', url:'user', menuIcon: 'fa fa-users' },
+          { menuTitle:'Prestataires', url:'provider', menuIcon: 'fa fa-cubes' },
+          { menuTitle:'Immatriculations', url:'numberplate', menuIcon: 'fa fa-cubes' },
+          { menuTitle:'Status', url:'status', menuIcon: 'fa fa-cubes' },
+          { menuTitle:'Véhicules', url:'vehicule', menuIcon: 'fa fa-truck' }
         ]
       }
     ]

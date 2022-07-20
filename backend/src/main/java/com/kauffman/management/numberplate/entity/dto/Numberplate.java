@@ -28,7 +28,7 @@ public class Numberplate {
     private Date dop;
     private Boolean active;
 
-    @ManyToOne()
-    @JoinColumn(name = "site_id")
-    private Site site;
+    @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST})
+    @JoinColumn(name = "site_id", nullable = false, referencedColumnName = "site_id")
+    Site site;
 }

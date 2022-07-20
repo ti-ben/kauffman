@@ -1,5 +1,4 @@
 import {Site} from "../../site/model/site";
-import {Status} from "../../status/model/status";
 
 export interface User {
    user_id: String,
@@ -21,5 +20,5 @@ export interface User {
    active: Boolean,
    site_id: Site,
    //address: Address,
-   status_id: Status
+   //status_id: Status
 }

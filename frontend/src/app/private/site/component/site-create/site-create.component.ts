@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {ApiService} from "../../../../shared/services/api.service";
 import {ActivatedRoute} from "@angular/router";
+import {NumberplateCreatePayload} from "../../../numberplate/model/numberplate-create.payload";
+import {ApiResponse} from "../../../../shared/model";
 
 @Component({
   selector: 'app-site-create',
@@ -19,15 +21,12 @@ export class SiteCreateComponent implements OnInit {
 
   ngOnInit(): void {
     this.getParamId = this.activatedRoute.snapshot.paramMap.get('id')
-
-    if(this.getParamId)
-    {
+    if (this.getParamId) {
       this.apiService.getSingleSite(this.getParamId).subscribe((res) => {
-        //console.log('res :', res);
         this.siteFormCreate.patchValue({
           'site_id': res.data.site_id,
           'name': res.data.name,
-          'created_on': res.data.created_on.toString().slice(0,10),
+          'created_on': res.data.created_on.toString().slice(0, 10),
           'description': res.data.description,
           'active': res.data.active
         });
@@ -45,10 +44,12 @@ export class SiteCreateComponent implements OnInit {
 
   siteCreate() {
     if (this.siteFormCreate.valid) {
-      this.apiService.createSite(this.siteFormCreate.value).subscribe((res) => {
-        //console.log('res :', res);
-        this.siteFormCreate.reset();
-        this.successMsg = res.code;
+      const payload: NumberplateCreatePayload = this.siteFormCreate.value;
+      this.apiService.createSite(payload).subscribe((response: ApiResponse) => {
+        if (response.result) {
+          this.siteFormCreate.reset();
+          this.successMsg = response.code;
+        }
       })
     } else {
       this.errorMsg = 'All fields are required';
@@ -56,16 +57,11 @@ export class SiteCreateComponent implements OnInit {
   }
 
   updateSite() {
-    console.log('Form update content :', this.siteFormCreate.value)
-    if(this.siteFormCreate.valid)
-    {
-      this.apiService.updateSite(this.siteFormCreate.value, this.getParamId).subscribe((res)=>{
-        //console.log('updated :', res);
+    if (this.siteFormCreate.valid) {
+      this.apiService.updateSite(this.siteFormCreate.value, this.getParamId).subscribe((res) => {
         this.successMsg = res.code;
       })
-    }
-    else
-    {
+    } else {
       this.errorMsg = 'All fields are required';
     }
   }

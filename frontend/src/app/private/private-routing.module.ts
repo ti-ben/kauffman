@@ -12,6 +12,9 @@ import {NumberplateCreateComponent} from "./numberplate/component/numberplate-cr
 import {UserCreateComponent} from "./user/component/user-create/user-create.component";
 import {UserListComponent} from "./user/component/user-list/user-list.component";
 import {UserDetailsComponent} from "./user/component/user-details/user-details.component";
+import {VehiculeComponent} from "./vehicule/vehicule.component";
+import {StatusComponent} from "./status/status.component";
+import {ProviderComponent} from "./provider/provider.component";
 
 const routes: Routes = [
   {
@@ -31,6 +34,12 @@ const routes: Routes = [
           {path: 'create', component: UserCreateComponent, data: {crumbTitle: 'Ajouter un nouvel utilisateur'}},
           {path: 'details/:id', component: UserDetailsComponent, data: {crumbTitle: 'Détails'}},
         ]
+      },
+      {path: 'vehicule', component: VehiculeComponent, data: {crumbTitle: 'Vehicule'}
+      },
+      {path: 'status', component: StatusComponent, data: {crumbTitle: 'Status'}
+      },
+      {path: 'provider', component: ProviderComponent, data: {crumbTitle: 'Provider'}
       },
       {
         path: 'numberplate', component: NumberplateComponent, data: {crumbTitle: 'Immatriculation'},

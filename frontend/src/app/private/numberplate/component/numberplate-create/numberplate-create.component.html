@@ -27,7 +27,7 @@
       </div>
 
       <div class="form-group">
-        <label>Nom de l aplaque</label>
+        <label>N° de la plaque d'immatriculation</label>
         <input type="text" class="form-control" formControlName="num_plate">
       </div>
 
@@ -37,7 +37,7 @@
       </div>
 
       <div class="form-group">
-        <label>Affectée à</label>
+        <label>Affectée au site de</label>
         <select class="custom-select" formControlName="site_id">
           <option [value]="null" selected disabled>Select a site</option>
           <option *ngFor="let site of sitesList" [value]="site.site_id">{{site.name}}</option>
@@ -45,7 +45,7 @@
       </div>
 
       <div class="form-group">
-        <label>Plaque actif</label>
+        <label>Plaque active ?</label>
         <input type="text" class="form-control" formControlName="active">
       </div>
 

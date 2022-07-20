@@ -25,8 +25,8 @@ public class NumberplateController {
         Numberplate numberplate = new NumberplateBuilder()
                 .setNum_plate(payload.getNum_plate())
                 .setDop(payload.getDop())
-                .setSite(payload.getSite())
                 .setActive(payload.getActive())
+                .setSite(payload.getSite())
                 .build();
         return new ApiResponse(true, numberplateRepository.save(numberplate), "api.site.create.success");
     }
