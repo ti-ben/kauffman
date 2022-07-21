@@ -42,11 +42,12 @@ public class CredentialController {
     // Read record detail
     @GetMapping("/detail/{id}")
     public ApiResponse detail(@PathVariable("id") UUID id) {
-        Credential fromDb = credentialRepository.findById(id).orElse(null);
+        //Credential fromDb = credentialRepository.findById(id).orElse(null);
+        Credential fromDb = credentialRepository.findByUserId(id);
         if (fromDb == null) {
             return new ApiResponse(false, null, "api.credential.detail.not-found");
         }
-        return new ApiResponse(true, fromDb, null);
+        return new ApiResponse(true, fromDb, "api.credential.detail.found");
     }
 
     // Update record

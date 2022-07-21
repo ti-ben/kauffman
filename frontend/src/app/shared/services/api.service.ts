@@ -20,6 +20,14 @@ export class ApiService {
       );
   }
   /*****************************************************************************************/
+  /* *************************************** STATUS ************************************** */
+  getAllRank(): Observable<ApiResponse> {
+    return this.http.get(`${this.baseUrl}/rank/list`)
+      .pipe(
+        map(response => response as ApiResponse)
+      );
+  }
+  /*****************************************************************************************/
 
   /* *************************************** PERIOD ************************************** */
   createPeriod(data: any): Observable<ApiResponse> {
@@ -152,6 +160,31 @@ export class ApiService {
 
   createTacho(data: any): Observable<ApiResponse> {
     return this.http.post(`${this.baseUrl}/tachograph/create`, data)
+      .pipe(
+        map(response => response as ApiResponse)
+      );
+  }
+
+  /*****************************************************************************************/
+
+  /* ************************************* TACHOGRAPH ************************************ */
+
+  getUserCredential(id: any): Observable<ApiResponse> {
+    return this.http.get(`${this.baseUrl}/credential/detail/${id}`)
+      .pipe(
+        map(response => response as ApiResponse)
+      );
+  }
+
+  saveUserCredential(data: any): Observable<ApiResponse>{
+    return this.http.post(`${this.baseUrl}/credential/create`, data)
+      .pipe(
+        map(response => response as ApiResponse)
+      );
+  }
+
+  getAllCredential(): Observable<ApiResponse> {
+    return this.http.get(`${this.baseUrl}/credential/list`)
       .pipe(
         map(response => response as ApiResponse)
       );

@@ -12,7 +12,8 @@ export class UserTachographComponent implements OnInit {
 
   errorMsg: any;
   successMsg: any;
-  getParamId: any = this.activatedRoute.snapshot.paramMap.get('id');
+  getParamId = this.activatedRoute.snapshot.paramMap.get('id');
+  currentDate = new Date().toISOString().substring(0, 10);
 
   constructor(private apiService: ApiService, private activatedRoute: ActivatedRoute) {
   }
@@ -22,8 +23,8 @@ export class UserTachographComponent implements OnInit {
   }
 
   tachographFormCreate = new FormGroup({
-    'start_date': new FormControl('', Validators.required),
-    'end_date': new FormControl('', Validators.required),
+    'start_date': new FormControl(this.currentDate, Validators.required),
+    'end_date': new FormControl(this.currentDate, Validators.required),
     'num_carte': new FormControl('', Validators.required),
     'description': new FormControl('')
   })

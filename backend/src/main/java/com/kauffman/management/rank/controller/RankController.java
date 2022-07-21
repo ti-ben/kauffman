@@ -32,7 +32,6 @@ public class RankController {
     // Read all records
     @GetMapping("/list")
     public ApiResponse get() {
-
         return new ApiResponse(true, rankRepository.findAll(), null);
     }
 

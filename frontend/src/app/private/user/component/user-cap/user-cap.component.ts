@@ -10,7 +10,8 @@ import {FormControl, FormGroup} from "@angular/forms";
 })
 export class UserCapComponent implements OnInit {
 
-  getParamId: any = this.activatedRoute.snapshot.paramMap.get('id');
+  getParamId = this.activatedRoute.snapshot.paramMap.get('id');
+  currentDate = new Date().toISOString().substring(0, 10);
   errorMsg: any = '';
   successMsg: any = '';
   periodList: any = '';
@@ -23,8 +24,8 @@ export class UserCapComponent implements OnInit {
   }
 
   periodCapFormCreate = new FormGroup({
-    'start_date': new FormControl(''),
-    'end_date': new FormControl(''),
+    'start_date': new FormControl(this.currentDate),
+    'end_date': new FormControl(this.currentDate),
     'user_id': new FormControl(this.getParamId)
   });
 

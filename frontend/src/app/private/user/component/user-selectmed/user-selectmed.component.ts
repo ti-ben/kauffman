@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ApiService} from "../../../../shared/services/api.service";
 import {ActivatedRoute} from "@angular/router";
 import {FormControl, FormGroup} from "@angular/forms";
+import {ApiResponse} from "../../../../shared/model";
 
 @Component({
   selector: 'app-user-selectmed',
@@ -32,7 +33,7 @@ export class UserSelectmedComponent implements OnInit {
 
     if (this.periodFormCreate.valid) {
       //console.log('Form content: ', this.periodFormCreate.value)
-      this.apiService.createPeriod(this.periodFormCreate.value).subscribe((res) => {
+      this.apiService.createPeriod(this.periodFormCreate.value).subscribe((res: ApiResponse) => {
         this.periodFormCreate.reset();
         this.successMsg = res.code;
       })
@@ -43,7 +44,7 @@ export class UserSelectmedComponent implements OnInit {
   }
 
   allPeriodList() {
-    this.apiService.getAllPeriodByUserId().subscribe((res) => {
+    this.apiService.getAllPeriodByUserId().subscribe((res: ApiResponse) => {
       this.periodList = res.data;
       //console.log('Period ', this.periodList)
       if (this.periodList == null) {

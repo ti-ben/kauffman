@@ -50,7 +50,7 @@ export class NumberplateCreateComponent implements OnInit {
     if (this.numberplateFormCreate.valid) {
       const payload: NumberplateCreatePayload = this.numberplateFormCreate.value;
 
-      //console.log('Payload = ', payload);
+      console.log('Payload = ', payload);
 
       this.apiService.createNumberplate(payload).subscribe((response: ApiResponse) => {
         if (response.result) {
@@ -58,7 +58,6 @@ export class NumberplateCreateComponent implements OnInit {
           this.successMsg = response.code;
         }
       })
-
 
     } else {
       this.errorMsg = 'All fields are required';

@@ -48,7 +48,7 @@ import { ProviderComponent } from './provider/provider.component';
     UserCredentialComponent,
     VehiculeComponent,
     StatusComponent,
-    ProviderComponent
+    ProviderComponent,
   ],
   imports: [
     CommonModule,
