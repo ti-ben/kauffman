@@ -1,6 +1,8 @@
 package com.kauffman.management.user.entity.builder;
 
 import com.kauffman.management.address.entity.dto.Address;
+import com.kauffman.management.credentials.entity.dto.Credentials;
+import com.kauffman.management.rank.entity.dto.Rank;
 import com.kauffman.management.site.entity.dto.Site;
 import com.kauffman.management.status.entity.dto.Status;
 import com.kauffman.management.user.entity.dto.User;
@@ -17,7 +19,6 @@ public class UserBuilder {
     private String avatar;
     private Date dob;
     private String email;
-    private String password;
     private String phone_pro;
     private String phone_perso;
     private String nationality;
@@ -31,6 +32,8 @@ public class UserBuilder {
     private Site site;
     private Address address;
     private Status status;
+    private Rank rank;
+    private Credentials credentials;
 
     public UserBuilder setUserId(UUID user_id) {
         this.user_id = user_id;
@@ -64,11 +67,6 @@ public class UserBuilder {
 
     public UserBuilder setEmail(String email) {
         this.email = email;
-        return this;
-    }
-
-    public UserBuilder setPassword(String password) {
-        this.password = password;
         return this;
     }
 
@@ -132,8 +130,18 @@ public class UserBuilder {
         return this;
     }
 
+    public UserBuilder setRank(Rank rank) {
+        this.rank = rank;
+        return this;
+    }
+
+    public UserBuilder setCredentials(Credentials credentials) {
+        this.credentials = credentials;
+        return this;
+    }
+
     public User build() {
-        return new User(user_id, firstname, lastname, gender, avatar, dob, email, password, phone_pro, phone_perso, nationality, numirn, driver_license, updated_on, created_on, pob, active, site, address, status);
+        return new User(user_id, firstname, lastname, gender, avatar, dob, email, phone_pro, phone_perso, nationality, numirn, driver_license, updated_on, created_on, pob, active, site, address, status, rank, credentials);
     }
 
 }

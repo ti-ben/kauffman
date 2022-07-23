@@ -169,22 +169,22 @@ export class ApiService {
 
   /* ************************************* TACHOGRAPH ************************************ */
 
-  getUserCredential(id: any): Observable<ApiResponse> {
-    return this.http.get(`${this.baseUrl}/credential/detail/${id}`)
+  getUserCredential(username: any): Observable<ApiResponse> {
+    return this.http.get(`${this.baseUrl}/credentials/detail/${username}`)
       .pipe(
         map(response => response as ApiResponse)
       );
   }
 
   saveUserCredential(data: any): Observable<ApiResponse>{
-    return this.http.post(`${this.baseUrl}/credential/create`, data)
+    return this.http.post(`${this.baseUrl}/credentials/create`, data)
       .pipe(
         map(response => response as ApiResponse)
       );
   }
 
   getAllCredential(): Observable<ApiResponse> {
-    return this.http.get(`${this.baseUrl}/credential/list`)
+    return this.http.get(`${this.baseUrl}/credentials/list`)
       .pipe(
         map(response => response as ApiResponse)
       );

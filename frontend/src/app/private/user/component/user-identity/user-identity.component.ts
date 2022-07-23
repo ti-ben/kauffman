@@ -34,7 +34,6 @@ export class UserIdentityComponent implements OnInit {
           'avatar': res.data.avatar,
           'dob': res.data.dob.toString().slice(0, 10),
           'email': res.data.email,
-          'password': res.data.password,
           'phone_pro': res.data.phone_pro,
           'phone_perso': res.data.phone_perso,
           'nationality': res.data.nationality,
@@ -46,7 +45,7 @@ export class UserIdentityComponent implements OnInit {
           'active': res.data.active,
           'site_id': res.data.site_id,
           'address_id': res.data.address_id,
-          'status_id': res.data.status_id,
+          'status_id': res.data.status_id
         });
       });
     }
@@ -60,7 +59,6 @@ export class UserIdentityComponent implements OnInit {
     'avatar': new FormControl(''),
     'dob': new FormControl(''),
     'email': new FormControl(''),
-    'password': new FormControl(''),
     'phone_pro': new FormControl(''),
     'phone_perso': new FormControl(''),
     'nationality': new FormControl(''),
@@ -72,7 +70,7 @@ export class UserIdentityComponent implements OnInit {
     'active': new FormControl(''),
     'site_id': new FormControl(''),
     'address_id': new FormControl(''),
-    'status_id': new FormControl(''),
+    'status_id': new FormControl('')
   });
 
   updateUser() {

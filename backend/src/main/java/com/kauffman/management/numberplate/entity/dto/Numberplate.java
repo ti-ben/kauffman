@@ -29,6 +29,6 @@ public class Numberplate {
     private Boolean active;
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST})
-    @JoinColumn(name = "site_id", nullable = false)
+    @JoinColumn(name = "site_id")
     Site site;
 }

@@ -1,6 +1,8 @@
 package com.kauffman.management.user.entity.payload;
 
 import com.kauffman.management.address.entity.dto.Address;
+import com.kauffman.management.credentials.entity.dto.Credentials;
+import com.kauffman.management.rank.entity.dto.Rank;
 import com.kauffman.management.site.entity.dto.Site;
 import com.kauffman.management.status.entity.dto.Status;
 import lombok.AllArgsConstructor;
@@ -19,7 +21,6 @@ public class UserCreatePayload {
     private String avatar;
     private Date dob;
     private String email;
-    private String password;
     private String phone_pro;
     private String phone_perso;
     private String nationality;
@@ -33,4 +34,6 @@ public class UserCreatePayload {
     private Site site;
     private Address address;
     private Status status;
+    private Rank rank;
+    private Credentials credentials;
 }

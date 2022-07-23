@@ -1,11 +1,13 @@
 package com.kauffman.management.user.entity.payload;
 
+import com.kauffman.management.address.entity.dto.Address;
+import com.kauffman.management.credentials.entity.dto.Credentials;
+import com.kauffman.management.rank.entity.dto.Rank;
 import com.kauffman.management.site.entity.dto.Site;
 import com.kauffman.management.status.entity.dto.Status;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.apache.tomcat.jni.Address;
 
 import java.util.Date;
 import java.util.UUID;
@@ -21,7 +23,6 @@ public class UserUpdatePayload {
     private String avatar;
     private Date dob;
     private String email;
-    private String password;
     private String phone_pro;
     private String phone_perso;
     private String nationality;
@@ -35,4 +36,6 @@ public class UserUpdatePayload {
     private Site site;
     private Address address;
     private Status status;
+    private Rank rank;
+    private Credentials credentials;
 }

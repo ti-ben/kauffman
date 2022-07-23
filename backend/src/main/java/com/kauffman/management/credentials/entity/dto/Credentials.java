@@ -1,7 +1,5 @@
-package com.kauffman.management.credential.entity.dto;
+package com.kauffman.management.credentials.entity.dto;
 
-import com.kauffman.management.rank.entity.dto.Rank;
-import com.kauffman.management.user.entity.dto.User;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -16,25 +14,17 @@ import java.util.UUID;
 @NoArgsConstructor
 @Data
 
-public class Credential {
+public class Credentials {
     @Id
     @GeneratedValue(generator = "uuid2")
     @GenericGenerator(name = "uuid2", strategy = "uuid2")
     @Column(columnDefinition = "BINARY(16)")
-    private UUID credential_id;
+    private UUID credentials_id;
+
     @Column(unique = true)
     private String username;
     private String password;
     private Date created_on;
     private Date updated_on;
     private Boolean active;
-
-    @OneToOne
-    @JoinColumn(name = "user_id")
-    private User user;
-
-    @OneToOne
-    @JoinColumn(name = "rank_id")
-    private Rank rank;
-
 }

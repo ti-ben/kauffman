@@ -26,10 +26,8 @@ export class NumberplateCreateComponent implements OnInit {
     if(this.getParamId)
     {
       this.apiService.getSingleNumberplate(this.getParamId).subscribe((res) => {
-        //console.log('res :', res);
         this.numberplateFormCreate.patchValue({
-          'site_id': res.data.site.name,
-          'numberplate_id': res.data.numberplate_id,
+          'site_id': res.data.site.site_id,
           'num_plate': res.data.num_plate,
           'dop': res.data.dop.toString().slice(0,10),
           'active': res.data.active
@@ -39,7 +37,6 @@ export class NumberplateCreateComponent implements OnInit {
   }
 
   numberplateFormCreate = new FormGroup({
-    'numberplate_id': new FormControl(),
     'site_id': new FormControl(),
     'num_plate': new FormControl('', Validators.required),
     'dop': new FormControl(''),
@@ -48,10 +45,8 @@ export class NumberplateCreateComponent implements OnInit {
 
   numberplateCreate(): void {
     if (this.numberplateFormCreate.valid) {
+      console.log('form', this.numberplateFormCreate.value)
       const payload: NumberplateCreatePayload = this.numberplateFormCreate.value;
-
-      console.log('Payload = ', payload);
-
       this.apiService.createNumberplate(payload).subscribe((response: ApiResponse) => {
         if (response.result) {
           this.numberplateFormCreate.reset();
@@ -61,7 +56,6 @@ export class NumberplateCreateComponent implements OnInit {
 
     } else {
       this.errorMsg = 'All fields are required';
-
     }
   }
 

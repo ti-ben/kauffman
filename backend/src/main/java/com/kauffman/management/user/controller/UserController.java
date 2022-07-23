@@ -27,7 +27,6 @@ public class UserController {
                 .setAvatar(payload.getAvatar())
                 .setDob(payload.getDob())
                 .setEmail(payload.getEmail())
-                .setPassword(payload.getPassword())
                 .setPhonePro(payload.getPhone_pro())
                 .setPhonePerso(payload.getPhone_perso())
                 .setNationality(payload.getNationality())
@@ -39,6 +38,8 @@ public class UserController {
                 .setActive(payload.getActive())
                 .setSite(payload.getSite())
                 .setStatus(payload.getStatus())
+                .setRank(payload.getRank())
+                .setCredentials(payload.getCredentials())
                 .build();
         return new ApiResponse(true, userRepository.save(user), "api.user.create.success");
     }
@@ -72,7 +73,6 @@ public class UserController {
         fromDb.setAvatar(payload.getAvatar());
         fromDb.setDob(payload.getDob());
         fromDb.setEmail(payload.getEmail());
-        fromDb.setPassword(payload.getPassword());
         fromDb.setPhone_pro(payload.getPhone_pro());
         fromDb.setPhone_perso(payload.getPhone_perso());
         fromDb.setNationality(payload.getNationality());
@@ -84,6 +84,8 @@ public class UserController {
         fromDb.setActive(payload.getActive());
         fromDb.setSite(payload.getSite());
         fromDb.setStatus(payload.getStatus());
+        fromDb.setRank(payload.getRank());
+        fromDb.setCredentials(payload.getCredentials());
         return new ApiResponse(true, userRepository.save(fromDb), "api.update.update.success");
     }
 

@@ -21,7 +21,7 @@ import { UserAdrComponent } from './user/component/user-adr/user-adr.component';
 import { UserCapComponent } from './user/component/user-cap/user-cap.component';
 import { UserSelectmedComponent } from './user/component/user-selectmed/user-selectmed.component';
 import { UserTachographComponent } from './user/component/user-tachograph/user-tachograph.component';
-import { UserCredentialComponent } from './user/component/user-credential/user-credential.component';
+import { UserCredentialsComponent } from './user/component/user-credentials/user-credentials.component';
 import { VehiculeComponent } from './vehicule/vehicule.component';
 import { StatusComponent } from './status/status.component';
 import { ProviderComponent } from './provider/provider.component';
@@ -45,7 +45,7 @@ import { ProviderComponent } from './provider/provider.component';
     UserCapComponent,
     UserSelectmedComponent,
     UserTachographComponent,
-    UserCredentialComponent,
+    UserCredentialsComponent,
     VehiculeComponent,
     StatusComponent,
     ProviderComponent,

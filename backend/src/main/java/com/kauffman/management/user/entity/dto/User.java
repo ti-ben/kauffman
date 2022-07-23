@@ -1,6 +1,8 @@
 package com.kauffman.management.user.entity.dto;
 
 import com.kauffman.management.address.entity.dto.Address;
+import com.kauffman.management.credentials.entity.dto.Credentials;
+import com.kauffman.management.rank.entity.dto.Rank;
 import com.kauffman.management.site.entity.dto.Site;
 import com.kauffman.management.status.entity.dto.Status;
 import lombok.AllArgsConstructor;
@@ -37,10 +39,11 @@ public class User {
 
     @Column(unique = true)
     private String email;
-    private String password;
     private String phone_pro;
     private String phone_perso;
     private String nationality;
+
+    @Column(unique = true)
     private String numirn;
     private String driver_license;
 
@@ -65,4 +68,12 @@ public class User {
     @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST})
     @JoinColumn(name = "status_id")
     private Status status;
+
+    @OneToOne(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST})
+    @JoinColumn(name = "rank_id")
+    private Rank rank;
+
+    @OneToOne(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST})
+    @JoinColumn(name = "credentials_id")
+    private Credentials credentials;
 }
