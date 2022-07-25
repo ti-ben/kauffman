@@ -26,8 +26,8 @@ export class UserCredentialsComponent implements OnInit {
   ngOnInit(): void {
     this.userDetails();
     this.allRankList();
-    if (true) {
-      this.apiService.getUserCredential('benoit.titeux@protonmail.com').subscribe((res) => {
+    if (this.uDetails) {
+      this.apiService.getUserCredential(this.uDetails.email).subscribe((res) => {
         this.credentialsForm.setValue({
           'user_id': res.data.user_id,
           'credentials_id': res.data.credentials_id,

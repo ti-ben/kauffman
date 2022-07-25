@@ -28,18 +28,37 @@ const routes: Routes = [
           {path: 'create/:id', component: SiteCreateComponent, data: {crumbTitle: 'Mise à jour'}},
         ]
       },
-      {path: 'user', component: UserComponent, data: {crumbTitle: 'User'},
+      {
+        path: 'user', component: UserComponent, data: {crumbTitle: 'User'},
         children: [
           {path: '', component: UserListComponent, data: {crumbTitle: 'Liste des utilisateurs'}},
           {path: 'create', component: UserCreateComponent, data: {crumbTitle: 'Ajouter un nouvel utilisateur'}},
           {path: 'details/:id', component: UserDetailsComponent, data: {crumbTitle: 'Détails'}},
         ]
       },
-      {path: 'vehicule', component: VehiculeComponent, data: {crumbTitle: 'Vehicule'}
+      {
+        path: 'vehicule', component: VehiculeComponent, data: {crumbTitle: 'Vehicule'},
+        children: [
+          {path: '', component: UserListComponent, data: {crumbTitle: 'Liste des utilisateurs'}},
+          {path: 'create', component: UserCreateComponent, data: {crumbTitle: 'Ajouter un nouvel utilisateur'}},
+          {path: 'details/:id', component: UserDetailsComponent, data: {crumbTitle: 'Détails'}},
+        ]
       },
-      {path: 'status', component: StatusComponent, data: {crumbTitle: 'Status'}
+      {
+        path: 'status', component: StatusComponent, data: {crumbTitle: 'Status'},
+        children: [
+          {path: '', component: UserListComponent, data: {crumbTitle: 'Liste des utilisateurs'}},
+          {path: 'create', component: UserCreateComponent, data: {crumbTitle: 'Ajouter un nouvel utilisateur'}},
+          {path: 'details/:id', component: UserDetailsComponent, data: {crumbTitle: 'Détails'}},
+        ]
       },
-      {path: 'provider', component: ProviderComponent, data: {crumbTitle: 'Provider'}
+      {
+        path: 'provider', component: ProviderComponent, data: {crumbTitle: 'Provider'},
+        children: [
+          {path: '', component: UserListComponent, data: {crumbTitle: 'Liste des utilisateurs'}},
+          {path: 'create', component: UserCreateComponent, data: {crumbTitle: 'Ajouter un nouvel utilisateur'}},
+          {path: 'details/:id', component: UserDetailsComponent, data: {crumbTitle: 'Détails'}},
+        ]
       },
       {
         path: 'numberplate', component: NumberplateComponent, data: {crumbTitle: 'Immatriculation'},
