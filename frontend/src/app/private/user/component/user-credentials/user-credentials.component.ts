@@ -23,10 +23,23 @@ export class UserCredentialsComponent implements OnInit {
   constructor(private apiService: ApiService, private activatedRoute: ActivatedRoute, private formBuilder: FormBuilder) {
   }
 
+  private userDetails() {
+    this.apiService.getSingleUser(this.getParamId).subscribe((response: ApiResponse) => {
+      this.uDetails = response.data;
+    })
+  }
+
+  private allRankList() {
+    this.apiService.getAllRank().subscribe((response: ApiResponse) => {
+      this.rankList = response.data;
+    })
+  }
+
   ngOnInit(): void {
     this.userDetails();
     this.allRankList();
-    if (this.uDetails) {
+    console.log(this.uDetails.credentials);
+    if (this.uDetails.credentials) {
       this.apiService.getUserCredential(this.uDetails.email).subscribe((res) => {
         this.credentialsForm.setValue({
           'user_id': res.data.user_id,
@@ -58,17 +71,7 @@ export class UserCredentialsComponent implements OnInit {
     console.log('credentialsForm content = ', this.credentialsForm.value);
   }
 
-  private userDetails() {
-    this.apiService.getSingleUser(this.getParamId).subscribe((response: ApiResponse) => {
-      this.uDetails = response.data;
-    })
-  }
 
-  private allRankList() {
-    this.apiService.getAllRank().subscribe((response: ApiResponse) => {
-      this.rankList = response.data;
-    })
-  }
 
   credentialsForm = new FormGroup({
     'user_id': new FormControl(this.uDetails.user_id, [Validators.required]),
