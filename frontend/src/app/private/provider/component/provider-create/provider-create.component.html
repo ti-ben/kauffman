@@ -1,5 +1,4 @@
 <div class="container card card-warning card-outline" *ngIf="formGroup">
-
   <form [formGroup]="formGroup">
     <div class="card-body">
 
@@ -16,32 +15,37 @@
       </div>
 
       <div class="form-group">
-        <label>N° de la plaque d'immatriculation</label>
-        <input type="text" class="form-control" formControlName="num_plate">
+        <label>Nom du prestataire</label>
+        <input type="email" class="form-control" placeholder="Nom du prestataire" formControlName="name">
       </div>
 
       <div class="form-group">
-        <label>Date d'achat</label>
-        <input type="date" class="form-control" formControlName="dop">
+        <label>Adresse email</label>
+        <input type="email" class="form-control" placeholder="email" formControlName="email">
       </div>
 
       <div class="form-group">
-        <label>Affectée au site de</label>
-        <select class="custom-select" formControlName="site_id">
-          <option [value]="null" selected disabled>Select a site</option>
-          <option *ngFor="let site of sitesList" [value]="site.site_id">{{site.name}}</option>
-        </select>
+        <label>Type de service</label>
+        <input type="email" class="form-control" placeholder="Type de service" formControlName="service">
       </div>
 
       <div class="form-group">
-        <label>Plaque active ?</label>
+        <label>Téléphone</label>
+        <input type="email" class="form-control" placeholder="Téléphone" formControlName="phone">
+      </div>
+
+      <div class="form-group">
+        <label>Actif?</label>
         <select class="custom-select" formControlName="active">
-          <option [value]="null" selected disabled>Select a status</option>
           <option [value]="true">Oui</option>
           <option [value]="false">Non</option>
         </select>
       </div>
 
+      <div class="form-group">
+        <label>Adresse du prestataire</label>
+        <input type="email" class="form-control" placeholder="Adresse" formControlName="address_id">
+      </div>
       <button type="submit" class="btn btn-primary" (click)="create()">Enregistrer</button>
     </div>
   </form>

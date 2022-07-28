@@ -2,7 +2,6 @@ package com.kauffman.management.credentials.controller;
 
 import com.kauffman.management.common.entity.ApiResponse;
 import com.kauffman.management.credentials.entity.builder.CredentialsBuilder;
-import com.kauffman.management.credentials.entity.builder.CredentialsBuilder;
 import com.kauffman.management.credentials.entity.dto.Credentials;
 import com.kauffman.management.credentials.entity.payload.CredentialsCreatePayload;
 import com.kauffman.management.credentials.entity.payload.CredentialsUpdatePayload;
@@ -28,6 +27,7 @@ public class CredentialsController {
                 .setCreated_on(payload.getCreated_on())
                 .setUpdated_on(payload.getUpdated_on())
                 .setActive(payload.getActive())
+                .setRank((payload.getRank()))
                 .build();
         return new ApiResponse(true, credentialsRepository.save(credential), "api.credentials.create.success");
     }
@@ -61,6 +61,7 @@ public class CredentialsController {
         fromDb.setCreated_on(payload.getCreated_on());
         fromDb.setUpdated_on(payload.getUpdated_on());
         fromDb.setActive(payload.getActive());
+        fromDb.setRank(payload.getRank());
         return new ApiResponse(true, credentialsRepository.save(fromDb), "api.credentials.update.success");
     }
 

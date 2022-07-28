@@ -1,4 +1,4 @@
-import {Component, Input, OnInit, Output} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ApiService} from "../../../../shared/services/api.service";
 import {ActivatedRoute} from "@angular/router";
 
@@ -10,18 +10,18 @@ import {ActivatedRoute} from "@angular/router";
 export class UserDetailsComponent implements OnInit {
 
   uDetails: any = '';
-  getParamId: any = '';
+  getParamId = this.activatedRoute.snapshot.paramMap.get('id');
 
   constructor(private apiService: ApiService, private activatedRoute: ActivatedRoute) {
   }
 
   ngOnInit(): void {
-    this.getParamId = this.activatedRoute.snapshot.paramMap.get('id');
-    if (this.getParamId) {
-      this.apiService.getSingleUser(this.getParamId).subscribe(res => {
-        this.uDetails = res.data;
-      })
-    }
+    this.userDetails();
+  }
 
+  userDetails() {
+    this.apiService.getSingleUser(this.getParamId).subscribe(res => {
+      this.uDetails = res.data;
+    })
   }
 }

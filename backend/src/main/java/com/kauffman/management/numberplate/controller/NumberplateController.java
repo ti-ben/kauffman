@@ -28,7 +28,9 @@ public class NumberplateController {
                 .setActive(payload.getActive())
                 .setSite(payload.getSite())
                 .build();
+        System.out.println(numberplate);
         return new ApiResponse(true, numberplateRepository.save(numberplate), "api.site.create.success");
+
     }
 
     // Read all records

@@ -76,7 +76,7 @@ public class ProviderController {
         return new ApiResponse(true, providerRepository.save(fromDb), "api.provider.archive.success");
     }
 
-    @PutMapping("/delete/{id}")
+    @DeleteMapping("/delete/{id}")
     public ApiResponse delete(@PathVariable("id") UUID id) {
         Provider fromDb = providerRepository.findById(id).orElse(null);
         if (fromDb == null) {

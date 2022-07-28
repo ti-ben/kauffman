@@ -9,7 +9,7 @@ import { UserComponent } from './user/user.component';
 import { NumberplateComponent } from './numberplate/numberplate.component';
 import { SiteCreateComponent } from './site/component/site-create/site-create.component';
 import {SiteListComponent} from "./site/component/site-list/site-list.component";
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { NumberplateCreateComponent } from './numberplate/component/numberplate-create/numberplate-create.component';
 import { NumberplateListComponent } from './numberplate/component/numberplate-list/numberplate-list.component';
 import { UserListComponent } from './user/component/user-list/user-list.component';
@@ -25,6 +25,11 @@ import { UserCredentialsComponent } from './user/component/user-credentials/user
 import { VehiculeComponent } from './vehicule/vehicule.component';
 import { StatusComponent } from './status/status.component';
 import { ProviderComponent } from './provider/provider.component';
+import { ProviderListComponent } from './provider/component/provider-list/provider-list.component';
+import { ProviderCreateComponent } from './provider/component/provider-create/provider-create.component';
+import { ProviderUpdateComponent } from './provider/component/provider-update/provider-update.component';
+import {SiteUpdateComponent} from "./site/component/site-update/site-update.component";
+import { NumberplateUpdateComponent } from './numberplate/component/numberplate-update/numberplate-update.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +39,7 @@ import { ProviderComponent } from './provider/provider.component';
     NumberplateComponent,
     SiteCreateComponent,
     SiteListComponent,
+    SiteUpdateComponent,
     NumberplateCreateComponent,
     NumberplateListComponent,
     UserListComponent,
@@ -49,13 +55,18 @@ import { ProviderComponent } from './provider/provider.component';
     VehiculeComponent,
     StatusComponent,
     ProviderComponent,
+    ProviderListComponent,
+    ProviderCreateComponent,
+    ProviderUpdateComponent,
+    NumberplateUpdateComponent,
   ],
   imports: [
     CommonModule,
     RouterModule,
     SharedModule,
     PrivateRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
   exports:[
     DashboardComponent

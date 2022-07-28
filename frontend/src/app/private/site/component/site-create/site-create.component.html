@@ -1,14 +1,8 @@
-  <div class="container card card-warning card-outline" *ngIf="siteFormCreate">
+  <div class="container card card-warning card-outline" >
 
-  <form [formGroup]="siteFormCreate">
+  <form [formGroup]="sFormGroup">
     <div class="card-body">
-      <!--
-            <div class="alert alert-info alert-dismissible">
-              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-              <h5><i class="icon fas fa-info"></i> Alert!</h5>
-              Info alert preview. This alert is dismissable.
-            </div>
-      -->
+
       <div *ngIf="errorMsg" class="alert alert-warning alert-dismissible">
         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
         <h5><i class="icon fas fa-exclamation-triangle"></i> Alert!</h5>
@@ -42,8 +36,7 @@
         <label>Site actif</label>
         <input type="text" class="form-control" formControlName="active">
       </div>
-      <button type="submit" class="btn btn-primary" *ngIf="!getParamId" (click)="siteCreate()">Save</button>
-      <button type="submit" class="btn btn-primary" *ngIf="getParamId" (click)="updateSite()">update</button>
+      <button type="submit" class="btn btn-primary" (click)="create()">Enregistrer</button>
     </div>
   </form>
 </div>

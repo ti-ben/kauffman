@@ -8,27 +8,27 @@ import {ApiService} from "../../../../shared/services/api.service";
 })
 export class SiteListComponent implements OnInit {
 
-  readData: any;
+  sList: any;
   successMsg:any;
 
   constructor(private apiService:ApiService) { }
 
   ngOnInit(): void {
-    this.getAllData();
+    this.listAllSites();
   }
 
-  delete(id:any)
+  delete(id:string)
   {
     this.apiService.deleteSite(id).subscribe((res)=> {
       this.successMsg = res.code;
-      this.getAllData();
+      this.listAllSites();
     })
   }
 
-  getAllData()
+  listAllSites()
   {
     this.apiService.getAllSite().subscribe((res)=> {
-      this.readData = res.data;
+      this.sList = res.data;
     })
   }
 

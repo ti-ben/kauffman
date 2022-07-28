@@ -15,6 +15,11 @@ import {UserDetailsComponent} from "./user/component/user-details/user-details.c
 import {VehiculeComponent} from "./vehicule/vehicule.component";
 import {StatusComponent} from "./status/status.component";
 import {ProviderComponent} from "./provider/provider.component";
+import {ProviderListComponent} from "./provider/component/provider-list/provider-list.component";
+import {ProviderCreateComponent} from "./provider/component/provider-create/provider-create.component";
+import {ProviderUpdateComponent} from "./provider/component/provider-update/provider-update.component";
+import {SiteUpdateComponent} from "./site/component/site-update/site-update.component";
+import {NumberplateUpdateComponent} from "./numberplate/component/numberplate-update/numberplate-update.component";
 
 const routes: Routes = [
   {
@@ -25,7 +30,7 @@ const routes: Routes = [
         children: [
           {path: '', component: SiteListComponent, data: {crumbTitle: 'Liste des sites'}},
           {path: 'create', component: SiteCreateComponent, data: {crumbTitle: 'Ajouter un nouveau site'}},
-          {path: 'create/:id', component: SiteCreateComponent, data: {crumbTitle: 'Mise à jour'}},
+          {path: 'update/:id', component: SiteUpdateComponent, data: {crumbTitle: 'Mise à jour'}},
         ]
       },
       {
@@ -33,7 +38,7 @@ const routes: Routes = [
         children: [
           {path: '', component: UserListComponent, data: {crumbTitle: 'Liste des utilisateurs'}},
           {path: 'create', component: UserCreateComponent, data: {crumbTitle: 'Ajouter un nouvel utilisateur'}},
-          {path: 'details/:id', component: UserDetailsComponent, data: {crumbTitle: 'Détails'}},
+          {path: 'details/:id', component: UserDetailsComponent, data: {crumbTitle: 'Mise à jour'}},
         ]
       },
       {
@@ -41,7 +46,7 @@ const routes: Routes = [
         children: [
           {path: '', component: UserListComponent, data: {crumbTitle: 'Liste des utilisateurs'}},
           {path: 'create', component: UserCreateComponent, data: {crumbTitle: 'Ajouter un nouvel utilisateur'}},
-          {path: 'details/:id', component: UserDetailsComponent, data: {crumbTitle: 'Détails'}},
+          {path: 'update/:id', component: UserDetailsComponent, data: {crumbTitle: 'Mise à jour'}},
         ]
       },
       {
@@ -49,23 +54,23 @@ const routes: Routes = [
         children: [
           {path: '', component: UserListComponent, data: {crumbTitle: 'Liste des utilisateurs'}},
           {path: 'create', component: UserCreateComponent, data: {crumbTitle: 'Ajouter un nouvel utilisateur'}},
-          {path: 'details/:id', component: UserDetailsComponent, data: {crumbTitle: 'Détails'}},
+          {path: 'update/:id', component: UserDetailsComponent, data: {crumbTitle: 'Mise à jour'}},
         ]
       },
       {
         path: 'provider', component: ProviderComponent, data: {crumbTitle: 'Provider'},
         children: [
-          {path: '', component: UserListComponent, data: {crumbTitle: 'Liste des utilisateurs'}},
-          {path: 'create', component: UserCreateComponent, data: {crumbTitle: 'Ajouter un nouvel utilisateur'}},
-          {path: 'details/:id', component: UserDetailsComponent, data: {crumbTitle: 'Détails'}},
+          {path: '', component: ProviderListComponent, data: {crumbTitle: 'Liste des prestataires'}},
+          {path: 'create',component: ProviderCreateComponent,data: {crumbTitle: 'Ajouter un nouveau prestataire de service'}},
+          {path: 'update/:id', component: ProviderUpdateComponent, data: {crumbTitle: 'Mise à jour'}},
         ]
       },
       {
         path: 'numberplate', component: NumberplateComponent, data: {crumbTitle: 'Immatriculation'},
         children: [
           {path: '', component: NumberplateListComponent, data: {crumbTitle: 'Liste des immatriculations'}},
-          {path: 'create', component: NumberplateCreateComponent, data: {crumbTitle: 'Ajouter une nouvelle immatriculation'}},
-          {path: 'create/:id', component: NumberplateCreateComponent, data: {crumbTitle: 'Mise à jour'}},
+          {path: 'create', component: NumberplateCreateComponent,data: {crumbTitle: 'Ajouter une nouvelle immatriculation'}},
+          {path: 'update/:id', component: NumberplateUpdateComponent, data: {crumbTitle: 'Mise à jour'}},
         ]
       }
     ]

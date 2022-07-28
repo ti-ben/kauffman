@@ -1,20 +1,20 @@
 <div class="p-10">
-  <a class="button btn-success" routerLink="create">
+  <a class="button btn-success" [routerLink]="['create']">
     <span>Ajouter</span>
     <i class="icon fa fa-plus"></i>
   </a>
 </div>
 
-<div *ngIf="successMsg" class="alert alert-success alert-dismissible">
+<div *ngIf="null" class="alert alert-success alert-dismissible">
   <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
   <h5><i class="icon fas fa-check"></i> Alert!</h5>
-  {{successMsg}}
+  {{null}}
 </div>
 
 <!-- Default box -->
 <div class="card">
   <div class="card-header">
-    <h3 class="card-title">Liste des sites</h3>
+    <h3 class="card-title">Liste des prestataires</h3>
 
     <div class="card-tools">
       <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -27,27 +27,29 @@
       <thead>
       <tr>
         <th style="width: auto" class="text-center">#</th>
-        <th style="width: auto" class="text-center">Site Name</th>
-        <th style="width: auto" class="text-center">created On</th>
-        <th style="width: auto" class="text-center">Description</th>
+        <th style="width: auto" class="text-center">Provider Name</th>
+        <th style="width: auto" class="text-center">Email</th>
+        <th style="width: auto" class="text-center">Téléphone</th>
+        <th style="width: auto" class="text-center">Service</th>
         <th style="width: auto" class="text-center">Status</th>
         <th style="width: auto" class="text-center">Options</th>
       </tr>
       </thead>
       <tbody>
-      <tr *ngFor="let site of sList" class="text-center">
+      <tr *ngFor="let provider of pList" class="text-center">
         <td>#</td>
-        <td>{{site.name}}</td>
-        <td>{{site.created_on}}</td>
-        <td class="project_progress">{{site.description}}</td>
+        <td>{{provider.name}}</td>
+        <td>{{provider.email}}</td>
+        <td class="project_progress">{{provider.phone}}</td>
+        <td>{{provider.service}}</td>
         <td class="project-state">
-          <span class="badge badge-success" *ngIf="site.active === true; else elseBlock">Actif</span>
+          <span class="badge badge-success" *ngIf="provider.active === true; else elseBlock">Actif</span>
           <ng-template #elseBlock><span class="badge badge-danger">Inactif</span></ng-template>
         </td>
         <td class="project-actions text-center">
-          <a class="btn btn-info btn-sm" [routerLink]="['update', site.site_id]"><i class="fas fa-pencil-alt"></i></a>
-          <a class="btn btn-danger btn-sm" (click)="delete(site.site_id)"><i class="fas fa-trash"></i></a>
-          <a class="btn btn-warning btn-sm" [routerLink]="['archive', site.site_id]"><i class="fas fa-box-archive"></i></a>
+          <a class="btn btn-info btn-sm" [routerLink]="['update', provider.provider_id]"><i class="fas fa-pencil-alt"></i></a>
+          <a class="btn btn-danger btn-sm" (click)="delete(provider.provider_id)"><i class="fas fa-trash"></i></a>
+          <a class="btn btn-warning btn-sm" [routerLink]="['archive', provider.provider_id]"><i class="fas fa-box-archive"></i></a>
         </td>
       </tr>
       </tbody>

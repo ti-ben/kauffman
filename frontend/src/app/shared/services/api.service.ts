@@ -20,7 +20,51 @@ export class ApiService {
       );
   }
   /*****************************************************************************************/
-  /* *************************************** STATUS ************************************** */
+  /* ************************************** PROVIDER ************************************* */
+  createProvider(data: any): Observable<ApiResponse>{
+    return this.http.post(`${this.baseUrl}/provider/create`, data)
+      .pipe(
+        map(response => response as ApiResponse)
+      );
+  }
+
+  updateProvider(data: any, id: any): Observable<ApiResponse> {
+    return this.http.put(`${this.baseUrl}/provider/update/${id}`, data)
+      .pipe(
+        map(response => response as ApiResponse)
+      );
+  }
+
+  deleteProvider(id: any): Observable<ApiResponse> {
+    return this.http.delete(`${this.baseUrl}/provider/delete/${id}`)
+      .pipe(
+        map(response => response as ApiResponse)
+      );
+  }
+
+  getSingleProvider(id: any): Observable<ApiResponse> {
+    return this.http.get(`${this.baseUrl}/provider/detail/${id}`)
+      .pipe(
+        map(response => response as ApiResponse)
+      );
+  }
+
+  getAllProviders(): Observable<ApiResponse> {
+    return this.http.get(`${this.baseUrl}/provider/list`)
+      .pipe(
+        map(response => response as ApiResponse)
+      );
+  }
+  /*****************************************************************************************/
+  /* **************************************** RANK *************************************** */
+
+  createRank(): Observable<ApiResponse> {
+    return this.http.get(`${this.baseUrl}/rank/create`)
+      .pipe(
+        map(response => response as ApiResponse)
+      );
+  }
+
   getAllRank(): Observable<ApiResponse> {
     return this.http.get(`${this.baseUrl}/rank/list`)
       .pipe(
@@ -28,7 +72,6 @@ export class ApiService {
       );
   }
   /*****************************************************************************************/
-
   /* *************************************** PERIOD ************************************** */
   createPeriod(data: any): Observable<ApiResponse> {
     return this.http.post(`${this.baseUrl}/period/create`, data)
@@ -44,7 +87,6 @@ export class ApiService {
       );
   }
   /*****************************************************************************************/
-
   /* **************************************** SITE *************************************** */
   createSite(data: any): Observable<ApiResponse> {
     return this.http.post(`${this.baseUrl}/site/create`, data)
@@ -81,7 +123,6 @@ export class ApiService {
       );
   }
   /*****************************************************************************************/
-
   /* ************************************ NUMBERPLATE ************************************ */
   createNumberplate(data: any): Observable<ApiResponse> {
     return this.http.post(`${this.baseUrl}/numberplate/create`, data)
@@ -118,7 +159,6 @@ export class ApiService {
       );
   }
   /*****************************************************************************************/
-
   /* *************************************** USER **************************************** */
   createUser(data: any): Observable<ApiResponse> {
     return this.http.post(`${this.baseUrl}/user/create`, data)
@@ -155,7 +195,6 @@ export class ApiService {
       );
   }
   /*****************************************************************************************/
-
   /* ************************************* TACHOGRAPH ************************************ */
 
   createTacho(data: any): Observable<ApiResponse> {
@@ -166,8 +205,7 @@ export class ApiService {
   }
 
   /*****************************************************************************************/
-
-  /* ************************************* TACHOGRAPH ************************************ */
+  /* ************************************* CREDENTIAL ************************************ */
 
   getUserCredential(username: any): Observable<ApiResponse> {
     return this.http.get(`${this.baseUrl}/credentials/detail/${username}`)
@@ -191,5 +229,4 @@ export class ApiService {
   }
 
   /*****************************************************************************************/
-
 }

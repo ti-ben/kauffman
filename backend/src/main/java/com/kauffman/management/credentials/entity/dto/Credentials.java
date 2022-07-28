@@ -1,5 +1,6 @@
 package com.kauffman.management.credentials.entity.dto;
 
+import com.kauffman.management.rank.entity.dto.Rank;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -27,4 +28,8 @@ public class Credentials {
     private Date created_on;
     private Date updated_on;
     private Boolean active;
+
+    @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST})
+    @JoinColumn(name = "rank_id")
+    private Rank rank;
 }

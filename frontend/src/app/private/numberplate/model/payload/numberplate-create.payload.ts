@@ -1,4 +1,4 @@
-import {Site} from "../../site/model/site";
+import {Site} from "../../../site/model/site";
 
 export interface NumberplateCreatePayload {
   num_plate: string;
