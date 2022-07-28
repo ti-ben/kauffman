@@ -30,6 +30,8 @@ import { ProviderCreateComponent } from './provider/component/provider-create/pr
 import { ProviderUpdateComponent } from './provider/component/provider-update/provider-update.component';
 import {SiteUpdateComponent} from "./site/component/site-update/site-update.component";
 import { NumberplateUpdateComponent } from './numberplate/component/numberplate-update/numberplate-update.component';
+import { RankComponent } from './rank/rank.component';
+import { AddressComponent } from './address/address.component';
 
 @NgModule({
   declarations: [
@@ -59,6 +61,8 @@ import { NumberplateUpdateComponent } from './numberplate/component/numberplate-
     ProviderCreateComponent,
     ProviderUpdateComponent,
     NumberplateUpdateComponent,
+    RankComponent,
+    AddressComponent,
   ],
   imports: [
     CommonModule,

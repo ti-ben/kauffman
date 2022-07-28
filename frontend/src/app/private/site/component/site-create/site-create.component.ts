@@ -13,8 +13,8 @@ import {ApiResponse} from "../../../../shared/model";
 export class SiteCreateComponent implements OnInit {
 
   sFormGroup!: FormGroup;
-  errorMsg: any = '';
-  successMsg: any ='';
+  errorMsg: string = '';
+  successMsg: string ='';
   getParamId = this.activatedRoute.snapshot.paramMap.get('id')
 
   constructor(private apiService: ApiService, private activatedRoute: ActivatedRoute) {

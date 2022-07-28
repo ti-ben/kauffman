@@ -2,6 +2,12 @@ import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {ApiService} from "../../../../shared/services/api.service";
 import {ActivatedRoute} from "@angular/router";
+import {Site} from "../../../site/model/site";
+import {ApiResponse} from "../../../../shared/model";
+import {Status} from "../../../status/model/status";
+import {Address} from "../../../address/model/address";
+
+
 
 @Component({
   selector: 'app-user-create',
@@ -10,50 +16,55 @@ import {ActivatedRoute} from "@angular/router";
 })
 export class UserCreateComponent implements OnInit {
 
-  errorMsg: any;
-  successMsg: any;
-  getParamId: any;
-  sitesList: any;
-  statusList: any;
+  errorMsg: string = '';
+  successMsg: string = '';
+  getParamId = this.activatedRoute.snapshot.paramMap.get('id');
+  sitesList: Site[] = [];
+  statusList: Status[] = [];
+  addressList: Address[] = [];
+  uformGroup!: FormGroup;
+  currentDate = new Date().toISOString().substring(0, 10);
 
   constructor(private apiService: ApiService, private activatedRoute: ActivatedRoute) {
   }
 
   ngOnInit(): void {
-    this.getParamId = this.activatedRoute.snapshot.paramMap.get('id');
     this.allSiteList();
     this.allStatusList();
+    this.allAddressList();
+    this.initForm();
   }
 
-  userFormCreate = new FormGroup({
-    'user_id': new FormControl(),
-    'firstname': new FormControl('', Validators.required),
-    'lastname': new FormControl('', Validators.required),
-    'gender': new FormControl(),
-    'avatar': new FormControl('noAvatar.png'),
-    'dob': new FormControl(),
-    'email': new FormControl(),
-    'password': new FormControl(),
-    'phone_pro': new FormControl(),
-    'phone_perso': new FormControl(),
-    'nationality': new FormControl(),
-    'numirn': new FormControl(),
-    'driver_license': new FormControl(),
-    'created_on': new FormControl(),
-    'updated_on': new FormControl(),
-    'pob': new FormControl(),
-    'active': new FormControl(true),
-    'site_id': new FormControl(),
-    'address_id': new FormControl(),
-    'status_id': new FormControl(),
-  });
+  private initForm(): void {
+    this.uformGroup = new FormGroup({
+      'user_id': new FormControl(''),
+      'firstname': new FormControl('', Validators.required),
+      'lastname': new FormControl('', Validators.required),
+      'gender': new FormControl(''),
+      'avatar': new FormControl('noAvatar.png'),
+      'dob': new FormControl(''),
+      'email': new FormControl(''),
+      'phone_pro': new FormControl(''),
+      'phone_perso': new FormControl(''),
+      'nationality': new FormControl(''),
+      'numirn': new FormControl(''),
+      'driver_license': new FormControl(''),
+      'created_on': new FormControl(this.currentDate),
+      'updated_on': new FormControl(this.currentDate),
+      'pob': new FormControl(''),
+      'active': new FormControl(true),
+      'site_id': new FormControl(),
+      'address_id': new FormControl(),
+      'status_id': new FormControl(),
+    });
+  }
 
-  userCreate() {
-    console.log('Form content: ', this.userFormCreate.value)
-    if (this.userFormCreate.valid) {
-      this.apiService.createUser(this.userFormCreate.value).subscribe((res) => {
-        this.userFormCreate.reset();
-        this.successMsg = res.code;
+  create() {
+    console.log('Form content: ', this.uformGroup.value)
+    if (this.uformGroup.valid) {
+      this.apiService.createUser(this.uformGroup.value).subscribe((response: ApiResponse) => {
+        this.uformGroup.reset();
+        this.successMsg = response.code;
       })
     } else {
       this.errorMsg = 'All fields are required';
@@ -61,8 +72,8 @@ export class UserCreateComponent implements OnInit {
   }
 
   allSiteList() {
-    this.apiService.getAllSite().subscribe((res) => {
-      this.sitesList = res.data;
+    this.apiService.getAllSite().subscribe((response: ApiResponse) => {
+      this.sitesList = response.data;
       if (this.sitesList == null) {
         //console.log('Instance is null or undefined');
       } else {
@@ -73,8 +84,8 @@ export class UserCreateComponent implements OnInit {
   }
 
   allStatusList() {
-    this.apiService.getAllStatus().subscribe((res) => {
-      this.statusList = res.data;
+    this.apiService.getAllStatus().subscribe((response: ApiResponse) => {
+      this.statusList = response.data;
       if (this.statusList == null) {
         //console.log('Status list instance is null or undefined');
       } else {
@@ -82,4 +93,16 @@ export class UserCreateComponent implements OnInit {
       }
     })
   }
+
+  allAddressList(){
+    this.apiService.getAllAddress().subscribe((response: ApiResponse) => {
+      this.addressList = response.data;
+      if (this.addressList == null) {
+        //console.log('Address list instance is null or undefined');
+      } else {
+        //console.log('Address list instance is not null or undefined'); // ok now
+      }
+    })
+  }
+
 }

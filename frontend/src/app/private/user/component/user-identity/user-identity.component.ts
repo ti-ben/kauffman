@@ -1,7 +1,11 @@
-import {Component, Input, OnInit, Output} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
 import {ActivatedRoute} from "@angular/router";
 import {ApiService} from "../../../../shared/services/api.service";
+import {ApiResponse} from "../../../../shared/model";
+import {Site} from "../../../site/model/site";
+import {Status} from "../../../status/model/status";
+import {Address} from "../../../address/model/address";
 
 @Component({
   selector: 'app-user-identity',
@@ -10,75 +14,53 @@ import {ApiService} from "../../../../shared/services/api.service";
 })
 export class UserIdentityComponent implements OnInit {
 
+  uFormGroup!: FormGroup;
   uDetails: any = '';
-  errorMsg: any = '';
-  successMsg: any = '';
-  getParamId: any = '';
-  sitesList: any;
-  statusList: any;
+  errorMsg: string = '';
+  successMsg: string = '';
+  getParamId = this.activatedRoute.snapshot.paramMap.get('id');
+  sitesList: Site[] = [];
+  statusList: Status[] = [];
+  addressList: Address[] = [];
 
   constructor(private activatedRoute: ActivatedRoute, private apiService: ApiService) {
   }
 
   ngOnInit(): void {
-    this.getParamId = this.activatedRoute.snapshot.paramMap.get('id');
     this.allSiteList();
     this.allStatusList();
-    if (this.getParamId) {
-      this.apiService.getSingleUser(this.getParamId).subscribe((res) => {
-        this.userFormUpdate.patchValue({
-          'user_id': res.data.user_id,
-          'firstname': res.data.firstname,
-          'lastname': res.data.lastname,
-          'gender': res.data.gender,
-          'avatar': res.data.avatar,
-          'dob': res.data.dob.toString().slice(0, 10),
-          'email': res.data.email,
-          'phone_pro': res.data.phone_pro,
-          'phone_perso': res.data.phone_perso,
-          'nationality': res.data.nationality,
-          'numirn': res.data.numirn,
-          'driver_license': res.data.driver_license,
-          'created_on': res.data.created_on.toString().slice(0, 10),
-          'updated_on': res.data.updated_on.toString().slice(0, 10),
-          'pob': res.data.pob,
-          'active': res.data.active,
-          'site_id': res.data.site_id,
-          'address_id': res.data.address_id,
-          'status_id': res.data.status_id
-        });
+    this.allAddressList();
+    this.apiService.getSingleUser(this.getParamId).subscribe((res) => {
+      this.uFormGroup = new FormGroup({
+        user_id: new FormControl(res.data.user_id),
+        firstname: new FormControl(res.data.firstname),
+        lastname: new FormControl(res.data.lastname),
+        gender: new FormControl(res.data.gender),
+        avatar: new FormControl(res.data.avatar),
+        dob: new FormControl(res.data.dob.toString().slice(0, 10)),
+        email: new FormControl(res.data.email),
+        phone_pro: new FormControl(res.data.phone_pro),
+        phone_perso: new FormControl(res.data.phone_perso),
+        nationality: new FormControl(res.data.nationality),
+        numirn: new FormControl(res.data.numirn),
+        driver_license: new FormControl(res.data.driver_license),
+        created_on: new FormControl(res.data.created_on.toString().slice(0, 10)),
+        updated_on: new FormControl(res.data.updated_on.toString().slice(0, 10)),
+        pob: new FormControl(res.data.pob),
+        active: new FormControl(res.data.active),
+        site_id: new FormControl(res.data.site.site_id),
+        address_id: new FormControl(res.data.address.address_id),
+        status_id: new FormControl(res.data.status.status_id)
       });
-    }
+    });
   }
 
-  userFormUpdate = new FormGroup({
-    'user_id': new FormControl(''),
-    'firstname': new FormControl(''),
-    'lastname': new FormControl(''),
-    'gender': new FormControl(''),
-    'avatar': new FormControl(''),
-    'dob': new FormControl(''),
-    'email': new FormControl(''),
-    'phone_pro': new FormControl(''),
-    'phone_perso': new FormControl(''),
-    'nationality': new FormControl(''),
-    'numirn': new FormControl(''),
-    'driver_license': new FormControl(''),
-    'created_on': new FormControl(''),
-    'updated_on': new FormControl(''),
-    'pob': new FormControl(''),
-    'active': new FormControl(''),
-    'site_id': new FormControl(''),
-    'address_id': new FormControl(''),
-    'status_id': new FormControl('')
-  });
 
-  updateUser() {
-    if (this.userFormUpdate.valid) {
-      this.apiService.updateUser(this.userFormUpdate.value, this.getParamId).subscribe((res) => {
+  update() {
+    if (this.uFormGroup.valid) {
+      this.apiService.updateUser(this.uFormGroup.value, this.getParamId).subscribe((res) => {
         this.successMsg = res.code;
       })
-
     } else {
       this.errorMsg = 'All fields are required';
     }
@@ -106,7 +88,14 @@ export class UserIdentityComponent implements OnInit {
     })
   }
 
-  allAddressList() {
-
+  allAddressList(){
+    this.apiService.getAllAddress().subscribe((response: ApiResponse) => {
+      this.addressList = response.data;
+      if (this.addressList == null) {
+        //console.log('Address list instance is null or undefined');
+      } else {
+        //console.log('Address list instance is not null or undefined'); // ok now
+      }
+    })
   }
 }

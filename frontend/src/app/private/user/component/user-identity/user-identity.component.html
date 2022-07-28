@@ -1,14 +1,7 @@
-<div *ngIf="userFormUpdate">
+<div *ngIf="uFormGroup">
 
-  <form [formGroup]="userFormUpdate">
+  <form [formGroup]="uFormGroup">
     <div class="card-body">
-      <!--
-            <div class="alert alert-info alert-dismissible">
-              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-              <h5><i class="icon fas fa-info"></i> Alert!</h5>
-              Info alert preview. This alert is dismissable.
-            </div>
-      -->
       <div *ngIf="errorMsg" class="alert alert-warning alert-dismissible">
         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
         <h5><i class="icon fas fa-exclamation-triangle"></i> Alert!</h5>
@@ -123,7 +116,7 @@
         <div class="col-md-4 mb-3">
           <label>Employe actif?</label>
           <select class="custom-select" formControlName="active">
-            <option value="{{uDetails.active}}" disabled>{{uDetails.active}}</option>
+            <option [value]="null" disabled>Select an option</option>
             <option [value]="true">Oui</option>
             <option [value]="false">Non</option>
           </select>
@@ -146,21 +139,20 @@
         <div class="col-md-4 mb-3">
           <label>Adresse</label>
           <select class="custom-select" formControlName="address_id">
-            <option>Value 1</option>
-            <option>Value 2</option>
-            <option>Value 3</option>
+            <option [value]="null" selected disabled>Select an option</option>
+            <option *ngFor="let address of addressList" [value]="address.address_id">{{address.road}}, {{address.num}} | {{address.postal_code}} {{address.town}} | {{address.country}}</option>
           </select>
         </div>
 
         <div class="col-md-4 mb-3">
           <label>Status</label>
           <select class="custom-select" formControlName="status_id">
-            <option [ngValue]="null" disabled>Select an option</option>
+            <option [value]="null" disabled>Select an option</option>
             <option *ngFor="let status of statusList" [value]="status.status_id">{{status.name}}</option>
           </select>
         </div>
       </div>
-      <button type="submit" class="btn btn-primary" *ngIf="getParamId" (click)="updateUser()">Mettre à jour</button>
+      <button type="submit" class="btn btn-primary" *ngIf="getParamId" (click)="update()">Mettre à jour</button>
     </div>
   </form>
 </div>

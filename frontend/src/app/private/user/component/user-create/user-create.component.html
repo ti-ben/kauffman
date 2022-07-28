@@ -1,15 +1,9 @@
 
-<div class="container card card-warning card-outline" *ngIf="userFormCreate">
+<div class="container card card-warning card-outline" *ngIf="uformGroup">
 
-  <form [formGroup]="userFormCreate">
+  <form [formGroup]="uformGroup">
     <div class="card-body">
-      <!--
-            <div class="alert alert-info alert-dismissible">
-              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-              <h5><i class="icon fas fa-info"></i> Alert!</h5>
-              Info alert preview. This alert is dismissable.
-            </div>
-      -->
+
       <div *ngIf="errorMsg" class="alert alert-warning alert-dismissible">
         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
         <h5><i class="icon fas fa-exclamation-triangle"></i> Alert!</h5>
@@ -70,20 +64,12 @@
       <!-- -->
 
       <div class="form-row">
-        <div class="col-md-4 mb-3">
-          <label>password</label>
-          <input type="text" class="form-control" formControlName="password">
-        </div>
 
         <div class="col-md-4 mb-3">
           <label>phone_pro</label>
           <input type="text" class="form-control" formControlName="phone_pro">
         </div>
-      </div>
 
-      <!-- -->
-
-      <div class="form-row">
         <div class="col-md-4 mb-3">
           <label>phone_perso</label>
           <input type="text" class="form-control" formControlName="phone_perso">
@@ -93,7 +79,11 @@
           <label>nationality</label>
           <input type="text" class="form-control" formControlName="nationality">
         </div>
+      </div>
 
+      <!-- -->
+
+      <div class="form-row">
         <div class="col-md-4 mb-3">
           <label>numirn</label>
           <input type="text" class="form-control" formControlName="numirn">
@@ -153,10 +143,8 @@
         <div class="col-md-4 mb-3">
           <label>Adresse</label>
           <select class="custom-select" formControlName="address_id">
-            <option [value]="null" disabled>Select a status</option>
-            <option [value]="null">Value 1</option>
-            <option [value]="null">Value 2</option>
-            <option [value]="null">Value 3</option>
+            <option [value]="null" disabled>Select an address</option>
+            <option *ngFor="let address of addressList" [value]="address.address_id">{{address.road}}, {{address.num}} | {{address.postal_code}} {{address.town}} | {{address.country}}</option>
           </select>
         </div>
 
@@ -168,7 +156,7 @@
           </select>
         </div>
       </div>
-      <button type="submit" class="btn btn-primary" *ngIf="!getParamId" (click)="userCreate()">Enregistrer</button>
+      <button type="submit" class="btn btn-primary" (click)="create()">Enregistrer</button>
     </div>
   </form>
 </div>

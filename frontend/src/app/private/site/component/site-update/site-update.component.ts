@@ -3,7 +3,6 @@ import {FormControl, FormGroup} from "@angular/forms";
 import {ApiService} from "../../../../shared/services/api.service";
 import {ActivatedRoute} from "@angular/router";
 import {ApiResponse} from "../../../../shared/model";
-import {Site} from "../../model/site";
 
 @Component({
   selector: 'app-site-update',
@@ -14,7 +13,6 @@ export class SiteUpdateComponent implements OnInit {
 
   sFormGroup!: FormGroup;
   getParamId = this.activatedRoute.snapshot.paramMap.get('id');
-  //rSite: Site[] = [];
   successMsg: string = '';
   errorMsg: string = '';
 

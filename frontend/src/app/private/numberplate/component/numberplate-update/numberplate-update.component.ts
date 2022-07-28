@@ -16,8 +16,8 @@ export class NumberplateUpdateComponent implements OnInit {
 
   nFormGroup!: FormGroup;
   getParamId = this.activatedRoute.snapshot.paramMap.get('id');
-  //sitesList: Site[] = [];
-  sitesList: any;
+  sitesList: Site[] = [];
+  //sitesList: any;
   successMsg: string = '';
   errorMsg: string = '';
 
