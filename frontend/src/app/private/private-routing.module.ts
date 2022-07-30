@@ -20,6 +20,9 @@ import {ProviderCreateComponent} from "./provider/component/provider-create/prov
 import {ProviderUpdateComponent} from "./provider/component/provider-update/provider-update.component";
 import {SiteUpdateComponent} from "./site/component/site-update/site-update.component";
 import {NumberplateUpdateComponent} from "./numberplate/component/numberplate-update/numberplate-update.component";
+import {VehiculeListComponent} from "./vehicule/component/vehicule-list/vehicule-list.component";
+import {VehiculeCreateComponent} from "./vehicule/component/vehicule-create/vehicule-create.component";
+import {VehiculeDetailsComponent} from "./vehicule/component/vehicule-details/vehicule-details.component";
 
 const routes: Routes = [
   {
@@ -44,9 +47,9 @@ const routes: Routes = [
       {
         path: 'vehicule', component: VehiculeComponent, data: {crumbTitle: 'Vehicule'},
         children: [
-          {path: '', component: UserListComponent, data: {crumbTitle: 'Liste des utilisateurs'}},
-          {path: 'create', component: UserCreateComponent, data: {crumbTitle: 'Ajouter un nouvel utilisateur'}},
-          {path: 'update/:id', component: UserDetailsComponent, data: {crumbTitle: 'Mise à jour'}},
+          {path: '', component: VehiculeListComponent, data: {crumbTitle: 'Liste des véhicules'}},
+          {path: 'create', component: VehiculeCreateComponent, data: {crumbTitle: 'Ajouter un nouveau véhicule'}},
+          {path: 'details/:id', component: VehiculeDetailsComponent, data: {crumbTitle: 'Mise à jour'}},
         ]
       },
       {

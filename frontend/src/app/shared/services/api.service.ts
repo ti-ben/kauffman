@@ -12,6 +12,7 @@ export class ApiService {
 
   constructor(private http: HttpClient) {
   }
+
   /* *************************************** STATUS ************************************** */
   getAllStatus(): Observable<ApiResponse> {
     return this.http.get(`${this.baseUrl}/status/list`)
@@ -19,9 +20,11 @@ export class ApiService {
         map(response => response as ApiResponse)
       );
   }
+
   /*****************************************************************************************/
+
   /* ************************************** PROVIDER ************************************* */
-  createProvider(data: any): Observable<ApiResponse>{
+  createProvider(data: any): Observable<ApiResponse> {
     return this.http.post(`${this.baseUrl}/provider/create`, data)
       .pipe(
         map(response => response as ApiResponse)
@@ -55,7 +58,9 @@ export class ApiService {
         map(response => response as ApiResponse)
       );
   }
+
   /*****************************************************************************************/
+
   /* **************************************** RANK *************************************** */
 
   createRank(): Observable<ApiResponse> {
@@ -71,7 +76,9 @@ export class ApiService {
         map(response => response as ApiResponse)
       );
   }
+
   /*****************************************************************************************/
+
   /* *************************************** PERIOD ************************************** */
   createPeriod(data: any): Observable<ApiResponse> {
     return this.http.post(`${this.baseUrl}/period/create`, data)
@@ -86,7 +93,9 @@ export class ApiService {
         map(response => response as ApiResponse)
       );
   }
+
   /*****************************************************************************************/
+
   /* **************************************** SITE *************************************** */
   createSite(data: any): Observable<ApiResponse> {
     return this.http.post(`${this.baseUrl}/site/create`, data)
@@ -122,7 +131,9 @@ export class ApiService {
         map(response => response as ApiResponse)
       );
   }
+
   /*****************************************************************************************/
+
   /* ************************************ NUMBERPLATE ************************************ */
   createNumberplate(data: any): Observable<ApiResponse> {
     return this.http.post(`${this.baseUrl}/numberplate/create`, data)
@@ -158,7 +169,9 @@ export class ApiService {
         map(response => response as ApiResponse)
       );
   }
+
   /*****************************************************************************************/
+
   /* *************************************** USER **************************************** */
   createUser(data: any): Observable<ApiResponse> {
     return this.http.post(`${this.baseUrl}/user/create`, data)
@@ -194,7 +207,9 @@ export class ApiService {
         map(response => response as ApiResponse)
       );
   }
+
   /*****************************************************************************************/
+
   /* ************************************* TACHOGRAPH ************************************ */
 
   createTacho(data: any): Observable<ApiResponse> {
@@ -205,6 +220,7 @@ export class ApiService {
   }
 
   /*****************************************************************************************/
+
   /* ************************************* CREDENTIAL ************************************ */
 
   getUserCredential(username: any): Observable<ApiResponse> {
@@ -214,7 +230,7 @@ export class ApiService {
       );
   }
 
-  saveUserCredential(data: any): Observable<ApiResponse>{
+  saveUserCredential(data: any): Observable<ApiResponse> {
     return this.http.post(`${this.baseUrl}/credentials/create`, data)
       .pipe(
         map(response => response as ApiResponse)
@@ -229,10 +245,60 @@ export class ApiService {
   }
 
   /*****************************************************************************************/
+
   /* *************************************** ADDRESS ************************************* */
 
-  getAllAddress(): Observable<ApiResponse>{
+  getAllAddress(): Observable<ApiResponse> {
     return this.http.get(`${this.baseUrl}/address/list`)
+      .pipe(
+        map(response => response as ApiResponse)
+      );
+  }
+
+  /*****************************************************************************************/
+
+  /* ************************************* VEHICULE ************************************** */
+
+  createVehicule(data: any): Observable<ApiResponse> {
+    return this.http.post(`${this.baseUrl}/vehicule/create`, data)
+      .pipe(
+        map(response => response as ApiResponse)
+      );
+  }
+
+  updateVehicule(data: any, id: any): Observable<ApiResponse> {
+    return this.http.put(`${this.baseUrl}/vehicule/update/${id}`, data)
+      .pipe(
+        map(response => response as ApiResponse)
+      );
+  }
+
+  deleteVehicule(id: any): Observable<ApiResponse> {
+    return this.http.delete(`${this.baseUrl}/vehicule/delete/${id}`)
+      .pipe(
+        map(response => response as ApiResponse)
+      );
+  }
+
+  getAllVehicule(): Observable<ApiResponse> {
+    return this.http.get(`${this.baseUrl}/vehicule/list`)
+      .pipe(
+        map(response => response as ApiResponse)
+      );
+  }
+
+  getSingleVehicule(id: any): Observable<ApiResponse> {
+    return this.http.get(`${this.baseUrl}/vehicule/detail/${id}`)
+      .pipe(
+        map(response => response as ApiResponse)
+      );
+  }
+
+  /*****************************************************************************************/
+
+  /* ************************************* VEHICULE ************************************** */
+  getAllCtrltechByVehiculeId(id: any): Observable<ApiResponse> {
+    return this.http.get(`${this.baseUrl}/ctrltech/findByVehiculeId/${id}`)
       .pipe(
         map(response => response as ApiResponse)
       );

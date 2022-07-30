@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ApiService} from "../../../../shared/services/api.service";
+import {ApiResponse} from "../../../../shared/model";
 
 @Component({
   selector: 'app-user-list',
@@ -9,8 +10,8 @@ import {ApiService} from "../../../../shared/services/api.service";
 export class UserListComponent implements OnInit {
 
   readData: any;
-  successMsg:any;
-  errorMsg: any;
+  successMsg:string = '';
+  errorMsg: string = '';
 
   constructor(private apiService:ApiService) { }
 
@@ -18,10 +19,9 @@ export class UserListComponent implements OnInit {
     this.getAllData();
   }
 
-  delete(id:any)
+  delete(id:string)
   {
-    this.apiService.deleteUser(id).subscribe((res)=> {
-      //console.log('to delete :', res.code);
+    this.apiService.deleteUser(id).subscribe((res: ApiResponse)=> {
       this.successMsg = res.code;
       this.getAllData();
     })
@@ -29,8 +29,7 @@ export class UserListComponent implements OnInit {
 
   getAllData()
   {
-    this.apiService.getAllUser().subscribe((res)=> {
-      //console.log("res :", res);
+    this.apiService.getAllUser().subscribe((res: ApiResponse)=> {
       this.readData = res.data;
     })
   }

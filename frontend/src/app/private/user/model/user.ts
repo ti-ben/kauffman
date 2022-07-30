@@ -20,7 +20,7 @@ export interface User {
   pob: String,
   active: Boolean,
   site_id: Site,
-  //address: Address,
+  //address_id: Address,
   status_id: Status
   //rank_id: Rank,
   //credentials_id: Credentials

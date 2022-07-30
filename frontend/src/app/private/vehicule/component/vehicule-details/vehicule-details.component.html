@@ -1,0 +1,79 @@
+<div class="container card card-warning card-outline" *ngIf="vDetails">
+
+  <div class="card bg-light d-flex flex-fill">
+    <div class="card-header text-muted border-bottom-0">
+    </div>
+    <div class="card-body pt-0">
+      <div class="row">
+        <div class="col-7">
+          <p class="text-muted text-sm"><b>Marque: </b> {{vDetails.brand}}</p>
+          <p class="text-muted text-sm"><b>Affecté à: </b> {{vDetails.site.name}}</p>
+          <p class="text-muted text-sm"><b>Type de véhicule: </b> {{vDetails.type}}</p>
+          <p class="text-muted text-sm"><b>Immatriculation: </b> {{vDetails.numberplate.num_plate}}</p>
+        </div>
+        <div class="col-5 text-right">
+          <img src="./assets/dist/img/{{vDetails.avatar}}" alt="vehicle-avatar" style="width: 128px; height: 128px;">
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="card card-primary card-outline card-outline-tabs">
+    <div class="card-header p-0 border-bottom-0">
+      <ul class="nav nav-tabs" id="custom-tabs-four-tab" role="tablist">
+
+        <li class="nav-item">
+          <a class="nav-link active" id="custom-tabs-id-tab" data-toggle="pill" href="#custom-tabs-id" role="tab"
+             aria-controls="custom-tabs-id" aria-selected="true">Carte d'identité</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" id="custom-tabs-ctrltech-tab" data-toggle="pill" href="#custom-tabs-ctrltech" role="tab"
+             aria-controls="custom-tabs-ctrltech" aria-selected="false">Contrôle technique</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" id="custom-tabs-intervtech-tab" data-toggle="pill" href="#custom-tabs-intervtech" role="tab"
+             aria-controls="custom-tabs-intervtech" aria-selected="false">Intervention technique</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" id="custom-tabs-metrology-tab" data-toggle="pill" href="#custom-tabs-metrology" role="tab"
+             aria-controls="custom-tabs-metrology" aria-selected="false">Métrologie</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" id="custom-tabs-adr-tab" data-toggle="pill" href="#custom-tabs-adr" role="tab"
+             aria-controls="custom-tabs-adr" aria-selected="false">ADR</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="card-body">
+      <div class="tab-content" id="custom-tabs-four-tabContent">
+
+        <div class="tab-pane fade show active" id="custom-tabs-id" role="tabpanel" aria-labelledby="custom-tabs-id-tab">
+          <app-vehicule-identity></app-vehicule-identity>
+        </div>
+
+        <div class="tab-pane fade" id="custom-tabs-ctrltech" role="tabpanel" aria-labelledby="custom-tabs-ctrltech-tab">
+          <app-vehicule-ctrltech></app-vehicule-ctrltech>
+        </div>
+
+        <div class="tab-pane fade" id="custom-tabs-intervtech" role="tabpanel" aria-labelledby="custom-tabs-intervtech-tab">
+          <app-vehicule-intervtech></app-vehicule-intervtech>
+        </div>
+
+        <div class="tab-pane fade" id="custom-tabs-metrology" role="tabpanel" aria-labelledby="custom-tabs-metrology-tab">
+          <app-vehicule-metrology></app-vehicule-metrology>
+        </div>
+
+        <div class="tab-pane fade" id="custom-tabs-adr" role="tabpanel" aria-labelledby="custom-tabs-adr-tab">
+          <app-vehicule-adr></app-vehicule-adr>
+        </div>
+      </div>
+    </div>
+    <!-- /.card -->
+  </div>
+</div>

@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ApiService} from "../../../../shared/services/api.service";
 import {ActivatedRoute} from "@angular/router";
+import {ApiResponse} from "../../../../shared/model";
 
 @Component({
   selector: 'app-user-details',
@@ -20,8 +21,9 @@ export class UserDetailsComponent implements OnInit {
   }
 
   userDetails() {
-    this.apiService.getSingleUser(this.getParamId).subscribe(res => {
-      this.uDetails = res.data;
+    this.apiService.getSingleUser(this.getParamId).subscribe((response: ApiResponse) => {
+      this.uDetails = response.data;
+      console.log(this.uDetails);
     })
   }
 }

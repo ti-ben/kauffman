@@ -9,6 +9,7 @@ import com.kauffman.management.ctrltech.repository.CtrltechRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.UUID;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
@@ -37,6 +38,16 @@ public class CtrltechController {
     @GetMapping("/list")
     public ApiResponse get() {
         return new ApiResponse(true, ctrltechRepository.findAll(), null);
+    }
+
+    // Read all records
+    @GetMapping("/findByVehiculeId/{vid}")
+    public ApiResponse findByVehiculeId(@PathVariable("vid") UUID vid) {
+        Ctrltech fromDb = ctrltechRepository.findByVehiculeId(vid);
+        if (fromDb == null) {
+            return new ApiResponse(false, null, "api.address.detail.not-found");
+        }
+        return new ApiResponse(true, fromDb, "api.address.detail.success");
     }
 
     // Read record detail

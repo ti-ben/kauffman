@@ -1,0 +1,196 @@
+
+<div class="container card card-warning card-outline" *ngIf="vFormGroup">
+
+  <form [formGroup]="vFormGroup">
+    <div class="card-body">
+
+      <div *ngIf="errorMsg" class="alert alert-warning alert-dismissible">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <h5><i class="icon fas fa-exclamation-triangle"></i> Alert!</h5>
+        {{errorMsg}}
+      </div>
+
+      <div *ngIf="successMsg" class="alert alert-success alert-dismissible">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <h5><i class="icon fas fa-check"></i> Alert!</h5>
+        {{successMsg}}
+      </div>
+
+      <div class="form-row">
+        <div class="col-md-12 mb-3">
+          <label>VEHICULE ID</label>
+          <input type="text" class="form-control" formControlName="vehicule_id">
+        </div>
+      </div>
+
+      <!-- -->
+
+      <div class="form-row">
+        <div class="col-md-4 mb-3">
+          <label>Marque</label>
+          <input type="text" class="form-control" formControlName="brand">
+        </div>
+
+
+        <div class="col-md-4 mb-3">
+          <label>cde_carrosserie</label>
+          <input type="text" class="form-control" formControlName="cde_carrosserie">
+        </div>
+        <div class="col-md-4 mb-3">
+          <label>classe_enviro</label>
+          <select class="custom-select" formControlName="classe_enviro">
+            <option [value]="null" selected disabled>Select an option</option>
+            <option [value]="'Euro 0'">Euro 0</option>
+            <option [value]="'Euro I'">Euro I</option>
+            <option [value]="'Euro II'">Euro II</option>
+            <option [value]="'Euro III'">Euro II</option>
+            <option [value]="'Euro IV'">Euro IV</option>
+            <option [value]="'Euro V'">Euro V</option>
+            <option [value]="'Euro VI'">Euro VI</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- -->
+
+      <div class="form-row">
+        <div class="col-md-4 mb-3">
+          <label>Type de carburant</label>
+          <input type="text" class="form-control" formControlName="fuel">
+        </div>
+
+        <div class="col-md-4 mb-3">
+          <label>genre</label>
+          <input type="text" class="form-control" formControlName="genre">
+        </div>
+
+        <div class="col-md-4 mb-3">
+          <label>Date d'achat</label>
+          <input type="date" class="form-control" formControlName="date_of_purchase">
+        </div>
+      </div>
+
+      <!-- -->
+
+      <div class="form-row">
+
+        <div class="col-md-4 mb-3">
+          <label>metrology</label>
+          <input type="text" class="form-control" formControlName="metrology">
+        </div>
+
+        <div class="col-md-4 mb-3">
+          <label>mma</label>
+          <input type="text" class="form-control" formControlName="mma">
+        </div>
+
+        <div class="col-md-4 mb-3">
+          <label>mmat</label>
+          <input type="text" class="form-control" formControlName="mmat">
+        </div>
+      </div>
+
+      <!-- -->
+
+      <div class="form-row">
+        <div class="col-md-4 mb-3">
+          <label>mom</label>
+          <input type="text" class="form-control" formControlName="mom">
+        </div>
+      </div>
+
+      <!-- -->
+
+      <div class="form-row">
+        <div class="col-md-4 mb-3">
+          <label>mta</label>
+          <input type="text" class="form-control" formControlName="mta">
+        </div>
+
+        <div class="col-md-4 mb-3">
+          <label>Créé le</label>
+          <input type="date" class="form-control" formControlName="created_on">
+        </div>
+
+        <div class="col-md-4 mb-3">
+          <label>Mis à jour le</label>
+          <input type="date" class="form-control" formControlName="updated_on">
+        </div>
+      </div>
+
+      <!-- -->
+
+      <div class="form-row">
+        <div class="col-md-4 mb-3">
+          <label>Kilomètrage</label>
+          <input type="text" class="form-control" formControlName="nbr_km">
+        </div>
+
+        <div class="col-md-4 mb-3">
+          <label>Numéro de chassis</label>
+          <input type="text" class="form-control" formControlName="num_chassis">
+        </div>
+
+        <div class="col-md-4 mb-3">
+          <label>Prix d'achat</label>
+          <input type="text" class="form-control" formControlName="price">
+        </div>
+
+        <div class="col-md-4 mb-3">
+          <label>Type de véhicule</label>
+          <select class="custom-select" formControlName="type">
+            <option [value]="null" selected disabled>Select a type</option>
+            <option [value]="'Citerne'">Citerne</option>
+            <option [value]="'Colis'">Colis</option>
+          </select>
+        </div>
+
+        <div class="col-md-4 mb-3">
+          <label>Acheté par (site):</label>
+          <select class="custom-select" formControlName="bought_by">
+            <option [value]="null" selected disabled>Select a site</option>
+            <option *ngFor="let site of sitesList" [value]="site.site_id">{{site.name}}</option>
+          </select>
+        </div>
+
+        <div class="col-md-4 mb-3">
+          <label>Avatar</label>
+          <input type="text" class="form-control" formControlName="avatar">
+        </div>
+
+      </div>
+
+      <!-- -->
+
+      <div class="form-row">
+
+        <div class="col-md-4 mb-3">
+          <label>Véhicule actif?</label>
+          <select class="custom-select" formControlName="active">
+            <option [value]="null" disabled>Select activity</option>
+            <option [value]="true">Oui</option>
+            <option [value]="false">Non</option>
+          </select>
+        </div>
+
+        <div class="col-md-4 mb-3">
+          <label>Affecté à (Site)</label>
+          <select class="custom-select" formControlName="site_id">
+            <option [value]="null" selected disabled>Select a site</option>
+            <option *ngFor="let site of sitesList" [value]="site.site_id">{{site.name}}</option>
+          </select>
+        </div>
+
+        <div class="col-md-4 mb-3">
+          <label>N° d'immatriculation</label>
+          <select class="custom-select" formControlName="numberplate_id">
+            <option [value]="null" disabled>Select a numberplate</option>
+            <option *ngFor="let numberplate of numberplateList" [value]="numberplate.numberplate_id">{{numberplate.num_plate}}</option>
+          </select>
+        </div>
+
+      </div>
+      <button type="submit" class="btn btn-success" (click)="create()">Enregistrer</button>
+    </div>
+  </form>
+</div>

@@ -32,6 +32,14 @@ import {SiteUpdateComponent} from "./site/component/site-update/site-update.comp
 import { NumberplateUpdateComponent } from './numberplate/component/numberplate-update/numberplate-update.component';
 import { RankComponent } from './rank/rank.component';
 import { AddressComponent } from './address/address.component';
+import { VehiculeCreateComponent } from './vehicule/component/vehicule-create/vehicule-create.component';
+import { VehiculeListComponent } from './vehicule/component/vehicule-list/vehicule-list.component';
+import { VehiculeDetailsComponent } from './vehicule/component/vehicule-details/vehicule-details.component';
+import { VehiculeIdentityComponent } from './vehicule/component/vehicule-identity/vehicule-identity.component';
+import { VehiculeCtrltechComponent } from './vehicule/component/vehicule-ctrltech/vehicule-ctrltech.component';
+import { VehiculeIntervtechComponent } from './vehicule/component/vehicule-intervtech/vehicule-intervtech.component';
+import { VehiculeMetrologyComponent } from './vehicule/component/vehicule-metrology/vehicule-metrology.component';
+import { VehiculeAdrComponent } from './vehicule/component/vehicule-adr/vehicule-adr.component';
 
 @NgModule({
   declarations: [
@@ -63,6 +71,14 @@ import { AddressComponent } from './address/address.component';
     NumberplateUpdateComponent,
     RankComponent,
     AddressComponent,
+    VehiculeCreateComponent,
+    VehiculeListComponent,
+    VehiculeDetailsComponent,
+    VehiculeIdentityComponent,
+    VehiculeCtrltechComponent,
+    VehiculeIntervtechComponent,
+    VehiculeMetrologyComponent,
+    VehiculeAdrComponent,
   ],
   imports: [
     CommonModule,

@@ -1,0 +1,51 @@
+<form [formGroup]="ctrltechFormGroup" *ngIf="ctrltechFormGroup">
+
+  <div class="form-row">
+    <div class="col-md-4 mb-3">
+      <label>Date début</label>
+      <input type="date" class="form-control" formControlName="start_date">
+    </div>
+
+    <div class="col-md-4 mb-3">
+      <label>Date fin</label>
+      <input type="date" class="form-control" formControlName="end_date">
+    </div>
+
+    <div class="col-md-4 mb-3">
+      <label>Prix</label>
+      <input type="text" class="form-control" formControlName="price">
+    </div>
+
+    <div class="col-md-4 mb-3">
+      <label>Description</label>
+      <input type="text" class="form-control" formControlName="description">
+    </div>
+
+    <div class="col-md-4 mb-3">
+      <label>ID VEHICULE</label>
+      <input type="text" class="form-control" formControlName="vehicule_id">
+    </div>
+  </div>
+  <button type="submit" class="btn btn-success  " (click)="createCtrltech()">Enregistrer</button>
+</form>
+
+<table class="table">
+  <thead class="thead-dark">
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">First</th>
+    <th scope="col">Last</th>
+    <th scope="col">Handle</th>
+    <th scope="col">Handle</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <th>#</th>
+    <td>{{null}}</td>
+    <td>{{null}}</td>
+    <td>{{null}}</td>
+    <td>{{null}}</td>
+  </tr>
+  </tbody>
+</table>

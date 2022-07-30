@@ -58,8 +58,8 @@ export class UserIdentityComponent implements OnInit {
 
   update() {
     if (this.uFormGroup.valid) {
-      this.apiService.updateUser(this.uFormGroup.value, this.getParamId).subscribe((res) => {
-        this.successMsg = res.code;
+      this.apiService.updateUser(this.uFormGroup.value, this.getParamId).subscribe((response: ApiResponse) => {
+        this.successMsg = response.code;
       })
     } else {
       this.errorMsg = 'All fields are required';
@@ -67,8 +67,8 @@ export class UserIdentityComponent implements OnInit {
   }
 
   allSiteList() {
-    this.apiService.getAllSite().subscribe((res) => {
-      this.sitesList = res.data;
+    this.apiService.getAllSite().subscribe((response: ApiResponse) => {
+      this.sitesList = response.data;
       if (this.sitesList == null) {
         //console.log('site list instance is null or undefined');
       } else {
@@ -78,8 +78,8 @@ export class UserIdentityComponent implements OnInit {
   }
 
   allStatusList() {
-    this.apiService.getAllStatus().subscribe((res) => {
-      this.statusList = res.data;
+    this.apiService.getAllStatus().subscribe((response: ApiResponse) => {
+      this.statusList = response.data;
       if (this.statusList == null) {
         //console.log('Status list instance is null or undefined');
       } else {
