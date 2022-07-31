@@ -1,51 +1,58 @@
 <form [formGroup]="ctrltechFormGroup" *ngIf="ctrltechFormGroup">
 
   <div class="form-row">
-    <div class="col-md-4 mb-3">
-      <label>Date début</label>
-      <input type="date" class="form-control" formControlName="start_date">
+    <div class="col-md-2 mb-3">
+      <input type="date" class="form-control form-control-sm" formControlName="start_date">
+    </div>
+
+    <div class="col-md-2 mb-3">
+      <input type="date" class="form-control form-control-sm" formControlName="end_date">
+    </div>
+
+    <div class="col-md-2 mb-3">
+      <input type="text" class="form-control form-control-sm" formControlName="price" placeholder="Prix">
+    </div>
+
+    <div class="col-md-6 mb-3">
+      <input type="text" class="form-control form-control-sm" formControlName="description" placeholder="Commentaire">
+    </div>
+
+    <div class="col-md-3 mb-3">
+      <select class="custom-select custom-select-sm" formControlName="provider_id">
+        <option [value]="null" selected disabled>Select a service provider</option>
+        <option *ngFor="let provider of providersList" [value]="provider.provider_id">{{provider.name}}</option>
+      </select>
     </div>
 
     <div class="col-md-4 mb-3">
-      <label>Date fin</label>
-      <input type="date" class="form-control" formControlName="end_date">
-    </div>
-
-    <div class="col-md-4 mb-3">
-      <label>Prix</label>
-      <input type="text" class="form-control" formControlName="price">
-    </div>
-
-    <div class="col-md-4 mb-3">
-      <label>Description</label>
-      <input type="text" class="form-control" formControlName="description">
-    </div>
-
-    <div class="col-md-4 mb-3">
-      <label>ID VEHICULE</label>
-      <input type="text" class="form-control" formControlName="vehicule_id">
+      <input type="hidden" class="form-control form-control-sm" formControlName="vehicule_id">
     </div>
   </div>
-  <button type="submit" class="btn btn-success  " (click)="createCtrltech()">Enregistrer</button>
+  <button type="submit" class="btn btn-success btn-sm" (click)="create()">Enregistrer</button>
 </form>
 
-<table class="table">
-  <thead class="thead-dark">
-  <tr>
-    <th scope="col">#</th>
-    <th scope="col">First</th>
-    <th scope="col">Last</th>
-    <th scope="col">Handle</th>
-    <th scope="col">Handle</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <th>#</th>
-    <td>{{null}}</td>
-    <td>{{null}}</td>
-    <td>{{null}}</td>
-    <td>{{null}}</td>
-  </tr>
-  </tbody>
-</table>
+<div class="card-body p-0">
+  <table class="table table-sm table-striped projects">
+    <thead class="text-center">
+    <tr>
+      <th>Date début</th>
+      <th>Date fin</th>
+      <th>Prix</th>
+      <th>Commentaire</th>
+      <th>Options</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let ctrltech of ctrltechList" class="text-center">
+      <td>{{ctrltech.start_date | date:'shortDate' }}</td>
+      <td>{{ctrltech.end_date | date:'shortDate'}}</td>
+      <td>{{ctrltech.price | currency:'EUR'}}</td>
+      <td>{{ctrltech.description}}</td>
+      <td class="project-actions text-center">
+        <a class="btn btn-info btn-sm" (click)="update(ctrltech.ctrltech_id)"><i class="fas fa-pencil-alt"></i></a>
+        <a class="btn btn-danger btn-sm" (click)="delete(ctrltech.ctrltech_id)"><i class="fas fa-trash"></i></a>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,5 +1,6 @@
 package com.kauffman.management.intervtech.entity.payload;
 
+import com.kauffman.management.provider.entity.dto.Provider;
 import com.kauffman.management.vehicule.entity.dto.Vehicule;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -17,4 +18,5 @@ public class IntervtechCreatePayload {
     private String description;
 
     private Vehicule vehicule;
+    private Provider provider;
 }

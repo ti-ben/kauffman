@@ -1,6 +1,7 @@
 package com.kauffman.management.intervtech.entity.builder;
 
 import com.kauffman.management.intervtech.entity.dto.Intervtech;
+import com.kauffman.management.provider.entity.dto.Provider;
 import com.kauffman.management.vehicule.entity.dto.Vehicule;
 
 import java.util.Date;
@@ -13,6 +14,7 @@ public class IntervtechBuilder {
     private String description;
 
     private Vehicule vehicule;
+    private Provider provider;
 
     public IntervtechBuilder setIntervtech_id(UUID intervtech_id) {
         this.intervtech_id = intervtech_id;
@@ -39,7 +41,12 @@ public class IntervtechBuilder {
         return this;
     }
 
+    public IntervtechBuilder setProvider(Provider provider) {
+        this.provider = provider;
+        return this;
+    }
+
     public Intervtech build() {
-        return new Intervtech(intervtech_id, start_date, end_date, description, vehicule);
+        return new Intervtech(intervtech_id, start_date, end_date, description, vehicule, provider);
     }
 }

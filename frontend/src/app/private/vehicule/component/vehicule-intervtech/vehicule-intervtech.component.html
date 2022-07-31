@@ -1,1 +1,52 @@
 <p>vehicule-intervtech works!</p>
+<form [formGroup]="intervtechFormGroup" *ngIf="intervtechFormGroup">
+
+  <div class="form-row">
+    <div class="col-md-2 mb-3">
+      <input type="date" class="form-control form-control-sm" formControlName="start_date">
+    </div>
+
+    <div class="col-md-2 mb-3">
+      <input type="date" class="form-control form-control-sm" formControlName="end_date">
+    </div>
+
+    <div class="col-md-2 mb-3">
+      <input type="text" class="form-control form-control-sm" formControlName="price" placeholder="Prix">
+    </div>
+
+    <div class="col-md-6 mb-3">
+      <input type="text" class="form-control form-control-sm" formControlName="description" placeholder="Commentaire">
+    </div>
+
+    <div class="col-md-4 mb-3">
+      <input type="hidden" class="form-control form-control-sm" formControlName="vehicule_id">
+    </div>
+  </div>
+  <button type="submit" class="btn btn-success btn-sm" (click)="create()">Enregistrer</button>
+</form>
+
+<div class="card-body p-0">
+  <table class="table table-sm table-striped projects">
+    <thead class="text-center">
+    <tr>
+      <th>Date début</th>
+      <th>Date fin</th>
+      <th>Prix</th>
+      <th>Commentaire</th>
+      <th>Options</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="text-center">
+      <td>{{null}}</td>
+      <td>{{null}}</td>
+      <td>{{null}}</td>
+      <td>{{null}}</td>
+      <td class="project-actions text-center">
+        <a class="btn btn-info btn-sm" (click)="update('1')"><i class="fas fa-pencil-alt"></i></a>
+        <a class="btn btn-danger btn-sm" (click)="delete('1')"><i class="fas fa-trash"></i></a>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

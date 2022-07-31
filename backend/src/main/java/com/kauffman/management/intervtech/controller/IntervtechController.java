@@ -1,6 +1,7 @@
 package com.kauffman.management.intervtech.controller;
 
 import com.kauffman.management.common.entity.ApiResponse;
+import com.kauffman.management.ctrltech.entity.dto.Ctrltech;
 import com.kauffman.management.intervtech.entity.builder.IntervtechBuilder;
 import com.kauffman.management.intervtech.entity.dto.Intervtech;
 import com.kauffman.management.intervtech.entity.payload.IntervtechCreatePayload;
@@ -9,6 +10,7 @@ import com.kauffman.management.intervtech.repository.IntervtechRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.UUID;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
@@ -27,6 +29,7 @@ public class IntervtechController {
                 .setEnd_date(payload.getEnd_date())
                 .setDescription(payload.getDescription())
                 .setVehicule(payload.getVehicule())
+                .setProvider(payload.getProvider())
                 .build();
         return new ApiResponse(true, intervtechRepository.save(intervtech), "api.site.create.success");
     }
@@ -35,6 +38,16 @@ public class IntervtechController {
     @GetMapping("/list")
     public ApiResponse get() {
         return new ApiResponse(true, intervtechRepository.findAll(), null);
+    }
+
+    // Read all records by vehicule id
+    @GetMapping("/findByVehiculeId/{vid}")
+    public ApiResponse findByVehiculeId(@PathVariable("vid") UUID vid) {
+        List<Intervtech> fromDb = intervtechRepository.findByVehiculeId(vid);
+        if (fromDb == null) {
+            return new ApiResponse(false, null, "api.address.detail.not-found");
+        }
+        return new ApiResponse(true, fromDb, "api.address.detail.success");
     }
 
     // Read record detail
@@ -58,6 +71,7 @@ public class IntervtechController {
         fromDb.setEnd_date(payload.getEnd_date());
         fromDb.setDescription(payload.getDescription());
         fromDb.setVehicule(payload.getVehicule());
+        fromDb.setProvider(payload.getProvider());
         return new ApiResponse(true, intervtechRepository.save(fromDb), "api.intervtech.update.success");
     }
 

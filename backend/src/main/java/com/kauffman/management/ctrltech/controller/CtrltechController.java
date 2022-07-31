@@ -30,6 +30,7 @@ public class CtrltechController {
                 .setPrice(payload.getPrice())
                 .setDescription(payload.getDescription())
                 .setVehicule(payload.getVehicule())
+                .setProvider(payload.getProvider())
                 .build();
         return new ApiResponse(true, ctrltechRepository.save(ctrltech), "api.ctrltech.create.success");
     }
@@ -40,10 +41,10 @@ public class CtrltechController {
         return new ApiResponse(true, ctrltechRepository.findAll(), null);
     }
 
-    // Read all records
+    // Read all records by vehicule id
     @GetMapping("/findByVehiculeId/{vid}")
-    public ApiResponse findByVehiculeId(@PathVariable("vid") UUID vid) {
-        Ctrltech fromDb = ctrltechRepository.findByVehiculeId(vid);
+    public ApiResponse findAllById(@PathVariable("vid") UUID vid) {
+        List<Ctrltech> fromDb = ctrltechRepository.findByVehiculeId(vid);
         if (fromDb == null) {
             return new ApiResponse(false, null, "api.address.detail.not-found");
         }

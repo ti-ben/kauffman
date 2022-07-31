@@ -1,5 +1,6 @@
 package com.kauffman.management.ctrltech.entity.dto;
 
+import com.kauffman.management.provider.entity.dto.Provider;
 import com.kauffman.management.vehicule.entity.dto.Vehicule;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -35,4 +36,9 @@ public class Ctrltech {
     @ManyToOne
     @JoinColumn(name = "vehicule_id")
     private Vehicule vehicule;
+
+    @ManyToOne
+    @JoinColumn(name = "provider_id")
+    private Provider provider;
+
 }

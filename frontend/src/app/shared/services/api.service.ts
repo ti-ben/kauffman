@@ -22,7 +22,6 @@ export class ApiService {
   }
 
   /*****************************************************************************************/
-
   /* ************************************** PROVIDER ************************************* */
   createProvider(data: any): Observable<ApiResponse> {
     return this.http.post(`${this.baseUrl}/provider/create`, data)
@@ -60,7 +59,6 @@ export class ApiService {
   }
 
   /*****************************************************************************************/
-
   /* **************************************** RANK *************************************** */
 
   createRank(): Observable<ApiResponse> {
@@ -78,7 +76,6 @@ export class ApiService {
   }
 
   /*****************************************************************************************/
-
   /* *************************************** PERIOD ************************************** */
   createPeriod(data: any): Observable<ApiResponse> {
     return this.http.post(`${this.baseUrl}/period/create`, data)
@@ -95,7 +92,6 @@ export class ApiService {
   }
 
   /*****************************************************************************************/
-
   /* **************************************** SITE *************************************** */
   createSite(data: any): Observable<ApiResponse> {
     return this.http.post(`${this.baseUrl}/site/create`, data)
@@ -133,7 +129,6 @@ export class ApiService {
   }
 
   /*****************************************************************************************/
-
   /* ************************************ NUMBERPLATE ************************************ */
   createNumberplate(data: any): Observable<ApiResponse> {
     return this.http.post(`${this.baseUrl}/numberplate/create`, data)
@@ -171,7 +166,6 @@ export class ApiService {
   }
 
   /*****************************************************************************************/
-
   /* *************************************** USER **************************************** */
   createUser(data: any): Observable<ApiResponse> {
     return this.http.post(`${this.baseUrl}/user/create`, data)
@@ -209,7 +203,6 @@ export class ApiService {
   }
 
   /*****************************************************************************************/
-
   /* ************************************* TACHOGRAPH ************************************ */
 
   createTacho(data: any): Observable<ApiResponse> {
@@ -220,7 +213,6 @@ export class ApiService {
   }
 
   /*****************************************************************************************/
-
   /* ************************************* CREDENTIAL ************************************ */
 
   getUserCredential(username: any): Observable<ApiResponse> {
@@ -245,7 +237,6 @@ export class ApiService {
   }
 
   /*****************************************************************************************/
-
   /* *************************************** ADDRESS ************************************* */
 
   getAllAddress(): Observable<ApiResponse> {
@@ -256,7 +247,6 @@ export class ApiService {
   }
 
   /*****************************************************************************************/
-
   /* ************************************* VEHICULE ************************************** */
 
   createVehicule(data: any): Observable<ApiResponse> {
@@ -295,10 +285,25 @@ export class ApiService {
   }
 
   /*****************************************************************************************/
+  /* ************************************* CTRLTECH ************************************** */
+  createCtrltech(data: any): Observable<ApiResponse> {
+    return this.http.post(`${this.baseUrl}/ctrltech/create`, data)
+      .pipe(
+        map(response => response as ApiResponse)
+      );
+  }
 
-  /* ************************************* VEHICULE ************************************** */
   getAllCtrltechByVehiculeId(id: any): Observable<ApiResponse> {
     return this.http.get(`${this.baseUrl}/ctrltech/findByVehiculeId/${id}`)
+      .pipe(
+        map(response => response as ApiResponse)
+      );
+  }
+
+  /*****************************************************************************************/
+  /* ************************************ INTERVTECH ************************************* */
+  getAllIntervtechByVehiculeId(id: any): Observable<ApiResponse> {
+    return this.http.get(`${this.baseUrl}/intervtech/findByVehiculeId/${id}`)
       .pipe(
         map(response => response as ApiResponse)
       );

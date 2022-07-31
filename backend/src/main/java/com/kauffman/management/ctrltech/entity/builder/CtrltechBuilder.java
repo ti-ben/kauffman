@@ -1,6 +1,7 @@
 package com.kauffman.management.ctrltech.entity.builder;
 
 import com.kauffman.management.ctrltech.entity.dto.Ctrltech;
+import com.kauffman.management.provider.entity.dto.Provider;
 import com.kauffman.management.vehicule.entity.dto.Vehicule;
 
 import java.util.Date;
@@ -15,6 +16,7 @@ public class CtrltechBuilder {
     private String price;
 
     private Vehicule vehicule;
+    private Provider provider;
 
     public CtrltechBuilder setCtrltech_id(UUID ctrltech_id) {
         this.ctrltech_id = ctrltech_id;
@@ -46,7 +48,12 @@ public class CtrltechBuilder {
         return this;
     }
 
+    public CtrltechBuilder setProvider(Provider provider) {
+        this.provider = provider;
+        return this;
+    }
+
     public Ctrltech build() {
-        return new Ctrltech(ctrltech_id, start_date, end_date, description, price, vehicule);
+        return new Ctrltech(ctrltech_id, start_date, end_date, description, price, vehicule, provider);
     }
 }

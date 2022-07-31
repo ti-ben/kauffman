@@ -1,5 +1,6 @@
 package com.kauffman.management.ctrltech.entity.payload;
 
+import com.kauffman.management.provider.entity.dto.Provider;
 import com.kauffman.management.vehicule.entity.dto.Vehicule;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -20,4 +21,5 @@ public class CtrltechUpdatePayload {
     private String price;
 
     private Vehicule vehicule;
+    private Provider provider;
 }

@@ -1,5 +1,6 @@
 package com.kauffman.management.intervtech.entity.dto;
 
+import com.kauffman.management.provider.entity.dto.Provider;
 import com.kauffman.management.vehicule.entity.dto.Vehicule;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -28,4 +29,8 @@ public class Intervtech {
     @ManyToOne
     @JoinColumn(name = "vehicule_id")
     private Vehicule vehicule;
+
+    @ManyToOne
+    @JoinColumn(name = "provider_id")
+    private Provider provider;
 }

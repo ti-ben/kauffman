@@ -9,5 +9,5 @@ import java.util.UUID;
 
 public interface CtrltechRepository extends JpaRepository<Ctrltech, UUID> {
     @Query("select c from Ctrltech c where c.vehicule.vehicule_id = :vehicule_id")
-    Ctrltech findByVehiculeId(UUID vehicule_id);
+    List<Ctrltech> findByVehiculeId(UUID vehicule_id);
 }
