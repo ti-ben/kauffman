@@ -40,7 +40,7 @@ export class NumberplateCreateComponent implements OnInit {
   create(): void {
     if (this.formGroup.valid) {
       const payload: NumberplateCreatePayload = this.formGroup.value;
-      //payload.site = {site_id: payload.site.site_id};
+      console.log(payload)
       this.apiService.createNumberplate(payload).subscribe((response: ApiResponse) => {
         if (response.result) {
           this.formGroup.reset();

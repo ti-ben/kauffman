@@ -28,7 +28,7 @@ public class Numberplate {
     private Date dop;
     private Boolean active;
 
-    @OneToOne(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST})
-    @JoinColumn(name = "site_id")
+    @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST})
+    @JoinColumn(name = "site_id", referencedColumnName = "site_id")
     private Site site;
 }
