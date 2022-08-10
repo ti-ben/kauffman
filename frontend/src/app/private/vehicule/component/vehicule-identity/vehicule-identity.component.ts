@@ -4,7 +4,7 @@ import {ApiService} from "../../../../shared/services/api.service";
 import {ApiResponse} from "../../../../shared/model";
 import {FormControl, FormGroup} from "@angular/forms";
 import {Site} from "../../../site/model/site";
-import {Numberplate} from "../../../numberplate/model/numberplate";
+import {Numberplate} from "../../../numberplate/model/business/numberplate";
 
 @Component({
   selector: 'app-vehicule-identity',

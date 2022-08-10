@@ -4,7 +4,7 @@ import {ActivatedRoute} from "@angular/router";
 import {ApiResponse} from "../../../../shared/model";
 import {Site} from "../../../site/model/site";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {Numberplate} from "../../../numberplate/model/numberplate";
+import {Numberplate} from "../../../numberplate/model/business/numberplate";
 
 @Component({
   selector: 'app-vehicule-create',

@@ -3,6 +3,7 @@ import {Observable} from "rxjs";
 import {HttpClient} from "@angular/common/http";
 import {ApiResponse} from "../model/api-response.interface";
 import {map} from "rxjs/operators";
+import {NumberplateCreatePayload} from "../../private/numberplate/model/payload/numberplate-create.payload";
 
 @Injectable({
   providedIn: 'root'
@@ -130,8 +131,8 @@ export class ApiService {
 
   /*****************************************************************************************/
   /* ************************************ NUMBERPLATE ************************************ */
-  createNumberplate(data: any): Observable<ApiResponse> {
-    return this.http.post(`${this.baseUrl}/numberplate/create`, data)
+  createNumberplate(payload: NumberplateCreatePayload): Observable<ApiResponse> {
+    return this.http.post(`${this.baseUrl}/numberplate/create`, payload)
       .pipe(
         map(response => response as ApiResponse)
       );
