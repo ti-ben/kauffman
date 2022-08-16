@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ApiService} from "../../../../shared/services/api.service";
 import {ActivatedRoute} from "@angular/router";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {ApiResponse} from "../../../../shared/model";
 
 @Component({
   selector: 'app-user-tachograph',
@@ -10,8 +11,9 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 })
 export class UserTachographComponent implements OnInit {
 
-  errorMsg: any;
-  successMsg: any;
+  errorMsg: string = '';
+  successMsg: string = '';
+  formGroup!: FormGroup;
   getParamId = this.activatedRoute.snapshot.paramMap.get('id');
   currentDate = new Date().toISOString().substring(0, 10);
 
@@ -19,26 +21,31 @@ export class UserTachographComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.initForm();
+  }
+
+
+  private initForm(): void {
+    this.formGroup = new FormGroup({
+      'start_date': new FormControl(this.currentDate, Validators.required),
+      'end_date': new FormControl(this.currentDate, Validators.required),
+      'num_carte': new FormControl('', Validators.required),
+      'description': new FormControl(''),
+      'user_id': new FormControl(this.getParamId)
+    });
 
   }
 
-  tachographFormCreate = new FormGroup({
-    'start_date': new FormControl(this.currentDate, Validators.required),
-    'end_date': new FormControl(this.currentDate, Validators.required),
-    'num_carte': new FormControl('', Validators.required),
-    'description': new FormControl('')
-  })
-
   tachographCreate() {
-    console.log('Form data = ', this.tachographFormCreate.value)/*
-    if (this.tachographFormCreate.valid) {
-      this.apiService.createTacho(this.tachographFormCreate.value).subscribe((res) => {
-        this.tachographFormCreate.reset();
+    console.log('Form data = ', this.formGroup.value)
+    if (this.formGroup.valid) {
+      this.apiService.createTacho(this.formGroup.value).subscribe((res: ApiResponse) => {
+        this.formGroup.reset();
         this.successMsg = res.code;
       })
     } else {
       this.errorMsg = 'All fields are required';
-    }*/
+    }
   }
 
 }

@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ApiService} from "../../../../shared/services/api.service";
 import {ActivatedRoute} from "@angular/router";
-import {FormControl, FormGroup} from "@angular/forms";
+import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {ApiResponse} from "../../../../shared/model";
 
 @Component({
@@ -12,6 +12,7 @@ import {ApiResponse} from "../../../../shared/model";
 export class UserSelectmedComponent implements OnInit {
 
   getParamId: any = this.activatedRoute.snapshot.paramMap.get('id');
+  currentDate = new Date().toISOString().substring(0, 10);
   errorMsg: any = '';
   successMsg: any = '';
   periodList: any = '';
@@ -24,8 +25,8 @@ export class UserSelectmedComponent implements OnInit {
   }
 
   periodFormCreate = new FormGroup({
-    'start_date': new FormControl(''),
-    'end_date': new FormControl(''),
+    'start_date': new FormControl(this.currentDate, Validators.required),
+    'end_date': new FormControl(this.currentDate, Validators.required),
     'user_id': new FormControl(this.getParamId)
   });
 

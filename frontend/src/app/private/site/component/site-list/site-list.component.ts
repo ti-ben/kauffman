@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ApiService} from "../../../../shared/services/api.service";
+import {HttpErrorResponse} from "@angular/common/http";
 
 @Component({
   selector: 'app-site-list',
@@ -8,28 +9,37 @@ import {ApiService} from "../../../../shared/services/api.service";
 })
 export class SiteListComponent implements OnInit {
 
-  sList: any;
-  successMsg:any;
+  public sList: any;
+  public successMsg: String = '';
+  public errorMsg: any;
 
-  constructor(private apiService:ApiService) { }
+  constructor(private apiService: ApiService) {
+  }
 
   ngOnInit(): void {
     this.listAllSites();
   }
 
-  delete(id:string)
-  {
-    this.apiService.deleteSite(id).subscribe((res)=> {
-      this.successMsg = res.code;
-      this.listAllSites();
-    })
+  delete(id: string) {
+    this.apiService.deleteSite(id).subscribe((res) => {
+        this.successMsg = res.code;
+        this.listAllSites();
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+        this.listAllSites();
+      }
+    );
   }
 
-  listAllSites()
-  {
-    this.apiService.getAllSite().subscribe((res)=> {
-      this.sList = res.data;
-    })
+  public listAllSites(): void {
+    this.apiService.getAllSite().subscribe((res) => {
+        this.sList = res.data;
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+      }
+    );
   }
 
 }
