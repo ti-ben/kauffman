@@ -3,6 +3,7 @@ import {ApiService} from "../../../../shared/services/api.service";
 import {ActivatedRoute} from "@angular/router";
 import {ApiResponse} from "../../../../shared/model";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {Rank} from "../../../rank/model/rank";
 
 @Component({
   selector: 'app-user-credential',
@@ -16,7 +17,7 @@ export class UserCredentialsComponent implements OnInit {
   uDetails: any = '';
   errorMsg: string = '';
   successMsg: string = '';
-  rankList: any = '';
+  rankList: Rank[] = [];
   getParamId = this.activatedRoute.snapshot.paramMap.get('id');
   currentDate = new Date().toISOString().substring(0, 10);
   randomPassword = Math.random().toString(36).slice(0, 20);
@@ -75,13 +76,13 @@ export class UserCredentialsComponent implements OnInit {
   }
 
   userDetails() {
-    this.apiService.getSingleUser(this.getParamId).subscribe(res => {
-      this.uDetails = res.data;
+    this.apiService.getSingleUser(this.getParamId).subscribe(response => {
+      this.uDetails = response.data;
     })
   }
 
   private allRankList() {
-    this.apiService.getAllRank().subscribe((response: ApiResponse) => {
+    this.apiService.getAllRank().subscribe(response => {
       this.rankList = response.data;
     })
   }
