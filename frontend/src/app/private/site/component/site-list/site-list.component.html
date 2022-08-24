@@ -26,7 +26,6 @@
     <table class="table table-striped projects">
       <thead>
       <tr>
-        <th style="width: auto" class="text-center">#</th>
         <th style="width: auto" class="text-center">Site Name</th>
         <th style="width: auto" class="text-center">created On</th>
         <th style="width: auto" class="text-center">Description</th>
@@ -36,7 +35,6 @@
       </thead>
       <tbody>
       <tr *ngFor="let site of sList" class="text-center">
-        <td>#</td>
         <td>{{site.name}}</td>
         <td>{{site.created_on}}</td>
         <td class="project_progress">{{site.description}}</td>
