@@ -1,6 +1,6 @@
-<div class="container card card-warning card-outline" >
+<div class="container card card-warning card-outline" *ngIf="uFormGroup">
 
-  <form [formGroup]="formGroup">
+  <form [formGroup]="uFormGroup">
     <div class="card-body">
 
       <div *ngIf="errorMsg" class="alert alert-warning alert-dismissible">
@@ -17,13 +17,14 @@
 
       <div class="form-group">
         <label>Nom du rang</label>
-        <input type="email" class="form-control" formControlName="name" placeholder="Nom du site">
+        <input type="email" class="form-control" formControlName="name" placeholder="Nom du rang">
       </div>
+
       <div class="form-group">
         <label>Description du rang</label>
-        <textarea type="text" class="form-control" formControlName="description"
-                  placeholder="Description brève du site"></textarea>
+        <textarea type="text" class="form-control" formControlName="description" placeholder="Description brève du site"></textarea>
       </div>
+
       <div class="form-group">
         <label>Actif?</label>
         <select class="custom-select" formControlName="active">
@@ -31,6 +32,7 @@
           <option [value]="false">Non</option>
         </select>
       </div>
+
       <button type="submit" class="btn btn-primary" (click)="update()">Enregistrer</button>
     </div>
   </form>

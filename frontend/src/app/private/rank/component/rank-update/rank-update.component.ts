@@ -12,7 +12,7 @@ import {ApiResponse} from "../../../../shared/model";
 export class RankUpdateComponent implements OnInit {
 
   errorMsg: string = '';
-  formGroup!: FormGroup;
+  uFormGroup!: FormGroup;
   successMsg: string = '';
   getParamId = this.activatedRoute.snapshot.paramMap.get('id');
 
@@ -21,9 +21,9 @@ export class RankUpdateComponent implements OnInit {
 
   ngOnInit(): void {
     this.apiService.getSingleRank(this.getParamId).subscribe((response: ApiResponse) => {
-      this.formGroup = new FormGroup({
+      this.uFormGroup = new FormGroup({
         rank_id: new FormControl(response.data.rank_id),
-        name: new FormControl(response.data.name, Validators.required),
+        name: new FormControl(response.data.name),
         description: new FormControl(response.data.description),
         active: new FormControl(response.data.active)
       });
@@ -31,8 +31,8 @@ export class RankUpdateComponent implements OnInit {
   }
 
   update() {
-    if (this.formGroup.value) {
-      this.apiService.updateRank(this.formGroup.value, this.getParamId).subscribe((response: ApiResponse) => {
+    if (this.uFormGroup.value) {
+      this.apiService.updateRank(this.uFormGroup.value, this.getParamId).subscribe((response: ApiResponse) => {
         this.successMsg = response.code;
       })
     } else {
