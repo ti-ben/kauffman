@@ -1,7 +1,7 @@
 export interface Site {
-  site_id: String,
-  name: String,
-  description: String,
+  site_id: string,
+  name: string,
+  description: string,
   created_on: Date,
   active: Boolean
 }

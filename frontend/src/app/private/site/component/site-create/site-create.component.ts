@@ -36,8 +36,7 @@ export class SiteCreateComponent implements OnInit {
 
   create() {
     if (this.sFormGroup.valid) {
-      const payload: NumberplateCreatePayload = this.sFormGroup.value;
-      this.apiService.createSite(payload).subscribe((response: ApiResponse) => {
+      this.apiService.createSite(this.sFormGroup.value).subscribe((response: ApiResponse) => {
         if (response.result) {
           this.sFormGroup.reset();
           this.successMsg = response.code;
@@ -47,7 +46,4 @@ export class SiteCreateComponent implements OnInit {
       this.errorMsg = 'All fields are required';
     }
   }
-
-
-
 }

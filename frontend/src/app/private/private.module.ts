@@ -42,6 +42,8 @@ import { VehiculeMetrologyComponent } from './vehicule/component/vehicule-metrol
 import { VehiculeAdrComponent } from './vehicule/component/vehicule-adr/vehicule-adr.component';
 import { StatusListComponent } from './status/component/status-list/status-list.component';
 import { RankListComponent } from './rank/component/rank-list/rank-list.component';
+import { RankUpdateComponent } from './rank/component/rank-update/rank-update.component';
+import { RankCreateComponent } from './rank/component/rank-create/rank-create.component';
 
 @NgModule({
   declarations: [
@@ -83,6 +85,8 @@ import { RankListComponent } from './rank/component/rank-list/rank-list.componen
     VehiculeAdrComponent,
     StatusListComponent,
     RankListComponent,
+    RankUpdateComponent,
+    RankCreateComponent,
   ],
   imports: [
     CommonModule,

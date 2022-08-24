@@ -26,6 +26,8 @@ import {VehiculeDetailsComponent} from "./vehicule/component/vehicule-details/ve
 import {RankComponent} from "./rank/rank.component";
 import {StatusListComponent} from "./status/component/status-list/status-list.component";
 import {RankListComponent} from "./rank/component/rank-list/rank-list.component";
+import {RankCreateComponent} from "./rank/component/rank-create/rank-create.component";
+import {RankUpdateComponent} from "./rank/component/rank-update/rank-update.component";
 
 const routes: Routes = [
   {
@@ -67,8 +69,8 @@ const routes: Routes = [
         path: 'rank', component: RankComponent, data: {crumbTitle: 'Rang'},
         children: [
           {path: '', component: RankListComponent, data: {crumbTitle: 'Liste des rangs'}},
-          {path: 'create', component: UserCreateComponent, data: {crumbTitle: 'Ajouter un nouvel utilisateur'}},
-          {path: 'update/:id', component: UserDetailsComponent, data: {crumbTitle: 'Mise à jour'}},
+          {path: 'create', component: RankCreateComponent, data: {crumbTitle: 'Ajouter un nouveau rang'}},
+          {path: 'update/:id', component: RankUpdateComponent, data: {crumbTitle: 'Mise à jour'}},
         ]
       },
       {

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Rank} from "../../model/rank";
 import {ApiService} from "../../../../shared/services/api.service";
 import {ApiResponse} from "../../../../shared/model";
@@ -24,7 +24,7 @@ export class RankListComponent implements OnInit {
 
   public listAllRank(): void {
     this.apiService.getAllRank().subscribe((response: ApiResponse) => {
-      this.rankList = response.data;
+        this.rankList = response.data;
       },
       (error: HttpErrorResponse) => {
         alert(error.message);
@@ -33,6 +33,13 @@ export class RankListComponent implements OnInit {
   }
 
   public delete(id: string): void {
-    alert('Delete !');
+    this.apiService.deleteRank(id).subscribe((response: ApiResponse) => {
+      this.successMsg = 'Le rang a bien été supprimé ! [CODE] = ' + response.code;
+      this.listAllRank();
+      },
+      (error: HttpErrorResponse) => {
+        this.errorMsg = 'Ce rang ne peut être supprimé car celui-ci est utilisé [CODE] = ' + error.message;
+        this.listAllRank();
+      });
   }
 }

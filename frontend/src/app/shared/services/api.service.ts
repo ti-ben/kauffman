@@ -61,9 +61,29 @@ export class ApiService {
 
   /*****************************************************************************************/
   /* **************************************** RANK *************************************** */
+  createRank(data: any): Observable<ApiResponse> {
+    return this.http.post(`${this.baseUrl}/rank/create`, data)
+      .pipe(
+        map(response => response as ApiResponse)
+      );
+  }
 
-  createRank(): Observable<ApiResponse> {
-    return this.http.get(`${this.baseUrl}/rank/create`)
+  getSingleRank(id: any): Observable<ApiResponse> {
+    return this.http.get(`${this.baseUrl}/rank/detail/${id}`)
+      .pipe(
+        map(response => response as ApiResponse)
+      );
+  }
+
+  updateRank(data: any, id: any): Observable<ApiResponse> {
+    return this.http.put(`${this.baseUrl}/rank/update/${id}`, data)
+      .pipe(
+        map(response => response as ApiResponse)
+      );
+  }
+
+  deleteRank(id: any): Observable<ApiResponse> {
+    return this.http.delete(`${this.baseUrl}/rank/delete/${id}`)
       .pipe(
         map(response => response as ApiResponse)
       );

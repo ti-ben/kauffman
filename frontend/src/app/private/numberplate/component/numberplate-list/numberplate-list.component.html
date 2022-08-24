@@ -36,7 +36,7 @@
             <span *ngIf="numberplate.site !== null; else elseBlock2">{{numberplate.site.name}}</span>
           <ng-template #elseBlock2>Pas de site sélectionné</ng-template>
         </td>
-        <td class="text-center">{{numberplate.dop | date: 'shortdate'}}</td>
+        <td class="text-center">{{numberplate.dop | date: 'dd/MM/yyyy'}}</td>
         <td class="project_progress text-center">{{numberplate.num_plate}}</td>
         <td class="project-state text-center">
           <span class="badge badge-success" *ngIf="numberplate.active === true; else elseBlock">Actif</span>

@@ -1,6 +1,6 @@
-  <div class="container card card-warning card-outline" >
+<div class="container card card-warning card-outline" >
 
-  <form [formGroup]="sFormGroup">
+  <form [formGroup]="formGroup">
     <div class="card-body">
 
       <div *ngIf="errorMsg" class="alert alert-warning alert-dismissible">
@@ -16,19 +16,11 @@
       </div>
 
       <div class="form-group">
-        <label>Site ID</label>
-        <input type="email" class="form-control" formControlName="site_id" placeholder="Nom du site">
-      </div>
-      <div class="form-group">
-        <label>Nom du site</label>
+        <label>Nom du rang</label>
         <input type="email" class="form-control" formControlName="name" placeholder="Nom du site">
       </div>
       <div class="form-group">
-        <label>Date de création</label>
-        <input type="date" class="form-control" formControlName="created_on">
-      </div>
-      <div class="form-group">
-        <label>Description</label>
+        <label>Description du rang</label>
         <textarea type="text" class="form-control" formControlName="description"
                   placeholder="Description brève du site"></textarea>
       </div>
@@ -39,7 +31,7 @@
           <option [value]="false">Non</option>
         </select>
       </div>
-      <button type="submit" class="btn btn-primary" (click)="create()">Enregistrer</button>
+      <button type="submit" class="btn btn-primary" (click)="update()">Enregistrer</button>
     </div>
   </form>
 </div>

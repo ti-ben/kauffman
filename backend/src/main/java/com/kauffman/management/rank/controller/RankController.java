@@ -69,7 +69,7 @@ public class RankController {
         return new ApiResponse(true, rankRepository.save(fromDb), "api.rank.archive.success");
     }
 
-    @PutMapping("/delete/{id}")
+    @DeleteMapping("/delete/{id}")
     public ApiResponse delete(@PathVariable("id") UUID id) {
         Rank fromDb = rankRepository.findById(id).orElse(null);
         if (fromDb == null) {

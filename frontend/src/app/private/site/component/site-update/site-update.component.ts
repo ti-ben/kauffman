@@ -40,5 +40,4 @@ export class SiteUpdateComponent implements OnInit {
       this.errorMsg = 'All fields are required';
     }
   }
-
 }

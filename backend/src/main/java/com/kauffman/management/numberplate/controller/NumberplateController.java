@@ -74,7 +74,7 @@ public class NumberplateController {
         return new ApiResponse(true, numberplateRepository.save(fromDb), "api.numberplate.archive.success");
     }
 
-    @PutMapping("/delete/{id}")
+    @DeleteMapping("/delete/{id}")
     public ApiResponse delete(@PathVariable("id") UUID id) {
         Numberplate fromDb = numberplateRepository.findById(id).orElse(null);
         if (fromDb == null) {

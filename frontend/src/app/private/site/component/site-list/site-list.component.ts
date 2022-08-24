@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ApiService} from "../../../../shared/services/api.service";
 import {HttpErrorResponse} from "@angular/common/http";
+import {ApiResponse} from "../../../../shared/model";
 
 @Component({
   selector: 'app-site-list',
@@ -30,15 +31,14 @@ export class SiteListComponent implements OnInit {
     );
   }
 
-  delete(id: string) {
-    this.apiService.deleteSite(id).subscribe((res) => {
+  public delete(id: string): void {
+    this.apiService.deleteSite(id).subscribe((res:ApiResponse) => {
         this.successMsg = res.code;
         this.listAllSites();
       },
       (error: HttpErrorResponse) => {
-        alert(error.message);
+        this.errorMsg = 'Ce site ne peut être supprimé car celui-ci est utilisé [CODE] = ' + error.message;
         this.listAllSites();
-      }
-    );
+      });
   }
 }
