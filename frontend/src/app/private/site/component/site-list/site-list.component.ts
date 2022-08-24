@@ -11,13 +11,23 @@ export class SiteListComponent implements OnInit {
 
   public sList: any;
   public successMsg: String = '';
-  public errorMsg: any;
+  public errorMsg: String = '';
 
   constructor(private apiService: ApiService) {
   }
 
   ngOnInit(): void {
     this.listAllSites();
+  }
+
+  public listAllSites(): void {
+    this.apiService.getAllSite().subscribe((res) => {
+        this.sList = res.data;
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+      }
+    );
   }
 
   delete(id: string) {
@@ -31,15 +41,4 @@ export class SiteListComponent implements OnInit {
       }
     );
   }
-
-  public listAllSites(): void {
-    this.apiService.getAllSite().subscribe((res) => {
-        this.sList = res.data;
-      },
-      (error: HttpErrorResponse) => {
-        alert(error.message);
-      }
-    );
-  }
-
 }

@@ -40,6 +40,8 @@ import { VehiculeCtrltechComponent } from './vehicule/component/vehicule-ctrltec
 import { VehiculeIntervtechComponent } from './vehicule/component/vehicule-intervtech/vehicule-intervtech.component';
 import { VehiculeMetrologyComponent } from './vehicule/component/vehicule-metrology/vehicule-metrology.component';
 import { VehiculeAdrComponent } from './vehicule/component/vehicule-adr/vehicule-adr.component';
+import { StatusListComponent } from './status/component/status-list/status-list.component';
+import { RankListComponent } from './rank/component/rank-list/rank-list.component';
 
 @NgModule({
   declarations: [
@@ -79,6 +81,8 @@ import { VehiculeAdrComponent } from './vehicule/component/vehicule-adr/vehicule
     VehiculeIntervtechComponent,
     VehiculeMetrologyComponent,
     VehiculeAdrComponent,
+    StatusListComponent,
+    RankListComponent,
   ],
   imports: [
     CommonModule,
