@@ -27,20 +27,16 @@
     <table class="table table-striped projects">
       <thead>
       <tr>
-        <th style="width: 1%" class="text-center">#</th>
-        <th style="width: 20%" class="text-center">VEHICULE ID</th>
-        <th style="width: 10%" class="text-center">Photo</th>
-        <th style="width: 10%" class="text-center">Marque</th>
-        <th style="width: 10%" class="text-center">Immatriculation</th>
-        <th style="width: 5%" class="text-center">Affecté à (Site)</th>
-        <th style="width: 5%" class="text-center">Actif?</th>
-        <th style="width: 10%" class="text-center">Options</th>
+        <th style="width: auto" class="text-center">Photo</th>
+        <th style="width: auto" class="text-center">Marque</th>
+        <th style="width: auto" class="text-center">Immatriculation</th>
+        <th style="width: auto" class="text-center">Affecté à (Site)</th>
+        <th style="width: auto" class="text-center">Actif?</th>
+        <th style="width: auto" class="text-center">Options</th>
       </tr>
       </thead>
       <tbody>
       <tr *ngFor="let vehicule of vehiculesList"  class="text-center">
-        <td>#</td>
-        <td>{{vehicule.vehicule_id}}</td>
         <td><img alt="Avatar" class="table-avatar" src="./assets/dist/img/{{vehicule.avatar}}"></td>
         <td>{{vehicule.brand}}</td>
         <td>

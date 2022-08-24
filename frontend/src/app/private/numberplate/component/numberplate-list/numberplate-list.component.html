@@ -23,25 +23,21 @@
     <table class="table table-striped projects">
       <thead>
       <tr>
-        <th class="text-center">#</th>
-        <th class="text-center">Site Name</th>
-        <th class="text-center">Achetée le</th>
-        <th class="text-center">N° de plaque</th>
-        <th class="text-center">Status</th>
-        <th class="text-center">Options</th>
+        <th style="width: auto" class="text-center">Site Name</th>
+        <th style="width: auto" class="text-center">Achetée le</th>
+        <th style="width: auto" class="text-center">N° de plaque</th>
+        <th style="width: auto" class="text-center">Status</th>
+        <th style="width: auto" class="text-center">Options</th>
       </tr>
       </thead>
       <tbody>
       <tr *ngFor="let numberplate of readData">
-        <td class="text-center">#</td>
         <td class="text-center">
-            <span *ngIf="numberplate.site !== null; else elseBlock2">{{numberplate.site.name}}
-              | <b>[{{numberplate.site.site_id}}]</b></span>
+            <span *ngIf="numberplate.site !== null; else elseBlock2">{{numberplate.site.name}}</span>
           <ng-template #elseBlock2>Pas de site sélectionné</ng-template>
         </td>
-        <td class="text-center">{{numberplate.dop}}</td>
-        <td class="project_progress text-center">{{numberplate.num_plate}} | <b>[{{numberplate.numberplate_id}}]</b>
-        </td>
+        <td class="text-center">{{numberplate.dop | date: 'shortdate'}}</td>
+        <td class="project_progress text-center">{{numberplate.num_plate}}</td>
         <td class="project-state text-center">
           <span class="badge badge-success" *ngIf="numberplate.active === true; else elseBlock">Actif</span>
           <ng-template #elseBlock><span class="badge badge-danger">Inactif</span></ng-template>
