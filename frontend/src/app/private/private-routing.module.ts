@@ -28,6 +28,8 @@ import {StatusListComponent} from "./status/component/status-list/status-list.co
 import {RankListComponent} from "./rank/component/rank-list/rank-list.component";
 import {RankCreateComponent} from "./rank/component/rank-create/rank-create.component";
 import {RankUpdateComponent} from "./rank/component/rank-update/rank-update.component";
+import {StatusCreateComponent} from "./status/component/status-create/status-create.component";
+import {StatusUpdateComponent} from "./status/component/status-update/status-update.component";
 
 const routes: Routes = [
   {
@@ -61,8 +63,8 @@ const routes: Routes = [
         path: 'status', component: StatusComponent, data: {crumbTitle: 'Status'},
         children: [
           {path: '', component: StatusListComponent, data: {crumbTitle: 'Liste des status'}},
-          {path: 'create', component: UserCreateComponent, data: {crumbTitle: 'Ajouter un nouvel utilisateur'}},
-          {path: 'update/:id', component: UserDetailsComponent, data: {crumbTitle: 'Mise à jour'}},
+          {path: 'create', component: StatusCreateComponent, data: {crumbTitle: 'Ajouter un nouveau status'}},
+          {path: 'update/:id', component: StatusUpdateComponent, data: {crumbTitle: 'Mise à jour'}},
         ]
       },
       {

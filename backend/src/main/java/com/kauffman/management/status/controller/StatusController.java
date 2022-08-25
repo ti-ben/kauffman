@@ -68,7 +68,7 @@ public class StatusController {
         return new ApiResponse(true, statusRepository.save(fromDb), "api.status.archive.success");
     }
 
-    @PutMapping("/delete/{id}")
+    @DeleteMapping("/delete/{id}")
     public ApiResponse delete(@PathVariable("id") UUID id) {
         Status fromDb = statusRepository.findById(id).orElse(null);
         if (fromDb == null) {

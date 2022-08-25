@@ -44,6 +44,8 @@ import { StatusListComponent } from './status/component/status-list/status-list.
 import { RankListComponent } from './rank/component/rank-list/rank-list.component';
 import { RankUpdateComponent } from './rank/component/rank-update/rank-update.component';
 import { RankCreateComponent } from './rank/component/rank-create/rank-create.component';
+import { StatusCreateComponent } from './status/component/status-create/status-create.component';
+import { StatusUpdateComponent } from './status/component/status-update/status-update.component';
 
 @NgModule({
   declarations: [
@@ -87,6 +89,8 @@ import { RankCreateComponent } from './rank/component/rank-create/rank-create.co
     RankListComponent,
     RankUpdateComponent,
     RankCreateComponent,
+    StatusCreateComponent,
+    StatusUpdateComponent,
   ],
   imports: [
     CommonModule,

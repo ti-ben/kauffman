@@ -15,8 +15,30 @@ export class ApiService {
   }
 
   /* *************************************** STATUS ************************************** */
+
+  createStatus(data: any): Observable<ApiResponse> {
+    return this.http.post(`${this.baseUrl}/status/create`, data)
+      .pipe(
+        map(response => response as ApiResponse)
+      );
+  }
+
   getAllStatus(): Observable<ApiResponse> {
     return this.http.get(`${this.baseUrl}/status/list`)
+      .pipe(
+        map(response => response as ApiResponse)
+      );
+  }
+
+  getSingleStatus(id: any): Observable<ApiResponse> {
+    return this.http.get(`${this.baseUrl}/status/detail/${id}`)
+      .pipe(
+        map(response => response as ApiResponse)
+      );
+  }
+
+  deleteStatus(id: any): Observable<ApiResponse> {
+    return this.http.delete(`${this.baseUrl}/status/delete/${id}`)
       .pipe(
         map(response => response as ApiResponse)
       );

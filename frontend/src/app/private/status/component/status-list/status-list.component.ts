@@ -33,6 +33,13 @@ export class StatusListComponent implements OnInit {
   }
 
   public delete(id: string): void {
-
+    this.apiService.deleteStatus(id).subscribe((response: ApiResponse) => {
+        this.successMsg = 'Le rang a bien été supprimé ! [CODE] = ' + response.code;
+        this.listAllStatus();
+      },
+      (error: HttpErrorResponse) => {
+        this.errorMsg = 'Ce rang ne peut être supprimé car celui-ci est utilisé [CODE] = ' + error.message;
+        this.listAllStatus();
+      });
   }
 }
