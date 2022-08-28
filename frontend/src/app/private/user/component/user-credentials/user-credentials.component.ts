@@ -13,7 +13,7 @@ import {Rank} from "../../../rank/model/rank";
 
 export class UserCredentialsComponent implements OnInit {
 
-  cFormGroup!: FormGroup;
+  credentialFormGroup!: FormGroup;
   uDetails: any = '';
   errorMsg: string = '';
   successMsg: string = '';
@@ -30,7 +30,7 @@ export class UserCredentialsComponent implements OnInit {
     this.allRankList();
     if (true) {
       this.apiService.getUserCredential('benoit.titeux@protonmail.com').subscribe((res: ApiResponse) => {
-        this.cFormGroup = new FormGroup({
+        this.credentialFormGroup = new FormGroup({
           user_id: new FormControl(this.uDetails.user_id),
           credentials_id: new FormControl(res.data.credentials_id),
           username: new FormControl(res.data.username),
@@ -38,7 +38,7 @@ export class UserCredentialsComponent implements OnInit {
           created_on: new FormControl(res.data.created_on),
           updated_on: new FormControl(res.data.updated_on),
           active: new FormControl(res.data.active),
-          rank_id: new FormControl(res.data.rank.rank_id),
+          rank: new FormControl(res.data.rank.rank_id),
         });
       });
     } else {
@@ -47,10 +47,10 @@ export class UserCredentialsComponent implements OnInit {
   }
 
   save() {
-    console.log('credentialsForm content = ', this.cFormGroup.value);
-    if (this.cFormGroup.valid) {
-      this.apiService.saveUserCredential(this.cFormGroup.value).subscribe((response: ApiResponse) => {
-        this.cFormGroup.reset();
+    console.log('credentialsForm content = ', this.credentialFormGroup.value);
+    if (this.credentialFormGroup.valid) {
+      this.apiService.saveUserCredential(this.credentialFormGroup.value).subscribe((response: ApiResponse) => {
+        this.credentialFormGroup.reset();
         this.successMsg = response.code;
       });
     } else {
@@ -59,19 +59,19 @@ export class UserCredentialsComponent implements OnInit {
   }
 
   update() {
-    console.log('credentialsForm content = ', this.cFormGroup.value);
+    console.log('credentialsForm content = ', this.credentialFormGroup.value);
   }
 
   private initForm(): void {
-    this.cFormGroup = new FormGroup({
-      'user_id': new FormControl(this.uDetails.user_id, [Validators.required]),
-      'credentials_id': new FormControl(this.uDetails.credentials_id, [Validators.required]),
-      'username': new FormControl('', [Validators.required]),
-      'password': new FormControl(this.randomPassword, [Validators.required]),
-      'created_on': new FormControl(this.currentDate, [Validators.required]),
-      'updated_on': new FormControl(this.currentDate, [Validators.required]),
-      'active': new FormControl(true, [Validators.required]),
-      'rank_id': new FormControl('', [Validators.required]),
+    this.credentialFormGroup = new FormGroup({
+      user_id: new FormControl(this.uDetails.user_id, [Validators.required]),
+      credentials_id: new FormControl(this.uDetails.credentials_id, [Validators.required]),
+      username: new FormControl('', [Validators.required]),
+      password: new FormControl(this.randomPassword, [Validators.required]),
+      created_on: new FormControl(this.currentDate, [Validators.required]),
+      updated_on: new FormControl(this.currentDate, [Validators.required]),
+      active: new FormControl(true, [Validators.required]),
+      rank: new FormControl('', [Validators.required]),
     });
   }
 

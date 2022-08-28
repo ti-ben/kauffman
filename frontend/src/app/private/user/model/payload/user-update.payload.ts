@@ -4,7 +4,8 @@ import {Address} from "../../../address/model/address";
 import {Status} from "../../../status/model/status";
 import {Rank} from "../../../rank/model/rank";
 
-export interface UserCreatePayload extends PayloadInterface {
+export interface UserUpdatePayload extends PayloadInterface {
+  user_id: string,
   firstname: string,
   lastname: string,
   gender: string,

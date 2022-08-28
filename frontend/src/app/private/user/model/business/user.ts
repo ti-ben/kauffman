@@ -1,10 +1,10 @@
-import {PayloadInterface} from "../../../../shared/model";
 import {Site} from "../../../site/model/site";
-import {Address} from "../../../address/model/address";
 import {Status} from "../../../status/model/status";
 import {Rank} from "../../../rank/model/rank";
+import {Address} from "../../../address/model/address";
 
-export interface UserCreatePayload extends PayloadInterface {
+export interface User {
+  user_id: string,
   firstname: string,
   lastname: string,
   gender: string,

@@ -6,6 +6,7 @@ import {Site} from "../../../site/model/site";
 import {ApiResponse} from "../../../../shared/model";
 import {Status} from "../../../status/model/status";
 import {Address} from "../../../address/model/address";
+import {UserCreatePayload} from "../../model/payload/user-create.payload";
 
 
 @Component({
@@ -16,12 +17,12 @@ import {Address} from "../../../address/model/address";
 export class UserCreateComponent implements OnInit {
 
   errorMsg: string = '';
-  successMsg: string = '';
-  getParamId = this.activatedRoute.snapshot.paramMap.get('id');
+  userFormGroup!: FormGroup;
   sitesList: Site[] = [];
+  successMsg: string = '';
   statusList: Status[] = [];
   addressList: Address[] = [];
-  uFormGroup!: FormGroup;
+  getParamId = this.activatedRoute.snapshot.paramMap.get('id');
   currentDate = new Date().toISOString().substring(0, 10);
 
   constructor(private apiService: ApiService, private activatedRoute: ActivatedRoute) {
@@ -35,7 +36,7 @@ export class UserCreateComponent implements OnInit {
   }
 
   private initForm(): void {
-    this.uFormGroup = new FormGroup({
+    this.userFormGroup = new FormGroup({
       user_id: new FormControl(null),
       firstname: new FormControl(null, [Validators.required, Validators.pattern(/[a-zA-Z].*/)]),
       lastname: new FormControl(null, [Validators.required, Validators.pattern(/[a-zA-Z].*/)]),
@@ -53,18 +54,18 @@ export class UserCreateComponent implements OnInit {
       pob: new FormControl(null),
       active: new FormControl(true),
       site: new FormControl(null),
-      address: new FormControl(null),
+      address: new FormControl(),
       status: new FormControl(null),
     });
   }
 
   create(): void {
-    this.uFormGroup.value.site = {site_id: this.uFormGroup.value.site}
-    this.uFormGroup.value.address = {address_id: this.uFormGroup.value.address}
-    this.uFormGroup.value.status = {status_id: this.uFormGroup.value.status}
-    console.log('Form content: ', this.uFormGroup.value)
-    if (this.uFormGroup.valid) {
-      this.apiService.createUser(this.uFormGroup.value).subscribe((response: ApiResponse) => {
+    if (this.userFormGroup.valid) {
+      this.userFormGroup.value.site = {site_id: this.userFormGroup.value.site}
+      this.userFormGroup.value.address = {address_id: this.userFormGroup.value.address}
+      this.userFormGroup.value.status = {status_id: this.userFormGroup.value.status}
+      const payload: UserCreatePayload = this.userFormGroup.value;
+      this.apiService.createUser(payload).subscribe((response: ApiResponse) => {
         this.initForm();
         this.successMsg = response.code;
       })
@@ -76,11 +77,11 @@ export class UserCreateComponent implements OnInit {
   allSiteList() {
     this.apiService.getAllSite().subscribe((response: ApiResponse) => {
       this.sitesList = response.data;
-      if (this.sitesList == null) {
-        //console.log('Instance is null or undefined');
+      if (response.data) {
+        console.log('Success');
+        console.log('Site list :', this.sitesList);
       } else {
-        //console.log('Instance is not null or undefined'); // ok now
-        //console.log('Site list :', this.sitesList);
+        console.log('Failed');
       }
     })
   }
@@ -88,10 +89,10 @@ export class UserCreateComponent implements OnInit {
   allStatusList() {
     this.apiService.getAllStatus().subscribe((response: ApiResponse) => {
       this.statusList = response.data;
-      if (this.statusList == null) {
-        //console.log('Status list instance is null or undefined');
+      if (response.data) {
+        console.log('Success');
       } else {
-        //console.log('Status list instance is not null or undefined'); // ok now
+        console.log('Failed');
       }
     })
   }
@@ -99,10 +100,10 @@ export class UserCreateComponent implements OnInit {
   allAddressList() {
     this.apiService.getAllAddress().subscribe((response: ApiResponse) => {
       this.addressList = response.data;
-      if (this.addressList == null) {
-        //console.log('Address list instance is null or undefined');
+      if (response.data) {
+        console.log('Success');
       } else {
-        //console.log('Address list instance is not null or undefined'); // ok now
+        console.log('Failed');
       }
     })
   }

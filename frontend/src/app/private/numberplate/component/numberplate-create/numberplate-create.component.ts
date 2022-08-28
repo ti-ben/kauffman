@@ -14,10 +14,10 @@ import {Site} from "../../../site/model/site";
 export class NumberplateCreateComponent implements OnInit {
 
   errorMsg: string = '';
+  formGroup!: FormGroup;
+  sitesList: Site[] = [];
   successMsg: string = '';
   getParamId = this.activatedRoute.snapshot.paramMap.get('id');
-  sitesList: Site[] = [];
-  formGroup!: FormGroup;
 
   constructor(private apiService: ApiService, private activatedRoute: ActivatedRoute) {
   }
@@ -44,7 +44,7 @@ export class NumberplateCreateComponent implements OnInit {
       console.log(payload)
       this.apiService.createNumberplate(payload).subscribe((response: ApiResponse) => {
         if (response.result) {
-          this.formGroup.reset();
+          this.initForm();
           this.successMsg = response.code;
         }
       })
