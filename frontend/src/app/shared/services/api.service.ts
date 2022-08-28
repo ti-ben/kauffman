@@ -329,8 +329,16 @@ export class ApiService {
 
   /*****************************************************************************************/
   /* ************************************* CTRLTECH ************************************** */
+
   createCtrltech(data: any): Observable<ApiResponse> {
     return this.http.post(`${this.baseUrl}/ctrltech/create`, data)
+      .pipe(
+        map(response => response as ApiResponse)
+      );
+  }
+
+  deleteCtrltech(id: any): Observable<ApiResponse> {
+    return this.http.delete(`${this.baseUrl}/ctrltech/delete/${id}`)
       .pipe(
         map(response => response as ApiResponse)
       );
@@ -345,8 +353,26 @@ export class ApiService {
 
   /*****************************************************************************************/
   /* ************************************ INTERVTECH ************************************* */
+
+  createIntervtech(data: any): Observable<ApiResponse> {
+    return this.http.post(`${this.baseUrl}/intervtech/create`, data)
+      .pipe(
+        map(response => response as ApiResponse)
+      );
+  }
+
   getAllIntervtechByVehiculeId(id: any): Observable<ApiResponse> {
     return this.http.get(`${this.baseUrl}/intervtech/findByVehiculeId/${id}`)
+      .pipe(
+        map(response => response as ApiResponse)
+      );
+  }
+
+  /*****************************************************************************************/
+  /* **************************************** ADR **************************************** */
+
+  getAllAdrByVehiculeId(id: any): Observable<ApiResponse> {
+    return this.http.get(`${this.baseUrl}/adr/findByVehiculeId/${id}`)
       .pipe(
         map(response => response as ApiResponse)
       );

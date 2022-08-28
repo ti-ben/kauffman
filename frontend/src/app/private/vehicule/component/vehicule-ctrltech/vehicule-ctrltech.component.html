@@ -1,34 +1,33 @@
-<form [formGroup]="ctrltechFormGroup" *ngIf="ctrltechFormGroup">
+<form [formGroup]="formGroup" *ngIf="formGroup">
 
   <div class="form-row">
-    <div class="col-md-2 mb-3">
-      <input type="date" class="form-control form-control-sm" formControlName="start_date">
-    </div>
-
-    <div class="col-md-2 mb-3">
-      <input type="date" class="form-control form-control-sm" formControlName="end_date">
-    </div>
-
-    <div class="col-md-2 mb-3">
-      <input type="text" class="form-control form-control-sm" formControlName="price" placeholder="Prix">
-    </div>
-
-    <div class="col-md-6 mb-3">
-      <input type="text" class="form-control form-control-sm" formControlName="description" placeholder="Commentaire">
+    <div class="col-md-3 mb-3">
+      <input type="date" class="form-control" formControlName="start_date">
     </div>
 
     <div class="col-md-3 mb-3">
-      <select class="custom-select custom-select-sm" formControlName="provider_id">
+      <input type="date" class="form-control" formControlName="end_date">
+    </div>
+
+    <div class="col-md-3 mb-3">
+      <input type="text" class="form-control" formControlName="price" placeholder="Prix">
+    </div>
+    <div class="col-md-3">
+      <select class="custom-select" formControlName="provider_id">
         <option [value]="null" selected disabled>Select a service provider</option>
         <option *ngFor="let provider of providersList" [value]="provider.provider_id">{{provider.name}}</option>
       </select>
     </div>
 
-    <div class="col-md-4 mb-3">
-      <input type="hidden" class="form-control form-control-sm" formControlName="vehicule_id">
+    <div class="col-md-12 mb-3">
+      <input type="text" class="form-control" formControlName="description" placeholder="Commentaire">
     </div>
+
+    <div class="col-md-12 mb-3">
+      <button type="submit" class="btn btn-success" (click)="create()">Enregistrer</button>
+    </div>
+
   </div>
-  <button type="submit" class="btn btn-success btn-sm" (click)="create()">Enregistrer</button>
 </form>
 
 <div class="card-body p-0">
@@ -44,8 +43,8 @@
     </thead>
     <tbody>
     <tr *ngFor="let ctrltech of ctrltechList" class="text-center">
-      <td>{{ctrltech.start_date | date:'shortDate' }}</td>
-      <td>{{ctrltech.end_date | date:'shortDate'}}</td>
+      <td>{{ctrltech.start_date | date:'dd/MM/yyyy' }}</td>
+      <td>{{ctrltech.end_date | date:'dd/MM/yyyy'}}</td>
       <td>{{ctrltech.price | currency:'EUR'}}</td>
       <td>{{ctrltech.description}}</td>
       <td class="project-actions text-center">

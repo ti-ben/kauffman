@@ -1,5 +1,7 @@
 import {Site} from "../../site/model/site";
 import {Status} from "../../status/model/status";
+import {Rank} from "../../rank/model/rank";
+import {Address} from "../../address/model/address";
 
 export interface User {
   user_id: String,
@@ -19,9 +21,8 @@ export interface User {
   updated_on: Date,
   pob: String,
   active: Boolean,
-  site_id: Site,
-  //address_id: Address,
-  status_id: Status
-  //rank_id: Rank,
-  //credentials_id: Credentials
+  site: Site,
+  address: Address,
+  status: Status
+  rank_id: Rank,
 }

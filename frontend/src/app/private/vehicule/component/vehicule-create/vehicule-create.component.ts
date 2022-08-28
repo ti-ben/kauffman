@@ -75,7 +75,6 @@ export class VehiculeCreateComponent implements OnInit {
     this.apiService.getAllSite().subscribe((response: ApiResponse) => {
       this.sitesList = response.data;
       if (this.sitesList == null) {
-        //console.log('Instance is null or undefined');
       } else {
 
       }

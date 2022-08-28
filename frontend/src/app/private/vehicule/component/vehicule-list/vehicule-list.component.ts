@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ApiResponse} from "../../../../shared/model";
 import {ApiService} from "../../../../shared/services/api.service";
 
@@ -10,24 +10,23 @@ import {ApiService} from "../../../../shared/services/api.service";
 export class VehiculeListComponent implements OnInit {
 
   vehiculesList: any;
-  successMsg:string = '';
+  successMsg: string = '';
   errorMsg: string = '';
 
-  constructor(private apiService:ApiService) { }
+  constructor(private apiService: ApiService) {
+  }
 
   ngOnInit(): void {
     this.getAllVehicule();
   }
 
-  getAllVehicule()
-  {
-    this.apiService.getAllVehicule().subscribe((res: ApiResponse)=> {
-      console.log('Vehicule list => ', res)
-      this.vehiculesList = res.data;
+  getAllVehicule() {
+    this.apiService.getAllVehicule().subscribe((response: ApiResponse) => {
+      this.vehiculesList = response.data;
     })
   }
 
-  delete(id:string){
-
+  delete(id: string) {
+    alert('delete');
   }
 }

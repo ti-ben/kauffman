@@ -137,7 +137,10 @@
 
         <div class="col-md-4 mb-3">
           <label>Acheté par (site):</label>
-          <input type="text" class="form-control" formControlName="bought_by">
+          <select class="custom-select" formControlName="bought_by">
+            <option [value]="null" selected disabled>Select a site</option>
+            <option *ngFor="let site of sitesList" [value]="site.site_id">{{site.name}}</option>
+          </select>
         </div>
 
         <div class="col-md-4 mb-3">

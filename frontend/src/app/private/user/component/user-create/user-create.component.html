@@ -1,7 +1,7 @@
 
-<div class="container card card-warning card-outline" *ngIf="uformGroup">
+<div class="container card card-warning card-outline" *ngIf="uFormGroup">
 
-  <form [formGroup]="uformGroup">
+  <form [formGroup]="uFormGroup">
     <div class="card-body">
 
       <div *ngIf="errorMsg" class="alert alert-warning alert-dismissible">
@@ -95,7 +95,14 @@
       <div class="form-row">
         <div class="col-md-4 mb-3">
           <label>driver_license</label>
-          <input type="text" class="form-control" formControlName="driver_license">
+          <select class="custom-select" formControlName="driver_license">
+            <option [value]="null" disabled>Select a license</option>
+            <option [value]="1">B</option>
+            <option [value]="2">C</option>
+            <option [value]="3">CE</option>
+            <option [value]="4">C/CE</option>
+            <option [value]="5">DE</option>
+          </select>
         </div>
 
         <div class="col-md-4 mb-3">
@@ -134,7 +141,7 @@
 
         <div class="col-md-4 mb-3">
           <label>Travail à</label>
-          <select class="custom-select" formControlName="site_id">
+          <select class="custom-select" formControlName="site">
             <option [value]="null" disabled>Select a site</option>
             <option *ngFor="let site of sitesList" [value]="site.site_id">{{site.name}}</option>
           </select>
@@ -142,7 +149,7 @@
 
         <div class="col-md-4 mb-3">
           <label>Adresse</label>
-          <select class="custom-select" formControlName="address_id">
+          <select class="custom-select" formControlName="address">
             <option [value]="null" disabled>Select an address</option>
             <option *ngFor="let address of addressList" [value]="address.address_id">{{address.road}}, {{address.num}} | {{address.postal_code}} {{address.town}} | {{address.country}}</option>
           </select>
@@ -150,7 +157,7 @@
 
         <div class="col-md-4 mb-3">
           <label>Status</label>
-          <select class="custom-select" formControlName="status_id">
+          <select class="custom-select" formControlName="status">
             <option [value]="null" disabled>Select a status</option>
             <option *ngFor="let status of statusList" [value]="status.status_id">{{status.name}}</option>
           </select>

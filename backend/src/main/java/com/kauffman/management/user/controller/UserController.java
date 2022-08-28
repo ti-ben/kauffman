@@ -100,7 +100,7 @@ public class UserController {
         return new ApiResponse(true, userRepository.save(fromDb), "api.user.archive.success");
     }
 
-    @PutMapping("/delete/{id}")
+    @DeleteMapping("/delete/{id}")
     public ApiResponse delete(@PathVariable("id") UUID id) {
         User fromDb = userRepository.findById(id).orElse(null);
         if (fromDb == null) {

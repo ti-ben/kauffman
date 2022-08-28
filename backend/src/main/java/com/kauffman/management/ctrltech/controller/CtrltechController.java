@@ -72,7 +72,7 @@ public class CtrltechController {
         return new ApiResponse(true, ctrltechRepository.save(fromDb), "api.site.update.success");
     }
 
-    @PutMapping("/delete/{id}")
+    @DeleteMapping("/delete/{id}")
     public ApiResponse delete(@PathVariable("id") UUID id) {
         Ctrltech fromDb = ctrltechRepository.findById(id).orElse(null);
         if (fromDb == null) {

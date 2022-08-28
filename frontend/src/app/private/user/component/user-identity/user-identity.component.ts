@@ -14,14 +14,14 @@ import {Address} from "../../../address/model/address";
 })
 export class UserIdentityComponent implements OnInit {
 
-  uFormGroup!: FormGroup;
   uDetails: any = '';
   errorMsg: string = '';
-  successMsg: string = '';
-  getParamId = this.activatedRoute.snapshot.paramMap.get('id');
   sitesList: Site[] = [];
+  uFormGroup!: FormGroup;
+  successMsg: string = '';
   statusList: Status[] = [];
   addressList: Address[] = [];
+  getParamId = this.activatedRoute.snapshot.paramMap.get('id');
 
   constructor(private activatedRoute: ActivatedRoute, private apiService: ApiService) {
   }
@@ -30,7 +30,7 @@ export class UserIdentityComponent implements OnInit {
     this.allSiteList();
     this.allStatusList();
     this.allAddressList();
-    this.apiService.getSingleUser(this.getParamId).subscribe((res) => {
+    this.apiService.getSingleUser(this.getParamId).subscribe((res: ApiResponse) => {
       this.uFormGroup = new FormGroup({
         user_id: new FormControl(res.data.user_id),
         firstname: new FormControl(res.data.firstname),
@@ -48,9 +48,9 @@ export class UserIdentityComponent implements OnInit {
         updated_on: new FormControl(res.data.updated_on.toString().slice(0, 10)),
         pob: new FormControl(res.data.pob),
         active: new FormControl(res.data.active),
-        site_id: new FormControl(res.data.site.site_id),
-        address_id: new FormControl(res.data.address.address_id),
-        status_id: new FormControl(res.data.status.status_id)
+        site: new FormControl(res.data.site.site_id),
+        address: new FormControl(res.data.address.address_id),
+        status: new FormControl(res.data.status.status_id)
       });
     });
   }
@@ -58,6 +58,9 @@ export class UserIdentityComponent implements OnInit {
 
   update() {
     if (this.uFormGroup.valid) {
+      this.uFormGroup.value.site = {site_id: this.uFormGroup.value.site}
+      this.uFormGroup.value.address = {address_id: this.uFormGroup.value.address}
+      this.uFormGroup.value.status = {status_id: this.uFormGroup.value.status}
       this.apiService.updateUser(this.uFormGroup.value, this.getParamId).subscribe((response: ApiResponse) => {
         this.successMsg = response.code;
       })

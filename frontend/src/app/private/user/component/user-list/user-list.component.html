@@ -31,17 +31,17 @@
         <th style="width: auto" class="text-center">Nom</th>
         <th style="width: auto" class="text-center">Email</th>
         <th style="width: auto" class="text-center">Status</th>
-        <th style="width: auto%" class="text-center">Site</th>
-        <th style="width: auto%" class="text-center">Actif?</th>
-        <th style="width: auto%" class="text-center">Options</th>
+        <th style="width: auto" class="text-center">Site</th>
+        <th style="width: auto" class="text-center">Actif?</th>
+        <th style="width: auto" class="text-center">Options</th>
       </tr>
       </thead>
       <tbody>
       <tr *ngFor="let user of readData" class="text-center">
         <td><img alt="Avatar" class="table-avatar" src="./assets/dist/img/{{user.avatar}}"></td>
-        <td>{{user.firstname}}</td>
-        <td>{{user.lastname}}</td>
-        <td>{{user.email}}</td>
+        <td>{{user.firstname | titlecase}}</td>
+        <td>{{user.lastname | titlecase}}</td>
+        <td>{{user.email | lowercase}}</td>
         <td>
           <span *ngIf="user.status !== null; else elseBlock1">{{user.status.name}}</span>
           <ng-template #elseBlock1>Pas de status</ng-template>

@@ -130,7 +130,7 @@
 
         <div class="col-md-4 mb-3">
           <label>Travail à</label>
-          <select class="custom-select" formControlName="site_id">
+          <select class="custom-select" formControlName="site">
             <option [value]="null" selected disabled>Select an option</option>
             <option *ngFor="let site of sitesList" [value]="site.site_id">{{site.name}}</option>
           </select>
@@ -138,7 +138,7 @@
 
         <div class="col-md-4 mb-3">
           <label>Adresse</label>
-          <select class="custom-select" formControlName="address_id">
+          <select class="custom-select" formControlName="address">
             <option [value]="null" selected disabled>Select an option</option>
             <option *ngFor="let address of addressList" [value]="address.address_id">{{address.road}}, {{address.num}} | {{address.postal_code}} {{address.town}} | {{address.country}}</option>
           </select>
@@ -146,7 +146,7 @@
 
         <div class="col-md-4 mb-3">
           <label>Status</label>
-          <select class="custom-select" formControlName="status_id">
+          <select class="custom-select" formControlName="status">
             <option [value]="null" disabled>Select an option</option>
             <option *ngFor="let status of statusList" [value]="status.status_id">{{status.name}}</option>
           </select>

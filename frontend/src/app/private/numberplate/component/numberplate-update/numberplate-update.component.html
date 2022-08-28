@@ -1,6 +1,6 @@
-<div class="container card card-warning card-outline" *ngIf="nFormGroup">
+<div class="container card card-warning card-outline" *ngIf="formGroup">
 
-  <form [formGroup]="nFormGroup">
+  <form [formGroup]="formGroup">
     <div class="card-body">
 
       <div *ngIf="errorMsg" class="alert alert-warning alert-dismissible">
@@ -27,7 +27,7 @@
 
       <div class="form-group">
         <label>Affectée au site de</label>
-        <select class="custom-select" formControlName="site_id">
+        <select class="custom-select" formControlName="site">
           <option [value]="null" disabled>Select an option</option>
           <option *ngFor="let site of sitesList" [value]="site.site_id">{{site.name}}</option>
         </select>

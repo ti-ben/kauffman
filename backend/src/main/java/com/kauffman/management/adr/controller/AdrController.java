@@ -9,6 +9,7 @@ import com.kauffman.management.common.entity.ApiResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.UUID;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
@@ -37,6 +38,16 @@ public class AdrController {
     @GetMapping("/list")
     public ApiResponse get() {
         return new ApiResponse(true, adrRepository.findAll(), null);
+    }
+
+    // Read all records by vehicule id
+    @GetMapping("/findByVehiculeId/{vid}")
+    public ApiResponse findAllById(@PathVariable("vid") UUID vid) {
+        List<Adr> fromDb = adrRepository.findByVehiculeId(vid);
+        if (fromDb == null) {
+            return new ApiResponse(false, null, "api.adrListByVehiculeId.not-found");
+        }
+        return new ApiResponse(true, fromDb, "api.adrListByVehiculeId.success");
     }
 
     // Read selected adr record detail

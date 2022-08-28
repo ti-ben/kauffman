@@ -8,7 +8,6 @@ import {Status} from "../../../status/model/status";
 import {Address} from "../../../address/model/address";
 
 
-
 @Component({
   selector: 'app-user-create',
   templateUrl: './user-create.component.html',
@@ -22,7 +21,7 @@ export class UserCreateComponent implements OnInit {
   sitesList: Site[] = [];
   statusList: Status[] = [];
   addressList: Address[] = [];
-  uformGroup!: FormGroup;
+  uFormGroup!: FormGroup;
   currentDate = new Date().toISOString().substring(0, 10);
 
   constructor(private apiService: ApiService, private activatedRoute: ActivatedRoute) {
@@ -36,34 +35,37 @@ export class UserCreateComponent implements OnInit {
   }
 
   private initForm(): void {
-    this.uformGroup = new FormGroup({
-      'user_id': new FormControl(''),
-      'firstname': new FormControl('', Validators.required),
-      'lastname': new FormControl('', Validators.required),
-      'gender': new FormControl(''),
-      'avatar': new FormControl('noAvatar.png'),
-      'dob': new FormControl(''),
-      'email': new FormControl(''),
-      'phone_pro': new FormControl(''),
-      'phone_perso': new FormControl(''),
-      'nationality': new FormControl(''),
-      'numirn': new FormControl(''),
-      'driver_license': new FormControl(''),
-      'created_on': new FormControl(this.currentDate),
-      'updated_on': new FormControl(this.currentDate),
-      'pob': new FormControl(''),
-      'active': new FormControl(true),
-      'site_id': new FormControl(),
-      'address_id': new FormControl(),
-      'status_id': new FormControl(),
+    this.uFormGroup = new FormGroup({
+      user_id: new FormControl(null),
+      firstname: new FormControl(null, [Validators.required, Validators.pattern(/[a-zA-Z].*/)]),
+      lastname: new FormControl(null, [Validators.required, Validators.pattern(/[a-zA-Z].*/)]),
+      gender: new FormControl(null),
+      avatar: new FormControl('noAvatar.png'),
+      dob: new FormControl(this.currentDate),
+      email: new FormControl(null, [Validators.required, Validators.pattern('[a-z0-9.@]*')]),
+      phone_pro: new FormControl(null),
+      phone_perso: new FormControl(null),
+      nationality: new FormControl(null),
+      numirn: new FormControl(null, [Validators.required, Validators.pattern(('[0-9.-]*'))]),
+      driver_license: new FormControl(null),
+      created_on: new FormControl(this.currentDate),
+      updated_on: new FormControl(this.currentDate),
+      pob: new FormControl(null),
+      active: new FormControl(true),
+      site: new FormControl(null),
+      address: new FormControl(null),
+      status: new FormControl(null),
     });
   }
 
-  create() {
-    console.log('Form content: ', this.uformGroup.value)
-    if (this.uformGroup.valid) {
-      this.apiService.createUser(this.uformGroup.value).subscribe((response: ApiResponse) => {
-        this.uformGroup.reset();
+  create(): void {
+    this.uFormGroup.value.site = {site_id: this.uFormGroup.value.site}
+    this.uFormGroup.value.address = {address_id: this.uFormGroup.value.address}
+    this.uFormGroup.value.status = {status_id: this.uFormGroup.value.status}
+    console.log('Form content: ', this.uFormGroup.value)
+    if (this.uFormGroup.valid) {
+      this.apiService.createUser(this.uFormGroup.value).subscribe((response: ApiResponse) => {
+        this.initForm();
         this.successMsg = response.code;
       })
     } else {
@@ -94,7 +96,7 @@ export class UserCreateComponent implements OnInit {
     })
   }
 
-  allAddressList(){
+  allAddressList() {
     this.apiService.getAllAddress().subscribe((response: ApiResponse) => {
       this.addressList = response.data;
       if (this.addressList == null) {

@@ -29,10 +29,10 @@ export class NumberplateCreateComponent implements OnInit {
 
   private initForm(): void {
     this.formGroup = new FormGroup({
-      'site_id': new FormControl(),
-      'num_plate': new FormControl('', Validators.required),
-      'dop': new FormControl(''),
-      'active': new FormControl(true)
+      site: new FormControl(),
+      num_plate: new FormControl('', Validators.required),
+      dop: new FormControl(''),
+      active: new FormControl(true)
     });
 
   }
@@ -40,6 +40,7 @@ export class NumberplateCreateComponent implements OnInit {
   create(): void {
     if (this.formGroup.valid) {
       const payload: NumberplateCreatePayload = this.formGroup.value;
+      this.formGroup.value.site = {site_id: payload.site}
       console.log(payload)
       this.apiService.createNumberplate(payload).subscribe((response: ApiResponse) => {
         if (response.result) {
