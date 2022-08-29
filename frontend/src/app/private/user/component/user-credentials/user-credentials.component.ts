@@ -15,7 +15,6 @@ export class UserCredentialsComponent implements OnInit {
 
   credentialFormGroup!: FormGroup;
   uDetails: any = '';
-  //uCredential: any = '';
   errorMsg: string = '';
   successMsg: string = '';
   rankList: Rank[] = [];
@@ -28,15 +27,15 @@ export class UserCredentialsComponent implements OnInit {
 
   ngOnInit(): void {
     this.userDetails();
-    //this.userCredential()
     this.allRankList();
     if (this.uDetails.credentials) {
+console.log('log =', this.credentialFormGroup);
         this.credentialFormGroup = new FormGroup({
           user_id: new FormControl(this.uDetails.user_id),
           credentials_id: new FormControl(this.uDetails.credentials.credentials_id),
-          username: new FormControl(this.uDetails.user.email),
+          username: new FormControl(this.uDetails.credentials.username),
           password: new FormControl(this.uDetails.credentials.password),
-          created_on: new FormControl(this.uDetails.user.credentials.created_on),
+          created_on: new FormControl(this.uDetails.credentials.created_on),
           updated_on: new FormControl(this.uDetails.credentials.updated_on),
           active: new FormControl(this.uDetails.credentials.active),
           rank: new FormControl(this.uDetails.rank.rank_id),
@@ -75,13 +74,7 @@ export class UserCredentialsComponent implements OnInit {
       rank: new FormControl(null, [Validators.required]),
     });
   }
-/*
-  userCredential() {
-    this.apiService.getUserCredential('benoit.titeux@protonmail.com').subscribe((response: ApiResponse) => {
-      this.uCredential = response.data;
-    });
-  }
-*/
+
   userDetails() {
     this.apiService.getSingleUser(this.getParamId).subscribe(response => {
       this.uDetails = response.data;
