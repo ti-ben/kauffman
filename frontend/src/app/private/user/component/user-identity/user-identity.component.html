@@ -152,6 +152,17 @@
           </select>
         </div>
       </div>
+      <hr>
+      <div class="col-md-4 mb-3">
+        <label>Address ID</label>
+        <input type="text" class="form-control" formControlName="address_id">
+      </div>
+
+      <div class="col-md-4 mb-3">
+        <label>Town</label>
+        <input type="text" class="form-control" formControlName="town">
+      </div>
+
       <button type="submit" class="btn btn-primary" *ngIf="getParamId" (click)="update()">Mettre à jour</button>
     </div>
   </form>

@@ -120,7 +120,7 @@ public class UserBuilder {
         return this;
     }
 
-    public UserBuilder setSite(Address address) {
+    public UserBuilder setAddress(Address address) {
         this.address = address;
         return this;
     }

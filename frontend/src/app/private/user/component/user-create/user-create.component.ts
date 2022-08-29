@@ -54,7 +54,7 @@ export class UserCreateComponent implements OnInit {
       pob: new FormControl(null),
       active: new FormControl(true),
       site: new FormControl(null),
-      address: new FormControl(),
+      address: new FormControl(null),
       status: new FormControl(null),
     });
   }
@@ -62,7 +62,7 @@ export class UserCreateComponent implements OnInit {
   create(): void {
     if (this.userFormGroup.valid) {
       this.userFormGroup.value.site = {site_id: this.userFormGroup.value.site}
-      this.userFormGroup.value.address = {address_id: this.userFormGroup.value.address}
+      this.userFormGroup.value.address = {address_id: this.userFormGroup.value.address, town: 'test'}
       this.userFormGroup.value.status = {status_id: this.userFormGroup.value.status}
       const payload: UserCreatePayload = this.userFormGroup.value;
       this.apiService.createUser(payload).subscribe((response: ApiResponse) => {
@@ -78,10 +78,10 @@ export class UserCreateComponent implements OnInit {
     this.apiService.getAllSite().subscribe((response: ApiResponse) => {
       this.sitesList = response.data;
       if (response.data) {
-        console.log('Success');
-        console.log('Site list :', this.sitesList);
+        //console.log('Success');
+        //console.log('Site list :', this.sitesList);
       } else {
-        console.log('Failed');
+        //console.log('Failed');
       }
     })
   }
@@ -90,9 +90,9 @@ export class UserCreateComponent implements OnInit {
     this.apiService.getAllStatus().subscribe((response: ApiResponse) => {
       this.statusList = response.data;
       if (response.data) {
-        console.log('Success');
+        //console.log('Success');
       } else {
-        console.log('Failed');
+        //console.log('Failed');
       }
     })
   }
@@ -101,9 +101,9 @@ export class UserCreateComponent implements OnInit {
     this.apiService.getAllAddress().subscribe((response: ApiResponse) => {
       this.addressList = response.data;
       if (response.data) {
-        console.log('Success');
+        //console.log('Success');
       } else {
-        console.log('Failed');
+        //console.log('Failed');
       }
     })
   }

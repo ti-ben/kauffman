@@ -38,7 +38,7 @@ public class CredentialsController {
         return new ApiResponse(true, credentialsRepository.findAll(), null);
     }
 
-    // Read record detail
+    // Read credential record detail
     @GetMapping("/detail/{username}")
     public ApiResponse detail(@PathVariable("username") String username) {
         //Credentials fromDb = credentialsRepository.findById(id).orElse(null);

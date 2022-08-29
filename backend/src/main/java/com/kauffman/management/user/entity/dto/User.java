@@ -61,12 +61,12 @@ public class User {
     @JoinColumn(name = "site_id", referencedColumnName = "site_id")
     private Site site;
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE})
+    @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
     @JoinColumn(name = "address_id", referencedColumnName = "address_id")
     private Address address;
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE})
-    @JoinColumn(name = "status_id", referencedColumnName = "status_id")
+    @JoinColumn(name = "status_id", referencedColumnName = "status_id", nullable = true)
     private Status status;
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE})

@@ -50,6 +50,8 @@ export class UserIdentityComponent implements OnInit {
         active: new FormControl(res.data.active),
         site: new FormControl(res.data.site.site_id),
         address: new FormControl(res.data.address.address_id),
+        address_id: new FormControl(res.data.address.address_id),
+        town: new FormControl(res.data.address.town),
         status: new FormControl(res.data.status.status_id)
       });
     });

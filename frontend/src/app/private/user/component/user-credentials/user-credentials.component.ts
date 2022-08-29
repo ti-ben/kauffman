@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit, Output} from '@angular/core';
 import {ApiService} from "../../../../shared/services/api.service";
 import {ActivatedRoute} from "@angular/router";
 import {ApiResponse} from "../../../../shared/model";
@@ -15,6 +15,7 @@ export class UserCredentialsComponent implements OnInit {
 
   credentialFormGroup!: FormGroup;
   uDetails: any = '';
+  //uCredential: any = '';
   errorMsg: string = '';
   successMsg: string = '';
   rankList: Rank[] = [];
@@ -27,20 +28,20 @@ export class UserCredentialsComponent implements OnInit {
 
   ngOnInit(): void {
     this.userDetails();
+    //this.userCredential()
     this.allRankList();
-    if (true) {
-      this.apiService.getUserCredential('benoit.titeux@protonmail.com').subscribe((res: ApiResponse) => {
+    if (this.uDetails.credentials) {
         this.credentialFormGroup = new FormGroup({
           user_id: new FormControl(this.uDetails.user_id),
-          credentials_id: new FormControl(res.data.credentials_id),
-          username: new FormControl(res.data.username),
-          password: new FormControl(res.data.password),
-          created_on: new FormControl(res.data.created_on),
-          updated_on: new FormControl(res.data.updated_on),
-          active: new FormControl(res.data.active),
-          rank: new FormControl(res.data.rank.rank_id),
+          credentials_id: new FormControl(this.uDetails.credentials.credentials_id),
+          username: new FormControl(this.uDetails.user.email),
+          password: new FormControl(this.uDetails.credentials.password),
+          created_on: new FormControl(this.uDetails.user.credentials.created_on),
+          updated_on: new FormControl(this.uDetails.credentials.updated_on),
+          active: new FormControl(this.uDetails.credentials.active),
+          rank: new FormControl(this.uDetails.rank.rank_id),
         });
-      });
+
     } else {
       this.initForm();
     }
@@ -64,17 +65,23 @@ export class UserCredentialsComponent implements OnInit {
 
   private initForm(): void {
     this.credentialFormGroup = new FormGroup({
-      user_id: new FormControl(this.uDetails.user_id, [Validators.required]),
+      user_id: new FormControl(this.getParamId, [Validators.required]),
       credentials_id: new FormControl(this.uDetails.credentials_id, [Validators.required]),
-      username: new FormControl('', [Validators.required]),
+      username: new FormControl(null, [Validators.required]),
       password: new FormControl(this.randomPassword, [Validators.required]),
       created_on: new FormControl(this.currentDate, [Validators.required]),
       updated_on: new FormControl(this.currentDate, [Validators.required]),
       active: new FormControl(true, [Validators.required]),
-      rank: new FormControl('', [Validators.required]),
+      rank: new FormControl(null, [Validators.required]),
     });
   }
-
+/*
+  userCredential() {
+    this.apiService.getUserCredential('benoit.titeux@protonmail.com').subscribe((response: ApiResponse) => {
+      this.uCredential = response.data;
+    });
+  }
+*/
   userDetails() {
     this.apiService.getSingleUser(this.getParamId).subscribe(response => {
       this.uDetails = response.data;
