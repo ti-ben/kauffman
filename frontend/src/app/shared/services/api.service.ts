@@ -46,6 +46,7 @@ export class ApiService {
 
   /*****************************************************************************************/
   /* ************************************** PROVIDER ************************************* */
+
   createProvider(data: any): Observable<ApiResponse> {
     return this.http.post(`${this.baseUrl}/provider/create`, data)
       .pipe(
@@ -83,6 +84,7 @@ export class ApiService {
 
   /*****************************************************************************************/
   /* **************************************** RANK *************************************** */
+
   createRank(data: any): Observable<ApiResponse> {
     return this.http.post(`${this.baseUrl}/rank/create`, data)
       .pipe(
@@ -120,6 +122,7 @@ export class ApiService {
 
   /*****************************************************************************************/
   /* *************************************** PERIOD ************************************** */
+
   createPeriod(data: any): Observable<ApiResponse> {
     return this.http.post(`${this.baseUrl}/period/create`, data)
       .pipe(
@@ -136,6 +139,7 @@ export class ApiService {
 
   /*****************************************************************************************/
   /* **************************************** SITE *************************************** */
+
   createSite(data: any): Observable<ApiResponse> {
     return this.http.post(`${this.baseUrl}/site/create`, data)
       .pipe(
@@ -173,6 +177,7 @@ export class ApiService {
 
   /*****************************************************************************************/
   /* ************************************ NUMBERPLATE ************************************ */
+
   createNumberplate(payload: NumberplateCreatePayload): Observable<ApiResponse> {
     return this.http.post(`${this.baseUrl}/numberplate/create`, payload)
       .pipe(
@@ -210,6 +215,7 @@ export class ApiService {
 
   /*****************************************************************************************/
   /* *************************************** USER **************************************** */
+
   createUser(data: any): Observable<ApiResponse> {
     return this.http.post(`${this.baseUrl}/user/create`, data)
       .pipe(
@@ -262,6 +268,12 @@ export class ApiService {
       );
   }
 
+  deleteTacho(id: any): Observable<ApiResponse> {
+    return this.http.delete(`${this.baseUrl}/tachograph/delete/${id}`)
+      .pipe(
+        map(response => response as ApiResponse)
+      );
+  }
   /*****************************************************************************************/
   /* ************************************* CREDENTIAL ************************************ */
 
@@ -368,6 +380,13 @@ export class ApiService {
       );
   }
 
+  deleteIntervtech(id: any): Observable<ApiResponse> {
+    return this.http.delete(`${this.baseUrl}/intervtech/delete/${id}`)
+      .pipe(
+        map(response => response as ApiResponse)
+      );
+  }
+
   getAllIntervtechByVehiculeId(id: any): Observable<ApiResponse> {
     return this.http.get(`${this.baseUrl}/intervtech/findByVehiculeId/${id}`)
       .pipe(
@@ -380,6 +399,13 @@ export class ApiService {
 
   createAdr(data: any): Observable<ApiResponse> {
     return this.http.post(`${this.baseUrl}/adr/create`, data)
+      .pipe(
+        map(response => response as ApiResponse)
+      );
+  }
+
+  deleteAdr(id: any): Observable<ApiResponse> {
+    return this.http.delete(`${this.baseUrl}/adr/delete/${id}`)
       .pipe(
         map(response => response as ApiResponse)
       );
@@ -441,6 +467,13 @@ export class ApiService {
 
   getAllSelectmedByUserId(id: any): Observable<ApiResponse> {
     return this.http.get(`${this.baseUrl}/selectmed/findByUserId/${id}`)
+      .pipe(
+        map(response => response as ApiResponse)
+      );
+  }
+
+  deleteSelectmed(id: any): Observable<ApiResponse> {
+    return this.http.delete(`${this.baseUrl}/selectmed/delete/${id}`)
       .pipe(
         map(response => response as ApiResponse)
       );

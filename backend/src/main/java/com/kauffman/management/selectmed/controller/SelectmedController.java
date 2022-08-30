@@ -72,7 +72,7 @@ public class SelectmedController {
     }
 
     // Delete selected records from db
-    @PutMapping("/delete/{id}")
+    @DeleteMapping("/delete/{id}")
     public ApiResponse delete(@PathVariable("id") UUID id) {
         Selectmed fromDb = selectmedRepository.findById(id).orElse(null);
         if (fromDb == null) {

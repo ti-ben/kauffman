@@ -36,11 +36,11 @@ export class UserSelectmedComponent implements OnInit {
   }
 
   create(): void {
-    alert('create');
     if(this.selectmedFormGroup.valid) {
       this.selectmedFormGroup.value.user = {user_id: this.getParamId}
       this.apiService.createSelectmed(this.selectmedFormGroup.value).subscribe((response: ApiResponse) => {
         this.selectmedInitForm();
+        this.getAllSelectMedByUserId();
         this.successMsg = response.data;
       })
     } else {
@@ -53,7 +53,10 @@ export class UserSelectmedComponent implements OnInit {
   }
 
   delete(id: string): void {
-    alert('delete');
+    this.apiService.deleteSelectmed(id).subscribe((res: ApiResponse)=> {
+      this.successMsg = res.code;
+      this.getAllSelectMedByUserId();
+    })
   }
 
   getAllSelectMedByUserId() {

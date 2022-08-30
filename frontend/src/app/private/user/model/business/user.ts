@@ -24,5 +24,5 @@ export interface User {
   site: Site,
   address: Address,
   status: Status
-  rank: Rank,
+  //rank: Rank,
 }

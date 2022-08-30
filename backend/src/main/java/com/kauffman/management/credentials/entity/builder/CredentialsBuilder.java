@@ -13,6 +13,7 @@ public class CredentialsBuilder {
     private Date created_on;
     private Date updated_on;
     private Boolean active;
+
     private Rank rank;
 
     public CredentialsBuilder setCredentials_id(UUID credentials_id) {

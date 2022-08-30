@@ -31,7 +31,6 @@ export class UserAdrComponent implements OnInit {
       date_rdv: new FormControl(this.currentDate),
       description: new FormControl(),
       category: new FormControl(),
-      user_id: new FormControl(this.getParamId)
     });
   }
 
@@ -40,6 +39,7 @@ export class UserAdrComponent implements OnInit {
       this.adrFormGroup.value.user = {user_id: this.getParamId}
       this.apiService.createAdr(this.adrFormGroup.value).subscribe((response: ApiResponse) => {
         this.adrInitForm();
+        this.getAllAdrByUserID();
         this.successMsg = response.data;
       })
     } else {
@@ -52,7 +52,10 @@ export class UserAdrComponent implements OnInit {
   }
 
   delete(id: string){
-    alert('delete');
+    this.apiService.deleteAdr(id).subscribe((res: ApiResponse)=> {
+      this.successMsg = res.code;
+      this.getAllAdrByUserID();
+    })
   }
 
   getAllAdrByUserID() {

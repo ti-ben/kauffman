@@ -31,15 +31,16 @@ export class UserTachographComponent implements OnInit {
       start_date: new FormControl(this.currentDate, Validators.required),
       end_date: new FormControl(this.currentDate, Validators.required),
       num_carte: new FormControl('', Validators.required),
-      description: new FormControl(''),
-      user_id: new FormControl(this.getParamId)
+      description: new FormControl('')
     });
   }
 
   create() {
     if (this.tachoFormGroup.valid) {
+      this.tachoFormGroup.value.user = {user_id: this.getParamId}
       this.apiService.createTacho(this.tachoFormGroup.value).subscribe((res: ApiResponse) => {
         this.tachoInitForm();
+        this.getAllTachoByUserId();
         this.successMsg = res.code;
       })
     } else {
@@ -52,7 +53,10 @@ export class UserTachographComponent implements OnInit {
   }
 
   delete(id: string): void {
-    alert('delete');
+    this.apiService.deleteTacho(id).subscribe((res: ApiResponse)=> {
+      this.successMsg = res.code;
+      this.getAllTachoByUserId();
+    })
   }
 
   getAllTachoByUserId(){

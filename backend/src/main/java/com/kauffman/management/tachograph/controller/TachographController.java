@@ -68,7 +68,7 @@ public class TachographController {
         return new ApiResponse(true, tachographRepository.save(fromDb), "api.tachograph.update.success");
     }
 
-    @PutMapping("/delete/{id}")
+    @DeleteMapping("/delete/{id}")
     public ApiResponse delete(@PathVariable("id") UUID id) {
         Tachograph fromDb = tachographRepository.findById(id).orElse(null);
         if (fromDb == null) {

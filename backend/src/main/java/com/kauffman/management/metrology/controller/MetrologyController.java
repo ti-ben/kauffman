@@ -60,7 +60,7 @@ public class MetrologyController {
         return new ApiResponse(true, metrologyRepository.save(fromDb), "api.metrology.update.success");
     }
 
-    @PutMapping("/delete/{id}")
+    @DeleteMapping("/delete/{id}")
     public ApiResponse delete(@PathVariable("id") UUID id) {
         Metrology fromDb = metrologyRepository.findById(id).orElse(null);
         if (fromDb == null) {

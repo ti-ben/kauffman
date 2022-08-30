@@ -32,7 +32,7 @@ public class UserBuilder {
     private Site site;
     private Address address;
     private Status status;
-    private Rank rank;
+    //private Rank rank;
     private Credentials credentials;
 
     public UserBuilder setUserId(UUID user_id) {
@@ -129,19 +129,19 @@ public class UserBuilder {
         this.status = status;
         return this;
     }
-
+/*
     public UserBuilder setRank(Rank rank) {
         this.rank = rank;
         return this;
     }
-
+*/
     public UserBuilder setCredentials(Credentials credentials) {
         this.credentials = credentials;
         return this;
     }
 
     public User build() {
-        return new User(user_id, firstname, lastname, gender, avatar, dob, email, phone_pro, phone_perso, nationality, numirn, driver_license, updated_on, created_on, pob, active, site, address, status, rank, credentials);
+        return new User(user_id, firstname, lastname, gender, avatar, dob, email, phone_pro, phone_perso, nationality, numirn, driver_license, updated_on, created_on, pob, active, site, address, status/*, rank*/, credentials);
     }
 
 }

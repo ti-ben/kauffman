@@ -24,5 +24,5 @@ export interface UserCreatePayload extends PayloadInterface {
   site: Site,
   address: Address,
   status: Status
-  rank: Rank,
+  //rank: Rank,
 }

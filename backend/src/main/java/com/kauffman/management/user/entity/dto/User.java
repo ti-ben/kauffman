@@ -68,11 +68,11 @@ public class User {
     @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE})
     @JoinColumn(name = "status_id", referencedColumnName = "status_id", nullable = true)
     private Status status;
-
+/*
     @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE})
     @JoinColumn(name = "rank_id", referencedColumnName = "rank_id")
     private Rank rank;
-
+*/
     @OneToOne(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE})
     @JoinColumn(name = "credentials_id", referencedColumnName = "credentials_id")
     private Credentials credentials;

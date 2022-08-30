@@ -75,7 +75,7 @@ public class IntervtechController {
         return new ApiResponse(true, intervtechRepository.save(fromDb), "api.intervtech.update.success");
     }
 
-    @PutMapping("/delete/{id}")
+    @DeleteMapping("/delete/{id}")
     public ApiResponse delete(@PathVariable("id") UUID id) {
         Intervtech fromDb = intervtechRepository.findById(id).orElse(null);
         if (fromDb == null) {

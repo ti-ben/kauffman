@@ -86,7 +86,7 @@ public class AdrController {
     }
 
     // Delete selected adr record
-    @PutMapping("/delete/{id}")
+    @DeleteMapping("/delete/{id}")
     public ApiResponse delete(@PathVariable("id") UUID id) {
         Adr fromDb = adrRepository.findById(id).orElse(null);
         if (fromDb == null) {
