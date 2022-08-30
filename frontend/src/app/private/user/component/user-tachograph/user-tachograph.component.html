@@ -1,61 +1,53 @@
+<div *ngIf="successMsg" class="alert alert-success alert-dismissible">
+  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+  <h5><i class="icon fas fa-check"></i> Alert!</h5>
+  {{successMsg}}
+</div>
+
 <form [formGroup]="tachoFormGroup">
-
   <div class="form-row">
-
     <div class="col-md-4 mb-3">
       <input type="date" class="form-control" placeholder="date début" formControlName="start_date">
     </div>
-
     <div class="col-md-4 mb-3">
       <input type="date" class="form-control" placeholder="Date fin" formControlName="end_date">
     </div>
-
     <div class="col-md-4 mb-3">
       <input type="text" class="form-control" placeholder="N° de carte" formControlName="num_carte">
     </div>
-
     <div class="col-md-12 mb-3">
       <textarea type="text" class="form-control" placeholder="Commentaire" formControlName="description"></textarea>
     </div>
-
     <div class="col-md-4 mb-3">
       <button class="btn btn-success col-md-12" (click)="create()">Ajouter</button>
     </div>
-
   </div>
-
 </form>
-<!-- Default box -->
+
 <div class="card">
   <div class="card-body p-0">
     <table class="table table-striped projects">
       <thead>
       <tr>
-
         <th style="width: auto" class="text-center">Date début</th>
         <th style="width: auto" class="text-center">Date fin</th>
-        <th style="width: auto" class="text-center">Theme</th>
-        <th style="width: auto" class="text-center">Description</th>
-        <th style="width: auto" class="text-center">Prix</th>
+        <th style="width: auto" class="text-center">N° de carte</th>
+        <th style="width: auto" class="text-center">Commentaire</th>
         <th style="width: auto" class="text-center">Options</th>
       </tr>
       </thead>
       <tbody>
       <tr *ngFor="let tacho of tachoList" class="text-center">
-        <td>{{null}}</td>
-        <td>{{null}}</td>
-        <td>{{null}}</td>
-        <td>{{null}}</td>
-        <td>{{null}}</td>
+        <td>{{tacho.start_date | date: 'dd/MM/yyyy'}}</td>
+        <td>{{tacho.end_date | date: 'dd/MM/yyyy'}}</td>
+        <td>{{tacho.num_carte}}</td>
+        <td>{{tacho.description}}</td>
         <td class="project-actions text-center">
-          <a class="btn btn-info btn-sm" [routerLink]="['details', tacho.tacho_id]"><i
-            class="fas fa-pencil-alt"></i></a>
+          <a class="btn btn-info btn-sm" (click)="update(tacho.tacho_id)"><i class="fas fa-pencil-alt"></i></a>
           <a class="btn btn-danger btn-sm" (click)="delete(tacho.tacho_id)"><i class="fas fa-trash"></i></a>
         </td>
       </tr>
       </tbody>
     </table>
   </div>
-  <!-- /.card-body -->
 </div>
-<!-- /.card -->

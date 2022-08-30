@@ -12,6 +12,7 @@ public class TachographBuilder {
     private Date end_date;
     private String num_carte;
     private String description;
+
     private User user;
 
     public TachographBuilder setTachograph_id(UUID tachograph_id) {

@@ -1,6 +1,7 @@
 package com.kauffman.management.selectmed.entity.payload;
 
 import com.kauffman.management.period.entity.dto.Period;
+import com.kauffman.management.user.entity.dto.User;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -19,5 +20,6 @@ public class SelectmedUpdatePayload {
     private String price;
     private String description;
 
-    private Period period;
+    private User user;
+    //private Period period;
 }

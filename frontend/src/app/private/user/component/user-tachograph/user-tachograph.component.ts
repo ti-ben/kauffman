@@ -23,6 +23,7 @@ export class UserTachographComponent implements OnInit {
 
   ngOnInit(): void {
     this.tachoInitForm();
+    this.getAllTachoByUserId();
   }
 
   private tachoInitForm(): void {
@@ -52,6 +53,12 @@ export class UserTachographComponent implements OnInit {
 
   delete(id: string): void {
     alert('delete');
+  }
+
+  getAllTachoByUserId(){
+    this.apiService.getAlltachoByUserId(this.getParamId).subscribe((response: ApiResponse) => {
+      this.tachoList = response.data;
+    });
   }
 
 }

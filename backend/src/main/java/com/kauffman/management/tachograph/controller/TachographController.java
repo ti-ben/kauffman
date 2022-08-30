@@ -37,6 +37,12 @@ public class TachographController {
         return new ApiResponse(true, tachographRepository.findAll(), null);
     }
 
+    // Read all cap records by user id
+    @GetMapping("/findByUserId/{id}")
+    public ApiResponse get(@PathVariable("id") UUID id){
+        return new ApiResponse(true, tachographRepository.findByUserId(id), null);
+    }
+
     // Read record detail
     @GetMapping("/detail/{id}")
     public ApiResponse detail(@PathVariable("id") UUID id) {

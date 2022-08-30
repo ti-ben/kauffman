@@ -1,6 +1,7 @@
 package com.kauffman.management.selectmed.entity.dto;
 
 import com.kauffman.management.period.entity.dto.Period;
+import com.kauffman.management.user.entity.dto.User;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -32,6 +33,11 @@ public class Selectmed {
     private String description;
 
     @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
+/*
+    @ManyToOne
     @JoinColumn(name = "period_id")
     private Period period;
+ */
 }

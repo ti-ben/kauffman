@@ -27,7 +27,8 @@ public class SelectmedController {
                 .setEnd_date(payload.getEnd_date())
                 .setDescription(payload.getDescription())
                 .setPrice(payload.getPrice())
-                .setPeriod(payload.getPeriod())
+                .setUser(payload.getUser())
+                //.setPeriod(payload.getPeriod())
                 .build();
         return new ApiResponse(true, selectmedRepository.save(selectmed), "api.selectmed.create.success");
     }
@@ -36,6 +37,12 @@ public class SelectmedController {
     @GetMapping("/list")
     public ApiResponse get() {
         return new ApiResponse(true, selectmedRepository.findAll(), null);
+    }
+
+    // Read all cap records by user id
+    @GetMapping("/findByUserId/{id}")
+    public ApiResponse get(@PathVariable("id") UUID id){
+        return new ApiResponse(true, selectmedRepository.findByUserId(id), null);
     }
 
     // Read record detail
@@ -59,7 +66,8 @@ public class SelectmedController {
         fromDb.setEnd_date(payload.getEnd_date());
         fromDb.setDescription(payload.getDescription());
         fromDb.setPrice(payload.getPrice());
-        fromDb.setPeriod(payload.getPeriod());
+        fromDb.setUser(payload.getUser());
+        //fromDb.setPeriod(payload.getPeriod());
         return new ApiResponse(true, selectmedRepository.save(fromDb), "api.selectmed.update.success");
     }
 

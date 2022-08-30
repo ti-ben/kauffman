@@ -5,41 +5,28 @@
 </div>
 
 <form [formGroup]="capFormGroup">
-
   <div class="form-row">
-    <!--
-          <div class="col-md-4 mb-3">
-            <input type="text" class="form-control" formControlName="user_id" placeholder="user id">
-          </div>
-    -->
     <div class="col-md-3 mb-3">
       <input type="date" class="form-control" formControlName="start_date" placeholder="date début">
     </div>
-
     <div class="col-md-3 mb-3">
       <input type="date" class="form-control" formControlName="end_date" placeholder="date fin">
     </div>
-
     <div class="col-md-3 mb-3">
       <input type="text" class="form-control" formControlName="price" placeholder="price">
     </div>
-
     <div class="col-md-3 mb-3">
       <input type="text" class="form-control" formControlName="theme" placeholder="Theme">
     </div>
-
     <div class="col-md-12 mb-3">
       <textarea type="text" class="form-control" formControlName="description"></textarea>
     </div>
-
     <div class="col-md-4 mb-3">
       <button type="submit" class="btn btn-success col-md-12" (click)="create()">Ajouter</button>
     </div>
-
   </div>
 </form>
 
-<!-- Default box -->
 <div class="card">
   <div class="card-body p-0">
     <table class="table table-striped projects">
@@ -68,6 +55,4 @@
       </tbody>
     </table>
   </div>
-  <!-- /.card-body -->
 </div>
-<!-- /.card -->

@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {Observable} from "rxjs";
 import {HttpClient} from "@angular/common/http";
-import {ApiResponse} from "../model/api-response.interface";
+import {ApiResponse} from "../model";
 import {map} from "rxjs/operators";
 import {NumberplateCreatePayload} from "../../private/numberplate/model/payload/numberplate-create.payload";
 
@@ -255,6 +255,13 @@ export class ApiService {
       );
   }
 
+  getAlltachoByUserId(id: any): Observable<ApiResponse> {
+    return this.http.get(`${this.baseUrl}/tachograph/findByUserId/${id}`)
+      .pipe(
+        map(response => response as ApiResponse)
+      );
+  }
+
   /*****************************************************************************************/
   /* ************************************* CREDENTIAL ************************************ */
 
@@ -414,5 +421,30 @@ export class ApiService {
         map(response => response as ApiResponse)
       );
   }
+
+  deleteCap(id: any): Observable<ApiResponse> {
+    return this.http.delete(`${this.baseUrl}/cap/delete/${id}`)
+      .pipe(
+        map(response => response as ApiResponse)
+      );
+  }
+
+  /*****************************************************************************************/
+  /* ************************************* SELECTMED ************************************* */
+
+  createSelectmed(data: any): Observable<ApiResponse>{
+    return this.http.post(`${this.baseUrl}/selectmed/create`, data)
+      .pipe(
+        map(response => response as ApiResponse)
+      );
+  }
+
+  getAllSelectmedByUserId(id: any): Observable<ApiResponse> {
+    return this.http.get(`${this.baseUrl}/selectmed/findByUserId/${id}`)
+      .pipe(
+        map(response => response as ApiResponse)
+      );
+  }
+
   /*****************************************************************************************/
 }

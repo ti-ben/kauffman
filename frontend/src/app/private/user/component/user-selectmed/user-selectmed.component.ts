@@ -11,49 +11,55 @@ import {ApiResponse} from "../../../../shared/model";
 })
 export class UserSelectmedComponent implements OnInit {
 
-  getParamId: any = this.activatedRoute.snapshot.paramMap.get('id');
-  currentDate = new Date().toISOString().substring(0, 10);
   errorMsg: any = '';
   successMsg: any = '';
-  periodList: any = '';
+  selectmedList: any = '';
+  selectmedFormGroup!: FormGroup;
+  currentDate = new Date().toISOString().substring(0, 10);
+  getParamId: any = this.activatedRoute.snapshot.paramMap.get('id');
 
   constructor(private apiService: ApiService, private activatedRoute: ActivatedRoute) {
   }
 
   ngOnInit(): void {
-    this.allPeriodList();
+    this.selectmedInitForm();
+    this.getAllSelectMedByUserId();
   }
 
-  periodFormCreate = new FormGroup({
-    'start_date': new FormControl(this.currentDate, Validators.required),
-    'end_date': new FormControl(this.currentDate, Validators.required),
-    'user_id': new FormControl(this.getParamId)
-  });
+  private selectmedInitForm(): void {
+    this.selectmedFormGroup = new FormGroup({
+      start_date: new FormControl(this.currentDate, Validators.required),
+      end_date: new FormControl(this.currentDate, Validators.required),
+      price: new FormControl(null),
+      description: new FormControl(null),
+    });
+  }
 
-  periodCreate() {
-
-    if (this.periodFormCreate.valid) {
-      //console.log('Form content: ', this.periodFormCreate.value)
-      this.apiService.createPeriod(this.periodFormCreate.value).subscribe((res: ApiResponse) => {
-        this.periodFormCreate.reset();
-        this.successMsg = res.code;
+  create(): void {
+    alert('create');
+    if(this.selectmedFormGroup.valid) {
+      this.selectmedFormGroup.value.user = {user_id: this.getParamId}
+      this.apiService.createSelectmed(this.selectmedFormGroup.value).subscribe((response: ApiResponse) => {
+        this.selectmedInitForm();
+        this.successMsg = response.data;
       })
     } else {
       this.errorMsg = 'All fields are required';
-
     }
   }
 
-  allPeriodList() {
-    this.apiService.getAllPeriodByUserId().subscribe((res: ApiResponse) => {
-      this.periodList = res.data;
-      //console.log('Period ', this.periodList)
-      if (this.periodList == null) {
-        //console.log('period list instance is null or undefined');
-      } else {
-        //console.log('period list instance is not null or undefined'); // ok now
-      }
-    })
+  update(id: string): void {
+    alert('update');
+  }
+
+  delete(id: string): void {
+    alert('delete');
+  }
+
+  getAllSelectMedByUserId() {
+    this.apiService.getAllSelectmedByUserId(this.getParamId).subscribe((response: ApiResponse) => {
+      this.selectmedList = response.data;
+    });
   }
 
 }

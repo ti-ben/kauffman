@@ -2,6 +2,7 @@ package com.kauffman.management.selectmed.entity.builder;
 
 import com.kauffman.management.period.entity.dto.Period;
 import com.kauffman.management.selectmed.entity.dto.Selectmed;
+import com.kauffman.management.user.entity.dto.User;
 
 import java.util.Date;
 import java.util.UUID;
@@ -13,7 +14,8 @@ public class SelectmedBuilder {
     private String price;
     private String description;
 
-    private Period period;
+    private User user;
+    //private Period period;
 
     public SelectmedBuilder setSelectmed_id(UUID selectmed_id) {
         this.selectmed_id = selectmed_id;
@@ -40,13 +42,18 @@ public class SelectmedBuilder {
         return this;
     }
 
+    public SelectmedBuilder setUser(User user) {
+        this.user = user;
+        return this;
+    }
+/*
     public SelectmedBuilder setPeriod(Period period) {
         this.period = period;
         return this;
     }
-
+*/
     public Selectmed build() {
-        return new Selectmed(selectmed_id, start_date, end_date, price, description, period);
+        return new Selectmed(selectmed_id, start_date, end_date, price, description, user/*, period*/);
     }
 }
 

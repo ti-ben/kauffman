@@ -47,6 +47,10 @@ export class UserAdrComponent implements OnInit {
     }
   }
 
+  update(id: string){
+    alert('update');
+  }
+
   delete(id: string){
     alert('delete');
   }
@@ -54,6 +58,6 @@ export class UserAdrComponent implements OnInit {
   getAllAdrByUserID() {
     this.apiService.getAllAdrByUserId(this.getParamId).subscribe((response: ApiResponse) => {
       this.adrList = response.data;
-    })
+    });
   }
 }

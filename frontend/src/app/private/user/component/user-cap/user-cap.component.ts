@@ -42,6 +42,7 @@ export class UserCapComponent implements OnInit {
       this.capFormGroup.value.user = {user_id: this.getParamId}
       this.apiService.createCap(this.capFormGroup.value).subscribe((response: ApiResponse) => {
         this.capInitForm();
+        this.getAllCapByUserID();
         this.successMsg = response.data;
       })
     } else {
@@ -54,7 +55,10 @@ export class UserCapComponent implements OnInit {
   }
 
   delete(id: string): void {
-    alert('delete');
+    this.apiService.deleteCap(id).subscribe((response: ApiResponse) => {
+      this.successMsg = response.code;
+      this.getAllCapByUserID();
+    })
   }
 
   getAllCapByUserID() {

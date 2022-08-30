@@ -42,7 +42,7 @@ export class UserCreateComponent implements OnInit {
       gender: new FormControl(null),
       avatar: new FormControl('noAvatar.png'),
       dob: new FormControl(this.currentDate),
-      email: new FormControl(null, [Validators.required, Validators.pattern('[a-z0-9.@]*')]),
+      email: new FormControl(null, [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,}$')]),
       phone_pro: new FormControl(null),
       phone_perso: new FormControl(null),
       nationality: new FormControl(null),
@@ -67,11 +67,11 @@ export class UserCreateComponent implements OnInit {
       this.userFormGroup.value.site = {site_id: this.userFormGroup.value.site}
       this.userFormGroup.value.address = {
         address_id: null,
-        road: 'test',
-        num: 'test',
-        town: 'test',
-        postal_code: 'test',
-        country: 'test'
+        road: this.userFormGroup.value.road,
+        num: this.userFormGroup.value.num,
+        town: this.userFormGroup.value.town,
+        postal_code: this.userFormGroup.value.postal_code,
+        country: this.userFormGroup.value.country
       }
       this.userFormGroup.value.status = {status_id: this.userFormGroup.value.status}
       const payload: UserCreatePayload = this.userFormGroup.value;

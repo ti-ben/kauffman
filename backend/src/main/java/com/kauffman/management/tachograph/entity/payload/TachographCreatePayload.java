@@ -15,5 +15,6 @@ public class TachographCreatePayload {
     private Date end_date;
     private String num_carte;
     private String description;
+
     private User user;
 }
