@@ -1,7 +1,8 @@
 package com.kauffman.management.cap.entity.builder;
 
 import com.kauffman.management.cap.entity.dto.Cap;
-import com.kauffman.management.period.entity.dto.Period;
+import com.kauffman.management.user.entity.dto.User;
+import com.kauffman.management.vehicule.entity.dto.Vehicule;
 
 import java.util.Date;
 import java.util.UUID;
@@ -14,7 +15,8 @@ public class CapBuilder {
     private String theme;
     private String description;
 
-    private Period period;
+    private User user;
+    private Vehicule vehicule;
 
     public CapBuilder setCap_id(UUID cap_id) {
         this.cap_id = cap_id;
@@ -46,12 +48,17 @@ public class CapBuilder {
         return this;
     }
 
-    public CapBuilder setPeriod(Period period) {
-        this.period = period;
+    public CapBuilder setUser(User user) {
+        this.user = user;
+        return this;
+    }
+
+    public CapBuilder setVehicule(Vehicule vehicule) {
+        this.vehicule = vehicule;
         return this;
     }
 
     public Cap build() {
-        return new Cap(cap_id, start_date, end_date, price, theme, description, period);
+        return new Cap(cap_id, start_date, end_date, price, theme, description, user, vehicule);
     }
 }

@@ -50,6 +50,16 @@ public class AdrController {
         return new ApiResponse(true, fromDb, "api.adrListByVehiculeId.success");
     }
 
+    // Read all records by user id
+    @GetMapping("/findByUserId/{uid}")
+    public ApiResponse findByUserId(@PathVariable("uid") UUID uid) {
+        List<Adr> fromDb = adrRepository.findByUserId(uid);
+        if (fromDb == null) {
+            return new ApiResponse(false, null, "api.adrListByVehiculeId.not-found");
+        }
+        return new ApiResponse(true, fromDb, "api.adrListByVehiculeId.success");
+    }
+
     // Read selected adr record detail
     @GetMapping("/detail/{id}")
     public ApiResponse detail(@PathVariable("id") UUID id) {

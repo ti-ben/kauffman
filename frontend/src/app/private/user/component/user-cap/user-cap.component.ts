@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ApiService} from "../../../../shared/services/api.service";
 import {ActivatedRoute} from "@angular/router";
 import {FormControl, FormGroup} from "@angular/forms";
+import {ApiResponse} from "../../../../shared/model";
 
 @Component({
   selector: 'app-user-cap',
@@ -10,49 +11,56 @@ import {FormControl, FormGroup} from "@angular/forms";
 })
 export class UserCapComponent implements OnInit {
 
-  getParamId = this.activatedRoute.snapshot.paramMap.get('id');
+  capList: any = '';
+  errorMsg: string = '';
+  successMsg: string = '';
+  capFormGroup!: FormGroup;
   currentDate = new Date().toISOString().substring(0, 10);
-  errorMsg: any = '';
-  successMsg: any = '';
-  periodList: any = '';
+  getParamId = this.activatedRoute.snapshot.paramMap.get('id');
 
   constructor(private apiService: ApiService, private activatedRoute: ActivatedRoute) {
   }
 
   ngOnInit(): void {
-    this.allPeriodList();
+    this.capInitForm();
+    this.getAllCapByUserID();
   }
 
-  periodCapFormCreate = new FormGroup({
-    'start_date': new FormControl(this.currentDate),
-    'end_date': new FormControl(this.currentDate),
-    'user_id': new FormControl(this.getParamId)
-  });
+  private capInitForm(): void {
+    this.capFormGroup = new FormGroup({
+      user_id: new FormControl(this.getParamId),
+      start_date: new FormControl(this.currentDate),
+      end_date: new FormControl(this.currentDate),
+      price: new FormControl(null),
+      description: new FormControl(null),
+      theme: new FormControl(null)
+    });
+  }
 
-  periodCreate() {
-
-    if (this.periodCapFormCreate.valid) {
-      //console.log('Form content: ', this.periodFormCreate.value)
-      this.apiService.createPeriod(this.periodCapFormCreate.value).subscribe((res) => {
-        this.periodCapFormCreate.reset();
-        this.successMsg = res.code;
+  create(): void {
+    if (this.capFormGroup.valid) {
+      this.capFormGroup.value.user = {user_id: this.getParamId}
+      this.apiService.createCap(this.capFormGroup.value).subscribe((response: ApiResponse) => {
+        this.capInitForm();
+        this.successMsg = response.data;
       })
     } else {
       this.errorMsg = 'All fields are required';
-
     }
   }
 
-  allPeriodList() {
-    this.apiService.getAllPeriodByUserId().subscribe((res) => {
-      this.periodList = res.data;
-      //console.log('Period ', this.periodList)
-      if (this.periodList == null) {
-        //console.log('period list instance is null or undefined');
-      } else {
-        //console.log('period list instance is not null or undefined'); // ok now
-      }
-    })
+  update(id:string): void {
+    alert('update');
+  }
+
+  delete(id: string): void {
+    alert('delete');
+  }
+
+  getAllCapByUserID() {
+    this.apiService.getAllCapByUserId(this.getParamId).subscribe((response: ApiResponse) => {
+      this.capList = response.data;
+    });
   }
 
 }

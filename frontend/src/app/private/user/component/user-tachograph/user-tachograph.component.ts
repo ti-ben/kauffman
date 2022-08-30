@@ -11,41 +11,47 @@ import {ApiResponse} from "../../../../shared/model";
 })
 export class UserTachographComponent implements OnInit {
 
+  tachoList: any = '';
   errorMsg: string = '';
+  tachoFormGroup!: FormGroup;
   successMsg: string = '';
-  formGroup!: FormGroup;
-  getParamId = this.activatedRoute.snapshot.paramMap.get('id');
   currentDate = new Date().toISOString().substring(0, 10);
+  getParamId = this.activatedRoute.snapshot.paramMap.get('id');
 
   constructor(private apiService: ApiService, private activatedRoute: ActivatedRoute) {
   }
 
   ngOnInit(): void {
-    this.initForm();
+    this.tachoInitForm();
   }
 
-
-  private initForm(): void {
-    this.formGroup = new FormGroup({
-      'start_date': new FormControl(this.currentDate, Validators.required),
-      'end_date': new FormControl(this.currentDate, Validators.required),
-      'num_carte': new FormControl('', Validators.required),
-      'description': new FormControl(''),
-      'user_id': new FormControl(this.getParamId)
+  private tachoInitForm(): void {
+    this.tachoFormGroup = new FormGroup({
+      start_date: new FormControl(this.currentDate, Validators.required),
+      end_date: new FormControl(this.currentDate, Validators.required),
+      num_carte: new FormControl('', Validators.required),
+      description: new FormControl(''),
+      user_id: new FormControl(this.getParamId)
     });
-
   }
 
-  tachographCreate() {
-    console.log('Form data = ', this.formGroup.value)
-    if (this.formGroup.valid) {
-      this.apiService.createTacho(this.formGroup.value).subscribe((res: ApiResponse) => {
-        this.formGroup.reset();
+  create() {
+    if (this.tachoFormGroup.valid) {
+      this.apiService.createTacho(this.tachoFormGroup.value).subscribe((res: ApiResponse) => {
+        this.tachoInitForm();
         this.successMsg = res.code;
       })
     } else {
       this.errorMsg = 'All fields are required';
     }
+  }
+
+  update(id:string): void {
+    alert('update');
+  }
+
+  delete(id: string): void {
+    alert('delete');
   }
 
 }

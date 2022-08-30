@@ -371,6 +371,13 @@ export class ApiService {
   /*****************************************************************************************/
   /* **************************************** ADR **************************************** */
 
+  createAdr(data: any): Observable<ApiResponse> {
+    return this.http.post(`${this.baseUrl}/adr/create`, data)
+      .pipe(
+        map(response => response as ApiResponse)
+      );
+  }
+
   getAllAdrByVehiculeId(id: any): Observable<ApiResponse> {
     return this.http.get(`${this.baseUrl}/adr/findByVehiculeId/${id}`)
       .pipe(
@@ -378,5 +385,34 @@ export class ApiService {
       );
   }
 
+  getAllAdrByUserId(id: any): Observable<ApiResponse> {
+    return this.http.get(`${this.baseUrl}/adr/findByUserId/${id}`)
+      .pipe(
+        map(response => response as ApiResponse)
+      );
+  }
+  /*****************************************************************************************/
+  /* **************************************** CAP **************************************** */
+
+  createCap(data: any): Observable<ApiResponse> {
+    return this.http.post(`${this.baseUrl}/cap/create`, data)
+      .pipe(
+        map(response => response as ApiResponse)
+      );
+  }
+
+  getAllCapByUserId(id: any): Observable<ApiResponse> {
+    return this.http.get(`${this.baseUrl}/cap/findByUserId/${id}`)
+      .pipe(
+        map(response => response as ApiResponse)
+      );
+  }
+
+  getAllCapByVehiculeId(id: any): Observable<ApiResponse> {
+    return this.http.get(`${this.baseUrl}/cap/findByVehiculeId/${id}`)
+      .pipe(
+        map(response => response as ApiResponse)
+      );
+  }
   /*****************************************************************************************/
 }

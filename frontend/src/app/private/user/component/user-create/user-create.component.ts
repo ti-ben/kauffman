@@ -22,8 +22,8 @@ export class UserCreateComponent implements OnInit {
   successMsg: string = '';
   statusList: Status[] = [];
   addressList: Address[] = [];
-  getParamId = this.activatedRoute.snapshot.paramMap.get('id');
   currentDate = new Date().toISOString().substring(0, 10);
+  getParamId = this.activatedRoute.snapshot.paramMap.get('id');
 
   constructor(private apiService: ApiService, private activatedRoute: ActivatedRoute) {
   }
@@ -37,7 +37,6 @@ export class UserCreateComponent implements OnInit {
 
   private initForm(): void {
     this.userFormGroup = new FormGroup({
-      user_id: new FormControl(null),
       firstname: new FormControl(null, [Validators.required, Validators.pattern(/[a-zA-Z].*/)]),
       lastname: new FormControl(null, [Validators.required, Validators.pattern(/[a-zA-Z].*/)]),
       gender: new FormControl(null),
@@ -54,15 +53,26 @@ export class UserCreateComponent implements OnInit {
       pob: new FormControl(null),
       active: new FormControl(true),
       site: new FormControl(null),
-      address: new FormControl(null),
       status: new FormControl(null),
+      road: new FormControl(null),
+      num: new FormControl(null),
+      town: new FormControl(null),
+      postal_code: new FormControl(null),
+      country: new FormControl(null)
     });
   }
 
   create(): void {
     if (this.userFormGroup.valid) {
       this.userFormGroup.value.site = {site_id: this.userFormGroup.value.site}
-      this.userFormGroup.value.address = {address_id: this.userFormGroup.value.address, town: 'test'}
+      this.userFormGroup.value.address = {
+        address_id: null,
+        road: 'test',
+        num: 'test',
+        town: 'test',
+        postal_code: 'test',
+        country: 'test'
+      }
       this.userFormGroup.value.status = {status_id: this.userFormGroup.value.status}
       const payload: UserCreatePayload = this.userFormGroup.value;
       this.apiService.createUser(payload).subscribe((response: ApiResponse) => {

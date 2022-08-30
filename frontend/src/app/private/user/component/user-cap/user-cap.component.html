@@ -1,61 +1,73 @@
-<form [formGroup]="periodCapFormCreate">
-  <p>Ajouter une période</p>
+<div *ngIf="successMsg" class="alert alert-success alert-dismissible">
+  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+  <h5><i class="icon fas fa-check"></i> Alert!</h5>
+  {{successMsg}}
+</div>
+
+<form [formGroup]="capFormGroup">
+
   <div class="form-row">
-    <div class="col-md-4 mb-3">
-      <input type="date" class="form-control" formControlName="start_date" value="">
+    <!--
+          <div class="col-md-4 mb-3">
+            <input type="text" class="form-control" formControlName="user_id" placeholder="user id">
+          </div>
+    -->
+    <div class="col-md-3 mb-3">
+      <input type="date" class="form-control" formControlName="start_date" placeholder="date début">
+    </div>
+
+    <div class="col-md-3 mb-3">
+      <input type="date" class="form-control" formControlName="end_date" placeholder="date fin">
+    </div>
+
+    <div class="col-md-3 mb-3">
+      <input type="text" class="form-control" formControlName="price" placeholder="price">
+    </div>
+
+    <div class="col-md-3 mb-3">
+      <input type="text" class="form-control" formControlName="theme" placeholder="Theme">
+    </div>
+
+    <div class="col-md-12 mb-3">
+      <textarea type="text" class="form-control" formControlName="description"></textarea>
     </div>
 
     <div class="col-md-4 mb-3">
-      <input type="date" class="form-control" formControlName="end_date" value="">
+      <button type="submit" class="btn btn-success col-md-12" (click)="create()">Ajouter</button>
     </div>
 
-    <div class="col-md-4 mb-3">
-      <input type="text" class="form-control" formControlName="user_id" value="{{getParamId}}" placeholder="usr_id">
-    </div>
-
-    <div class="col-md-4 mb-3">
-      <button type="submit" class="btn btn-success col-md-12" (click)="periodCreate()">Ajouter</button>
-    </div>
   </div>
 </form>
 
-<div class="card card-primary" *ngFor="let period of periodList">
-  <div class="card-header">
-    <p class="card-title">Période du {{period.start_date | date:'shortDate'}} au {{period.end_date | date:'shortDate'}}</p>
-
-    <div class="card-tools">
-      <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-        <i class="fas fa-minus"></i>
-      </button>
-    </div>
+<!-- Default box -->
+<div class="card">
+  <div class="card-body p-0">
+    <table class="table table-striped projects">
+      <thead>
+      <tr>
+        <th style="width: auto" class="text-center">Date début</th>
+        <th style="width: auto" class="text-center">Date fin</th>
+        <th style="width: auto" class="text-center">Theme</th>
+        <th style="width: auto" class="text-center">Description</th>
+        <th style="width: auto" class="text-center">Prix</th>
+        <th style="width: auto" class="text-center">Options</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let cap of capList" class="text-center">
+        <td>{{cap.start_date | date: 'dd/MM/yyyy'}}</td>
+        <td>{{cap.end_date | date: 'dd/MM/yyyy'}}</td>
+        <td>{{cap.theme}}</td>
+        <td>{{cap.description}}</td>
+        <td>{{cap.price | currency:'EUR'}}</td>
+        <td class="project-actions text-center">
+          <a class="btn btn-info btn-sm" (click)="update(cap.cap_id)"><i class="fas fa-pencil-alt"></i></a>
+          <a class="btn btn-danger btn-sm" (click)="delete(cap.cap_id)"><i class="fas fa-trash"></i></a>
+        </td>
+      </tr>
+      </tbody>
+    </table>
   </div>
-
-  <div class="card-body">
-    <div class="form-row">
-
-      <div class="col-md-4 mb-3">
-        <input type="date" class="form-control" placeholder="Date rdv">
-      </div>
-
-      <div class="col-md-4 mb-3">
-        <input type="text" class="form-control" placeholder="Prestataire">
-      </div>
-
-      <div class="col-md-4 mb-3">
-        <input type="text" class="form-control" placeholder="Prix">
-      </div>
-
-      <div class="col-md-12 mb-3">
-        <input type="text" class="form-control" placeholder="Commentaire">
-      </div>
-
-    </div>
-
-    <hr>
-
-    <p>Liste des rdv</p>
-
-
-  </div>
+  <!-- /.card-body -->
 </div>
-
+<!-- /.card -->

@@ -28,15 +28,22 @@ public class CapController {
                 .setTheme(payload.getTheme())
                 .setDescription(payload.getDescription())
                 .setPrice(payload.getPrice())
-                .setPeriod(payload.getPeriod())
+                .setUser(payload.getUser())
+                .setVehicule(payload.getVehicule())
                 .build();
         return new ApiResponse(true, capRepository.save(cap), "api.cap.create.success");
     }
 
-    // Read all cap records
+    // Read all cap records without any distinction
     @GetMapping("/list")
     public ApiResponse get() {
         return new ApiResponse(true, capRepository.findAll(), null);
+    }
+
+    // Read all cap records by user id
+    @GetMapping("/findByUserId/{id}")
+    public ApiResponse get(@PathVariable("id") UUID id){
+        return new ApiResponse(true, capRepository.findByUserId(id), null);
     }
 
     // Read record detail
@@ -61,12 +68,13 @@ public class CapController {
         fromDb.setTheme(payload.getTheme());
         fromDb.setDescription(payload.getDescription());
         fromDb.setPrice(payload.getPrice());
-        fromDb.setPeriod(payload.getPeriod());
+        fromDb.setUser(payload.getUser());
+        fromDb.setVehicule(payload.getVehicule());
         return new ApiResponse(true, capRepository.save(fromDb), "api.cap.update.success");
     }
 
     // Delete selected Cap record
-    @PutMapping("/delete/{id}")
+    @DeleteMapping("/delete/{id}")
     public ApiResponse delete(@PathVariable("id") UUID id) {
         Cap fromDb = capRepository.findById(id).orElse(null);
         if (fromDb == null) {

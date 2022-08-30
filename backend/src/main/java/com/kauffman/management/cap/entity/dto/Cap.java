@@ -1,6 +1,8 @@
 package com.kauffman.management.cap.entity.dto;
 
 import com.kauffman.management.period.entity.dto.Period;
+import com.kauffman.management.user.entity.dto.User;
+import com.kauffman.management.vehicule.entity.dto.Vehicule;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -33,6 +35,10 @@ public class Cap {
     private String description;
 
     @ManyToOne
-    @JoinColumn(name = "period_id")
-    private Period period;
+    @JoinColumn(name = "user_id")
+    private User user;
+
+    @ManyToOne
+    @JoinColumn(name = "vehicule_id")
+    private Vehicule vehicule;
 }

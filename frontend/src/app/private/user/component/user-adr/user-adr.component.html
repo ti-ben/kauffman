@@ -1,33 +1,56 @@
-<form [formGroup]="adrFormCreate">
-  <div class="card-body">
-    <div class="form-row">
+<form [formGroup]="adrFormGroup">
 
-      <div class="col-md-4 mb-3">
-        <input type="date" class="form-control" formControlName="start_date" placeholder="date début">
-      </div>
+  <div class="form-row">
 
-      <div class="col-md-4 mb-3">
-        <input type="date" class="form-control" formControlName="end_date" placeholder="Date fin">
-      </div>
-
-      <div class="col-md-4 mb-3">
-        <select class="custom-select" formControlName="type">
-          <option [value]="null" disabled>Select a type</option>
-          <option [value]="null">Colis</option>
-          <option [value]="null">Citerne</option>
-          <option [value]="null">Colis & Citerne</option>
-        </select>
-      </div>
-
-      <div class="col-md-12 mb-3">
-        <input type="text" class="form-control" placeholder="Commentaire">
-      </div>
-
+    <div class="col-md-4 mb-3">
+      <input type="date" class="form-control" formControlName="date_rdv">
     </div>
-<button class="btn btn-success">Ajouter</button>
-    <hr>
 
-    <p>Liste des rdv ADR</p>
+    <div class="col-md-4 mb-3">
+      <input type="text" class="form-control" formControlName="description">
+    </div>
 
+    <div class="col-md-4 mb-3">
+      <select class="custom-select" formControlName="category">
+        <option [value]="null" disabled>Select a type</option>
+        <option [value]="'Colis'">Colis</option>
+        <option [value]="'Citerne'">Citerne</option>
+        <option [value]="'Colis & Citerne'">Colis & Citerne</option>
+      </select>
+    </div>
+
+    <div class="col-md-4 mb-3">
+      <button type="submit" class="btn btn-success col-md-12" (click)="create()">Ajouter</button>
+    </div>
   </div>
+
 </form>
+
+<!-- Default box -->
+<div class="card">
+  <div class="card-body p-0">
+    <table class="table table-striped projects">
+      <thead>
+      <tr>
+        <th style="width: auto" class="text-center">Date rdv</th>
+        <th style="width: auto" class="text-center">Description</th>
+        <th style="width: auto" class="text-center">Catégorie</th>
+        <th style="width: auto" class="text-center">Options</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let adr of adrList" class="text-center">
+        <td>{{adr.date_rdv | date: 'dd/MM/yyyy'}}</td>
+        <td>{{adr.description}}</td>
+        <td>{{adr.category}}</td>
+        <td class="project-actions text-center">
+          <a class="btn btn-info btn-sm" [routerLink]="['details', adr.adr_id]"><i class="fas fa-pencil-alt"></i></a>
+          <a class="btn btn-danger btn-sm" (click)="delete(adr.adr_id)"><i class="fas fa-trash"></i></a>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <!-- /.card-body -->
+</div>
+<!-- /.card -->

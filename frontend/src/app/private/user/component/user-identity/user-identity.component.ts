@@ -49,10 +49,14 @@ export class UserIdentityComponent implements OnInit {
         pob: new FormControl(res.data.pob),
         active: new FormControl(res.data.active),
         site: new FormControl(res.data.site.site_id),
-        address: new FormControl(res.data.address.address_id),
-        address_id: new FormControl(res.data.address.address_id),
+        //address: new FormControl(res.data.address.address_id),
+        //address_id: new FormControl(res.data.address.address_id),
+        status: new FormControl(res.data.status.status_id),
+        road: new FormControl(res.data.address.road),
+        num: new FormControl(res.data.address.num),
         town: new FormControl(res.data.address.town),
-        status: new FormControl(res.data.status.status_id)
+        postal_code: new FormControl(res.data.address.postal_code),
+        country: new FormControl(res.data.address.country)
       });
     });
   }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
 import {ApiService} from "../../../../shared/services/api.service";
 import {ActivatedRoute} from "@angular/router";
+import {ApiResponse} from "../../../../shared/model";
 
 @Component({
   selector: 'app-user-adr',
@@ -10,23 +11,49 @@ import {ActivatedRoute} from "@angular/router";
 })
 export class UserAdrComponent implements OnInit {
 
-  getParamId = this.activatedRoute.snapshot.paramMap.get('id');
-  currentDate = new Date().toISOString().substring(0, 10);
-  errorMsg:   any = '';
+  adrList: any = '';
+  errorMsg: any = '';
   successMsg: any = '';
-  periodList: any = '';
+  adrFormGroup!: FormGroup;
+  currentDate = new Date().toISOString().substring(0, 10);
+  getParamId = this.activatedRoute.snapshot.paramMap.get('id');
 
   constructor(private apiService: ApiService, private activatedRoute: ActivatedRoute) {
   }
 
   ngOnInit(): void {
+    this.adrInitForm();
+    this.getAllAdrByUserID();
   }
 
-  adrFormCreate = new FormGroup({
-    'start_date': new FormControl(this.currentDate),
-    'end_date': new FormControl(this.currentDate),
-    'type': new FormControl(''),
-    'user_id': new FormControl(this.getParamId)
-  });
+  private adrInitForm(): void {
+    this.adrFormGroup = new FormGroup({
+      date_rdv: new FormControl(this.currentDate),
+      description: new FormControl(),
+      category: new FormControl(),
+      user_id: new FormControl(this.getParamId)
+    });
+  }
 
+  create(){
+    if (this.adrFormGroup.valid) {
+      this.adrFormGroup.value.user = {user_id: this.getParamId}
+      this.apiService.createAdr(this.adrFormGroup.value).subscribe((response: ApiResponse) => {
+        this.adrInitForm();
+        this.successMsg = response.data;
+      })
+    } else {
+      this.errorMsg = 'All fields are required';
+    }
+  }
+
+  delete(id: string){
+    alert('delete');
+  }
+
+  getAllAdrByUserID() {
+    this.apiService.getAllAdrByUserId(this.getParamId).subscribe((response: ApiResponse) => {
+      this.adrList = response.data;
+    })
+  }
 }

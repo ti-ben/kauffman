@@ -1,6 +1,8 @@
 package com.kauffman.management.cap.entity.payload;
 
 import com.kauffman.management.period.entity.dto.Period;
+import com.kauffman.management.user.entity.dto.User;
+import com.kauffman.management.vehicule.entity.dto.Vehicule;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -18,5 +20,6 @@ public class CapCreatePayload {
     private String theme;
     private String description;
 
-    private Period period;
+    private User user;
+    private Vehicule vehicule;
 }

@@ -1,169 +1,161 @@
-
 <div class="container card card-warning card-outline" *ngIf="userFormGroup">
 
+  <div *ngIf="errorMsg" class="alert alert-warning alert-dismissible">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+    <h5><i class="icon fas fa-exclamation-triangle"></i> Alert!</h5>
+    {{errorMsg}}
+  </div>
+
+  <div *ngIf="successMsg" class="alert alert-success alert-dismissible">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+    <h5><i class="icon fas fa-check"></i> Alert!</h5>
+    {{successMsg}}
+  </div>
+
   <form [formGroup]="userFormGroup">
-    <div class="card-body">
-
-      <div *ngIf="errorMsg" class="alert alert-warning alert-dismissible">
-        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-        <h5><i class="icon fas fa-exclamation-triangle"></i> Alert!</h5>
-        {{errorMsg}}
+    <div class="card-body form-row">
+      <div class="col-md-4 mb-3">
+        <label>Nom</label>
+        <input type="text" class="form-control" formControlName="firstname">
       </div>
 
-      <div *ngIf="successMsg" class="alert alert-success alert-dismissible">
-        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-        <h5><i class="icon fas fa-check"></i> Alert!</h5>
-        {{successMsg}}
+      <div class="col-md-4 mb-3">
+        <label>Prénom</label>
+        <input type="text" class="form-control" formControlName="lastname">
+      </div>
+      <div class="col-md-4 mb-3">
+        <label>Adresse email</label>
+        <input type="text" class="form-control" formControlName="email">
       </div>
 
-      <div class="form-row">
-        <div class="col-md-12 mb-3">
-          <label>user_id</label>
-          <input type="text" class="form-control" formControlName="user_id">
-        </div>
+      <div class="col-md-4 mb-3">
+        <label>Genre</label>
+        <select class="custom-select" formControlName="gender">
+          <option [value]="null" disabled>Choix du genre</option>
+          <option [value]="'Femele'">Femme</option>
+          <option [value]="'Male'">Homme</option>
+          <option [value]="'NA'">Non genré</option>
+        </select>
       </div>
 
-      <!-- -->
-
-      <div class="form-row">
-        <div class="col-md-4 mb-3">
-          <label>firstname</label>
-          <input type="text" class="form-control" formControlName="firstname">
-        </div>
-
-
-        <div class="col-md-4 mb-3">
-          <label>lastname</label>
-          <input type="text" class="form-control" formControlName="lastname">
-        </div>
-        <div class="col-md-4 mb-3">
-          <label>email</label>
-          <input type="text" class="form-control" formControlName="email">
-        </div>
+      <div class="col-md-4 mb-3">
+        <label>Photo</label>
+        <input type="text" class="form-control" formControlName="avatar">
       </div>
 
-      <!-- -->
-
-      <div class="form-row">
-        <div class="col-md-4 mb-3">
-          <label>gender</label>
-          <input type="text" class="form-control" formControlName="gender">
-        </div>
-
-        <div class="col-md-4 mb-3">
-          <label>avatar</label>
-          <input type="text" class="form-control" formControlName="avatar">
-        </div>
-
-        <div class="col-md-4 mb-3">
-          <label>dob</label>
-          <input type="date" class="form-control" formControlName="dob">
-        </div>
+      <div class="col-md-4 mb-3">
+        <label>Date de naissance</label>
+        <input type="date" class="form-control" formControlName="dob">
       </div>
 
-      <!-- -->
-
-      <div class="form-row">
-
-        <div class="col-md-4 mb-3">
-          <label>phone_pro</label>
-          <input type="text" class="form-control" formControlName="phone_pro">
-        </div>
-
-        <div class="col-md-4 mb-3">
-          <label>phone_perso</label>
-          <input type="text" class="form-control" formControlName="phone_perso">
-        </div>
-
-        <div class="col-md-4 mb-3">
-          <label>nationality</label>
-          <input type="text" class="form-control" formControlName="nationality">
-        </div>
+      <div class="col-md-4 mb-3">
+        <label>N° Tél (Fixe)</label>
+        <input type="text" class="form-control" formControlName="phone_pro">
       </div>
 
-      <!-- -->
-
-      <div class="form-row">
-        <div class="col-md-4 mb-3">
-          <label>numirn</label>
-          <input type="text" class="form-control" formControlName="numirn">
-        </div>
+      <div class="col-md-4 mb-3">
+        <label>N° Tél (Portable)</label>
+        <input type="text" class="form-control" formControlName="phone_perso">
       </div>
 
-      <!-- -->
-
-      <div class="form-row">
-        <div class="col-md-4 mb-3">
-          <label>driver_license</label>
-          <select class="custom-select" formControlName="driver_license">
-            <option [value]="null" disabled>Select a license</option>
-            <option [value]="1">B</option>
-            <option [value]="2">C</option>
-            <option [value]="3">CE</option>
-            <option [value]="4">C/CE</option>
-            <option [value]="5">DE</option>
-          </select>
-        </div>
-
-        <div class="col-md-4 mb-3">
-          <label>created_on</label>
-          <input type="date" class="form-control" formControlName="created_on">
-        </div>
-
-        <div class="col-md-4 mb-3">
-          <label>updated_on</label>
-          <input type="date" class="form-control" formControlName="updated_on">
-        </div>
+      <div class="col-md-4 mb-3">
+        <label>Nationalité</label>
+        <input type="text" class="form-control" formControlName="nationality">
       </div>
 
-      <!-- -->
-
-      <div class="form-row">
-        <div class="col-md-4 mb-3">
-          <label>pob</label>
-          <input type="text" class="form-control" formControlName="pob">
-        </div>
-
-        <div class="col-md-4 mb-3">
-          <label>Employe actif?</label>
-          <select class="custom-select" formControlName="active">
-            <option [value]="null" disabled>Select activity</option>
-            <option [value]="true">Oui</option>
-            <option [value]="false">Non</option>
-          </select>
-        </div>
-
+      <div class="col-md-4 mb-3">
+        <label>N° de registre national</label>
+        <input type="text" class="form-control" formControlName="numirn">
       </div>
 
-      <!-- -->
-
-      <div class="form-row">
-
-        <div class="col-md-4 mb-3">
-          <label>Travail à</label>
-          <select class="custom-select" formControlName="site">
-            <option [value]="null" disabled>Select a site</option>
-            <option *ngFor="let site of sitesList" [value]="site.site_id">{{site.name}}</option>
-          </select>
-        </div>
-
-        <div class="col-md-4 mb-3">
-          <label>Adresse</label>
-          <select class="custom-select" formControlName="address">
-            <option [value]="null" disabled>Select an address</option>
-            <option *ngFor="let address of addressList" [value]="address.address_id">{{address.road}}, {{address.num}} | {{address.postal_code}} {{address.town}} | {{address.country}}</option>
-          </select>
-        </div>
-
-        <div class="col-md-4 mb-3">
-          <label>Status</label>
-          <select class="custom-select" formControlName="status">
-            <option [value]="null" disabled>Select a status</option>
-            <option *ngFor="let status of statusList" [value]="status.status_id">{{status.name}}</option>
-          </select>
-        </div>
+      <div class="col-md-4 mb-3">
+        <label>Type de permis</label>
+        <select class="custom-select" formControlName="driver_license">
+          <option [value]="null" disabled>Choix du permis</option>
+          <option [value]="'B'">B</option>
+          <option [value]="'C'">C</option>
+          <option [value]="'CE'">CE</option>
+          <option [value]="'C/CE'">C/CE</option>
+          <option [value]="'DE'">DE</option>
+        </select>
       </div>
-      <button type="submit" class="btn btn-primary" (click)="create()">Enregistrer</button>
+      <!--
+            <div class="col-md-4 mb-3">
+              <label>created_on</label>
+              <input type="date" class="form-control" formControlName="created_on">
+            </div>
+
+            <div class="col-md-4 mb-3">
+              <label>updated_on</label>
+              <input type="date" class="form-control" formControlName="updated_on">
+            </div>
+      -->
+      <div class="col-md-4 mb-3">
+        <label>Lieu de naissance</label>
+        <input type="text" class="form-control" formControlName="pob">
+      </div>
+
+      <div class="col-md-4 mb-3">
+        <label>Employé actif?</label>
+        <select class="custom-select" formControlName="active">
+          <option [value]="null" disabled>Choix du status</option>
+          <option [value]="true">Oui</option>
+          <option [value]="false">Non</option>
+        </select>
+      </div>
+
+      <div class="col-md-4 mb-3">
+        <label>Travail à</label>
+        <select class="custom-select" formControlName="site">
+          <option [value]="null" disabled>Choix du site</option>
+          <option *ngFor="let site of sitesList" [value]="site.site_id">{{site.name}}</option>
+        </select>
+      </div>
+
+      <div class="col-md-4 mb-3">
+        <label>Fonction</label>
+        <select class="custom-select" formControlName="status">
+          <option [value]="null" disabled>Choix de la fonction</option>
+          <option *ngFor="let status of statusList" [value]="status.status_id">{{status.name}}</option>
+        </select>
+      </div>
+
+      <div class="col-md-6 mb-3">
+        <label>Rue</label>
+        <input type="text" class="form-control" formControlName="road">
+      </div>
+
+      <div class="col-md-1 mb-3">
+        <label>N°</label>
+        <input type="text" class="form-control" formControlName="num">
+      </div>
+
+      <div class="col-md-1 mb-3">
+        <label>CP</label>
+        <input type="text" class="form-control" formControlName="postal_code">
+      </div>
+
+      <div class="col-md-2 mb-3">
+        <label>Ville</label>
+        <input type="text" class="form-control" formControlName="town">
+      </div>
+
+      <div class="col-md-2 mb-3">
+        <label>Pays</label>
+        <select class="custom-select" formControlName="country">
+          <option [value]="null" disabled>Choix du pays</option>
+          <option [value]="'Belgique'">Belgique</option>
+          <option [value]="'France'">France</option>
+          <option [value]="'Allemagne'">Allemagne</option>
+          <option [value]="'Luxembourg'">Luxembourg</option>
+          <option [value]="'Pays-bas'">Pays-bas</option>
+        </select>
+      </div>
+
+      <div class="col-md-12 mb-3">
+        <button type="submit" class="btn btn-success col-md-4 " (click)="create()">Enregistrer</button>
+      </div>
+
     </div>
   </form>
 </div>
