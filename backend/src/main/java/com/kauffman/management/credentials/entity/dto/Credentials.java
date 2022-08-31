@@ -29,7 +29,7 @@ public class Credentials {
     private Date updated_on;
     private Boolean active;
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST})
+    @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE})
     @JoinColumn(name = "rank_id")
     private Rank rank;
 }
