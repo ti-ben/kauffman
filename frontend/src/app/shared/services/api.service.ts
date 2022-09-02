@@ -277,8 +277,8 @@ export class ApiService {
   /*****************************************************************************************/
   /* ************************************* CREDENTIAL ************************************ */
 
-  getUserCredential(username: any): Observable<ApiResponse> {
-    return this.http.get(`${this.baseUrl}/credentials/detail/${username}`)
+  getUserCredential(id: any): Observable<ApiResponse> {
+    return this.http.get(`${this.baseUrl}/credentials/detail/${id}`)
       .pipe(
         map(response => response as ApiResponse)
       );

@@ -1,14 +1,15 @@
 <form [formGroup]="formGroup" *ngIf="formGroup">
 
   <div class="form-row">
-    <div class="col-md-3 mb-3">
+    <div class="col-md-2 mb-3">
       <input type="date" class="form-control" formControlName="date_rdv">
     </div>
 
-    <div class="col-md-3 mb-3">
+    <div class="col-md-2 mb-3">
       <select class="custom-select" formControlName="category">
+        <option [value]="null" selected disabled>Type ?</option>
         <option [value]="'Citerne'">Citerne</option>
-        <option [value]="2">Colis</option>
+        <option [value]="'Colis'">Colis</option>
       </select>
     </div>
 
@@ -16,8 +17,8 @@
       <input type="text" class="form-control" formControlName="description" placeholder="description">
     </div>
 
-    <div class="col-md-12 mb-3">
-      <button type="submit" class="btn btn-success" (click)="create()">Enregistrer</button>
+    <div class="col-md-2 mb-3">
+      <button type="submit" class="btn btn-success col-md-12" (click)="create()">Enregistrer</button>
     </div>
 
   </div>
@@ -28,7 +29,7 @@
     <thead class="text-center">
     <tr>
       <th>Date rdv</th>
-      <th>Catégorie</th>
+      <th>Type</th>
       <th>Description</th>
       <th>Options</th>
     </tr>

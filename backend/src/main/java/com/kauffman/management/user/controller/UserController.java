@@ -40,7 +40,7 @@ public class UserController {
                 .setStatus(payload.getStatus())
                 //.setRank(payload.getRank())
                 .setAddress(payload.getAddress())
-                .setCredentials(payload.getCredentials())
+                //.setCredentials(payload.getCredentials())
                 .build();
         return new ApiResponse(true, userRepository.save(user), "api.user.create.success");
     }
@@ -87,7 +87,7 @@ public class UserController {
         fromDb.setStatus(payload.getStatus());
         fromDb.setAddress(payload.getAddress());
         //fromDb.setRank(payload.getRank());
-        fromDb.setCredentials(payload.getCredentials());
+        //fromDb.setCredentials(payload.getCredentials());
         return new ApiResponse(true, userRepository.save(fromDb), "api.update.update.success");
     }
 

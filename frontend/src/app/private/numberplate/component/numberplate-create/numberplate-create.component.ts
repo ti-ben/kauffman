@@ -17,6 +17,7 @@ export class NumberplateCreateComponent implements OnInit {
   formGroup!: FormGroup;
   sitesList: Site[] = [];
   successMsg: string = '';
+  currentDate = new Date().toISOString().substring(0, 10);
   getParamId = this.activatedRoute.snapshot.paramMap.get('id');
 
   constructor(private apiService: ApiService, private activatedRoute: ActivatedRoute) {
@@ -31,7 +32,7 @@ export class NumberplateCreateComponent implements OnInit {
     this.formGroup = new FormGroup({
       site: new FormControl(),
       num_plate: new FormControl('', Validators.required),
-      dop: new FormControl(''),
+      dop: new FormControl(this.currentDate),
       active: new FormControl(true)
     });
 

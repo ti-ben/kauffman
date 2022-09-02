@@ -28,15 +28,10 @@ export class UserCredentialsComponent implements OnInit {
 
   ngOnInit(): void {
     this.userDetails();
-    this.credential();
     this.allRankList();
-    if (this.uDetails.credentials) {
-      this.credentialFormGroup = new FormGroup({
-        username: new FormControl(),
-        password: new FormControl(),
-        active: new FormControl(),
-        rank: new FormControl(),
-      });
+    this.credential();
+    if (this.uCredential) {
+      this.credentialForm();
     } else {
       this.initForm();
     }
@@ -44,7 +39,7 @@ export class UserCredentialsComponent implements OnInit {
 
   save() {
     this.credentialFormGroup.value.user = {user_id: this.getParamId}
-    this.credentialFormGroup.value.rank = {rank_id: this.credentialFormGroup.value.rank_id}
+    this.credentialFormGroup.value.rank = {rank_id: this.credentialFormGroup.value.rank.rank_id}
     if (this.credentialFormGroup.valid) {
       this.apiService.saveUserCredential(this.credentialFormGroup.value).subscribe((response: ApiResponse) => {
         this.credentialFormGroup.reset();
@@ -59,12 +54,21 @@ export class UserCredentialsComponent implements OnInit {
     console.log('credentialsForm content = ', this.credentialFormGroup.value);
   }
 
+  private credentialForm(): void {
+    this.credentialFormGroup = new FormGroup({
+      username: new FormControl(this.uCredential.username),
+      password: new FormControl(this.uCredential.password),
+      active: new FormControl(this.uCredential.active),
+      rank: new FormControl(this.uCredential.rank),
+    });
+  }
+
   private initForm(): void {
     this.credentialFormGroup = new FormGroup({
       username: new FormControl(null, [Validators.required]),
       password: new FormControl(this.randomPassword, [Validators.required]),
-      created_on: new FormControl(this.currentDate, [Validators.required]),
-      updated_on: new FormControl(this.currentDate, [Validators.required]),
+      created_on: new FormControl(this.currentDate),
+      updated_on: new FormControl(this.currentDate),
       active: new FormControl(true, [Validators.required]),
       rank: new FormControl(null, [Validators.required]),
     });
@@ -77,7 +81,7 @@ export class UserCredentialsComponent implements OnInit {
   }
 
   credential() {
-    this.apiService.getUserCredential(this.uDetails.email).subscribe((response: ApiResponse) => {
+    this.apiService.getUserCredential(this.getParamId).subscribe((response: ApiResponse) => {
       this.uCredential = response.data
     })
   }

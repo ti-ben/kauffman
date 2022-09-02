@@ -28,6 +28,7 @@ public class CredentialsController {
                 .setUpdated_on(payload.getUpdated_on())
                 .setActive(payload.getActive())
                 .setRank((payload.getRank()))
+                .setUser(payload.getUser())
                 .build();
         return new ApiResponse(true, credentialsRepository.save(credential), "api.credentials.create.success");
     }
@@ -39,10 +40,10 @@ public class CredentialsController {
     }
 
     // Read credential record detail
-    @GetMapping("/detail/{username}")
-    public ApiResponse detail(@PathVariable("username") String username) {
-        //Credentials fromDb = credentialsRepository.findById(id).orElse(null);
-        Credentials fromDb = credentialsRepository.findByUsername(username);
+    @GetMapping("/detail/{id}")
+    public ApiResponse detail(@PathVariable("id") UUID id) {
+        Credentials fromDb = credentialsRepository.findByUserId(id);
+        //Credentials fromDb = credentialsRepository.findByUsername(username);
         if (fromDb == null) {
             return new ApiResponse(false, null, "api.credentials.detail.not-found");
         }
@@ -62,6 +63,7 @@ public class CredentialsController {
         fromDb.setUpdated_on(payload.getUpdated_on());
         fromDb.setActive(payload.getActive());
         fromDb.setRank(payload.getRank());
+        fromDb.setUser(payload.getUser());
         return new ApiResponse(true, credentialsRepository.save(fromDb), "api.credentials.update.success");
     }
 

@@ -41,15 +41,19 @@ export class VehiculeCtrltechComponent implements OnInit {
   }
 
   create() {
-    this.apiService.createCtrltech(this.formGroup.value).subscribe((response: ApiResponse) => {
-      console.log(this.formGroup)
-      this.formGroup.reset();
-      this.successMsg = response.code;
-      this.getAllCtrltechFromCurrentVehicule();
-    })
+    this.formGroup.value.vehicule = {vehicule_id: this.getParamId}
+    this.formGroup.value.provider = {provider_id: this.formGroup.value.provider_id}
+    if (this.formGroup.valid) {
+      this.apiService.createCtrltech(this.formGroup.value).subscribe((response: ApiResponse) => {
+        this.initForm();
+        this.successMsg = response.code;
+        this.getAllCtrltechFromCurrentVehicule();
+      });
+    }
   }
 
   update(id: string) {
+    alert('update id = ' + id)
     console.log(this.formGroup.value);
   }
 
@@ -59,7 +63,7 @@ export class VehiculeCtrltechComponent implements OnInit {
         this.getAllCtrltechFromCurrentVehicule();
       },
       (error: HttpErrorResponse) => {
-        this.errorMsg = 'Ce site ne peut être supprimé car celui-ci est utilisé [CODE] = ' + error.message;
+        this.errorMsg = 'Cette ligne ne peut être supprimée. [CODE] = ' + error.message;
         this.getAllCtrltechFromCurrentVehicule();
       });
   }

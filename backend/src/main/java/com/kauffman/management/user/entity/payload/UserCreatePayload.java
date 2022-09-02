@@ -35,5 +35,5 @@ public class UserCreatePayload {
     private Address address;
     private Status status;
     //private Rank rank;
-    private Credentials credentials;
+    //private Credentials credentials;
 }

@@ -15,8 +15,8 @@ export class VehiculeIdentityComponent implements OnInit {
 
   errorMsg: string = '';
   sitesList: Site[] = [];
-  identityFormGroup!: FormGroup;
   successMsg: string = '';
+  identityFormGroup!: FormGroup;
   numberplateList: Numberplate[] = [];
   getParamId = this.activatedRoute.snapshot.paramMap.get('id');
 
@@ -30,7 +30,7 @@ export class VehiculeIdentityComponent implements OnInit {
       this.identityFormGroup = new FormGroup({
         vehicule_id: new FormControl(response.data.vehicule_id),
         active: new FormControl(response.data.active),
-        avatar: new FormControl('noAvatar.png'),
+        avatar: new FormControl(response.data.avatar),
         bought_by: new FormControl(response.data.bought_by),
         brand: new FormControl(response.data.brand),
         cde_carrosserie: new FormControl(response.data.cde_carrosserie),

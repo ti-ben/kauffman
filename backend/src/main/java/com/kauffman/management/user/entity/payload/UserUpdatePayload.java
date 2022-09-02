@@ -37,5 +37,5 @@ public class UserUpdatePayload {
     private Address address;
     private Status status;
     //private Rank rank;
-    private Credentials credentials;
+    //private Credentials credentials;
 }

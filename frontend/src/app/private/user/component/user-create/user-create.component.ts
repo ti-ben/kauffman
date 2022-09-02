@@ -24,6 +24,7 @@ export class UserCreateComponent implements OnInit {
   addressList: Address[] = [];
   currentDate = new Date().toISOString().substring(0, 10);
   getParamId = this.activatedRoute.snapshot.paramMap.get('id');
+  emailPattern = "[a-z0-9]+@[a-z]+\\.[a-z]{2,3}";
 
   constructor(private apiService: ApiService, private activatedRoute: ActivatedRoute) {
   }
@@ -42,7 +43,7 @@ export class UserCreateComponent implements OnInit {
       gender: new FormControl(null),
       avatar: new FormControl('noAvatar.png'),
       dob: new FormControl(this.currentDate),
-      email: new FormControl(null, [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,}$')]),
+      email: new FormControl(null, [Validators.required, Validators.pattern(this.emailPattern)]),
       phone_pro: new FormControl(null),
       phone_perso: new FormControl(null),
       nationality: new FormControl(null),
@@ -60,6 +61,10 @@ export class UserCreateComponent implements OnInit {
       postal_code: new FormControl(null),
       country: new FormControl(null)
     });
+  }
+
+  get m(){
+    return this.userFormGroup.controls;
   }
 
   create(): void {

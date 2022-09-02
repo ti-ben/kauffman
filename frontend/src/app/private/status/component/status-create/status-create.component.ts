@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {ApiService} from "../../../../shared/services/api.service";
-import {ActivatedRoute} from "@angular/router";
 import {ApiResponse} from "../../../../shared/model";
 
 @Component({
@@ -15,7 +14,7 @@ export class StatusCreateComponent implements OnInit {
   errorMsg: string = '';
   successMsg: string = '';
 
-  constructor(private apiService: ApiService, private activatedRoute: ActivatedRoute) {
+  constructor(private apiService: ApiService) {
   }
 
   ngOnInit(): void {
@@ -33,12 +32,12 @@ export class StatusCreateComponent implements OnInit {
   create() {
     if (this.formGroup.valid) {
       this.apiService.createStatus(this.formGroup.value).subscribe((response: ApiResponse) => {
-        if(response.result){
-          this.formGroup.reset();
+        if (response.result) {
+          this.initForm();
           this.successMsg = response.code;
         }
       })
-    } else{
+    } else {
       this.errorMsg = 'All fiels are required';
     }
   }

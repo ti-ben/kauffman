@@ -12,6 +12,7 @@ public class IntervtechBuilder {
     private Date start_date;
     private Date end_date;
     private String description;
+    private String price;
 
     private Vehicule vehicule;
     private Provider provider;
@@ -36,6 +37,11 @@ public class IntervtechBuilder {
         return this;
     }
 
+    public IntervtechBuilder setPrice(String price) {
+        this.price = price;
+        return this;
+    }
+
     public IntervtechBuilder setVehicule(Vehicule vehicule) {
         this.vehicule = vehicule;
         return this;
@@ -47,6 +53,6 @@ public class IntervtechBuilder {
     }
 
     public Intervtech build() {
-        return new Intervtech(intervtech_id, start_date, end_date, description, vehicule, provider);
+        return new Intervtech(intervtech_id, start_date, end_date, description, price, vehicule, provider);
     }
 }

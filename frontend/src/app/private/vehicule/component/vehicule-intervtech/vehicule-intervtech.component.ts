@@ -3,6 +3,7 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {ApiService} from "../../../../shared/services/api.service";
 import {ActivatedRoute} from "@angular/router";
 import {ApiResponse} from "../../../../shared/model";
+import {HttpErrorResponse} from "@angular/common/http";
 
 @Component({
   selector: 'app-vehicule-intervtech',
@@ -24,7 +25,7 @@ export class VehiculeIntervtechComponent implements OnInit {
 
   ngOnInit(): void {
     this.getProvidersList();
-    this.getIntervtech()
+    this.getIntervtech();
     this.initForm();
   }
 
@@ -40,23 +41,34 @@ export class VehiculeIntervtechComponent implements OnInit {
   }
 
   create() {
-    console.log(this.intervtechFormGroup.value);
-    this.apiService.createIntervtech(this.intervtechFormGroup.value).subscribe((response: ApiResponse) => {
-      this.intervtechFormGroup.reset();
-      this.successMsg = response.code;
-    });
+    if (this.intervtechFormGroup.valid) {
+      this.intervtechFormGroup.value.vehicule = {vehicule_id: this.getParamId}
+      this.intervtechFormGroup.value.provider = {provider_id: this.intervtechFormGroup.value.provider_id}
+      this.apiService.createIntervtech(this.intervtechFormGroup.value).subscribe((response: ApiResponse) => {
+        this.successMsg = response.code;
+        this.initForm();
+        this.getIntervtech();
+      });
+    }
   }
 
   update(id: string) {
+    alert('update id = ' + id)
     console.log(this.intervtechFormGroup.value);
   }
 
   delete(id: string) {
-    alert(id);
-    console.log(this.intervtechFormGroup.value);
+    this.apiService.deleteIntervtech(id).subscribe((response: ApiResponse) => {
+      this.successMsg = response.code
+      this.getIntervtech()
+    },
+      (error: HttpErrorResponse) => {
+        this.errorMsg = 'Cette ligne ne peut être supprimée. [CODE] = ' + error.message;
+        this.getIntervtech()
+      });
   }
 
-  getIntervtech(){
+  getIntervtech() {
     this.apiService.getAllIntervtechByVehiculeId(this.getParamId).subscribe((response: ApiResponse) => {
       this.intervtechList = response.data;
     })

@@ -30,6 +30,7 @@ public class IntervtechController {
                 .setDescription(payload.getDescription())
                 .setVehicule(payload.getVehicule())
                 .setProvider(payload.getProvider())
+                .setPrice(payload.getPrice())
                 .build();
         return new ApiResponse(true, intervtechRepository.save(intervtech), "api.site.create.success");
     }
@@ -72,6 +73,7 @@ public class IntervtechController {
         fromDb.setDescription(payload.getDescription());
         fromDb.setVehicule(payload.getVehicule());
         fromDb.setProvider(payload.getProvider());
+        fromDb.setPrice(payload.getPrice());
         return new ApiResponse(true, intervtechRepository.save(fromDb), "api.intervtech.update.success");
     }
 

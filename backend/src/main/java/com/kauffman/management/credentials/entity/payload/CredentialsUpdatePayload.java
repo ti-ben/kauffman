@@ -1,6 +1,7 @@
 package com.kauffman.management.credentials.entity.payload;
 
 import com.kauffman.management.rank.entity.dto.Rank;
+import com.kauffman.management.user.entity.dto.User;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -21,4 +22,5 @@ public class CredentialsUpdatePayload {
     private Boolean active;
 
     private Rank rank;
+    private User user;
 }

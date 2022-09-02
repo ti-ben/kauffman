@@ -2,6 +2,7 @@ package com.kauffman.management.credentials.entity.builder;
 
 import com.kauffman.management.credentials.entity.dto.Credentials;
 import com.kauffman.management.rank.entity.dto.Rank;
+import com.kauffman.management.user.entity.dto.User;
 
 import java.util.Date;
 import java.util.UUID;
@@ -15,6 +16,7 @@ public class CredentialsBuilder {
     private Boolean active;
 
     private Rank rank;
+    private User user;
 
     public CredentialsBuilder setCredentials_id(UUID credentials_id) {
         this.credentials_id = credentials_id;
@@ -51,7 +53,12 @@ public class CredentialsBuilder {
         return this;
     }
 
+    public CredentialsBuilder setUser(User user) {
+        this.user = user;
+        return this;
+    }
+
     public Credentials build() {
-        return new Credentials(credentials_id, username, password, created_on, updated_on, active, rank);
+        return new Credentials(credentials_id, username, password, created_on, updated_on, active, rank, user);
     }
 }

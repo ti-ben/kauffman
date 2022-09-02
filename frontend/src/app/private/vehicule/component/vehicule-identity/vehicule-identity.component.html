@@ -16,15 +16,6 @@
       </div>
 
       <div class="form-row">
-        <div class="col-md-12 mb-3">
-          <label>VEHICULE ID</label>
-          <input type="text" class="form-control" formControlName="vehicule_id">
-        </div>
-      </div>
-
-      <!-- -->
-
-      <div class="form-row">
         <div class="col-md-4 mb-3">
           <label>Marque</label>
           <input type="text" class="form-control" formControlName="brand">
@@ -32,21 +23,31 @@
 
 
         <div class="col-md-4 mb-3">
-          <label>cde_carrosserie</label>
+          <label>Code carrosserie</label>
           <input type="text" class="form-control" formControlName="cde_carrosserie">
         </div>
+
         <div class="col-md-4 mb-3">
-          <label>classe_enviro</label>
-          <input type="text" class="form-control" formControlName="classe_enviro">
+          <label>Classe environementale</label>
+          <select class="custom-select" formControlName="classe_enviro">
+            <option [value]="null" selected disabled>Select an option</option>
+            <option [value]="'Euro 0'">Euro 0</option>
+            <option [value]="'Euro I'">Euro I</option>
+            <option [value]="'Euro II'">Euro II</option>
+            <option [value]="'Euro III'">Euro III</option>
+            <option [value]="'Euro IV'">Euro IV</option>
+            <option [value]="'Euro V'">Euro V</option>
+            <option [value]="'Euro VI'">Euro VI</option>
+          </select>
         </div>
-      </div>
 
-      <!-- -->
-
-      <div class="form-row">
         <div class="col-md-4 mb-3">
           <label>Type de carburant</label>
-          <input type="text" class="form-control" formControlName="fuel">
+          <select class="custom-select" formControlName="fuel">
+            <option [value]="null" selected disabled>-- Sélectionnez --</option>
+            <option [value]="'Diesel'">Diesel</option>
+            <option [value]="'Essence'">Essence</option>
+          </select>
         </div>
 
         <div class="col-md-4 mb-3">
@@ -58,14 +59,9 @@
           <label>Date d'achat</label>
           <input type="date" class="form-control" formControlName="date_of_purchase">
         </div>
-      </div>
-
-      <!-- -->
-
-      <div class="form-row">
 
         <div class="col-md-4 mb-3">
-          <label>metrology</label>
+          <label>Métrologie</label>
           <input type="text" class="form-control" formControlName="metrology">
         </div>
 
@@ -78,39 +74,17 @@
           <label>mmat</label>
           <input type="text" class="form-control" formControlName="mmat">
         </div>
-      </div>
 
-      <!-- -->
-
-      <div class="form-row">
         <div class="col-md-4 mb-3">
           <label>mom</label>
           <input type="text" class="form-control" formControlName="mom">
         </div>
-      </div>
 
-      <!-- -->
-
-      <div class="form-row">
         <div class="col-md-4 mb-3">
           <label>mta</label>
           <input type="text" class="form-control" formControlName="mta">
         </div>
 
-        <div class="col-md-4 mb-3">
-          <label>Créé le</label>
-          <input type="date" class="form-control" formControlName="created_on">
-        </div>
-
-        <div class="col-md-4 mb-3">
-          <label>Mis à jour le</label>
-          <input type="date" class="form-control" formControlName="updated_on">
-        </div>
-      </div>
-
-      <!-- -->
-
-      <div class="form-row">
         <div class="col-md-4 mb-3">
           <label>Kilomètrage</label>
           <input type="text" class="form-control" formControlName="nbr_km">
@@ -144,15 +118,9 @@
         </div>
 
         <div class="col-md-4 mb-3">
-          <label>Avatar</label>
+          <label>Photo</label>
           <input type="text" class="form-control" formControlName="avatar">
         </div>
-
-      </div>
-
-      <!-- -->
-
-      <div class="form-row">
 
         <div class="col-md-4 mb-3">
           <label>Véhicule actif?</label>
@@ -178,9 +146,10 @@
             <option *ngFor="let numberplate of numberplateList" [value]="numberplate.numberplate_id">{{numberplate.num_plate}}</option>
           </select>
         </div>
-
+        <div class="col-md-12 mb-3">
+          <button type="submit" class="btn btn-success col-md-4" (click)="update()">Enregistrer</button>
+        </div>
       </div>
-      <button type="submit" class="btn btn-primary" (click)="update()">Enregistrer</button>
     </div>
   </form>
 </div>

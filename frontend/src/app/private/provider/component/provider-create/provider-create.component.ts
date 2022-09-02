@@ -27,7 +27,7 @@ export class ProviderCreateComponent implements OnInit {
       const payload: ProviderCreatePayload = this.formGroup.value;
       this.apiService.createProvider(payload).subscribe((response: ApiResponse) => {
         if (response.result) {
-          this.formGroup.reset();
+          this.initForm();
           this.successMsg = response.code;
         }
       })

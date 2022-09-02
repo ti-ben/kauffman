@@ -18,6 +18,7 @@ public class IntervtechUpdatePayload {
     private Date start_date;
     private Date end_date;
     private String description;
+    private String price;
 
     private Vehicule vehicule;
     private Provider provider;

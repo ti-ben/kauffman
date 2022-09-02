@@ -22,7 +22,7 @@ export class VehiculeAdrComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getAllAdr();
+    this.getAllAdrByUserId();
     this.initForm();
   }
 
@@ -31,23 +31,28 @@ export class VehiculeAdrComponent implements OnInit {
       date_rdv: new FormControl(this.currentDate, Validators.required),
       category: new FormControl(),
       description: new FormControl(),
-      vehicule_id: new FormControl(this.getParamId)
     });
   }
 
   create() {
+    this.formGroup.value.vehicule = {vehicule_id: this.getParamId}
+    this.apiService.createAdr(this.formGroup.value).subscribe((response: ApiResponse) => {
+      this.successMsg = response.code;
+      this.initForm();
+      this.getAllAdrByUserId();
+    })
     alert('create');
   }
 
   update(id: string) {
-    alert('update');
+    alert('update id = ' + id);
   }
 
   delete(id: string) {
-    alert('delete');
+    alert('delete id = ' + id);
   }
 
-  getAllAdr() {
+  getAllAdrByUserId() {
     this.apiService.getAllAdrByVehiculeId(this.getParamId).subscribe((response: ApiResponse) => {
       this.adrList = response.data;
     })

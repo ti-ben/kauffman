@@ -1,8 +1,6 @@
 package com.kauffman.management.user.entity.dto;
 
 import com.kauffman.management.address.entity.dto.Address;
-import com.kauffman.management.credentials.entity.dto.Credentials;
-import com.kauffman.management.rank.entity.dto.Rank;
 import com.kauffman.management.site.entity.dto.Site;
 import com.kauffman.management.status.entity.dto.Status;
 import lombok.AllArgsConstructor;
@@ -68,12 +66,5 @@ public class User {
     @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE})
     @JoinColumn(name = "status_id", referencedColumnName = "status_id", nullable = true)
     private Status status;
-/*
-    @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE})
-    @JoinColumn(name = "rank_id", referencedColumnName = "rank_id")
-    private Rank rank;
-*/
-    @OneToOne(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE})
-    @JoinColumn(name = "credentials_id", referencedColumnName = "credentials_id")
-    private Credentials credentials;
+
 }

@@ -15,7 +15,7 @@ export class VehiculeCreateComponent implements OnInit {
 
   errorMsg: string = '';
   sitesList: Site[] = [];
-  vFormGroup!: FormGroup;
+  formGroup!: FormGroup;
   successMsg: string = '';
   numberplateList: Numberplate[] = [];
   currentDate = new Date().toISOString().substring(0, 10);
@@ -31,11 +31,10 @@ export class VehiculeCreateComponent implements OnInit {
   }
 
   private initForm(): void {
-    this.vFormGroup = new FormGroup({
-      vehicule_id: new FormControl(''),
+    this.formGroup = new FormGroup({
       active: new FormControl('true', Validators.required),
       avatar: new FormControl('truck.png'),
-      bought_by: new FormControl(null, Validators.required),
+      bought_by: new FormControl(null),
       brand: new FormControl('', Validators.required),
       cde_carrosserie: new FormControl(''),
       classe_enviro: new FormControl(null, Validators.required),
@@ -59,9 +58,11 @@ export class VehiculeCreateComponent implements OnInit {
   }
 
   create() {
-    if (this.vFormGroup.valid) {
-      this.apiService.createVehicule(this.vFormGroup.value).subscribe((response: ApiResponse) => {
-        this.vFormGroup.reset();
+    if (this.formGroup.valid) {
+      this.formGroup.value.site = {site_id: this.formGroup.value.site_id}
+      this.formGroup.value.numberplate = {numberplate_id: this.formGroup.value.numberplate_id}
+      this.apiService.createVehicule(this.formGroup.value).subscribe((response: ApiResponse) => {
+        this.formGroup.reset();
         this.successMsg = response.code;
       })
     }
@@ -74,10 +75,6 @@ export class VehiculeCreateComponent implements OnInit {
   allSiteList() {
     this.apiService.getAllSite().subscribe((response: ApiResponse) => {
       this.sitesList = response.data;
-      if (this.sitesList == null) {
-      } else {
-
-      }
     })
   }
 
