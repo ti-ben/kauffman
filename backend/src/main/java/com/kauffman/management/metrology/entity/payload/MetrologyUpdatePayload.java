@@ -1,5 +1,7 @@
 package com.kauffman.management.metrology.entity.payload;
 
+import com.kauffman.management.provider.entity.dto.Provider;
+import com.kauffman.management.vehicule.entity.dto.Vehicule;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -17,4 +19,7 @@ public class MetrologyUpdatePayload {
     private Date end_date;
     private String price;
     private String description;
+
+    private Vehicule vehicule;
+    private Provider provider;
 }

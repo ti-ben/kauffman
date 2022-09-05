@@ -224,7 +224,7 @@ export class ApiService {
   }
 
   updateUser(data: any, id: any): Observable<ApiResponse> {
-    return this.http.put(`${this.baseUrl}/user/update/${id}`, data)
+      return this.http.put(`${this.baseUrl}/user/update/${id}`, data)
       .pipe(
         map(response => response as ApiResponse)
       );
@@ -474,6 +474,30 @@ export class ApiService {
 
   deleteSelectmed(id: any): Observable<ApiResponse> {
     return this.http.delete(`${this.baseUrl}/selectmed/delete/${id}`)
+      .pipe(
+        map(response => response as ApiResponse)
+      );
+  }
+
+  /*****************************************************************************************/
+  /* ************************************* METROLOGY ************************************* */
+
+  createMetrology(data: any): Observable<ApiResponse>{
+    return this.http.post(`${this.baseUrl}/metrology/create`, data)
+      .pipe(
+        map(response => response as ApiResponse)
+      );
+  }
+
+  getAllMetrologyByVehiculeId(id: any): Observable<ApiResponse> {
+    return this.http.get(`${this.baseUrl}/metrology/findByVehiculeId/${id}`)
+      .pipe(
+        map(response => response as ApiResponse)
+      );
+  }
+
+  deleteMetrology(id: any): Observable<ApiResponse> {
+    return this.http.delete(`${this.baseUrl}/metrology/delete/${id}`)
       .pipe(
         map(response => response as ApiResponse)
       );

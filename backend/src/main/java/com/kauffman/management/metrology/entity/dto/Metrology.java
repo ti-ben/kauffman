@@ -1,5 +1,6 @@
 package com.kauffman.management.metrology.entity.dto;
 
+import com.kauffman.management.provider.entity.dto.Provider;
 import com.kauffman.management.vehicule.entity.dto.Vehicule;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -34,4 +35,8 @@ public class Metrology {
     @OneToOne
     @JoinColumn(name = "vehicule_id")
     private Vehicule vehicule;
+
+    @OneToOne
+    @JoinColumn(name = "provider_id")
+    private Provider provider;
 }

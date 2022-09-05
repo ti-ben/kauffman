@@ -24,7 +24,7 @@ export class UserCreateComponent implements OnInit {
   addressList: Address[] = [];
   currentDate = new Date().toISOString().substring(0, 10);
   getParamId = this.activatedRoute.snapshot.paramMap.get('id');
-  emailPattern = "[a-z0-9]+@[a-z]+\\.[a-z]{2,3}";
+  emailPattern = "^[a-zA-Z0-9._% -]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$";
 
   constructor(private apiService: ApiService, private activatedRoute: ActivatedRoute) {
   }

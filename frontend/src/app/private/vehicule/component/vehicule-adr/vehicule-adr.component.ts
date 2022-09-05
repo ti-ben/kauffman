@@ -3,6 +3,7 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {ApiService} from "../../../../shared/services/api.service";
 import {ActivatedRoute} from "@angular/router";
 import {ApiResponse} from "../../../../shared/model";
+import {HttpErrorResponse} from "@angular/common/http";
 
 @Component({
   selector: 'app-vehicule-adr',
@@ -41,15 +42,20 @@ export class VehiculeAdrComponent implements OnInit {
       this.initForm();
       this.getAllAdrByUserId();
     })
-    alert('create');
   }
 
   update(id: string) {
     alert('update id = ' + id);
   }
-
   delete(id: string) {
-    alert('delete id = ' + id);
+    this.apiService.deleteAdr(id).subscribe((response: ApiResponse) => {
+        this.successMsg = response.code
+        this.getAllAdrByUserId();
+      },
+      (error: HttpErrorResponse) => {
+        this.errorMsg = 'Cette ligne ne peut être supprimée. [CODE] = ' + error.message;
+        this.getAllAdrByUserId();
+      });
   }
 
   getAllAdrByUserId() {

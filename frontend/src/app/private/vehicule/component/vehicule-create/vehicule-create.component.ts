@@ -40,7 +40,7 @@ export class VehiculeCreateComponent implements OnInit {
       classe_enviro: new FormControl(null, Validators.required),
       created_on: new FormControl(this.currentDate),
       date_of_purchase: new FormControl(this.currentDate),
-      fuel: new FormControl(''),
+      fuel: new FormControl(null),
       genre: new FormControl(''),
       metrology: new FormControl(''),
       mma: new FormControl(''),

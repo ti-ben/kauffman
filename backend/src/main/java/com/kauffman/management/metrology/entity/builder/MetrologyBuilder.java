@@ -1,6 +1,7 @@
 package com.kauffman.management.metrology.entity.builder;
 
 import com.kauffman.management.metrology.entity.dto.Metrology;
+import com.kauffman.management.provider.entity.dto.Provider;
 import com.kauffman.management.vehicule.entity.dto.Vehicule;
 
 import java.util.Date;
@@ -12,7 +13,9 @@ public class MetrologyBuilder {
     private Date end_date;
     private String price;
     private String description;
+
     private Vehicule vehicule;
+    private Provider provider;
 
     public MetrologyBuilder setMetrology_id(UUID metrology_id) {
         this.metrology_id = metrology_id;
@@ -44,7 +47,12 @@ public class MetrologyBuilder {
         return this;
     }
 
+    public MetrologyBuilder setProvider(Provider provider) {
+        this.provider = provider;
+        return this;
+    }
+
     public Metrology build() {
-        return new Metrology(metrology_id, start_date, end_date, price, description, vehicule);
+        return new Metrology(metrology_id, start_date, end_date, price, description, vehicule, provider);
     }
 }

@@ -3,6 +3,7 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {ApiService} from "../../../../shared/services/api.service";
 import {ActivatedRoute} from "@angular/router";
 import {ApiResponse} from "../../../../shared/model";
+import {HttpErrorResponse} from "@angular/common/http";
 
 @Component({
   selector: 'app-vehicule-metrology',
@@ -24,6 +25,7 @@ export class VehiculeMetrologyComponent implements OnInit {
 
   ngOnInit(): void {
     this.getProvidersList();
+    this.getMetrologyList();
     this.initForm();
   }
 
@@ -39,9 +41,15 @@ export class VehiculeMetrologyComponent implements OnInit {
   }
 
   create() {
-    this.formGroup.value.vehicule_id = {vehicule_id: this.getParamId}
-    this.formGroup.value.provider_id = {provider_id: this.formGroup.value.provider_id}
-    console.log(this.formGroup.value);
+    if (this.formGroup.valid) {
+      this.formGroup.value.vehicule = {vehicule_id: this.getParamId}
+      this.formGroup.value.provider = {provider_id: this.formGroup.value.provider_id}
+      this.apiService.createMetrology(this.formGroup.value).subscribe((response: ApiResponse) => {
+        this.successMsg = response.code;
+        this.initForm();
+        this.getMetrologyList();
+      })
+    }
   }
 
   update(id: string) {
@@ -50,13 +58,25 @@ export class VehiculeMetrologyComponent implements OnInit {
   }
 
   delete(id: string) {
-    alert('delete id = ' + id)
-    console.log(this.formGroup.value);
+    this.apiService.deleteMetrology(id).subscribe((response: ApiResponse) => {
+        this.successMsg = response.code
+        this.getMetrologyList();
+      },
+      (error: HttpErrorResponse) => {
+        this.errorMsg = 'Cette ligne ne peut être supprimée. [CODE] = ' + error.message;
+        this.getMetrologyList();
+      });
   }
 
   getProvidersList() {
     this.apiService.getAllProviders().subscribe((response: ApiResponse) => {
       this.providersList = response.data;
+    })
+  }
+
+  getMetrologyList() {
+    this.apiService.getAllMetrologyByVehiculeId(this.getParamId).subscribe((response: ApiResponse) => {
+      this.metrologyList = response.data;
     })
   }
 

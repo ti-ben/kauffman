@@ -1,6 +1,7 @@
 package com.kauffman.management.metrology.controller;
 
 import com.kauffman.management.common.entity.ApiResponse;
+import com.kauffman.management.ctrltech.entity.dto.Ctrltech;
 import com.kauffman.management.metrology.entity.builder.MetrologyBuilder;
 import com.kauffman.management.metrology.entity.dto.Metrology;
 import com.kauffman.management.metrology.entity.payload.MetrologyCreatePayload;
@@ -9,6 +10,7 @@ import com.kauffman.management.metrology.repository.MetrologyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.UUID;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
@@ -26,6 +28,8 @@ public class MetrologyController {
                 .setEnd_date(payload.getEnd_date())
                 .setPrice(payload.getPrice())
                 .setDescription(payload.getDescription())
+                .setVehicule(payload.getVehicule())
+                .setProvider(payload.getProvider())
                 .build();
         return new ApiResponse(true, metrologyRepository.save(metrology), "api.metrology.create.success");
     }
@@ -35,6 +39,16 @@ public class MetrologyController {
     public ApiResponse get() {
 
         return new ApiResponse(true, metrologyRepository.findAll(), null);
+    }
+
+    // Read all records by vehicule id
+    @GetMapping("/findByVehiculeId/{vid}")
+    public ApiResponse findAllById(@PathVariable("vid") UUID vid) {
+        List<Metrology> fromDb = metrologyRepository.findByVehiculeId(vid);
+        if (fromDb == null) {
+            return new ApiResponse(false, null, "api.metrology.list.not-found");
+        }
+        return new ApiResponse(true, fromDb, "api.metrology.list.success");
     }
 
     @GetMapping("/detail/{id}")
@@ -57,6 +71,8 @@ public class MetrologyController {
         fromDb.setEnd_date(payload.getEnd_date());
         fromDb.setPrice(payload.getPrice());
         fromDb.setDescription(payload.getDescription());
+        fromDb.setVehicule(payload.getVehicule());
+        fromDb.setProvider(payload.getProvider());
         return new ApiResponse(true, metrologyRepository.save(fromDb), "api.metrology.update.success");
     }
 

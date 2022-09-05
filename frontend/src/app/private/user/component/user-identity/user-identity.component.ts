@@ -6,6 +6,8 @@ import {ApiResponse} from "../../../../shared/model";
 import {Site} from "../../../site/model/site";
 import {Status} from "../../../status/model/status";
 import {Address} from "../../../address/model/address";
+import {UserCreatePayload} from "../../model/payload/user-create.payload";
+import {UserUpdatePayload} from "../../model/payload/user-update.payload";
 
 @Component({
   selector: 'app-user-identity',
@@ -32,7 +34,6 @@ export class UserIdentityComponent implements OnInit {
     this.allAddressList();
     this.apiService.getSingleUser(this.getParamId).subscribe((res: ApiResponse) => {
       this.uFormGroup = new FormGroup({
-        user_id: new FormControl(res.data.user_id),
         firstname: new FormControl(res.data.firstname),
         lastname: new FormControl(res.data.lastname),
         gender: new FormControl(res.data.gender),
@@ -49,8 +50,6 @@ export class UserIdentityComponent implements OnInit {
         pob: new FormControl(res.data.pob),
         active: new FormControl(res.data.active),
         site: new FormControl(res.data.site.site_id),
-        //address: new FormControl(res.data.address.address_id),
-        //address_id: new FormControl(res.data.address.address_id),
         status: new FormControl(res.data.status.status_id),
         road: new FormControl(res.data.address.road),
         num: new FormControl(res.data.address.num),
@@ -64,10 +63,12 @@ export class UserIdentityComponent implements OnInit {
 
   update() {
     if (this.uFormGroup.valid) {
+      console.log(this.uFormGroup.value);
       this.uFormGroup.value.site = {site_id: this.uFormGroup.value.site}
       this.uFormGroup.value.address = {address_id: this.uFormGroup.value.address}
       this.uFormGroup.value.status = {status_id: this.uFormGroup.value.status}
-      this.apiService.updateUser(this.uFormGroup.value, this.getParamId).subscribe((response: ApiResponse) => {
+      const payload: UserUpdatePayload = this.uFormGroup.value;
+      this.apiService.updateUser(payload, this.getParamId).subscribe((response: ApiResponse) => {
         this.successMsg = response.code;
       })
     } else {
