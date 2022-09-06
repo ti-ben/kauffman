@@ -29,7 +29,7 @@ public class Site {
     private Date created_on;
     private Boolean active;
 
-    @OneToOne(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST})
-    @JoinColumn(name = "address_id")
+    @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
+    @JoinColumn(name = "address_id", referencedColumnName = "address_id")
     private Address address;
 }

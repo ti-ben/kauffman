@@ -26,15 +26,28 @@ export class SiteCreateComponent implements OnInit {
 
   private initForm(): void {
     this.sFormGroup = new FormGroup({
-      'name': new FormControl('', Validators.required),
-      'created_on': new FormControl(this.currentDate),
-      'description': new FormControl(),
-      'active': new FormControl(true)
+      name: new FormControl('', Validators.required),
+      created_on: new FormControl(this.currentDate),
+      description: new FormControl(),
+      active: new FormControl(true),
+      road: new FormControl(null),
+      num: new FormControl(null),
+      town: new FormControl(null),
+      postal_code: new FormControl(null),
+      country: new FormControl(null)
     });
   }
 
   create() {
     if (this.sFormGroup.valid) {
+      this.sFormGroup.value.address = {
+        address_id: null,
+        road: this.sFormGroup.value.road,
+        num: this.sFormGroup.value.num,
+        town: this.sFormGroup.value.town,
+        postal_code: this.sFormGroup.value.postal_code,
+        country: this.sFormGroup.value.country
+      }
       this.apiService.createSite(this.sFormGroup.value).subscribe((response: ApiResponse) => {
         if (response.result) {
           this.initForm();

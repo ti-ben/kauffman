@@ -27,6 +27,7 @@ public class SiteController {
                 .setDescription(payload.getDescription())
                 .setCreatedOn(payload.getCreated_on())
                 .setActive(payload.getActive())
+                .setAddress(payload.getAddress())
                 .build();
         return new ApiResponse(true, siteRepository.save(site), "api.site.create.success");
     }
@@ -58,6 +59,7 @@ public class SiteController {
         fromDb.setDescription(payload.getDescription());
         fromDb.setCreated_on(payload.getCreated_on());
         fromDb.setActive(payload.getActive());
+        fromDb.setAddress(payload.getAddress());
         return new ApiResponse(true, siteRepository.save(fromDb), "api.site.update.success");
     }
 

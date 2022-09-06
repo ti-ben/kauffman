@@ -1,7 +1,4 @@
-  <div class="container card card-warning card-outline" >
-
-  <form [formGroup]="sFormGroup">
-    <div class="card-body">
+  <div class="container card card-warning card-outline" *ngIf="sFormGroup">
 
       <div *ngIf="errorMsg" class="alert alert-warning alert-dismissible">
         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
@@ -14,33 +11,69 @@
         <h5><i class="icon fas fa-check"></i> Alert!</h5>
         {{successMsg}}
       </div>
-<!--
-      <div class="form-group">
-        <label>Site ID</label>
-        <input type="email" class="form-control" formControlName="site_id" placeholder="Nom du site">
-      </div>
--->
-      <div class="form-group">
+
+    <form [formGroup]="sFormGroup">
+      <div class="card-body form-row">
+
+      <div class="col-md-4 mb-3">
         <label>Nom du site</label>
         <input type="email" class="form-control" formControlName="name" placeholder="Nom du site">
       </div>
-      <div class="form-group">
+
+      <div class="col-md-4 mb-3">
         <label>Date de création</label>
         <input type="date" class="form-control" formControlName="created_on">
       </div>
-      <div class="form-group">
+
+        <div class="col-md-4 mb-3">
+          <label>Actif?</label>
+          <select class="custom-select" formControlName="active">
+            <option [value]="true">Oui</option>
+            <option [value]="false">Non</option>
+          </select>
+        </div>
+
+      <div class="col-md-12 mb-3">
         <label>Description</label>
         <textarea type="text" class="form-control" formControlName="description"
                   placeholder="Description brève du site"></textarea>
       </div>
-      <div class="form-group">
-        <label>Actif?</label>
-        <select class="custom-select" formControlName="active">
-          <option [value]="true">Oui</option>
-          <option [value]="false">Non</option>
+
+      <div class="col-md-6 mb-3">
+        <label>Rue</label>
+        <input type="text" class="form-control" formControlName="road">
+      </div>
+
+      <div class="col-md-1 mb-3">
+        <label>N°</label>
+        <input type="text" class="form-control" formControlName="num">
+      </div>
+
+      <div class="col-md-1 mb-3">
+        <label>CP</label>
+        <input type="text" class="form-control" formControlName="postal_code">
+      </div>
+
+      <div class="col-md-2 mb-3">
+        <label>Ville</label>
+        <input type="text" class="form-control" formControlName="town">
+      </div>
+
+      <div class="col-md-2 mb-3">
+        <label>Pays</label>
+        <select class="custom-select" formControlName="country">
+          <option [value]="null" disabled>Choix du pays</option>
+          <option [value]="'Belgique'">Belgique</option>
+          <option [value]="'France'">France</option>
+          <option [value]="'Allemagne'">Allemagne</option>
+          <option [value]="'Luxembourg'">Luxembourg</option>
+          <option [value]="'Pays-bas'">Pays-bas</option>
         </select>
       </div>
-      <button type="submit" class="btn btn-primary" (click)="create()">Enregistrer</button>
+
+      <div class="col-md-3 mb-3">
+      <button type="submit" class="btn btn-success col-md-12" (click)="create()">Enregistrer</button>
+      </div>
     </div>
   </form>
 </div>
