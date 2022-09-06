@@ -31,6 +31,7 @@ import {RankUpdateComponent} from "./rank/component/rank-update/rank-update.comp
 import {StatusCreateComponent} from "./status/component/status-create/status-create.component";
 import {StatusUpdateComponent} from "./status/component/status-update/status-update.component";
 
+
 const routes: Routes = [
   {
     path: 'dashboard', component: DashboardComponent,

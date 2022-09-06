@@ -6,14 +6,12 @@ import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 
-
-
 @NgModule({
   declarations: [
     BreadcrumbComponent,
     FooterComponent,
     HeaderComponent,
-    SidebarComponent
+    SidebarComponent,
   ],
   exports: [
     HeaderComponent,

@@ -5,8 +5,9 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {NoPageFoundComponent} from './shared/no-page-found/no-page-found.component';
 import {ApiService} from "./shared/services/api.service";
-import {HttpClientModule} from "@angular/common/http";
+import {HttpClientModule, HTTP_INTERCEPTORS} from "@angular/common/http";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {AuthInterceptor} from "./shared/auth/authconfig.interceptor";
 
 
 @NgModule({
@@ -20,9 +21,14 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule
-
   ],
-  providers: [ApiService],
+  providers: [ApiService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }
+    ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

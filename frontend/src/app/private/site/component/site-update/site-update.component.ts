@@ -27,6 +27,11 @@ export class SiteUpdateComponent implements OnInit {
         created_on: new FormControl(response.data.created_on.toString().slice(0, 10)),
         description: new FormControl(response.data.description),
         active: new FormControl(response.data.active),
+        road: new FormControl(null),
+        num: new FormControl(null),
+        town: new FormControl(null),
+        postal_code: new FormControl(null),
+        country: new FormControl(null)
       })
     })
   }

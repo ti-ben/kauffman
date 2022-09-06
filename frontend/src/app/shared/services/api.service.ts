@@ -148,7 +148,7 @@ export class ApiService {
   }
 
   updateSite(data: any, id: any): Observable<ApiResponse> {
-    return this.http.put(`${this.baseUrl}/site/update/${id}`, data)
+    return this.http.post(`${this.baseUrl}/site/update/${id}`, data)
       .pipe(
         map(response => response as ApiResponse)
       );
