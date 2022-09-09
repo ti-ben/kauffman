@@ -32,7 +32,12 @@
 
       <div class="col-md-4 mb-3">
         <label>Genre</label>
-        <input type="text" class="form-control" formControlName="gender" value="{{uDetails.gender}}">
+        <select class="custom-select" formControlName="gender">
+          <option [value]="null" disabled>Choix du genre</option>
+          <option [value]="'Femele'">Femme</option>
+          <option [value]="'Male'">Homme</option>
+          <option [value]="'NA'">Non genré</option>
+        </select>
       </div>
 
       <div class="col-md-4 mb-3">
