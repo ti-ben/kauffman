@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ApiService} from "../../../../shared/services/api.service";
 import {ApiResponse} from "../../../../shared/model";
 
@@ -10,26 +10,25 @@ import {ApiResponse} from "../../../../shared/model";
 export class UserListComponent implements OnInit {
 
   readData: any;
-  successMsg:string = '';
   errorMsg: string = '';
+  successMsg: string = '';
 
-  constructor(private apiService:ApiService) { }
+  constructor(private apiService: ApiService) {
+  }
 
   ngOnInit(): void {
     this.getAllData();
   }
 
-  delete(id:string)
-  {
-    this.apiService.deleteUser(id).subscribe((res: ApiResponse)=> {
+  delete(id: string) {
+    this.apiService.deleteUser(id).subscribe((res: ApiResponse) => {
       this.successMsg = res.code;
       this.getAllData();
     })
   }
 
-  getAllData()
-  {
-    this.apiService.getAllUser().subscribe((res: ApiResponse)=> {
+  getAllData() {
+    this.apiService.getAllUser().subscribe((res: ApiResponse) => {
       this.readData = res.data;
     })
   }

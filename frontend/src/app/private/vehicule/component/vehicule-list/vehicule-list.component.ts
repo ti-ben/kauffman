@@ -10,8 +10,8 @@ import {ApiService} from "../../../../shared/services/api.service";
 export class VehiculeListComponent implements OnInit {
 
   vehiculesList: any;
-  successMsg: string = '';
   errorMsg: string = '';
+  successMsg: string = '';
 
   constructor(private apiService: ApiService) {
   }
@@ -20,13 +20,16 @@ export class VehiculeListComponent implements OnInit {
     this.getAllVehicule();
   }
 
+  delete(id: string) {
+    this.apiService.deleteVehicule(id).subscribe((res: ApiResponse) => {
+      this.successMsg = res.code;
+      this.getAllVehicule();
+    })
+  }
+
   getAllVehicule() {
     this.apiService.getAllVehicule().subscribe((response: ApiResponse) => {
       this.vehiculesList = response.data;
     })
-  }
-
-  delete(id: string) {
-    alert('delete');
   }
 }
