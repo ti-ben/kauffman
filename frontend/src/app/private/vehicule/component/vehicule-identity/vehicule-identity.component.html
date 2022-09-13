@@ -132,7 +132,7 @@
         </div>
 
         <div class="col-md-4 mb-3">
-          <label>Roule à</label>
+          <label>Affecté à (Site)</label>
           <select class="custom-select" formControlName="site_id">
             <option [value]="null" selected disabled>Select a site</option>
             <option *ngFor="let site of sitesList" [value]="site.site_id">{{site.name}}</option>

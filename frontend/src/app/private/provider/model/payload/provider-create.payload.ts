@@ -4,5 +4,4 @@ export interface ProviderCreatePayload{
   phone: string,
   active: Boolean
   service: string,
-  //address: address
 }

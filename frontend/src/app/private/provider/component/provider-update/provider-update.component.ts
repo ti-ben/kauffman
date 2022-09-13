@@ -28,8 +28,12 @@ export class ProviderUpdateComponent implements OnInit {
         phone: new FormControl(response.data.phone),
         email: new FormControl(response.data.email),
         active: new FormControl(response.data.active),
-        address_id: new FormControl(response.data.address_id),
-        service: new FormControl(response.data.service)
+        service: new FormControl(response.data.service),
+        road: new FormControl(response.data.address.road),
+        num: new FormControl(response.data.address.num),
+        town: new FormControl(response.data.address.town),
+        postal_code: new FormControl(response.data.address.postal_code),
+        country: new FormControl(response.data.address.country)
       })
     })
   }

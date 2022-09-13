@@ -33,7 +33,7 @@
       <div class="col-md-4 mb-3">
         <label>Genre</label>
         <select class="custom-select" formControlName="gender">
-          <option [value]="null" disabled>Choix du genre</option>
+          <option [value]="null" disabled>--- Sélectionnez ---</option>
           <option [value]="'Femele'">Femme</option>
           <option [value]="'Male'">Homme</option>
           <option [value]="'NA'">Non genré</option>
@@ -73,7 +73,7 @@
       <div class="col-md-4 mb-3">
         <label>Type de permis</label>
         <select class="custom-select" formControlName="driver_license">
-          <option [value]="null" disabled>Séléctionnez un permis</option>
+          <option [value]="null" disabled>--- Sélectionnez ---</option>
           <option [value]="'B'">B</option>
           <option [value]="'C'">C</option>
           <option [value]="'CE'">CE</option>
@@ -100,7 +100,7 @@
       <div class="col-md-4 mb-3">
         <label>Employé actif?</label>
         <select class="custom-select" formControlName="active">
-          <option [value]="null" disabled>Select an option</option>
+          <option [value]="null" disabled>--- Sélectionnez ---</option>
           <option [value]="true">Oui</option>
           <option [value]="false">Non</option>
         </select>
@@ -109,7 +109,7 @@
       <div class="col-md-4 mb-3">
         <label>Travail à</label>
         <select class="custom-select" formControlName="site">
-          <option [value]="null" selected disabled>Select an option</option>
+          <option [value]="null" disabled>--- Sélectionnez ---</option>
           <option *ngFor="let site of sitesList" [value]="site.site_id">{{site.name}}</option>
         </select>
       </div>
@@ -117,7 +117,7 @@
       <div class="col-md-4 mb-3">
         <label>Status</label>
         <select class="custom-select" formControlName="status">
-          <option [value]="null" disabled>Select an option</option>
+          <option [value]="null" disabled>--- Sélectionnez ---</option>
           <option *ngFor="let status of statusList" [value]="status.status_id">{{status.name}}</option>
         </select>
       </div>
@@ -145,7 +145,7 @@
       <div class="col-md-2 mb-3">
         <label>Pays</label>
         <select class="custom-select" formControlName="country">
-          <option [value]="null" disabled>Séléctionnez un pays</option>
+          <option [value]="null" disabled>--- Sélectionnez ---</option>
           <option [value]="'Belgique'">Belgique</option>
           <option [value]="'France'">France</option>
           <option [value]="'Allemagne'">Allemagne</option>

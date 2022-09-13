@@ -6,7 +6,6 @@ import {ApiResponse} from "../../../../shared/model";
 import {Site} from "../../../site/model/site";
 import {Status} from "../../../status/model/status";
 import {Address} from "../../../address/model/address";
-import {UserCreatePayload} from "../../model/payload/user-create.payload";
 import {UserUpdatePayload} from "../../model/payload/user-update.payload";
 
 @Component({

@@ -29,6 +29,7 @@ public class ProviderController {
                 .setAddress(payload.getAddress())
                 .setService(payload.getService())
                 .setActive(payload.getActive())
+                .setAddress(payload.getAddress())
                 .build();
         return new ApiResponse(true, providerRepository.save(provider), "api.provider.create.success");
     }
@@ -62,6 +63,7 @@ public class ProviderController {
         fromDb.setAddress(payload.getAddress());
         fromDb.setService(payload.getService());
         fromDb.setActive(payload.getActive());
+        fromDb.setAddress(payload.getAddress());
         return new ApiResponse(true, providerRepository.save(fromDb), "api.provider.update.success");
     }
 

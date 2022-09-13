@@ -13,7 +13,7 @@ export class SiteCreateComponent implements OnInit {
 
   errorMsg: string = '';
   successMsg: string = '';
-  sFormGroup!: FormGroup;
+  formGroup!: FormGroup;
   currentDate = new Date().toISOString().substring(0, 10);
   getParamId = this.activatedRoute.snapshot.paramMap.get('id')
 
@@ -25,7 +25,7 @@ export class SiteCreateComponent implements OnInit {
   }
 
   private initForm(): void {
-    this.sFormGroup = new FormGroup({
+    this.formGroup = new FormGroup({
       name: new FormControl('', Validators.required),
       created_on: new FormControl(this.currentDate),
       description: new FormControl(),
@@ -39,16 +39,16 @@ export class SiteCreateComponent implements OnInit {
   }
 
   create() {
-    if (this.sFormGroup.valid) {
-      this.sFormGroup.value.address = {
+    if (this.formGroup.valid) {
+      this.formGroup.value.address = {
         address_id: null,
-        road: this.sFormGroup.value.road,
-        num: this.sFormGroup.value.num,
-        town: this.sFormGroup.value.town,
-        postal_code: this.sFormGroup.value.postal_code,
-        country: this.sFormGroup.value.country
+        road: this.formGroup.value.road,
+        num: this.formGroup.value.num,
+        town: this.formGroup.value.town,
+        postal_code: this.formGroup.value.postal_code,
+        country: this.formGroup.value.country
       }
-      this.apiService.createSite(this.sFormGroup.value).subscribe((response: ApiResponse) => {
+      this.apiService.createSite(this.formGroup.value).subscribe((response: ApiResponse) => {
         if (response.result) {
           this.initForm();
           this.successMsg = response.code;

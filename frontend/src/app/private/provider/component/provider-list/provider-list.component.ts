@@ -10,8 +10,8 @@ import {ApiService} from "../../../../shared/services/api.service";
 export class ProviderListComponent implements OnInit {
 
   pList: any;
-  successMsg:any;
-  errorMsg: any;
+  successMsg:string = '';
+  errorMsg: string = '';
 
   constructor(private apiService:ApiService) { }
 

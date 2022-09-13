@@ -1,40 +1,41 @@
 <div class="container card card-warning card-outline" *ngIf="formGroup">
-  <form [formGroup]="formGroup">
-    <div class="card-body">
 
-      <div *ngIf="errorMsg" class="alert alert-warning alert-dismissible">
+  <form [formGroup]="formGroup">
+    <div class="card-body form-row">
+
+      <div *ngIf="errorMsg" class="alert alert-warning alert-dismissible col-md-12 mb-3">
         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
         <h5><i class="icon fas fa-exclamation-triangle"></i> Alert!</h5>
         {{errorMsg}}
       </div>
 
-      <div *ngIf="successMsg" class="alert alert-success alert-dismissible">
+      <div *ngIf="successMsg" class="alert alert-success alert-dismissible col-md-12 mb-3">
         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
         <h5><i class="icon fas fa-check"></i> Alert!</h5>
         {{successMsg}}
       </div>
 
-      <div class="form-group">
+      <div class="col-md-4 mb-3">
         <label>Nom du prestataire</label>
         <input type="email" class="form-control" placeholder="Nom du prestataire" formControlName="name">
       </div>
 
-      <div class="form-group">
-        <label>Adresse email</label>
-        <input type="email" class="form-control" placeholder="email" formControlName="email">
-      </div>
-
-      <div class="form-group">
+      <div class="col-md-4 mb-3">
         <label>Type de service</label>
         <input type="email" class="form-control" placeholder="Type de service" formControlName="service">
       </div>
 
-      <div class="form-group">
+      <div class="col-md-4 mb-3">
         <label>Téléphone</label>
         <input type="email" class="form-control" placeholder="Téléphone" formControlName="phone">
       </div>
 
-      <div class="form-group">
+      <div class="col-md-8 mb-3">
+        <label>Adresse email</label>
+        <input type="email" class="form-control" placeholder="email" formControlName="email">
+      </div>
+
+      <div class="col-md-4 mb-3">
         <label>Actif?</label>
         <select class="custom-select" formControlName="active">
           <option [value]="true">Oui</option>
@@ -42,11 +43,41 @@
         </select>
       </div>
 
-      <div class="form-group">
-        <label>Adresse du prestataire</label>
-        <input type="email" class="form-control" placeholder="Adresse" formControlName="address_id">
+      <div class="col-md-6 mb-3">
+        <label>Rue</label>
+        <input type="text" class="form-control" formControlName="road">
       </div>
-      <button type="submit" class="btn btn-primary" (click)="create()">Enregistrer</button>
+
+      <div class="col-md-1 mb-3">
+        <label>N°</label>
+        <input type="text" class="form-control" formControlName="num">
+      </div>
+
+      <div class="col-md-1 mb-3">
+        <label>CP</label>
+        <input type="text" class="form-control" formControlName="postal_code">
+      </div>
+
+      <div class="col-md-2 mb-3">
+        <label>Ville</label>
+        <input type="text" class="form-control" formControlName="town">
+      </div>
+
+      <div class="col-md-2 mb-3">
+        <label>Pays</label>
+        <select class="custom-select" formControlName="country">
+          <option [value]="null" disabled>Choix du pays</option>
+          <option [value]="'Belgique'">Belgique</option>
+          <option [value]="'France'">France</option>
+          <option [value]="'Allemagne'">Allemagne</option>
+          <option [value]="'Luxembourg'">Luxembourg</option>
+          <option [value]="'Pays-bas'">Pays-bas</option>
+        </select>
+      </div>
+
+      <div class="col-md-4 mb-3">
+        <button type="submit" class="btn btn-success col-md-12" (click)="create()">Enregistrer</button>
+      </div>
     </div>
   </form>
 </div>

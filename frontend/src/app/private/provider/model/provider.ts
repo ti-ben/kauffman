@@ -5,5 +5,4 @@ export interface Site {
   phone: String,
   active: Boolean
   service: String,
-  //address: address
 }

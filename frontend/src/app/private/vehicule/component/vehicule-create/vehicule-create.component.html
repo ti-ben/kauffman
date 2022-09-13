@@ -26,7 +26,7 @@
       <div class="col-md-4 mb-3">
         <label>Classe environementale</label>
         <select class="custom-select" formControlName="classe_enviro">
-          <option [value]="null" selected disabled>Select an option</option>
+          <option [value]="null" selected disabled>--- Sélectionnez ---</option>
           <option [value]="'Euro 0'">Euro 0</option>
           <option [value]="'Euro I'">Euro I</option>
           <option [value]="'Euro II'">Euro II</option>
@@ -40,7 +40,7 @@
       <div class="col-md-4 mb-3">
         <label>Type de carburant</label>
         <select class="custom-select" formControlName="fuel">
-          <option [value]="null" selected disabled>Select a type</option>
+          <option [value]="null" selected disabled>--- Sélectionnez ---</option>
           <option [value]="'Diesel'">Diesel</option>
           <option [value]="'Essence'">Essence</option>
         </select>
@@ -62,22 +62,22 @@
       </div>
 
       <div class="col-md-4 mb-3">
-        <label>mma</label>
+        <label>Masse Maximum Autorisée</label>
         <input type="text" class="form-control" formControlName="mma">
       </div>
 
       <div class="col-md-4 mb-3">
-        <label>mmat</label>
+        <label>MMA Train</label>
         <input type="text" class="form-control" formControlName="mmat">
       </div>
 
       <div class="col-md-4 mb-3">
-        <label>mom</label>
+        <label>Tare (Masse Ordre Marche)</label>
         <input type="text" class="form-control" formControlName="mom">
       </div>
 
       <div class="col-md-4 mb-3">
-        <label>mta</label>
+        <label>Masse Technique Autorisée</label>
         <input type="text" class="form-control" formControlName="mta">
       </div>
 
@@ -99,7 +99,7 @@
       <div class="col-md-4 mb-3">
         <label>Type de véhicule</label>
         <select class="custom-select" formControlName="type">
-          <option [value]="null" selected disabled>Select a type</option>
+          <option [value]="null" selected disabled>--- Sélectionnez ---</option>
           <option [value]="'Citerne'">Citerne</option>
           <option [value]="'Colis'">Colis</option>
         </select>
@@ -108,7 +108,7 @@
       <div class="col-md-4 mb-3">
         <label>Acheté par (site):</label>
         <select class="custom-select" formControlName="bought_by">
-          <option [value]="null" selected disabled>Select a site</option>
+          <option [value]="null" selected disabled>--- Sélectionnez ---</option>
           <option *ngFor="let site of sitesList" [value]="site.site_id">{{site.name}}</option>
         </select>
       </div>
@@ -121,7 +121,7 @@
       <div class="col-md-4 mb-3">
         <label>Véhicule actif?</label>
         <select class="custom-select" formControlName="active">
-          <option [value]="null" disabled>Select activity</option>
+          <option [value]="null" disabled>--- Sélectionnez ---</option>
           <option [value]="true">Oui</option>
           <option [value]="false">Non</option>
         </select>
@@ -130,7 +130,7 @@
       <div class="col-md-4 mb-3">
         <label>Affecté à (Site)</label>
         <select class="custom-select" formControlName="site_id">
-          <option [value]="null" selected disabled>Select a site</option>
+          <option [value]="null" selected disabled>--- Sélectionnez ---</option>
           <option *ngFor="let site of sitesList" [value]="site.site_id">{{site.name}}</option>
         </select>
       </div>
@@ -138,7 +138,7 @@
       <div class="col-md-4 mb-3">
         <label>N° d'immatriculation</label>
         <select class="custom-select" formControlName="numberplate_id">
-          <option [value]="null" disabled>Select a numberplate</option>
+          <option [value]="null" disabled>--- Sélectionnez ---</option>
           <option *ngFor="let numberplate of numberplateList"
                   [value]="numberplate.numberplate_id">{{numberplate.num_plate}}</option>
         </select>

@@ -26,8 +26,8 @@ public class Provider {
     private String service;
     private Boolean active;
 
-    @OneToOne()
-    @JoinColumn(name = "address_id")
+    @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
+    @JoinColumn(name = "address_id", referencedColumnName = "address_id")
     private Address address;
 
 }

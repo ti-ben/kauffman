@@ -22,9 +22,33 @@ export class ProviderCreateComponent implements OnInit {
     this.initForm();
   }
 
+  private initForm(): void {
+    this.formGroup = new FormGroup({
+      name: new FormControl('', [Validators.required]),
+      phone: new FormControl('', [Validators.required]),
+      email: new FormControl('', [Validators.required]),
+      service: new FormControl('', [Validators.required]),
+      address_id: new FormControl(''),
+      active: new FormControl(true),
+      road: new FormControl(null),
+      num: new FormControl(null),
+      town: new FormControl(null),
+      postal_code: new FormControl(null),
+      country: new FormControl(null)
+    });
+  }
+
   create() {
     if (this.formGroup.valid) {
       const payload: ProviderCreatePayload = this.formGroup.value;
+      this.formGroup.value.address = {
+        address_id: null,
+        road: this.formGroup.value.road,
+        num: this.formGroup.value.num,
+        town: this.formGroup.value.town,
+        postal_code: this.formGroup.value.postal_code,
+        country: this.formGroup.value.country
+      }
       this.apiService.createProvider(payload).subscribe((response: ApiResponse) => {
         if (response.result) {
           this.initForm();
@@ -34,17 +58,6 @@ export class ProviderCreateComponent implements OnInit {
     } else {
       this.errorMsg = 'All fields are required';
     }
-  }
-
-  private initForm(): void {
-    this.formGroup = new FormGroup({
-      name: new FormControl('', [Validators.required]),
-      phone: new FormControl('', [Validators.required]),
-      email: new FormControl('', [Validators.required]),
-      service: new FormControl('', [Validators.required]),
-      address_id: new FormControl(''),
-      active: new FormControl(true)
-    });
   }
 
 }
