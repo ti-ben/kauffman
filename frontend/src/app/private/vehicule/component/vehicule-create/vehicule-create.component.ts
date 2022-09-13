@@ -34,7 +34,7 @@ export class VehiculeCreateComponent implements OnInit {
     this.formGroup = new FormGroup({
       active: new FormControl('true', Validators.required),
       avatar: new FormControl('truck.png'),
-      bought_by: new FormControl(null),
+      bought_by: new FormControl(null, Validators.required),
       brand: new FormControl('', Validators.required),
       cde_carrosserie: new FormControl(''),
       classe_enviro: new FormControl(null, Validators.required),
