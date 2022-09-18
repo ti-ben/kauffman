@@ -30,6 +30,13 @@ export class ApiService {
       );
   }
 
+  updateStatus(data: any): Observable<ApiResponse> {
+    return this.http.put(`${this.baseUrl}/status/update`, data)
+      .pipe(
+        map(response => response as ApiResponse)
+      );
+  }
+
   getSingleStatus(id: any): Observable<ApiResponse> {
     return this.http.get(`${this.baseUrl}/status/detail/${id}`)
       .pipe(
@@ -54,8 +61,8 @@ export class ApiService {
       );
   }
 
-  updateProvider(data: any, id: any): Observable<ApiResponse> {
-    return this.http.put(`${this.baseUrl}/provider/update/${id}`, data)
+  updateProvider(data: any): Observable<ApiResponse> {
+    return this.http.put(`${this.baseUrl}/provider/update`, data)
       .pipe(
         map(response => response as ApiResponse)
       );
@@ -99,8 +106,8 @@ export class ApiService {
       );
   }
 
-  updateRank(data: any, id: any): Observable<ApiResponse> {
-    return this.http.put(`${this.baseUrl}/rank/update/${id}`, data)
+  updateRank(data: any): Observable<ApiResponse> {
+    return this.http.put(`${this.baseUrl}/rank/update`, data)
       .pipe(
         map(response => response as ApiResponse)
       );
@@ -147,8 +154,8 @@ export class ApiService {
       );
   }
 
-  updateSite(data: any, id: any): Observable<ApiResponse> {
-    return this.http.post(`${this.baseUrl}/site/update/${id}`, data)
+  updateSite(data: any): Observable<ApiResponse> {
+    return this.http.put(`${this.baseUrl}/site/update`, data)
       .pipe(
         map(response => response as ApiResponse)
       );
@@ -192,8 +199,8 @@ export class ApiService {
       );
   }
 
-  updateNumberplate(data: any, id: any): Observable<ApiResponse> {
-    return this.http.put(`${this.baseUrl}/numberplate/update/${id}`, data)
+  updateNumberplate(data: any): Observable<ApiResponse> {
+    return this.http.put(`${this.baseUrl}/numberplate/update`, data)
       .pipe(
         map(response => response as ApiResponse)
       );
@@ -223,8 +230,8 @@ export class ApiService {
       );
   }
 
-  updateUser(data: any, id: any): Observable<ApiResponse> {
-      return this.http.put(`${this.baseUrl}/user/update/${id}`, data)
+  updateUser(data: any): Observable<ApiResponse> {
+      return this.http.put(`${this.baseUrl}/user/update`, data)
       .pipe(
         map(response => response as ApiResponse)
       );
@@ -318,8 +325,8 @@ export class ApiService {
       );
   }
 
-  updateVehicule(data: any, id: any): Observable<ApiResponse> {
-    return this.http.put(`${this.baseUrl}/vehicule/update/${id}`, data)
+  updateVehicule(data: any): Observable<ApiResponse> {
+    return this.http.put(`${this.baseUrl}/vehicule/update`, data)
       .pipe(
         map(response => response as ApiResponse)
       );

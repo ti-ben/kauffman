@@ -1,7 +1,7 @@
 <div class="container card card-warning card-outline" *ngIf="formGroup">
 
   <form [formGroup]="formGroup">
-    <div class="card-body">
+    <div class="card-body form-row">
 
       <div *ngIf="errorMsg" class="alert alert-warning alert-dismissible">
         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
@@ -15,17 +15,17 @@
         {{successMsg}}
       </div>
 
-      <div class="form-group">
+      <div class="col-md-6 mb-3">
         <label>N° de la plaque d'immatriculation</label>
         <input type="text" class="form-control" formControlName="num_plate">
       </div>
 
-      <div class="form-group">
+      <div class="col-md-6 mb-3">
         <label>Date d'achat</label>
         <input type="date" class="form-control" formControlName="dop">
       </div>
 
-      <div class="form-group">
+      <div class="col-md-6 mb-3">
         <label>Affectée au site de</label>
         <select class="custom-select" formControlName="site">
           <option [value]="null" disabled>Select an option</option>
@@ -33,7 +33,7 @@
         </select>
       </div>
 
-      <div class="form-group">
+      <div class="col-md-6 mb-3">
         <label>Plaque active ?</label>
         <select class="custom-select" formControlName="active">
           <option [value]="null" disabled>Select an option</option>
@@ -42,7 +42,9 @@
         </select>
       </div>
 
-      <button type="submit" class="btn btn-primary" (click)="update()">update</button>
+      <div class="col-md-12 mb-3">
+      <button type="submit" class="btn btn-success col-md-4" (click)="update()">Mettre à jour</button>
+      </div>
     </div>
   </form>
 

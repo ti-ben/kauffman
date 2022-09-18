@@ -81,17 +81,7 @@
           <option [value]="'DE'">DE</option>
         </select>
       </div>
-<!--
-      <div class="col-md-4 mb-3">
-        <label>created_on</label>
-        <input type="date" class="form-control" formControlName="created_on" value="{{uDetails.created_on}}">
-      </div>
 
-      <div class="col-md-4 mb-3">
-        <label>updated_on</label>
-        <input type="date" class="form-control" formControlName="updated_on" value="{{uDetails.updated_on}}">
-      </div>
--->
       <div class="col-md-4 mb-3">
         <label>Lieu de naissance</label>
         <input type="text" class="form-control" formControlName="pob" value="{{uDetails.pob}}">
@@ -157,6 +147,7 @@
       <div class="col-md-12 mb-3">
         <button type="submit" class="btn btn-success col-md-4" *ngIf="getParamId" (click)="update()">Mettre à jour</button>
       </div>
+
     </div>
   </form>
 </div>

@@ -1,6 +1,6 @@
-<div *ngIf="identityFormGroup">
+<div *ngIf="formGroup">
 
-  <form [formGroup]="identityFormGroup">
+  <form [formGroup]="formGroup">
     <div class="card-body">
 
       <div *ngIf="errorMsg" class="alert alert-warning alert-dismissible">
@@ -30,7 +30,7 @@
         <div class="col-md-4 mb-3">
           <label>Classe environementale</label>
           <select class="custom-select" formControlName="classe_enviro">
-            <option [value]="null" selected disabled>Select an option</option>
+            <option [value]="null" disabled>--- Sélectionnez ---</option>
             <option [value]="'Euro 0'">Euro 0</option>
             <option [value]="'Euro I'">Euro I</option>
             <option [value]="'Euro II'">Euro II</option>
@@ -98,13 +98,18 @@
 
         <div class="col-md-4 mb-3">
           <label>Prix d'achat</label>
-          <input type="currency" class="form-control" formControlName="price">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">&euro;</span>
+            </div>
+            <input type="number" class="form-control" formControlName="price">
+          </div>
         </div>
 
         <div class="col-md-4 mb-3">
           <label>Type de véhicule</label>
           <select class="custom-select" formControlName="type">
-            <option [value]="null" selected disabled>Select a type</option>
+            <option [value]="null" disabled>--- Sélectionnez ---</option>
             <option [value]="'Citerne'">Citerne</option>
             <option [value]="'Colis'">Colis</option>
           </select>
@@ -113,7 +118,7 @@
         <div class="col-md-4 mb-3">
           <label>Acheté par (site):</label>
           <select class="custom-select" formControlName="bought_by">
-            <option [value]="null" selected disabled>Select a site</option>
+            <option [value]="null" disabled>--- Sélectionnez ---</option>
             <option *ngFor="let site of sitesList" [value]="site.site_id">{{site.name}}</option>
           </select>
         </div>
@@ -126,7 +131,7 @@
         <div class="col-md-4 mb-3">
           <label>Véhicule actif?</label>
           <select class="custom-select" formControlName="active">
-            <option [value]="null" disabled>Select activity</option>
+            <option [value]="null" disabled>--- Sélectionnez ---</option>
             <option [value]="true">Oui</option>
             <option [value]="false">Non</option>
           </select>
@@ -134,16 +139,16 @@
 
         <div class="col-md-4 mb-3">
           <label>Affecté à (Site)</label>
-          <select class="custom-select" formControlName="site_id">
-            <option [value]="null" selected disabled>Select a site</option>
+          <select class="custom-select" formControlName="site">
+            <option [value]="null" disabled>--- Sélectionnez ---</option>
             <option *ngFor="let site of sitesList" [value]="site.site_id">{{site.name}}</option>
           </select>
         </div>
 
         <div class="col-md-4 mb-3">
           <label>N° d'immatriculation</label>
-          <select class="custom-select" formControlName="numberplate_id">
-            <option [value]="null" disabled>Select a site</option>
+          <select class="custom-select" formControlName="numberplate">
+            <option [value]="null" disabled>--- Sélectionnez ---</option>
             <option *ngFor="let numberplate of numberplateList" [value]="numberplate.numberplate_id">{{numberplate.num_plate}}</option>
           </select>
         </div>

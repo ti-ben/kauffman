@@ -32,7 +32,7 @@ export class RankUpdateComponent implements OnInit {
 
   update() {
     if (this.uFormGroup.value) {
-      this.apiService.updateRank(this.uFormGroup.value, this.getParamId).subscribe((response: ApiResponse) => {
+      this.apiService.updateRank(this.uFormGroup.value).subscribe((response: ApiResponse) => {
         this.successMsg = response.code;
       })
     } else {

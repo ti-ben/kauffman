@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {ApiService} from "../../../../shared/services/api.service";
 import {ApiResponse} from "../../../../shared/model";
@@ -16,7 +16,7 @@ export class VehiculeIdentityComponent implements OnInit {
   errorMsg: string = '';
   sitesList: Site[] = [];
   successMsg: string = '';
-  identityFormGroup!: FormGroup;
+  formGroup!: FormGroup;
   numberplateList: Numberplate[] = [];
   getParamId = this.activatedRoute.snapshot.paramMap.get('id');
 
@@ -27,7 +27,7 @@ export class VehiculeIdentityComponent implements OnInit {
     this.allNumberplateList();
     this.allSiteList();
     this.apiService.getSingleVehicule(this.getParamId).subscribe((response: ApiResponse) => {
-      this.identityFormGroup = new FormGroup({
+      this.formGroup = new FormGroup({
         vehicule_id: new FormControl(response.data.vehicule_id),
         active: new FormControl(response.data.active),
         avatar: new FormControl(response.data.avatar),
@@ -49,14 +49,23 @@ export class VehiculeIdentityComponent implements OnInit {
         price: new FormControl(response.data.price),
         type: new FormControl(response.data.type),
         updated_on: new FormControl(response.data.updated_on.toString().slice(0, 10)),
-        numberplate_id: new FormControl(response.data.numberplate.numberplate_id),
-        site_id: new FormControl(response.data.site.site_id),
+        numberplate: new FormControl(response.data.numberplate.numberplate_id),
+        site: new FormControl(response.data.site.site_id),
       });
     })
   }
 
   update() {
-    console.log('vFormGroup => ', this.identityFormGroup.value);
+    this.formGroup.value.site = {site_id: this.formGroup.value.site}
+    this.formGroup.value.numberplate = {numberplate_id: this.formGroup.value.numberplate}
+    console.log(this.formGroup.value);
+    if (this.formGroup.valid) {
+      this.apiService.updateVehicule(this.formGroup.value).subscribe((response: ApiResponse) => {
+        this.successMsg = response.code;
+      })
+    } else {
+      this.errorMsg = 'All fields are required';
+    }
   }
 
   allSiteList() {

@@ -49,7 +49,7 @@ public class SiteController {
     }
 
     // Update record
-    @PostMapping("/update")
+    @PutMapping("/update")
     public ApiResponse update(@RequestBody SiteUpdatePayload payload) {
         Site fromDb = siteRepository.findById(payload.getSite_id()).orElse(null);
         if (fromDb == null) {

@@ -17,7 +17,6 @@ export class NumberplateUpdateComponent implements OnInit {
   formGroup!: FormGroup;
   getParamId = this.activatedRoute.snapshot.paramMap.get('id');
   sitesList: Site[] = [];
-  //sitesList: any;
   successMsg: string = '';
   errorMsg: string = '';
 
@@ -28,6 +27,7 @@ export class NumberplateUpdateComponent implements OnInit {
     this.getSitesList();
     this.apiService.getSingleNumberplate(this.getParamId).subscribe((response: ApiResponse) => {
       this.formGroup = new FormGroup({
+        numberplate_id: new FormControl(response.data.numberplate_id),
         site: new FormControl(response.data.site.site_id),
         num_plate: new FormControl(response.data.num_plate),
         dop: new FormControl(response.data.dop.toString().slice(0, 10)),
@@ -37,10 +37,11 @@ export class NumberplateUpdateComponent implements OnInit {
   }
 
   update() {
+    this.formGroup.value.site = {site_id: this.formGroup.value.site}
+    const payload: NumberplateUpdatePayload = this.formGroup.value;
     if (this.formGroup.valid) {
-      const payload: NumberplateUpdatePayload = this.formGroup.value;
-      this.formGroup.value.site = {site_id: payload.site}
-      this.apiService.updateNumberplate(payload, this.getParamId).subscribe((res) => {
+      console.log(payload);
+      this.apiService.updateNumberplate(payload).subscribe((res) => {
         this.successMsg = res.code;
       })
     } else {

@@ -11,7 +11,7 @@ import {ApiResponse} from "../../../../shared/model";
 })
 export class ProviderUpdateComponent implements OnInit {
 
-  pFormGroup!: FormGroup;
+  formGroup!: FormGroup;
   getParamId = this.activatedRoute.snapshot.paramMap.get('id');
   rProvider: Provider[] = [];
   successMsg: string = '';
@@ -22,13 +22,14 @@ export class ProviderUpdateComponent implements OnInit {
 
   ngOnInit(): void {
     this.apiService.getSingleProvider(this.getParamId).subscribe((response: ApiResponse) => {
-      this.pFormGroup = new FormGroup({
+      this.formGroup = new FormGroup({
         provider_id: new FormControl(response.data.provider_id),
         name: new FormControl(response.data.name),
         phone: new FormControl(response.data.phone),
         email: new FormControl(response.data.email),
         active: new FormControl(response.data.active),
         service: new FormControl(response.data.service),
+        address_id: new FormControl(response.data.address.address_id),
         road: new FormControl(response.data.address.road),
         num: new FormControl(response.data.address.num),
         town: new FormControl(response.data.address.town),
@@ -39,6 +40,21 @@ export class ProviderUpdateComponent implements OnInit {
   }
 
   update(): void {
-    console.log(this.pFormGroup.value);
+    console.log(this.formGroup.value)
+    if (this.formGroup.valid) {
+      this.formGroup.value.address = {
+        address_id: this.formGroup.value.address_id,
+        road: this.formGroup.value.road,
+        num: this.formGroup.value.num,
+        town: this.formGroup.value.town,
+        postal_code: this.formGroup.value.postal_code,
+        country: this.formGroup.value.country,
+      }
+      this.apiService.updateProvider(this.formGroup.value).subscribe((res) => {
+        this.successMsg = res.code;
+      })
+    } else {
+      this.errorMsg = 'All fields are required';
+    }
   }
 }

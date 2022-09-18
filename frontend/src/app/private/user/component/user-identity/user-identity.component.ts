@@ -31,8 +31,13 @@ export class UserIdentityComponent implements OnInit {
     this.allSiteList();
     this.allStatusList();
     this.allAddressList();
+    this.initForm();
+  }
+
+  initForm() {
     this.apiService.getSingleUser(this.getParamId).subscribe((res: ApiResponse) => {
       this.uFormGroup = new FormGroup({
+        user_id: new FormControl(res.data.user_id),
         firstname: new FormControl(res.data.firstname),
         lastname: new FormControl(res.data.lastname),
         gender: new FormControl(res.data.gender),
@@ -50,6 +55,7 @@ export class UserIdentityComponent implements OnInit {
         active: new FormControl(res.data.active),
         site: new FormControl(res.data.site.site_id),
         status: new FormControl(res.data.status.status_id),
+        address_id: new FormControl(res.data.address.address_id),
         road: new FormControl(res.data.address.road),
         num: new FormControl(res.data.address.num),
         town: new FormControl(res.data.address.town),
@@ -59,16 +65,23 @@ export class UserIdentityComponent implements OnInit {
     });
   }
 
-
   update() {
+    this.uFormGroup.value.status = {status_id: this.uFormGroup.value.status}
+    this.uFormGroup.value.site = {site_id: this.uFormGroup.value.site}
+    this.uFormGroup.value.address = {
+      address_id: this.uFormGroup.value.address_id,
+      road: this.uFormGroup.value.road,
+      num: this.uFormGroup.value.num,
+      town: this.uFormGroup.value.town,
+      postal_code: this.uFormGroup.value.postal_code,
+      country: this.uFormGroup.value.country,
+    }
+    console.log(this.uFormGroup.value);
     if (this.uFormGroup.valid) {
-      console.log(this.uFormGroup.value);
-      this.uFormGroup.value.site = {site_id: this.uFormGroup.value.site}
-      this.uFormGroup.value.address = {address_id: this.uFormGroup.value.address}
-      this.uFormGroup.value.status = {status_id: this.uFormGroup.value.status}
       const payload: UserUpdatePayload = this.uFormGroup.value;
-      this.apiService.updateUser(payload, this.getParamId).subscribe((response: ApiResponse) => {
+      this.apiService.updateUser(payload).subscribe((response: ApiResponse) => {
         this.successMsg = response.code;
+        this.initForm();
       })
     } else {
       this.errorMsg = 'All fields are required';
@@ -97,7 +110,7 @@ export class UserIdentityComponent implements OnInit {
     })
   }
 
-  allAddressList(){
+  allAddressList() {
     this.apiService.getAllAddress().subscribe((response: ApiResponse) => {
       this.addressList = response.data;
       if (this.addressList == null) {

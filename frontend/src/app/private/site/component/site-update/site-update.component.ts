@@ -27,6 +27,7 @@ export class SiteUpdateComponent implements OnInit {
         created_on: new FormControl(response.data.created_on.toString().slice(0, 10)),
         description: new FormControl(response.data.description),
         active: new FormControl(response.data.active),
+        address_id: new FormControl(response.data.address.address_id),
         road: new FormControl(response.data.address.road),
         num: new FormControl(response.data.address.num),
         town: new FormControl(response.data.address.town),
@@ -37,8 +38,17 @@ export class SiteUpdateComponent implements OnInit {
   }
 
   update() {
+    console.log(this.sFormGroup.value)
     if (this.sFormGroup.valid) {
-      this.apiService.updateSite(this.sFormGroup.value, this.getParamId).subscribe((res) => {
+    this.sFormGroup.value.address = {
+      address_id: this.sFormGroup.value.address_id,
+      road: this.sFormGroup.value.road,
+      num: this.sFormGroup.value.num,
+      town: this.sFormGroup.value.town,
+      postal_code: this.sFormGroup.value.postal_code,
+      country: this.sFormGroup.value.country,
+    }
+      this.apiService.updateSite(this.sFormGroup.value).subscribe((res) => {
         this.successMsg = res.code;
       })
     } else {

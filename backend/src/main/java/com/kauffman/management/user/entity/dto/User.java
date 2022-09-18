@@ -55,7 +55,7 @@ public class User {
     private String pob;
     private Boolean active;
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE})
+    @ManyToOne()
     @JoinColumn(name = "site_id", referencedColumnName = "site_id")
     private Site site;
 
@@ -63,7 +63,7 @@ public class User {
     @JoinColumn(name = "address_id", referencedColumnName = "address_id")
     private Address address;
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE})
+    @ManyToOne()
     @JoinColumn(name = "status_id", referencedColumnName = "status_id", nullable = true)
     private Status status;
 

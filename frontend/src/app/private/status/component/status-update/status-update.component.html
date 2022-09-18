@@ -1,7 +1,7 @@
 <div class="container card card-warning card-outline" *ngIf="formGroup">
 
   <form [formGroup]="formGroup">
-    <div class="card-body">
+    <div class="card-body form-row">
 
       <div *ngIf="errorMsg" class="alert alert-warning alert-dismissible">
         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
@@ -15,23 +15,29 @@
         {{successMsg}}
       </div>
 
-      <div class="form-group">
+      <div class="col-md-6 mb-3">
         <label>Nom du status</label>
         <input type="email" class="form-control" formControlName="name" placeholder="Nom du status">
       </div>
-      <div class="form-group">
-        <label>Description du status</label>
-        <textarea type="text" class="form-control" formControlName="description"
-                  placeholder="Description brève du status"></textarea>
-      </div>
-      <div class="form-group">
+
+      <div class="col-md-6 mb-3">
         <label>Actif?</label>
         <select class="custom-select" formControlName="active">
           <option [value]="true">Oui</option>
           <option [value]="false">Non</option>
         </select>
       </div>
-      <button type="submit" class="btn btn-primary" (click)="update()">Enregistrer</button>
+
+      <div class="col-md-12 mb-3">
+        <label>Description du status</label>
+        <textarea type="text" class="form-control" formControlName="description"
+                  placeholder="Description"></textarea>
+      </div>
+
+      <div class="col-md-12 mb-3">
+        <button type="submit" class="btn btn-success col-md-4" (click)="update()">Enregistrer</button>
+      </div>
+
     </div>
   </form>
 </div>

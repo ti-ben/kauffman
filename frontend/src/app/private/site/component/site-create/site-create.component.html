@@ -28,6 +28,7 @@
         <div class="col-md-4 mb-3">
           <label>Actif?</label>
           <select class="custom-select" formControlName="active">
+            <option [value]="null" disabled>--- Sélectionnez ---</option>
             <option [value]="true">Oui</option>
             <option [value]="false">Non</option>
           </select>
@@ -39,7 +40,7 @@
                   placeholder="Description brève du site"></textarea>
       </div>
 
-      <div class="col-md-6 mb-3">
+      <div class="col-md-5 mb-3">
         <label>Rue</label>
         <input type="text" class="form-control" formControlName="road">
       </div>
@@ -54,7 +55,7 @@
         <input type="text" class="form-control" formControlName="postal_code">
       </div>
 
-      <div class="col-md-2 mb-3">
+      <div class="col-md-3 mb-3">
         <label>Ville</label>
         <input type="text" class="form-control" formControlName="town">
       </div>
@@ -62,7 +63,7 @@
       <div class="col-md-2 mb-3">
         <label>Pays</label>
         <select class="custom-select" formControlName="country">
-          <option [value]="null" disabled>Choix du pays</option>
+          <option [value]="null" disabled>--- Sélectionnez ---</option>
           <option [value]="'Belgique'">Belgique</option>
           <option [value]="'France'">France</option>
           <option [value]="'Allemagne'">Allemagne</option>

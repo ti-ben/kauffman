@@ -30,7 +30,7 @@ public class Numberplate {
 
     //@ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.ALL}) ALL or PERSIST provide an Error Code 500 in Postman, the solution is to remove the decorator or ad MERGE instead of ALL for cascade type.
     //It doesn't solve the issue when data are passed from backend (Form) to backend.
-    @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE})
+    @ManyToOne()
     @JoinColumn(name = "site_id", referencedColumnName = "site_id")
     private Site site;
 }

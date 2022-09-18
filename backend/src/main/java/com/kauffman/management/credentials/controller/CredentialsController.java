@@ -78,7 +78,7 @@ public class CredentialsController {
         return new ApiResponse(true, credentialsRepository.save(fromDb), "api.credentials.archive.success");
     }
 
-    @PutMapping("/delete/{id}")
+    @DeleteMapping("/delete/{id}")
     public ApiResponse delete(@PathVariable("id") UUID id) {
         Credentials fromDb = credentialsRepository.findById(id).orElse(null);
         if (fromDb == null) {

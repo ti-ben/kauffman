@@ -31,8 +31,9 @@ export class StatusUpdateComponent implements OnInit {
   }
 
   update() {
-    if (this.formGroup.value) {
-      this.apiService.updateRank(this.formGroup.value, this.getParamId).subscribe((response: ApiResponse) => {
+    console.log(this.formGroup.value)
+    if (this.formGroup.valid) {
+      this.apiService.updateStatus(this.formGroup.value).subscribe((response: ApiResponse) => {
         this.successMsg = response.code;
       })
     } else {
