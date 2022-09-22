@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ApiService} from "../../../../shared/services/api.service";
 import {ApiResponse} from "../../../../shared/model";
 
+
 @Component({
   selector: 'app-user-list',
   templateUrl: './user-list.component.html',
@@ -10,6 +11,7 @@ import {ApiResponse} from "../../../../shared/model";
 export class UserListComponent implements OnInit {
 
   readData: any;
+  search?: string;
   errorMsg: string = '';
   successMsg: string = '';
 

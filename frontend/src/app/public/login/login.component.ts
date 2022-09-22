@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {AuthService} from "../../shared/auth/auth.service";
 import {Router} from "@angular/router";
 import {FormBuilder, FormGroup} from "@angular/forms";
 
@@ -14,7 +13,6 @@ export class LoginComponent implements OnInit {
 
   constructor(
     public fb: FormBuilder,
-    public authService: AuthService,
     public router: Router
   ) {
     this.signinForm = this.fb.group({
@@ -28,7 +26,7 @@ export class LoginComponent implements OnInit {
   }
 
   loginUser() {
-    this.authService.signIn(this.signinForm.value);
+
   }
 
 }

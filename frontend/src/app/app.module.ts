@@ -5,9 +5,10 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {NoPageFoundComponent} from './shared/no-page-found/no-page-found.component';
 import {ApiService} from "./shared/services/api.service";
-import {HttpClientModule, HTTP_INTERCEPTORS} from "@angular/common/http";
+import {HttpClientModule} from "@angular/common/http";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import {AuthInterceptor} from "./shared/auth/authconfig.interceptor";
+import {PublicGuard} from "./security/guard/public.guard";
+import {PrivateGuard} from "./security/guard/private.guard";
 
 
 @NgModule({
@@ -22,13 +23,7 @@ import {AuthInterceptor} from "./shared/auth/authconfig.interceptor";
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [ApiService,
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: AuthInterceptor,
-      multi: true
-    }
-    ],
+  providers: [ApiService, PublicGuard, PrivateGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule {

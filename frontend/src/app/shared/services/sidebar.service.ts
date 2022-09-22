@@ -14,13 +14,32 @@ export class SidebarService {
         menuTitle: 'Dashboard',
         menuIcon: 'nav-icon fas fa-tachometer-alt',
         submenu: [
-          {menuTitle: 'Sites', url: 'site', menuIcon: 'fa fa-cubes'},
-          {menuTitle: 'Employés', url: 'user', menuIcon: 'fa fa-users'},
-          {menuTitle: 'Prestataires', url: 'provider', menuIcon: 'fa fa-cubes'},
-          {menuTitle: 'Immatriculations', url: 'numberplate', menuIcon: 'fa fa-cubes'},
-          {menuTitle: 'Rank', url: 'rank', menuIcon: 'fa fa-cubes'},
-          {menuTitle: 'Status', url: 'status', menuIcon: 'fa fa-cubes'},
-          {menuTitle: 'Véhicules', url: 'vehicule', menuIcon: 'fa fa-truck'}
+          {menuTitle: 'Employés', url: 'user', menuIcon: 'fa fa-arrow-right'}
+        ]
+      },
+      {
+        menuTitle: 'HR',
+        menuIcon: 'nav-icon fa fa-users',
+        submenu: [
+          {menuTitle: 'Employés', url: 'user', menuIcon: 'fa fa-arrow-right'}
+        ]
+      },
+      {
+        menuTitle: 'Fleet',
+        menuIcon: 'nav-icon fa fa-truck',
+        submenu: [
+          {menuTitle: 'Véhicules', url: 'vehicule', menuIcon: 'fa fa-arrow-right'},
+          {menuTitle: 'Immatriculations', url: 'numberplate', menuIcon: 'fa fa-arrow-right'}
+        ]
+      },
+      {
+        menuTitle: 'Paramètres',
+        menuIcon: 'nav-icon fa fa-screwdriver-wrench',
+        submenu: [
+          {menuTitle: 'Prestataires', url: 'provider', menuIcon: 'fa fa-arrow-right'},
+          {menuTitle: 'Rank', url: 'rank', menuIcon: 'fa fa-arrow-right'},
+          {menuTitle: 'Status', url: 'status', menuIcon: 'fa fa-arrow-right'},
+          {menuTitle: 'Sites', url: 'site', menuIcon: 'fa fa-arrow-right'},
         ]
       }
     ]

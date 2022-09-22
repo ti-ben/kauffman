@@ -30,9 +30,15 @@ import {RankCreateComponent} from "./rank/component/rank-create/rank-create.comp
 import {RankUpdateComponent} from "./rank/component/rank-update/rank-update.component";
 import {StatusCreateComponent} from "./status/component/status-create/status-create.component";
 import {StatusUpdateComponent} from "./status/component/status-update/status-update.component";
+import {NoPageFoundComponent} from "../shared/no-page-found/no-page-found.component";
 
 
 const routes: Routes = [
+  {
+    path: '',
+    redirectTo: 'dashboard',
+    pathMatch: 'full'
+  },
   {
     path: 'dashboard', component: DashboardComponent,
     children: [
@@ -80,7 +86,11 @@ const routes: Routes = [
         path: 'provider', component: ProviderComponent, data: {crumbTitle: 'Provider'},
         children: [
           {path: '', component: ProviderListComponent, data: {crumbTitle: 'Liste des prestataires'}},
-          {path: 'create',component: ProviderCreateComponent,data: {crumbTitle: 'Ajouter un nouveau prestataire de service'}},
+          {
+            path: 'create',
+            component: ProviderCreateComponent,
+            data: {crumbTitle: 'Ajouter un nouveau prestataire de service'}
+          },
           {path: 'update/:id', component: ProviderUpdateComponent, data: {crumbTitle: 'Mise à jour'}},
         ]
       },
@@ -88,12 +98,21 @@ const routes: Routes = [
         path: 'numberplate', component: NumberplateComponent, data: {crumbTitle: 'Immatriculation'},
         children: [
           {path: '', component: NumberplateListComponent, data: {crumbTitle: 'Liste des immatriculations'}},
-          {path: 'create', component: NumberplateCreateComponent,data: {crumbTitle: 'Ajouter une nouvelle immatriculation'}},
+          {
+            path: 'create',
+            component: NumberplateCreateComponent,
+            data: {crumbTitle: 'Ajouter une nouvelle immatriculation'}
+          },
           {path: 'update/:id', component: NumberplateUpdateComponent, data: {crumbTitle: 'Mise à jour'}},
         ]
       }
     ]
-  }
+  },
+  {
+    path: '**',
+    component: NoPageFoundComponent
+  },
+
 ];
 
 @NgModule({

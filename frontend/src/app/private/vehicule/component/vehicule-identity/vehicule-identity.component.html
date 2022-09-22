@@ -43,12 +43,17 @@
 
         <div class="col-md-4 mb-3">
           <label>Type de carburant</label>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><i class="fa-solid fa-gas-pump"></i></span>
+            </div>
           <select class="custom-select" formControlName="fuel">
             <option [value]="null" selected disabled>-- Sélectionnez --</option>
             <option [value]="'Diesel'">Diesel</option>
             <option [value]="'Essence'">Essence</option>
             <option [value]="'Gazoil'">Gazoil</option>
           </select>
+          </div>
         </div>
 
         <div class="col-md-4 mb-3">
@@ -100,7 +105,7 @@
           <label>Prix d'achat</label>
           <div class="input-group">
             <div class="input-group-prepend">
-              <span class="input-group-text">&euro;</span>
+              <span class="input-group-text"><i class="fa-solid fa-euro-sign"></i></span>
             </div>
             <input type="number" class="form-control" formControlName="price">
           </div>
@@ -117,15 +122,25 @@
 
         <div class="col-md-4 mb-3">
           <label>Acheté par (site):</label>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><i class="fa-solid fa-sitemap"></i></span>
+            </div>
           <select class="custom-select" formControlName="bought_by">
             <option [value]="null" disabled>--- Sélectionnez ---</option>
             <option *ngFor="let site of sitesList" [value]="site.site_id">{{site.name}}</option>
           </select>
+          </div>
         </div>
 
         <div class="col-md-4 mb-3">
           <label>Photo</label>
-          <input type="text" class="form-control" formControlName="avatar">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><i class="fa-solid fa-image"></i></span>
+            </div>
+            <input type="text" class="form-control" formControlName="avatar">
+          </div>
         </div>
 
         <div class="col-md-4 mb-3">
@@ -139,10 +154,15 @@
 
         <div class="col-md-4 mb-3">
           <label>Affecté à (Site)</label>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><i class="fa-solid fa-sitemap"></i></span>
+            </div>
           <select class="custom-select" formControlName="site">
             <option [value]="null" disabled>--- Sélectionnez ---</option>
             <option *ngFor="let site of sitesList" [value]="site.site_id">{{site.name}}</option>
           </select>
+          </div>
         </div>
 
         <div class="col-md-4 mb-3">
