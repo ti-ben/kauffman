@@ -87,6 +87,16 @@ public class UserController {
         return new ApiResponse(true, userRepository.save(fromDb), "api.update.update.success");
     }
 
+    @DeleteMapping("/delete/{id}")
+    public ApiResponse delete(@PathVariable("id") UUID id) {
+        User fromDb = userRepository.findById(id).orElse(null);
+        if (fromDb == null) {
+            return new ApiResponse(false, null, "api.user.delete.not-found");
+        }
+        userRepository.deleteById(fromDb.getUser_id());
+        return new ApiResponse(true, null, "api.user.delete.success");
+    }
+
     // Archive record
     @PutMapping("/archive")
     public ApiResponse archive(@RequestBody UserUpdatePayload payload) {
@@ -98,13 +108,16 @@ public class UserController {
         return new ApiResponse(true, userRepository.save(fromDb), "api.user.archive.success");
     }
 
-    @DeleteMapping("/delete/{id}")
-    public ApiResponse delete(@PathVariable("id") UUID id) {
-        User fromDb = userRepository.findById(id).orElse(null);
-        if (fromDb == null) {
-            return new ApiResponse(false, null, "api.user.delete.not-found");
-        }
-        userRepository.deleteById(fromDb.getUser_id());
-        return new ApiResponse(true, null, "api.user.delete.success");
+    // Export users list to CSV
+    @GetMapping("/export/csv")
+    public ApiResponse exportToPdf(){
+        return new ApiResponse(true, userRepository.findAll(), "api.user.list.success");
     }
+
+    // Export users list to pdf
+    @GetMapping("/export/pdf")
+    public ApiResponse exportToCsv(){
+        return new ApiResponse(true, userRepository.findAll(), "api.user.list.success");
+    }
+
 }

@@ -32,11 +32,10 @@ import {StatusCreateComponent} from "./status/component/status-create/status-cre
 import {StatusUpdateComponent} from "./status/component/status-update/status-update.component";
 import {NoPageFoundComponent} from "../shared/no-page-found/no-page-found.component";
 
-
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'dashboard',
+    redirectTo: 'private',
     pathMatch: 'full'
   },
   {

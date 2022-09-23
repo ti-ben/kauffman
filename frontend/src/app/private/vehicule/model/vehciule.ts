@@ -1,5 +1,5 @@
-import {Numberplate} from "../../numberplate/model/numberplate";
 import {Site} from "../../site/model/site";
+import {Numberplate} from "../../numberplate/model/business/numberplate";
 
 export interface Vehicule {
   vehicule_id: string,

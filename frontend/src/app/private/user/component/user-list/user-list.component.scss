@@ -17,3 +17,18 @@
     display: flex;flex-direction: column;justify-content: center;align-items: center;
   }
 }
+
+.iconExport {
+  border-radius:3px;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 10px;
+  height:40px;
+  max-width: 150px;
+  justify-content: center;align-items: center;
+  cursor:pointer;
+  i{
+    width:40px;
+    display: flex;flex-direction: column;justify-content: center;align-items: center;
+  }
+}

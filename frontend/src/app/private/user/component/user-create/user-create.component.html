@@ -39,9 +39,8 @@
         </select>
       </div>
 
-      <div class="col-md-4 mb-3">
-        <label>Photo</label>
-        <input type="text" class="form-control" formControlName="avatar">
+      <div>
+        <input type="file" accept="image/*" class="custom-file" formControlName="avatar">
       </div>
 
       <div class="col-md-4 mb-3">
@@ -142,6 +141,9 @@
           <option [value]="'Pays-bas'">Pays-bas</option>
         </select>
       </div>
+
+
+
 
       <div class="col-md-12 mb-3">
         <button type="submit" class="btn btn-success col-md-4 " (click)="create()">Enregistrer</button>

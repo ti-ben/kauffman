@@ -7,7 +7,7 @@ import {ApiResponse} from "../../../../shared/model";
 import {Status} from "../../../status/model/status";
 import {Address} from "../../../address/model/address";
 import {UserCreatePayload} from "../../model/payload/user-create.payload";
-
+import {ImageUploadService} from "../../../../shared/services/image-upload.service";
 
 @Component({
   selector: 'app-user-create',
@@ -16,17 +16,18 @@ import {UserCreatePayload} from "../../model/payload/user-create.payload";
 })
 export class UserCreateComponent implements OnInit {
 
+  progress:number = 0;
   errorMsg: string = '';
-  userFormGroup!: FormGroup;
   sitesList: Site[] = [];
   successMsg: string = '';
+  userFormGroup!: FormGroup;
   statusList: Status[] = [];
   addressList: Address[] = [];
   currentDate = new Date().toISOString().substring(0, 10);
   getParamId = this.activatedRoute.snapshot.paramMap.get('id');
   emailPattern = "^[a-zA-Z0-9._% -]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$";
 
-  constructor(private apiService: ApiService, private activatedRoute: ActivatedRoute) {
+  constructor(private apiService: ApiService, private activatedRoute: ActivatedRoute, public imageUploadService: ImageUploadService) {
   }
 
   ngOnInit(): void {
@@ -41,7 +42,7 @@ export class UserCreateComponent implements OnInit {
       firstname: new FormControl(null, [Validators.required, Validators.pattern(/[a-zA-Z].*/)]),
       lastname: new FormControl(null, [Validators.required, Validators.pattern(/[a-zA-Z].*/)]),
       gender: new FormControl(null),
-      avatar: new FormControl('noAvatar.png'),
+      avatar: new FormControl(null),
       dob: new FormControl(this.currentDate),
       email: new FormControl(null, [Validators.required, Validators.pattern(this.emailPattern)]),
       phone_pro: new FormControl(null),
