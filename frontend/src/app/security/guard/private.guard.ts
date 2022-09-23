@@ -6,7 +6,7 @@ import {Observable} from 'rxjs';
   providedIn: 'root'
 })
 export class PrivateGuard implements CanActivate {
-  /*canAccess:boolean = true*/
+  canAccess:boolean = false
 
   public constructor(public router: Router) {
   }
@@ -14,18 +14,17 @@ export class PrivateGuard implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    /*
+
         if(this.canAccess)
         {
-          this.router.navigate(['private']).then();
+          this.router.navigate(['private/dashboard']).then();
           return this.canAccess = true;
         }
         else
         {
-          this.router.navigate(['public']).then();
+          this.router.navigate(['']).then();
           return this.canAccess = false;
         }
-       */
-    return true;
+
   }
 }

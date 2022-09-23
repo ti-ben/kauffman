@@ -7,7 +7,6 @@ import {ApiResponse} from "../../../../shared/model";
 import {Status} from "../../../status/model/status";
 import {Address} from "../../../address/model/address";
 import {UserCreatePayload} from "../../model/payload/user-create.payload";
-import {ImageUploadService} from "../../../../shared/services/image-upload.service";
 
 @Component({
   selector: 'app-user-create',
@@ -27,7 +26,7 @@ export class UserCreateComponent implements OnInit {
   getParamId = this.activatedRoute.snapshot.paramMap.get('id');
   emailPattern = "^[a-zA-Z0-9._% -]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$";
 
-  constructor(private apiService: ApiService, private activatedRoute: ActivatedRoute, public imageUploadService: ImageUploadService) {
+  constructor(private apiService: ApiService, private activatedRoute: ActivatedRoute) {
   }
 
   ngOnInit(): void {

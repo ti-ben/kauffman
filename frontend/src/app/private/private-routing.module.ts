@@ -34,11 +34,6 @@ import {NoPageFoundComponent} from "../shared/no-page-found/no-page-found.compon
 
 const routes: Routes = [
   {
-    path: '',
-    redirectTo: 'private',
-    pathMatch: 'full'
-  },
-  {
     path: 'dashboard', component: DashboardComponent,
     children: [
       {
