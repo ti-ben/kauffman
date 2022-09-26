@@ -21,7 +21,7 @@ export class PublicGuard implements CanActivate {
     }
     else
     {
-      this.router.navigate(['private']).then();
+      this.router.navigate(['']).then();
       return this.canAccess = true;
     }
   }

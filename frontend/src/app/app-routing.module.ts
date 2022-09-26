@@ -12,7 +12,7 @@ const routes: Routes = [
   },
   {
     path: 'private',
-    canActivate: [PrivateGuard],
+    /*canActivate: [PrivateGuard],*/
     loadChildren: () => import('./private/private.module').then(m => m.PrivateModule)
   },
   {path: '**', component: NoPageFoundComponent}

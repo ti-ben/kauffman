@@ -33,6 +33,7 @@ import {StatusUpdateComponent} from "./status/component/status-update/status-upd
 import {NoPageFoundComponent} from "../shared/no-page-found/no-page-found.component";
 
 const routes: Routes = [
+  {path:'', redirectTo: 'dashboard', pathMatch: 'full'},
   {
     path: 'dashboard', component: DashboardComponent,
     children: [
