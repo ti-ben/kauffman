@@ -257,7 +257,6 @@ export class ApiService {
         map(response => response as ApiResponse)
       );
   }
-
   /*****************************************************************************************/
   /* ************************************* TACHOGRAPH ************************************ */
 
@@ -290,7 +289,14 @@ export class ApiService {
         map(response => response as ApiResponse)
       );
   }
-
+/*
+  userCredentialExist(data: any): Observable<ApiResponse>{
+    return this.http.get(`${this.baseUrl}/credentials/search`, data)
+      .pipe(
+        map(response => response as ApiResponse)
+      );
+  }
+  */
   saveUserCredential(data: any): Observable<ApiResponse> {
     return this.http.post(`${this.baseUrl}/credentials/create`, data)
       .pipe(

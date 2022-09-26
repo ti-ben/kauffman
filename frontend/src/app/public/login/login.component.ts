@@ -28,34 +28,15 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  // First attempt!
-  /*
   loginUser() {
     this.username = this.signInForm.value.username;
     this.password = this.signInForm.value.password;
-
-    console.log("Login page username: " + this.username);
-    console.log("Login page password: " + this.password);
 
     this.authService.login(this.username, this.password)
       .subscribe(data => {
         console.log("Is Login Success: " + data);
 
-        if (data) this.router.navigate(['private']);
+        if (data) this.router.navigate(['dashboard']);
       });
-  }
-  */
-
-  // Second attempt!
-
-  loginUser(): void {
-    this.username = this.signInForm.value.username;
-    this.password = this.signInForm.value.password;
-
-    console.log('Login page username: ' + this.username);
-    console.log('Login page password: ' + this.password);
-
-
-    this.authService.login(this.username, this.password).subscribe(() => this.router.navigate(['']));
   }
 }
