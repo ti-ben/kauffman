@@ -11,7 +11,7 @@
   <a class="iconExport" routerLink="export/pdf">
     <i class="fa-solid fa-file-pdf fa-2xl"></i>
   </a>
-  </div>
+</div>
 
 <div *ngIf="successMsg" class="alert alert-success alert-dismissible">
   <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
@@ -28,7 +28,7 @@
         <th style="width: auto" class="text-center">Nom</th>
         <th style="width: auto" class="text-center">Prénom</th>
         <th style="width: auto" class="text-center">Email</th>
-        <th style="width: auto" class="text-center">Status</th>
+        <th style="width: auto" class="text-center">Statut</th>
         <th style="width: auto" class="text-center">Site</th>
         <th style="width: auto" class="text-center">État</th>
         <th style="width: auto" class="text-center">Options</th>
@@ -42,7 +42,7 @@
         <td>{{user.email | lowercase}}</td>
         <td>
           <span *ngIf="user.status !== null; else elseBlock1">{{user.status.name}}</span>
-          <ng-template #elseBlock1>Pas de status</ng-template>
+          <ng-template #elseBlock1>Pas de statut</ng-template>
         </td>
         <td>
           <span *ngIf="user.site !== null; else elseBlock2">{{user.site.name}}</span>
@@ -55,6 +55,7 @@
         <td class="project-actions text-center">
           <a class="btn btn-info btn-sm" [routerLink]="['details', user.user_id]"><i class="fas fa-pencil-alt"></i></a>
           <a class="btn btn-danger btn-sm" (click)="delete(user.user_id)"><i class="fas fa-trash"></i></a>
+          <a class="btn btn-warning btn-sm" [routerLink]="['archive', user.site_id]"><i class="fas fa-box-archive"></i></a>
         </td>
       </tr>
       </tbody>

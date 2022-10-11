@@ -4,11 +4,14 @@ import com.kauffman.management.common.entity.ApiResponse;
 import com.kauffman.management.credentials.entity.builder.CredentialsBuilder;
 import com.kauffman.management.credentials.entity.dto.Credentials;
 import com.kauffman.management.credentials.entity.payload.CredentialsCreatePayload;
+import com.kauffman.management.credentials.entity.payload.CredentialsSearchPayload;
 import com.kauffman.management.credentials.entity.payload.CredentialsUpdatePayload;
 import com.kauffman.management.credentials.repository.CredentialsRepository;
+import com.kauffman.management.user.entity.payload.UserSearchPayload;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.UUID;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
@@ -37,6 +40,17 @@ public class CredentialsController {
     @GetMapping("/list")
     public ApiResponse get() {
         return new ApiResponse(true, credentialsRepository.findAll(), null);
+    }
+
+    // search
+    @PostMapping("/search")
+    public ApiResponse search(@RequestBody CredentialsSearchPayload search){
+        try{
+            List<Credentials> credentials = (!search.getSearch().equals(""))? credentialsRepository.search(search.getSearch()) : credentialsRepository.findAll();
+            return new ApiResponse(true, credentials, null);
+        }catch(Exception e){
+            return new ApiResponse(true, null, null);
+        }
     }
 
     // Read credential record detail

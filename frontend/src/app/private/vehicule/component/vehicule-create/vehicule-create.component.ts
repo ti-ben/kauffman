@@ -42,7 +42,7 @@ export class VehiculeCreateComponent implements OnInit {
       date_of_purchase: new FormControl(this.currentDate),
       fuel: new FormControl(null),
       genre: new FormControl(''),
-      metrology: new FormControl(''),
+      metrology: new FormControl('0', [Validators.required]),
       mma: new FormControl(''),
       mmat: new FormControl(''),
       mom: new FormControl(''),
@@ -52,7 +52,7 @@ export class VehiculeCreateComponent implements OnInit {
       price: new FormControl(''),
       type: new FormControl(null, Validators.required),
       updated_on: new FormControl(this.currentDate),
-      numberplate_id: new FormControl(null, Validators.required),
+      numberplate_id: new FormControl(null),
       site_id: new FormControl(null, Validators.required),
     });
   }

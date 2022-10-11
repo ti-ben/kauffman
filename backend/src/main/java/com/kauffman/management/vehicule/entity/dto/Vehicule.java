@@ -55,7 +55,7 @@ public class Vehicule {
     private String bought_by;
 
     @OneToOne()
-    @JoinColumn(name = "numberplate_id")
+    @JoinColumn(name = "numberplate_id", referencedColumnName = "numberplate_id", nullable = true)
     private Numberplate numberplate;
 
     @ManyToOne()

@@ -38,7 +38,7 @@ export class SidebarService {
         submenu: [
           {menuTitle: 'Prestataires', url: 'provider', menuIcon: 'fa fa-arrow-right'},
           {menuTitle: 'Rank', url: 'rank', menuIcon: 'fa fa-arrow-right'},
-          {menuTitle: 'Status', url: 'status', menuIcon: 'fa fa-arrow-right'},
+          {menuTitle: 'Statuts', url: 'status', menuIcon: 'fa fa-arrow-right'},
           {menuTitle: 'Sites', url: 'site', menuIcon: 'fa fa-arrow-right'},
         ]
       }

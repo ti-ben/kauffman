@@ -41,8 +41,8 @@ export class UserCreateComponent implements OnInit {
       firstname: new FormControl(null, [Validators.required, Validators.pattern(/[a-zA-Z].*/)]),
       lastname: new FormControl(null, [Validators.required, Validators.pattern(/[a-zA-Z].*/)]),
       gender: new FormControl(null),
-      avatar: new FormControl(null),
-      dob: new FormControl(this.currentDate),
+      avatar: new FormControl('noAvatar.png'),
+      dob: new FormControl(this.currentDate, [Validators.required]),
       email: new FormControl(null, [Validators.required, Validators.pattern(this.emailPattern)]),
       phone_pro: new FormControl(null),
       phone_perso: new FormControl(null),
@@ -53,8 +53,8 @@ export class UserCreateComponent implements OnInit {
       updated_on: new FormControl(this.currentDate),
       pob: new FormControl(null),
       active: new FormControl(true),
-      site: new FormControl(null),
-      status: new FormControl(null),
+      site: new FormControl(null, [Validators.required]),
+      status: new FormControl(null,[Validators.required]),
       road: new FormControl(null),
       num: new FormControl(null),
       town: new FormControl(null),
@@ -85,7 +85,7 @@ export class UserCreateComponent implements OnInit {
         this.successMsg = response.code;
       })
     } else {
-      this.errorMsg = 'All fields are required';
+      this.errorMsg = 'Certains champs requis ne sont pas remplis';
     }
   }
 

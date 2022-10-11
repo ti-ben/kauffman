@@ -7,6 +7,7 @@ import {Router} from "@angular/router";
 @Injectable({
   providedIn: 'root'
 })
+
 export class AuthService {
 
   username: string = 'usertest@protonmail.com';
@@ -19,7 +20,6 @@ export class AuthService {
   login(username: string, password: string): Observable<any> {
     if (username == this.username && password == this.password) {
       localStorage.setItem('token', this.randomToken);
-      console.log(localStorage.getItem('token'));
       return of(new HttpResponse({status: 200}));
     } else {
       return of(new HttpResponse({status: 401}));
@@ -35,3 +35,4 @@ export class AuthService {
     return localStorage.getItem('token') != null;
   }
 }
+

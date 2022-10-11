@@ -14,5 +14,9 @@ public interface CredentialsRepository extends JpaRepository<Credentials, UUID> 
     @Query("select cred from Credentials cred where cred.user.user_id = :user_id")
     Credentials findByUserId(UUID user_id);
 
+    @Query("SELECT c FROM Credentials c WHERE c.username LIKE %?1%"
+            + " OR c.password LIKE %?1%")
+    public List<Credentials> search(String keyword);
+
     boolean existsByUsername(String username);
 }

@@ -64,8 +64,8 @@ const routes: Routes = [
       {
         path: 'status', component: StatusComponent, data: {crumbTitle: 'Status'},
         children: [
-          {path: '', component: StatusListComponent, data: {crumbTitle: 'Liste des status'}},
-          {path: 'create', component: StatusCreateComponent, data: {crumbTitle: 'Ajouter un nouveau status'}},
+          {path: '', component: StatusListComponent, data: {crumbTitle: 'Liste des statuts'}},
+          {path: 'create', component: StatusCreateComponent, data: {crumbTitle: 'Ajouter un nouveau statut'}},
           {path: 'update/:id', component: StatusUpdateComponent, data: {crumbTitle: 'Mise à jour'}},
         ]
       },

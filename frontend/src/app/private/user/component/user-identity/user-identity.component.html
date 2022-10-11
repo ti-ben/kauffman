@@ -104,7 +104,7 @@
       </div>
 
       <div class="col-md-4 mb-3">
-        <label>Status</label>
+        <label>Statut</label>
         <select class="custom-select" formControlName="status">
           <option [value]="null" disabled>--- Sélectionnez ---</option>
           <option *ngFor="let status of statusList" [value]="status.status_id">{{status.name}}</option>
