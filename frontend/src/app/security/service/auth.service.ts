@@ -10,8 +10,8 @@ import {Router} from "@angular/router";
 
 export class AuthService {
 
-  username: string = 'usertest@protonmail.com';
-  password: string = 'Soleil';
+  username: string = 'benoit.titeux@protonmail.com';
+  password: string = 'Soleil2022';
   randomToken = uuidv4();
 
   constructor(private router: Router) {
