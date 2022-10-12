@@ -3,13 +3,13 @@
   <form [formGroup]="formGroup">
     <div class="card-body form-row">
 
-      <div *ngIf="errorMsg" class="alert alert-warning alert-dismissible">
+      <div *ngIf="errorMsg" class="alert alert-warning alert-dismissible col-md-12 mb-3">
         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
         <h5><i class="icon fas fa-exclamation-triangle"></i> Alert!</h5>
         {{errorMsg}}
       </div>
 
-      <div *ngIf="successMsg" class="alert alert-success alert-dismissible">
+      <div *ngIf="successMsg" class="alert alert-success alert-dismissible col-md-12 mb-3">
         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
         <h5><i class="icon fas fa-check"></i> Alert!</h5>
         {{successMsg}}

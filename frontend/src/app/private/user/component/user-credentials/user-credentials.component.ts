@@ -19,7 +19,7 @@ export class UserCredentialsComponent implements OnInit {
   errorMsg: string = '';
   successMsg: string = '';
   rankList: Rank[] = [];
-  credExist!: boolean;
+  credExist: boolean = true;
   credentialFormGroup!: FormGroup;
   getParamId = this.activatedRoute.snapshot.paramMap.get('id');
   currentDate = new Date().toISOString().substring(0, 10);
@@ -34,17 +34,15 @@ export class UserCredentialsComponent implements OnInit {
     this.credential();
     console.log(this.credExist)
     if (this.credExist) {
-      alert(true);
       this.credentialForm();
     } else {
-      alert(false);
       this.initForm();
     }
   }
 
   save() {
     this.credentialFormGroup.value.user = {user_id: this.getParamId}
-    this.credentialFormGroup.value.rank = {rank_id: this.credentialFormGroup.value.rank.rank_id}
+    this.credentialFormGroup.value.rank = {rank_id: this.credentialFormGroup.value.rank}
     if (this.credentialFormGroup.valid) {
       this.apiService.saveUserCredential(this.credentialFormGroup.value).subscribe((response: ApiResponse) => {
         this.credentialFormGroup.reset();
@@ -91,13 +89,7 @@ export class UserCredentialsComponent implements OnInit {
     return this.apiService.getUserCredential(this.getParamId).pipe(
       first(),
       map(data => {
-        if(data.result)
-        {
-          this.credExist = true;
-        }
-        else{
-          this.credExist = false;
-        }
+        this.credExist = !!data.result;
       })
     );
   }
