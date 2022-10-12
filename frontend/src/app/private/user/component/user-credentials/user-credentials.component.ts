@@ -4,6 +4,8 @@ import {ActivatedRoute} from "@angular/router";
 import {ApiResponse} from "../../../../shared/model";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {Rank} from "../../../rank/model/rank";
+import {Observable} from "rxjs";
+import {first, map} from "rxjs/operators";
 
 @Component({
   selector: 'app-user-credential',
@@ -17,7 +19,7 @@ export class UserCredentialsComponent implements OnInit {
   errorMsg: string = '';
   successMsg: string = '';
   rankList: Rank[] = [];
-  uCredential: any = '';
+  credExist!: boolean;
   credentialFormGroup!: FormGroup;
   getParamId = this.activatedRoute.snapshot.paramMap.get('id');
   currentDate = new Date().toISOString().substring(0, 10);
@@ -30,9 +32,12 @@ export class UserCredentialsComponent implements OnInit {
     this.userDetails();
     this.allRankList();
     this.credential();
-    if (this.uCredential) {
+    console.log(this.credExist)
+    if (this.credExist) {
+      alert(true);
       this.credentialForm();
     } else {
+      alert(false);
       this.initForm();
     }
   }
@@ -55,17 +60,19 @@ export class UserCredentialsComponent implements OnInit {
   }
 
   private credentialForm(): void {
-    this.credentialFormGroup = new FormGroup({
-      username: new FormControl(this.uCredential.username),
-      password: new FormControl(this.uCredential.password),
-      active: new FormControl(this.uCredential.active),
-      rank: new FormControl(this.uCredential.rank),
+    this.apiService.getUserCredential(this.getParamId).subscribe((response: ApiResponse) => {
+      this.credentialFormGroup = new FormGroup({
+        username: new FormControl(response.data.username),
+        password: new FormControl(response.data.password),
+        active: new FormControl(response.data.active),
+        rank: new FormControl(response.data.rank.rank_id),
+      });
     });
   }
 
   private initForm(): void {
     this.credentialFormGroup = new FormGroup({
-      username: new FormControl(null, [Validators.required]),
+      username: new FormControl('', [Validators.required]),
       password: new FormControl(this.randomPassword, [Validators.required]),
       created_on: new FormControl(this.currentDate),
       updated_on: new FormControl(this.currentDate),
@@ -80,10 +87,19 @@ export class UserCredentialsComponent implements OnInit {
     })
   }
 
-  credential() {
-    this.apiService.getUserCredential(this.getParamId).subscribe((response: ApiResponse) => {
-      this.uCredential = response.data
-    })
+  credential(): Observable<any> {
+    return this.apiService.getUserCredential(this.getParamId).pipe(
+      first(),
+      map(data => {
+        if(data.result)
+        {
+          this.credExist = true;
+        }
+        else{
+          this.credExist = false;
+        }
+      })
+    );
   }
 
   private allRankList() {

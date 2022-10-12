@@ -1,7 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
-import {FormControl, FormGroup} from "@angular/forms";
+import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {AuthService} from "../../security/service/auth.service";
+import {Credential} from "../../shared/credential/credential";
 
 @Component({
   selector: 'app-login',
@@ -10,6 +11,7 @@ import {AuthService} from "../../security/service/auth.service";
 })
 export class LoginComponent implements OnInit {
 
+  credential: Credential = new Credential();
   username: string = '';
   password: string = '';
   signInForm!: FormGroup;
@@ -23,8 +25,8 @@ export class LoginComponent implements OnInit {
 
   initForm(): void {
     this.signInForm = new FormGroup({
-      username: new FormControl(null),
-      password: new FormControl(null)
+      username: new FormControl('', [Validators.required, Validators.email]),
+      password: new FormControl('', [Validators.required, Validators.minLength(7)])
     });
   }
 

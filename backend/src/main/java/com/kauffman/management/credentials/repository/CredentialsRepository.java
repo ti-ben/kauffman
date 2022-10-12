@@ -1,6 +1,5 @@
 package com.kauffman.management.credentials.repository;
 
-import com.kauffman.management.cap.entity.dto.Cap;
 import com.kauffman.management.credentials.entity.dto.Credentials;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -9,7 +8,6 @@ import java.util.List;
 import java.util.UUID;
 
 public interface CredentialsRepository extends JpaRepository<Credentials, UUID> {
-    Credentials findByUsername(String username);
 
     @Query("select cred from Credentials cred where cred.user.user_id = :user_id")
     Credentials findByUserId(UUID user_id);
@@ -18,5 +16,4 @@ public interface CredentialsRepository extends JpaRepository<Credentials, UUID> 
             + " OR c.password LIKE %?1%")
     public List<Credentials> search(String keyword);
 
-    boolean existsByUsername(String username);
 }

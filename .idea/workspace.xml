@@ -5,36 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a58cf3a2-bd93-4be0-a29e-88dd1e6ea349" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/kauffman/management/credentials/controller/CredentialsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/kauffman/management/credentials/controller/CredentialsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/kauffman/management/credentials/entity/payload/CredentialsSearchPayload.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/kauffman/management/credentials/entity/payload/CredentialsSearchPayload.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/kauffman/management/credentials/repository/CredentialsRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/kauffman/management/credentials/repository/CredentialsRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/kauffman/management/vehicule/entity/dto/Vehicule.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/kauffman/management/vehicule/entity/dto/Vehicule.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/app-routing.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/private/numberplate/component/numberplate-create/numberplate-create.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/private/numberplate/component/numberplate-create/numberplate-create.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/private/numberplate/component/numberplate-list/numberplate-list.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/private/numberplate/component/numberplate-list/numberplate-list.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/private/private-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/private/private-routing.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/private/provider/component/provider-list/provider-list.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/private/provider/component/provider-list/provider-list.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/private/rank/component/rank-list/rank-list.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/private/rank/component/rank-list/rank-list.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/private/site/component/site-list/site-list.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/private/site/component/site-list/site-list.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/private/status/component/status-create/status-create.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/private/status/component/status-create/status-create.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/private/status/component/status-list/status-list.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/private/status/component/status-list/status-list.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/private/status/component/status-update/status-update.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/private/status/component/status-update/status-update.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/private/user/component/user-create/user-create.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/private/user/component/user-create/user-create.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/private/user/component/user-create/user-create.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/private/user/component/user-create/user-create.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/app/private/user/component/user-credentials/user-credentials.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/private/user/component/user-credentials/user-credentials.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/private/user/component/user-details/user-details.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/private/user/component/user-details/user-details.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/private/user/component/user-identity/user-identity.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/private/user/component/user-identity/user-identity.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/private/user/component/user-list/user-list.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/private/user/component/user-list/user-list.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/private/user/component/user-tachograph/user-tachograph.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/private/user/component/user-tachograph/user-tachograph.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/private/vehicule/component/vehicule-create/vehicule-create.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/private/vehicule/component/vehicule-create/vehicule-create.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/private/vehicule/component/vehicule-list/vehicule-list.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/private/vehicule/component/vehicule-list/vehicule-list.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/private/vehicule/component/vehicule-list/vehicule-list.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/private/vehicule/component/vehicule-list/vehicule-list.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/public/login/login.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/public/login/login.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/private/user/component/user-credentials/user-credentials.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/private/user/component/user-credentials/user-credentials.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/app/public/login/login.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/public/login/login.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/security/service/auth.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/security/service/auth.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/shared/header/header.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/shared/header/header.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/shared/services/sidebar.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/shared/services/sidebar.service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,6 +51,7 @@
       <workItem from="1663253686812" duration="314000" />
       <workItem from="1665349518510" duration="1609000" />
       <workItem from="1665351731127" duration="1000" />
+      <workItem from="1665521814219" duration="43000" />
     </task>
     <servers />
   </component>

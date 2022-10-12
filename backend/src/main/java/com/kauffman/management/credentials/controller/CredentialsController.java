@@ -7,7 +7,6 @@ import com.kauffman.management.credentials.entity.payload.CredentialsCreatePaylo
 import com.kauffman.management.credentials.entity.payload.CredentialsSearchPayload;
 import com.kauffman.management.credentials.entity.payload.CredentialsUpdatePayload;
 import com.kauffman.management.credentials.repository.CredentialsRepository;
-import com.kauffman.management.user.entity.payload.UserSearchPayload;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -44,11 +43,11 @@ public class CredentialsController {
 
     // search
     @PostMapping("/search")
-    public ApiResponse search(@RequestBody CredentialsSearchPayload search){
-        try{
-            List<Credentials> credentials = (!search.getSearch().equals(""))? credentialsRepository.search(search.getSearch()) : credentialsRepository.findAll();
+    public ApiResponse search(@RequestBody CredentialsSearchPayload search) {
+        try {
+            List<Credentials> credentials = (!search.getSearch().equals("")) ? credentialsRepository.search(search.getSearch()) : credentialsRepository.findAll();
             return new ApiResponse(true, credentials, null);
-        }catch(Exception e){
+        } catch (Exception e) {
             return new ApiResponse(true, null, null);
         }
     }
