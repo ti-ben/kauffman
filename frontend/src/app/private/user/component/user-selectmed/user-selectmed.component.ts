@@ -30,7 +30,7 @@ export class UserSelectmedComponent implements OnInit {
     this.selectmedFormGroup = new FormGroup({
       start_date: new FormControl(this.currentDate, Validators.required),
       end_date: new FormControl(this.currentDate, Validators.required),
-      price: new FormControl(null),
+      price: new FormControl('', [Validators.pattern("^[0-9]*$")]),
       description: new FormControl(null),
     });
   }

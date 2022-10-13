@@ -34,9 +34,9 @@ export class UserCredentialsComponent implements OnInit {
     this.credential();
     console.log(this.credExist)
     if (this.credExist) {
-      this.credentialForm();
-    } else {
       this.initForm();
+    } else {
+      this.credentialForm();
     }
   }
 

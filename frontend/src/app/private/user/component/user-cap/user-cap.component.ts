@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ApiService} from "../../../../shared/services/api.service";
 import {ActivatedRoute} from "@angular/router";
-import {FormControl, FormGroup} from "@angular/forms";
+import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {ApiResponse} from "../../../../shared/model";
 
 @Component({
@@ -31,7 +31,7 @@ export class UserCapComponent implements OnInit {
       user_id: new FormControl(this.getParamId),
       start_date: new FormControl(this.currentDate),
       end_date: new FormControl(this.currentDate),
-      price: new FormControl(null),
+      price: new FormControl('', [Validators.pattern("^[0-9]*$")]),
       description: new FormControl(null),
       theme: new FormControl(null)
     });

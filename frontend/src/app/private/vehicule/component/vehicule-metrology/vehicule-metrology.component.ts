@@ -33,7 +33,7 @@ export class VehiculeMetrologyComponent implements OnInit {
     this.formGroup = new FormGroup({
       start_date: new FormControl(this.currentDate, Validators.required),
       end_date: new FormControl(this.currentDate, Validators.required),
-      price: new FormControl(),
+      price: new FormControl('', [Validators.pattern("^[0-9]*$")]),
       description: new FormControl(),
       provider_id: new FormControl(),
       vehicule_id: new FormControl(this.getParamId)

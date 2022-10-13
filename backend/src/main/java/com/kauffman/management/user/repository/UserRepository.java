@@ -9,6 +9,9 @@ import java.util.List;
 import java.util.UUID;
 
 public interface UserRepository extends JpaRepository<User, UUID> {
+    @Query ("select u from User u ORDER BY u.firstname")
+    List<User> findAll();
+
     @Query("select u from User u")
     List<User> exportToPdf();
 

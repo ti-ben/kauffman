@@ -11,9 +11,9 @@ import {Credential} from "../../shared/credential/credential";
 })
 export class LoginComponent implements OnInit {
 
-  credential: Credential = new Credential();
-  username: string = '';
-  password: string = '';
+  //credential: Credential = new Credential();
+  //username: string = '';
+  //password: string = '';
   signInForm!: FormGroup;
 
   constructor(private authService: AuthService, public router: Router) {
@@ -31,10 +31,7 @@ export class LoginComponent implements OnInit {
   }
 
   loginUser() {
-    this.username = this.signInForm.value.username;
-    this.password = this.signInForm.value.password;
-
-    this.authService.login(this.username, this.password)
+    this.authService.login(this.signInForm.value.username, this.signInForm.value.password)
       .subscribe(data => {
         if (data) this.router.navigate(['dashboard']);
       });

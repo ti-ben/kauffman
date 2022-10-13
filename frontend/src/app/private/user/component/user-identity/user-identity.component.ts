@@ -76,7 +76,6 @@ export class UserIdentityComponent implements OnInit {
       postal_code: this.uFormGroup.value.postal_code,
       country: this.uFormGroup.value.country,
     }
-    console.log(this.uFormGroup.value);
     if (this.uFormGroup.valid) {
       const payload: UserUpdatePayload = this.uFormGroup.value;
       this.apiService.updateUser(payload).subscribe((response: ApiResponse) => {

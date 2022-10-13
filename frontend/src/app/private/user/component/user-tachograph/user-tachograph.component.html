@@ -1,8 +1,10 @@
+<!--
 <div *ngIf="successMsg" class="alert alert-success alert-dismissible">
   <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
   <h5><i class="icon fas fa-check"></i> Alert!</h5>
   {{successMsg}}
 </div>
+-->
 
 <form [formGroup]="tachoFormGroup">
   <div class="form-row">
@@ -43,7 +45,9 @@
         <td>{{tacho.num_carte}}</td>
         <td>{{tacho.description}}</td>
         <td class="project-actions text-center">
+          <!--
           <a class="btn btn-info btn-sm" (click)="update(tacho.tachograph_id)"><i class="fas fa-pencil-alt"></i></a>
+          -->
           <a class="btn btn-danger btn-sm" (click)="delete(tacho.tachograph_id)"><i class="fas fa-trash"></i></a>
         </td>
       </tr>

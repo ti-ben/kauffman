@@ -110,7 +110,7 @@ public class VehiculeController {
     }
 
     // Delete selected vehicule record
-    @PutMapping("/delete/{id}")
+    @DeleteMapping("/delete/{id}")
     public ApiResponse delete(@PathVariable("id") UUID id) {
         Vehicule fromDb = vehiculeRepository.findById(id).orElse(null);
         if (fromDb == null) {
