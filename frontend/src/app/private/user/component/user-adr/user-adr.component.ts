@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, FormGroup} from "@angular/forms";
+import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {ApiService} from "../../../../shared/services/api.service";
 import {ActivatedRoute} from "@angular/router";
 import {ApiResponse} from "../../../../shared/model";
@@ -30,7 +30,7 @@ export class UserAdrComponent implements OnInit {
     this.adrFormGroup = new FormGroup({
       date_rdv: new FormControl(this.currentDate),
       description: new FormControl(),
-      category: new FormControl(),
+      category: new FormControl('', [Validators.required]),
     });
   }
 
