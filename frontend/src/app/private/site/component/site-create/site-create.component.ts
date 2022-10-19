@@ -26,15 +26,15 @@ export class SiteCreateComponent implements OnInit {
 
   private initForm(): void {
     this.formGroup = new FormGroup({
-      name: new FormControl('', [Validators.required]),
+      name: new FormControl('', [Validators.required, Validators.pattern('^[a-zA-Z]+$')]),
       created_on: new FormControl(this.currentDate),
-      description: new FormControl(),
-      active: new FormControl(true),
-      road: new FormControl(null),
-      num: new FormControl(null),
-      town: new FormControl(null),
-      postal_code: new FormControl(null),
-      country: new FormControl(null)
+      description: new FormControl('', [Validators.pattern('^[a-zA-Z]+$')]),
+      active: new FormControl(true, [Validators.required]),
+      road: new FormControl(null, [Validators.pattern('^[a-zA-Z]+$')]),
+      num: new FormControl(null, [Validators.pattern('^[0-9]+$')]),
+      town: new FormControl(null, [Validators.pattern('^[a-zA-Z]+$')]),
+      postal_code: new FormControl(null, [Validators.pattern('^[0-9]+$')]),
+      country: new FormControl(null, [Validators.pattern('^[a-zA-Z]+$')])
     });
   }
 
