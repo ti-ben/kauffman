@@ -31,12 +31,16 @@ import {RankUpdateComponent} from "./rank/component/rank-update/rank-update.comp
 import {StatusCreateComponent} from "./status/component/status-create/status-create.component";
 import {StatusUpdateComponent} from "./status/component/status-update/status-update.component";
 import {NoPageFoundComponent} from "../shared/no-page-found/no-page-found.component";
+import {StatisticsComponent} from "./statistics/statistics.component";
 
 const routes: Routes = [
 
   {
     path: '', component: DashboardComponent,
     children: [
+      {
+        path: 'statistics', component: StatisticsComponent, data: {crumbTitle: 'Statistics'}
+      },
       {
         path: 'site', component: SiteComponent, data: {crumbTitle: 'Site'},
         children: [

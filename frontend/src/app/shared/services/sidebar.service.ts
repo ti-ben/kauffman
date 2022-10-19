@@ -14,11 +14,11 @@ export class SidebarService {
         menuTitle: 'Dashboard',
         menuIcon: 'nav-icon fas fa-tachometer-alt',
         submenu: [
-          {menuTitle: 'Employés', url: 'user', menuIcon: 'fa fa-arrow-right'}
+          {menuTitle: 'Statistiques', url: 'statistics', menuIcon: 'fa fa-arrow-right'}
         ]
       },
       {
-        menuTitle: 'HR',
+        menuTitle: 'Management',
         menuIcon: 'nav-icon fa fa-users',
         submenu: [
           {menuTitle: 'Employés', url: 'user', menuIcon: 'fa fa-arrow-right'}
@@ -33,11 +33,11 @@ export class SidebarService {
         ]
       },
       {
-        menuTitle: 'Paramètres',
+        menuTitle: 'Settings',
         menuIcon: 'nav-icon fa fa-screwdriver-wrench',
         submenu: [
           {menuTitle: 'Prestataires', url: 'provider', menuIcon: 'fa fa-arrow-right'},
-          {menuTitle: 'Rank', url: 'rank', menuIcon: 'fa fa-arrow-right'},
+          {menuTitle: 'Rangs', url: 'rank', menuIcon: 'fa fa-arrow-right'},
           {menuTitle: 'Statuts', url: 'status', menuIcon: 'fa fa-arrow-right'},
           {menuTitle: 'Sites', url: 'site', menuIcon: 'fa fa-arrow-right'},
         ]
