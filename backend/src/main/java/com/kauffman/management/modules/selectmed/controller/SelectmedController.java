@@ -28,7 +28,6 @@ public class SelectmedController {
                 .setDescription(payload.getDescription())
                 .setPrice(payload.getPrice())
                 .setUser(payload.getUser())
-                //.setPeriod(payload.getPeriod())
                 .build();
         return new ApiResponse(true, selectmedRepository.save(selectmed), "api.selectmed.create.success");
     }
@@ -67,7 +66,6 @@ public class SelectmedController {
         fromDb.setDescription(payload.getDescription());
         fromDb.setPrice(payload.getPrice());
         fromDb.setUser(payload.getUser());
-        //fromDb.setPeriod(payload.getPeriod());
         return new ApiResponse(true, selectmedRepository.save(fromDb), "api.selectmed.update.success");
     }
 

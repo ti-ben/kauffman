@@ -26,9 +26,9 @@ export class SiteCreateComponent implements OnInit {
 
   private initForm(): void {
     this.formGroup = new FormGroup({
-      name: new FormControl('', [Validators.required, Validators.pattern('^[a-zA-Z]+$')]),
+      name: new FormControl(null, [Validators.required, Validators.pattern('^[a-zA-Z]+$')]),
       created_on: new FormControl(this.currentDate),
-      description: new FormControl('', [Validators.pattern('^[a-zA-Z]+$')]),
+      description: new FormControl(null, [Validators.pattern('^[a-zA-Z]+$')]),
       active: new FormControl(true, [Validators.required]),
       road: new FormControl(null, [Validators.pattern('^[a-zA-Z]+$')]),
       num: new FormControl(null, [Validators.pattern('^[0-9]+$')]),

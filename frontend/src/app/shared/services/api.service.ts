@@ -401,6 +401,13 @@ export class ApiService {
       );
   }
 
+  getAllIntervtech(): Observable<ApiResponse> {
+    return this.http.get(`${this.baseUrl}/intervtech/list`)
+      .pipe(
+        map(response => response as ApiResponse)
+      );
+  }
+
   getAllIntervtechByVehiculeId(id: any): Observable<ApiResponse> {
     return this.http.get(`${this.baseUrl}/intervtech/findByVehiculeId/${id}`)
       .pipe(
@@ -424,6 +431,8 @@ export class ApiService {
         map(response => response as ApiResponse)
       );
   }
+
+
 
   getAllAdrByVehiculeId(id: any): Observable<ApiResponse> {
     return this.http.get(`${this.baseUrl}/adr/findByVehiculeId/${id}`)
@@ -455,6 +464,13 @@ export class ApiService {
       );
   }
 
+  getAllCap(): Observable<ApiResponse> {
+    return this.http.get(`${this.baseUrl}/cap/list`)
+      .pipe(
+        map(response => response as ApiResponse)
+      );
+  }
+
   getAllCapByVehiculeId(id: any): Observable<ApiResponse> {
     return this.http.get(`${this.baseUrl}/cap/findByVehiculeId/${id}`)
       .pipe(
@@ -474,6 +490,13 @@ export class ApiService {
 
   createSelectmed(data: any): Observable<ApiResponse>{
     return this.http.post(`${this.baseUrl}/selectmed/create`, data)
+      .pipe(
+        map(response => response as ApiResponse)
+      );
+  }
+
+  getAllSelectMed():Observable<ApiResponse>{
+    return this.http.get(`${this.baseUrl}/selectmed/list`)
       .pipe(
         map(response => response as ApiResponse)
       );
@@ -505,6 +528,13 @@ export class ApiService {
 
   getAllMetrologyByVehiculeId(id: any): Observable<ApiResponse> {
     return this.http.get(`${this.baseUrl}/metrology/findByVehiculeId/${id}`)
+      .pipe(
+        map(response => response as ApiResponse)
+      );
+  }
+
+  getAllMetrology(): Observable<ApiResponse> {
+    return this.http.get(`${this.baseUrl}/metrology/list`)
       .pipe(
         map(response => response as ApiResponse)
       );

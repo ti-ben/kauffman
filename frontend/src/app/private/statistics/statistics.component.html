@@ -1,1 +1,171 @@
-<p>statistics works!</p>
+<div class="d-flex flex-wrap justify-content-center">
+
+  <div class="container card card-warning card-outline">
+    <p class="text-center mt-3"><b>Sélection médicale à venir</b></p>
+    <div class="card">
+      <div class="card-body p-0">
+        <table class="table table-striped projects">
+          <thead>
+          <tr>
+            <!--<th style="width: auto" class="text-center">ETA</th>-->
+            <th style="width: auto" class="text-center">Chauffeur(s)</th>
+            <th style="width: auto" class="text-center">Date</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let selectmed of selectmedList" class="text-center">
+            <!--<td>x jour(s)</td>-->
+            <td>{{selectmed.user.firstname}} {{selectmed.user.lastname }}</td>
+            <td>{{selectmed.start_date | date: 'dd/MM/yyyy'}}</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="container card card-warning card-outline">
+    <p class="text-center mt-3"><b>CAP à venir</b></p>
+    <div class="card">
+      <div class="card-body p-0">
+        <table class="table table-striped projects">
+          <thead>
+          <tr>
+            <!--<th style="width: auto" class="text-center">ETA</th>-->
+            <th style="width: auto" class="text-center">Chauffeurs</th>
+            <th style="width: auto" class="text-center">Date</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let cap of capList" class="text-center">
+            <!--<td>x jour(s)</td>-->
+            <td>{{cap.user.firstname}} {{cap.user.lastname }}</td>
+            <td>{{cap.start_date | date: 'dd/MM/yyyy'}}</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="container card card-warning card-outline">
+    <p class="text-center mt-3"><b>ADR à venir</b></p>
+    <div class="card">
+      <div class="card-body p-0">
+        <table class="table table-striped projects">
+          <thead>
+          <tr>
+            <!--<th style="width: auto" class="text-center">ETA</th>-->
+            <th style="width: auto" class="text-center">Chauffeurs</th>
+            <th style="width: auto" class="text-center">Date</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let cap of capList" class="text-center">
+            <!--<td>x jour(s)</td>-->
+            <td>{{cap.user.firstname}} {{cap.user.lastname }}</td>
+            <td>{{cap.start_date | date: 'dd/MM/yyyy'}}</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="container card card-danger card-outline">
+    <p class="text-center mt-3"><b>Contrôle technique à venir</b></p>
+    <div class="card">
+      <div class="card-body p-0">
+        <table class="table table-striped projects">
+          <thead>
+          <tr>
+            <!--<th style="width: auto" class="text-center">ETA</th>-->
+            <th style="width: auto" class="text-center">Véhicules</th>
+            <th style="width: auto" class="text-center">Date</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let selectmed of selectmedList" class="text-center">
+            <!--<td>x jour(s)</td>-->
+            <td>{{selectmed.user.firstname}} {{selectmed.user.lastname }}</td>
+            <td>{{selectmed.start_date | date: 'dd/MM/yyyy'}}</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="container card card-danger card-outline">
+    <p class="text-center mt-3"><b>Intervention technique à venir</b></p>
+    <div class="card">
+      <div class="card-body p-0">
+        <table class="table table-striped projects">
+          <thead>
+          <tr>
+            <!--<th style="width: auto" class="text-center">ETA</th>-->
+            <th style="width: auto" class="text-center">Véhicules</th>
+            <th style="width: auto" class="text-center">Date</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let intervtech of intervtechList" class="text-center">
+            <!--<td>x jour(s)</td>-->
+            <td>{{intervtech.vehicule.numberplate.num_plate }}</td>
+            <td>{{intervtech.start_date | date: 'dd/MM/yyyy'}}</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="container card card-danger card-outline">
+    <p class="text-center mt-3"><b>Métrologie à venir</b></p>
+    <div class="card">
+      <div class="card-body p-0">
+        <table class="table table-striped projects">
+          <thead>
+          <tr>
+            <!--<th style="width: auto" class="text-center">ETA</th>-->
+            <th style="width: auto" class="text-center">Véhicules</th>
+            <th style="width: auto" class="text-center">Date</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let metrology of metrologyList" class="text-center">
+            <!--<td>x jour(s)</td>-->
+            <td>{{metrology.vehicule.numberplate.num_plate}}</td>
+            <td>{{metrology.start_date | date: 'dd/MM/yyyy'}}</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="container card card-danger card-outline">
+    <p class="text-center mt-3"><b>Certification ADR à venir</b></p>
+    <div class="card">
+      <div class="card-body p-0">
+        <table class="table table-striped projects">
+          <thead>
+          <tr>
+            <!--<th style="width: auto" class="text-center">ETA</th>-->
+            <th style="width: auto" class="text-center">Véhicules</th>
+            <th style="width: auto" class="text-center">Date</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let selectmed of selectmedList" class="text-center">
+            <!--<td>x jour(s)</td>-->
+            <td>{{selectmed.user.firstname}} {{selectmed.user.lastname }}</td>
+            <td>{{selectmed.start_date | date: 'dd/MM/yyyy'}}</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+</div>

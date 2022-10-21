@@ -64,5 +64,5 @@ export class UserSelectmedComponent implements OnInit {
       this.selectmedList = response.data;
     });
   }
-
+  
 }

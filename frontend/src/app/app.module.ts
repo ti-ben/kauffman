@@ -10,7 +10,6 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {PublicGuard} from "./security/guard/public.guard";
 import {PrivateGuard} from "./security/guard/private.guard";
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +22,11 @@ import {PrivateGuard} from "./security/guard/private.guard";
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [ApiService, PublicGuard, PrivateGuard],
+  providers: [
+    ApiService,
+    PublicGuard,
+    PrivateGuard
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
