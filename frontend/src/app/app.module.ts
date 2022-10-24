@@ -9,6 +9,7 @@ import {HttpClientModule} from "@angular/common/http";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {PublicGuard} from "./security/guard/public.guard";
 import {PrivateGuard} from "./security/guard/private.guard";
+import {HashLocationStrategy, LocationStrategy} from "@angular/common";
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import {PrivateGuard} from "./security/guard/private.guard";
   providers: [
     ApiService,
     PublicGuard,
-    PrivateGuard
+    PrivateGuard,
+    //{ provide: LocationStrategy, useClass: HashLocationStrategy}
   ],
   bootstrap: [AppComponent]
 })

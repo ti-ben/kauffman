@@ -11,7 +11,7 @@ import {Credential} from "../../shared/credential/credential";
 })
 export class LoginComponent implements OnInit {
 
-  //credential: Credential = new Credential();
+  credential: Credential = {username: '', password: ''};
   //username: string = '';
   //password: string = '';
   signInForm!: FormGroup;

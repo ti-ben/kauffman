@@ -8,11 +8,11 @@
   <a class="iconExport" routerLink="export/csv">
     <i class="fa-solid fa-file-csv fa-2xl"></i>
   </a>
-
+-->
   <a class="iconExport" routerLink="export/pdf" disabled>
     <i class="fa-solid fa-file-pdf fa-2xl"></i>
   </a>
--->
+
 </div>
 
 <div *ngIf="successMsg" class="alert alert-success alert-dismissible">
@@ -44,26 +44,26 @@
       </tr>
       </thead>
       <tbody>
-      <tr *ngFor="let user of usersList" class="text-center">
-        <td><img alt="Avatar" class="table-avatar" src="./assets/dist/img/{{user.avatar}}"></td>
-        <td>{{user.firstname | titlecase}}</td>
-        <td>{{user.lastname | titlecase}}</td>
-        <td>{{user.email | lowercase}}</td>
+      <tr *ngFor="let u of usersList$" class="text-center">
+        <td><img alt="Avatar" class="table-avatar" src="./assets/dist/img/{{u.avatar}}"></td>
+        <td>{{u.firstname | titlecase}}</td>
+        <td>{{u.lastname | titlecase}}</td>
+        <td>{{u.email | lowercase}}</td>
         <td>
-          <span *ngIf="user.status !== null; else elseBlock1">{{user.status.name}}</span>
+          <span *ngIf="u.status !== null; else elseBlock1">{{u.status.name}}</span>
           <ng-template #elseBlock1>Pas de statut</ng-template>
         </td>
         <td>
-          <span *ngIf="user.site !== null; else elseBlock2">{{user.site.name}}</span>
+          <span *ngIf="u.site !== null; else elseBlock2">{{u.site.name}}</span>
           <ng-template #elseBlock2>Pas de site</ng-template>
         </td>
         <td class="project-state">
-          <span class="badge badge-success" *ngIf="user.active === true; else elseBlock3">Actif</span>
+          <span class="badge badge-success" *ngIf="u.active === true; else elseBlock3">Actif</span>
           <ng-template #elseBlock3><span class="badge badge-danger">Inactif</span></ng-template>
         </td>
         <td class="project-actions text-center">
-          <a class="btn btn-info btn-sm" [routerLink]="['details', user.user_id]"><i class="fas fa-pencil-alt"></i></a>
-          <a class="btn btn-danger btn-sm" (click)="delete(user.user_id)"><i class="fas fa-trash"></i></a>
+          <a class="btn btn-info btn-sm" [routerLink]="['details', u.user_id]"><i class="fas fa-pencil-alt"></i></a>
+          <a class="btn btn-danger btn-sm" (click)="delete(u.user_id)"><i class="fas fa-trash"></i></a>
           <!--
           <a class="btn btn-warning btn-sm" (click)="archive(user.user_id)"><i class="fas fa-box-archive"></i></a>
           -->

@@ -3,6 +3,7 @@ import {Observable, of} from "rxjs";
 import {HttpResponse} from "@angular/common/http";
 import {v4 as uuidv4} from "uuid";
 import {Router} from "@angular/router";
+import {Credential} from "../../shared/credential/credential";
 
 @Injectable({
   providedIn: 'root'
@@ -25,6 +26,7 @@ export class AuthService {
       return of(new HttpResponse({status: 401}));
     }
   }
+
 
   logout(): void {
     localStorage.removeItem('token');

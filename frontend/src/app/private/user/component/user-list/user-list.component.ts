@@ -11,7 +11,7 @@ import {User} from "../../model/business/user";
 })
 export class UserListComponent implements OnInit {
 
-  usersList: User[] = [];
+  usersList$: User[] = [];
   search?: string;
   errorMsg: string = '';
   successMsg: string = '';
@@ -34,7 +34,7 @@ export class UserListComponent implements OnInit {
 
   getAllData() {
     this.apiService.getAllUser().subscribe((res: ApiResponse) => {
-      this.usersList = res.data;
+      this.usersList$ = res.data;
     })
   }
 }

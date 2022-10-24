@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ApiService} from "../../../../shared/services/api.service";
 import {HttpErrorResponse} from "@angular/common/http";
 import {ApiResponse} from "../../../../shared/model";
+import {Site} from "../../model/site";
 
 @Component({
   selector: 'app-site-list',
@@ -10,9 +11,9 @@ import {ApiResponse} from "../../../../shared/model";
 })
 export class SiteListComponent implements OnInit {
 
-  public sList: any;
-  public successMsg: String = '';
-  public errorMsg: String = '';
+  siteList$: Site[]= [];
+  successMsg: String = '';
+  errorMsg: String = '';
 
   constructor(private apiService: ApiService) {
   }
@@ -23,7 +24,7 @@ export class SiteListComponent implements OnInit {
 
   public listAllSites(): void {
     this.apiService.getAllSite().subscribe((res) => {
-        this.sList = res.data;
+        this.siteList$ = res.data;
       },
       (error: HttpErrorResponse) => {
         alert(error.message);

@@ -30,18 +30,18 @@
       </tr>
       </thead>
       <tbody>
-      <tr *ngFor="let site of sList" class="text-center">
-        <td>{{site.name}}</td>
-        <td>{{site.created_on | date: 'dd/MM/yyyy'}}</td>
-        <td class="project_progress">{{site.description}}</td>
+      <tr *ngFor="let s of siteList$" class="text-center">
+        <td>{{s.name}}</td>
+        <td>{{s.created_on | date: 'dd/MM/yyyy'}}</td>
+        <td class="project_progress">{{s.description}}</td>
         <td class="project-state">
-          <span class="badge badge-success" *ngIf="site.active === true; else elseBlock">Actif</span>
+          <span class="badge badge-success" *ngIf="s.active === true; else elseBlock">Actif</span>
           <ng-template #elseBlock><span class="badge badge-danger">Inactif</span></ng-template>
         </td>
         <td class="project-actions text-center">
-          <a class="btn btn-info btn-sm" [routerLink]="['update', site.site_id]"><i class="fas fa-pencil-alt"></i></a>
-          <a class="btn btn-danger btn-sm" (click)="delete(site.site_id)"><i class="fas fa-trash"></i></a>
-          <a class="btn btn-warning btn-sm" [routerLink]="['archive', site.site_id]"><i class="fas fa-box-archive"></i></a>
+          <a class="btn btn-info btn-sm" [routerLink]="['update', s.site_id]"><i class="fas fa-pencil-alt"></i></a>
+          <a class="btn btn-danger btn-sm" (click)="delete(s.site_id)"><i class="fas fa-trash"></i></a>
+          <a class="btn btn-warning btn-sm" [routerLink]="['archive', s.site_id]"><i class="fas fa-box-archive"></i></a>
         </td>
       </tr>
       </tbody>
