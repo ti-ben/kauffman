@@ -5,11 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a58cf3a2-bd93-4be0-a29e-88dd1e6ea349" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/kauffman/management/credentials/controller/CredentialsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/kauffman/management/credentials/controller/CredentialsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/kauffman/management/credentials/repository/CredentialsRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/kauffman/management/credentials/repository/CredentialsRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/private/user/component/user-credentials/user-credentials.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/private/user/component/user-credentials/user-credentials.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/private/user/component/user-credentials/user-credentials.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/private/user/component/user-credentials/user-credentials.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/public/login/login.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/public/login/login.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,6 +48,11 @@
       <workItem from="1665349518510" duration="1609000" />
       <workItem from="1665351731127" duration="1000" />
       <workItem from="1665521814219" duration="43000" />
+      <workItem from="1666628114955" duration="585000" />
+      <workItem from="1666629305783" duration="1096000" />
+      <workItem from="1666631474570" duration="24000" />
+      <workItem from="1666634388261" duration="82000" />
+      <workItem from="1666781934896" duration="536000" />
     </task>
     <servers />
   </component>
